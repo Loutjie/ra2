@@ -208,7 +208,10 @@ namespace OpenRA.Mods.RA2.Traits
 				if (self.IsDead)
 					return;
 
-				var spawnOffset = exit == null ? WVec.Zero : exit.Info.SpawnOffset;
+				var spawnOffset = WVec.Zero;
+				if (exit != null)
+					spawnOffset = exit.Info.SpawnOffset.Rotate(new WRot(WAngle.Zero, WAngle.Zero, WAngle.FromFacing(64) - facing.Facing));
+
 				child.Trait<IPositionable>().SetCenterPosition(child, centerPosition + spawnOffset);
 
 				var location = self.World.Map.CellContaining(centerPosition + spawnOffset);
