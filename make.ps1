@@ -17,7 +17,8 @@ function All-Command
 	}
 
 	Write-Host "Building $modID in" $configuration "configuration..." -ForegroundColor Cyan
-	dotnet build -c $configuration --nologo -p:TargetPlatform=win-x64
+	$rid = if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "win-arm64" } else { "win-x64" }
+	dotnet build -c $configuration --nologo -p:TargetPlatform=$rid
 
 	if ($lastexitcode -ne 0)
 	{
@@ -81,17 +82,19 @@ function Version-Command
 
 	if ($version -ne $null)
 	{
-		$mod = "mods/" + $modID + "/mod.yaml"
-		$replacement = (gc $mod) -Replace "Version:.*", ("Version: {0}" -f $version)
-		sc $mod $replacement
-
-		$prefix = $(gc $mod) | Where { $_.ToString().EndsWith(": User") }
-		if ($prefix -and $prefix.LastIndexOf("/") -ne -1)
+		foreach ($mod in @("mods/" + $modID + "/mod.yaml", "mods/" + $modID + "-content/mod.yaml"))
 		{
-			$prefix = $prefix.Substring(0, $prefix.LastIndexOf("/"))
+			$replacement = (gc $mod) -Replace "Version:.*", ("Version: {0}" -f $version)
+			sc $mod $replacement
+
+			$prefix = $(gc $mod) | Where { $_.ToString().EndsWith(": User") }
+			if ($prefix -and $prefix.LastIndexOf("/") -ne -1)
+			{
+				$prefix = $prefix.Substring(0, $prefix.LastIndexOf("/"))
+				$replacement = (gc $mod) -Replace ".*: User", ("{0}/{1}: User" -f $prefix, $version)
+				sc $mod $replacement
+			}
 		}
-		$replacement = (gc $mod) -Replace ".*: User", ("{0}/{1}: User" -f $prefix, $version)
-		sc $mod $replacement
 
 		Write-Host ("Version strings set to '{0}'." -f $version)
 	}
@@ -106,6 +109,9 @@ function Test-Command
 
 	Write-Host "Testing $modID mod MiniYAML..." -ForegroundColor Cyan
 	InvokeCommand "$utilityPath $modID --check-yaml"
+
+	Write-Host "Testing $modID-content mod MiniYAML..." -ForegroundColor Cyan
+	InvokeCommand "$utilityPath $modID-content --check-yaml"
 }
 
 function Check-Command
@@ -119,7 +125,8 @@ function Check-Command
 	Write-Host "Compiling $modID in Debug configuration..." -ForegroundColor Cyan
 
 	dotnet clean -c Debug --nologo --verbosity minimal
-	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64
+	$rid = if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "win-arm64" } else { "win-x64" }
+	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=$rid
 
 	if ($lastexitcode -ne 0)
 	{
@@ -168,7 +175,7 @@ function CheckForDotnet
 {
 	if ((Get-Command "dotnet" -ErrorAction SilentlyContinue) -eq $null)
 	{
-		Write-Host "The 'dotnet' tool is required to compile OpenRA. Please install the .NET 6.0 SDK and try again. https://dotnet.microsoft.com/download/dotnet/6.0" -ForegroundColor Red
+		Write-Host "The 'dotnet' tool is required to compile OpenRA. Please install the .NET 10.0 SDK and try again. https://dotnet.microsoft.com/download/dotnet/10.0" -ForegroundColor Red
 		return 1
 	}
 
