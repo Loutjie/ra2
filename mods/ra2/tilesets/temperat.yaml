@@ -1,5 +1,5 @@
 General:
-	Name: Temperate
+	Name: tileset-temperate
 	Id: TEMPERATE
 	TileSize: 60, 30
 	Extensions: .tem, .shp

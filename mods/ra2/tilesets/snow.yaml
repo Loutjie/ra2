@@ -1,5 +1,5 @@
 General:
-	Name: Snow
+	Name: tileset-snow
 	Id: SNOW
 	TileSize: 60, 30
 	Extensions: .sno, .shp
