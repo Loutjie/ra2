@@ -1,11 +1,12 @@
 ^BaseWorld:
 	Inherits: ^Palettes
-	AlwaysVisible:
 	MusicPlaylist:
 		VictoryMusic: score
 		DefeatMusic: score
 	ActorMap:
 	ScreenMap:
+	VoxelCache:
+	ModelRenderer:
 	TerrainGeometryOverlay:
 	TerrainRenderer:
 	ResourceRenderer:
@@ -192,6 +193,7 @@ World:
 	Inherits: ^BaseWorld
 	ChatCommands:
 	DevCommands:
+	AutoSave:
 	DebugVisualizationCommands:
 	PlayerCommands:
 	HelpCommand:
@@ -393,8 +395,8 @@ EditorWorld:
 				TerrainType: Gems
 				AllowedTerrainTypes: Clear, Rough, Road
 				MaxDensity: 12
-	EditorSelectionLayer:
 	LoadWidgetAtGameStart:
 	EditorActionManager:
 	BuildableTerrainOverlay:
 		AllowedTerrainTypes: Clear, Rough, Road
+	MarkerLayerOverlay:

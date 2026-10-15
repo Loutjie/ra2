@@ -32,7 +32,7 @@ lcrf:
 		UnloadTerrainTypes: Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems
 		UnloadVoice: Move
 		LoadingCondition: notmobile
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody:
@@ -115,7 +115,7 @@ dest:
 		DetectionTypes: Underwater
 		Range: 4c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody@FULL:
@@ -160,7 +160,7 @@ aegis:
 		Voice: Attack
 		FacingTolerance: 512
 	AutoTarget:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody:
@@ -216,6 +216,8 @@ dlph:
 		UncloakSound: vnavupa.wav
 		CloakedCondition: underwater
 		UncloakOn: Damage
+		CloakStyle: Palette
+		CloakedPalette: cloak
 		IsPlayerPalette: true
 	Targetable:
 		TargetTypes: Ground, Water, ImmuneToAllySonic, Submergeable
@@ -285,7 +287,7 @@ carrier:
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 512
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody:

@@ -32,7 +32,7 @@ sapc:
 		UnloadTerrainTypes: Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems
 		UnloadVoice: Move
 		LoadingCondition: notmobile
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody:
@@ -87,6 +87,8 @@ sub:
 		UncloakSound: vnavupa.wav
 		CloakedCondition: underwater
 		UncloakOn: Damage
+		CloakStyle: Palette
+		CloakedPalette: cloak
 		IsPlayerPalette: true
 	Armament:
 		Weapon: SubTorpedo
@@ -107,7 +109,7 @@ sub:
 		DetectionTypes: Underwater
 		Range: 4c0
 	RenderDetectionCircle:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	-MustBeDestroyed:
@@ -156,7 +158,7 @@ hyd:
 		LocalOffset: 256,0,1408
 		MuzzleSequence: muzzle
 	WithMuzzleOverlay:
-	Explodes:
+	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode
 	WithVoxelBody:
@@ -213,6 +215,8 @@ sqd:
 		UncloakSound: vnavupa.wav
 		CloakedCondition: underwater
 		UncloakOn: Damage, Attack
+		CloakStyle: Palette
+		CloakedPalette: cloak
 		IsPlayerPalette: true
 	Targetable:
 		TargetTypes: Ground, Water, Submergeable
