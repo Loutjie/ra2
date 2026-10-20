@@ -5,7 +5,7 @@ import json
 
 import pytest
 
-from exact.snapshot import SNAPSHOT_PATH, capture, strip_ignored
+from exact.snapshot import SNAPSHOT_PATH, _canonical, capture, strip_ignored
 
 # --- unit tests of the ignore logic (fictional data) ---
 
@@ -18,6 +18,21 @@ def test_strip_removes_reimagined_prerequisite_token():
 def test_strip_keeps_prerequisites_without_token():
     tree = {"Buildable@X": {"Prerequisites": "~fakepile, fakeradar"}}
     assert strip_ignored(tree) == tree
+
+
+def test_strip_unspaced_and_mid_list_token():
+    tree = {"Buildable": {"Prerequisites": "~a,~balance.reimagined,~b"}}
+    assert strip_ignored(tree) == {"Buildable": {"Prerequisites": "~a, ~b"}}
+
+
+def test_canonical_weapon_names_case_insensitive():
+    defs = {"20mme": "20mme", "awpe": "AWPE"}
+    assert _canonical({"20mmE", "awpe", "AWPE"}, defs) == {"20mme", "AWPE"}
+
+
+def test_undefined_weapon_fails():
+    with pytest.raises(RuntimeError, match="nope"):
+        _canonical({"nope"}, {"x": "x"})
 
 
 def test_strip_drops_prerequisites_if_token_was_only_entry():

@@ -9,8 +9,9 @@ What is captured
     field anywhere in a captured actor's tree (covers Armament*, Explodes*,
     FireWarheadsOnDeath-style traits, etc.). Comma-separated lists are split.
     Weapon names found in captured weapons' own trees are followed transitively.
-    The whole resolved weapon definition is stored; a weapon that is referenced but
-    does not exist is stored as {"_missing": "true"}.
+    The whole resolved weapon definition is stored.
+    References are matched case-insensitively (OpenRA lowercases weapon names) and
+    stored under the defined key; capture raises if a referenced weapon is undefined.
   * SpawnActorOnDeath and similar actor references are not weapons and are not followed.
 
 Comparison (`strip_ignored`) ignores only the `~balance.reimagined` entry of
@@ -32,9 +33,9 @@ from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
 
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "reimagined-snapshot.json"
 RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
+WEAPONS_DIR = REPO_ROOT / "mods" / "ra2" / "weapons"
 REIMAGINED_TOKEN = "~balance.reimagined"
 IGNORED_TRAIT = "ReplaceOnPrerequisite@BALANCE"
-MISSING_MARKER = "_missing"
 WEAPON_KEYS = ("Weapon", "EmptyWeapon", "MissileWeapon")
 
 
@@ -109,31 +110,48 @@ def has_buildable(tree: dict) -> bool:
     return any(is_buildable_trait(k) for k in tree)
 
 
-def _resolve_weapon_or_missing(name: str) -> dict:
-    """Resolved weapon, or a marker for a dangling reference (actors may name weapons that do not exist)."""
-    try:
-        return resolve_weapon(name)
-    except RuntimeError as e:
-        if "Could not find weapon" not in str(e):
-            raise
-        return {MISSING_MARKER: "true"}
+def weapon_definitions(weapons_dir: Path = WEAPONS_DIR) -> dict[str, str]:
+    """Lowercased weapon name -> defined key, from the top-level keys of the weapon files.
+
+    OpenRA lowercases weapon names on load, so rules may reference a weapon with
+    different casing than its definition (`20mmE` vs `20mme:`).
+    """
+    defs: dict[str, str] = {}
+    for path in sorted(weapons_dir.glob("*.yaml")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"([^\s#][^:]*):", line)
+            if m:
+                defs.setdefault(m.group(1).strip().lower(), m.group(1).strip())
+    return defs
+
+
+def _canonical(refs: set[str], defs: dict[str, str]) -> set[str]:
+    """Map references to defined keys; fail if a referenced weapon has no definition."""
+    missing = sorted(r for r in refs if r.lower() not in defs)
+    if missing:
+        raise RuntimeError(f"referenced weapons have no definition: {missing}")
+    return {defs[r.lower()] for r in refs}
 
 
 def capture(names: list[str]) -> dict:
     """Resolve `names` (actors); keep the buildable ones plus all weapons they reference."""
     actors = {}
     for name in names:
-        tree = resolve_actor(name)
+        try:
+            tree = resolve_actor(name)
+        except RuntimeError as e:
+            raise RuntimeError(f"actor {name} no longer exists or cannot be resolved: {e}") from e
         if has_buildable(tree):
             actors[name] = tree
+    defs = weapon_definitions()
     weapons: dict = {}
-    pending = set().union(*(referenced_weapons(t) for t in actors.values())) if actors else set()
+    pending = _canonical(set().union(*(referenced_weapons(t) for t in actors.values())), defs) if actors else set()
     while pending:
         name = pending.pop()
         if name in weapons:
             continue
-        weapons[name] = _resolve_weapon_or_missing(name)
-        pending |= referenced_weapons(weapons[name]) - weapons.keys()
+        weapons[name] = resolve_weapon(name)
+        pending |= _canonical(referenced_weapons(weapons[name]), defs) - weapons.keys()
     return {"actors": actors, "weapons": weapons}
 
 

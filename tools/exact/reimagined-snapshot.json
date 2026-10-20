@@ -21570,8 +21570,42 @@
 				"_value": "CreateEffect"
 			}
 		},
-		"20mmE": {
-			"_missing": "true"
+		"20mme": {
+			"Burst": "2",
+			"MinRange": "0c001",
+			"Projectile": {
+				"Blockable": "true",
+				"_value": "InstantHit"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "20",
+			"Report": "irocatta.wav",
+			"ValidTargets": "Ground, Water, Air",
+			"Warhead@1Dam": {
+				"Damage": "25",
+				"DamageTypes": "Prone70Percent, TriggerProne, BulletDeath",
+				"Spread": "64",
+				"ValidTargets": "Ground, Water, Air",
+				"Versus": {
+					"Concrete": "25",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "40",
+					"Light": "60",
+					"Medium": "40",
+					"None": "100",
+					"Plate": "70",
+					"Rocket": "100",
+					"Steel": "50",
+					"Wood": "75"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "piff",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			}
 		},
 		"20mmrapid": {
 			"Projectile": {
@@ -24309,9 +24343,6 @@
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
 			}
-		},
-		"awpe": {
-			"_missing": "true"
 		},
 		"demobomb": {
 			"ValidTargets": "Ground, Water, Air",
