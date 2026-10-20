@@ -193,6 +193,24 @@ NighthawkVoice:
 		Attack: vblhata, vblhatb, vblhatc, vblhatd
 		Die: vblhdia, vblhdib, vblhdic
 
+OspreyVoice:
+	DefaultVariant: .wav
+	Voices:
+		# Only the death sound exists; the empty entries satisfy the voice lint.
+		Move:
+		Attack:
+		Action:
+		Die: vospdiea
+
+HornetVoice:
+	DefaultVariant: .wav
+	Voices:
+		# Only the death sound exists; the empty entries satisfy the voice lint.
+		Move:
+		Attack:
+		Action:
+		Die: vhordiea, vhordieb
+
 FlakTrooperVoice:
 	Inherits@death: ^InfantryDeath
 	DefaultVariant: .wav

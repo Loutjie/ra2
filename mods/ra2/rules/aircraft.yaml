@@ -327,6 +327,10 @@ hornet:
 		TakeoffSounds: vhortaka.wav, vhortakb.wav
 		LandingSounds: vhorlana.wav, vhorlanb.wav
 	RenderSprites:
+	Voiced:
+		VoiceSet: HornetVoice
+	DeathSounds:
+		VolumeMultiplier: 0.6
 	AttackAircraft:
 		FacingTolerance: 80
 		Voice: Attack
@@ -399,6 +403,10 @@ asw:
 		Ammo: 5
 		AmmoCondition: ammo
 	RejectsOrders:
+	Voiced:
+		VoiceSet: OspreyVoice
+	DeathSounds:
+		VolumeMultiplier: 0.5
 	SpawnActorOnDeath:
 		Actor: aswhusk
 	-Selectable:

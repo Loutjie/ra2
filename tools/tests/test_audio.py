@@ -59,3 +59,20 @@ def test_nuke_has_launch_siren(sound_ini):
     nuke = rules("soviet-structures")["namisl"][1]["NukePower"][1]
     assert [nuke["LaunchSound"][0]] == siren
     assert [nuke["IncomingSound"][0]] == siren
+
+
+@pytest.mark.parametrize("actor, section, voiceset, multiplier", [
+    ("asw", "OspreyDie", "OspreyVoice", 0.5),
+    ("hornet", "HornetDie", "HornetVoice", 0.6),
+])
+def test_osprey_and_hornet_have_death_sounds(sound_ini, actor, section, voiceset, multiplier):
+    traits = rules("aircraft")[actor][1]
+    assert traits["Voiced"][1]["VoiceSet"][0] == voiceset
+    assert "DeathSounds" in traits
+    assert "-DeathSounds" not in traits
+    assert float(traits["DeathSounds"][1]["VolumeMultiplier"][0]) == multiplier
+
+    voices = load_yaml(MOD / "audio" / "voices.yaml")[voiceset][1]
+    assert voices["DefaultVariant"][0] == ".wav"
+    assert csv(voices["Voices"][1]["Die"][0]) == ini_sounds(sound_ini, section)
+    assert multiplier == int(sound_ini[section]["Volume"]) / 100
