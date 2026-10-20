@@ -112,13 +112,25 @@ def test_occupy_weapons_match_ra2(ra2ini, weapon):
 
 
 @pytest.mark.integration
-def test_garrison_buildings_eject_on_death():
+def test_garrison_buildings_autotarget_and_are_not_repairable():
     from ra2data.resolved import resolve_actor
 
     names = re.findall(r"^([a-z0-9_]+):$", generate.DEFAULT_OUT.read_text(encoding="utf-8"), re.M)
     assert len(names) == 120
     for name in names:
-        assert resolve_actor(name)["Cargo@GARRISON"]["EjectOnDeath"].lower() == "true", name
+        rules = resolve_actor(name)
+        assert rules["Cargo@GARRISON"]["EjectOnDeath"].lower() == "true", name
+        assert rules["Cargo@GARRISON"]["LoadedCondition"] == "garrisoned", name
+        assert rules["AutoTarget@GARRISON"]["RequiresCondition"] == "garrisoned", name
+        assert not any(t.split("@")[0] == "AutoTarget" for t in rules if t != "AutoTarget@GARRISON"), name
+        for trait in ("RepairableBuilding", "WithBuildingRepairDecoration"):
+            assert not any(t.split("@")[0] == trait for t in rules), f"{name} has {trait}"
+
+
+def test_cawsh12_has_no_leftover_turret():
+    text = (REPO_ROOT / "mods/ra2/rules/civilian-structures.yaml").read_text(encoding="utf-8")
+    block = text[text.index("\ncawsh12:"):text.index("\ncawsh12.rubble:")]
+    assert "Turreted" not in block and "QuantizedFacings" not in block
 
 
 def test_cawsh12_is_not_garrisonable(ra2ini):

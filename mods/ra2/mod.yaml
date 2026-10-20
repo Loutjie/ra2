@@ -71,7 +71,6 @@ Rules:
 	ra2|rules/allied-structures.yaml
 	ra2|rules/soviet-structures.yaml
 	ra2|rules/civilian-structures.yaml
-	ra2|rules/garrison.yaml
 	ra2|rules/tech-structures.yaml
 	ra2|rules/allied-vehicles.yaml
 	ra2|rules/soviet-vehicles.yaml
@@ -82,6 +81,7 @@ Rules:
 	ra2|rules/civilian-props.yaml
 	ra2|rules/trees.yaml
 	ra2|rules/civilian-naval.yaml
+	ra2|rules/garrison.yaml
 
 Sequences:
 	ra2|sequences/aircraft.yaml

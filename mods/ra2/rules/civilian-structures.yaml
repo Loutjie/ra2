@@ -528,10 +528,6 @@ cawsh12:
 		Type: Concrete
 	RevealsShroud:
 		Range: 6c0
-	Turreted:
-		TurnSpeed: 1023
-	BodyOrientation:
-		QuantizedFacings: 8
 	IsometricSelectable:
 		Height: 165
 	SpawnActorOnDeath:

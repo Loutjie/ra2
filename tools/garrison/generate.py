@@ -25,7 +25,7 @@ HEADER = (
 
 TRUE_VALUES = ("yes", "true", "1")
 PORT_HEIGHT = 128  # WDist above the building's origin; matches the old hand-written cawsh12 ports
-PORT_CONE = 88  # WAngle, as the engine's RA mod uses
+PORT_CONE = 512  # WAngle half-angle: RA2 occupants fire in every direction, the ports only place muzzle flashes
 DEFAULT_PORT_RADIUS_PX = 24  # horizontal screen radius (px) of the fallback ring of ports
 
 
@@ -134,6 +134,7 @@ def render(garrisonables) -> str:
             "\tCargo@GARRISON:\n"
             "\t\tTypes: Garrisoner\n"
             f"\t\tMaxWeight: {g.capacity}\n"
+            "\t\tLoadedCondition: garrisoned\n"
             "\t\tEjectOnDeath: true\n"
             "\tAttackGarrisoned@GARRISON:\n"
             "\t\tArmaments: garrison\n"
@@ -149,6 +150,16 @@ def render(garrisonables) -> str:
             "\t\t\tyellow: pip-yellow\n"
             "\t\t\tgreen: pip-green\n"
             "\t\t\tred: pip-red\n"
+            # AttackFollow only acquires targets through AutoTarget; empty buildings must not scan.
+            "\tAutoTarget@GARRISON:\n"
+            "\t\tRequiresCondition: garrisoned\n"
+            "\tAutoTargetPriority@GARRISON:\n"
+            "\t\tRequiresCondition: garrisoned\n"
+            "\t\tValidTargets: Infantry, Vehicle, Water, Underwater, Defense\n"
+            "\t\tInvalidTargets: NoAutoTarget, WaterStructure\n"
+            # Civilian buildings have no Valued, so repairing would cost max(1, 0) credits.
+            "\t-RepairableBuilding:\n"
+            "\t-WithBuildingRepairDecoration:\n"
             "\tGarrisonOwnership@GARRISON:\n"
         )
     return "".join(out)

@@ -5,12 +5,13 @@ caarmy01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2220,1110,128, -2365,362,128, -1448,-483,128, -2413,941,128, -2124,0,128, -2027,1448,128, -1834,-314,128, -2703,603,128
 		PortYaws: 588, 537, 460, 573, 512, 613, 484, 548
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -20,18 +21,27 @@ caarmy01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caarmy02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 4
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128
 		PortYaws: 76, 587, 512, 896
-		PortCones: 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -41,18 +51,27 @@ caarmy02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caarmy03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 4
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -772,241,128, -627,-72,128, -338,-362,128, -627,434,128
 		PortYaws: 561, 493, 378, 611
-		PortCones: 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -62,18 +81,27 @@ caarmy03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caarmy04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 4
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -627,169,128, -869,-121,128, -290,434,128, -676,-386,128
 		PortYaws: 555, 489, 672, 427
-		PortCones: 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -83,18 +111,27 @@ caarmy04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cabarn02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,-676,128, -1158,-965,128, -965,772,128, -1545,290,128, -1641,-434,128
 		PortYaws: 341, 399, 622, 542, 470
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -104,18 +141,27 @@ cabarn02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cabunk01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -579,-676,128, -483,-700,128, -1496,72,128, -1496,48,128, -1158,-434,128, -1207,-483,128, -1207,627,128, -1207,579,128
 		PortYaws: 371, 354, 520, 517, 454, 450, 590, 585
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -125,18 +171,27 @@ cabunk01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cabunk02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -579,652,128, -1062,-555,128, -1448,-48,128, -1158,434,128, -627,627,128, -1014,-507,128, -1400,-24,128, -1207,459,128
 		PortYaws: 650, 434, 507, 570, 640, 436, 509, 571
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -146,18 +201,27 @@ cabunk02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cachig01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1689,-97,128, -869,-1038,128, -2317,410,128, 1738,1400,128, -290,1400,128, 1158,459,128, 1351,265,128, 2462,-989,128, 772,-579,128, 627,1400,128
 		PortYaws: 9, 370, 541, 913, 735, 962, 992, 62, 105, 837
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -167,18 +231,27 @@ cachig01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cachig02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,24,128, -1014,941,128, 2365,893,128, 1545,-1472,128, 1545,24,128, 2606,1062,128, 2413,893,128, -2510,-483,128, 434,-1448,128, -434,-1472,128
 		PortYaws: 522, 634, 965, 124, 1021, 961, 966, 481, 209, 303
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -188,18 +261,27 @@ cachig02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cachig03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3668,-652,128, 2799,265,128, 0,1014,128, 3282,1593,128, 2751,1014,128, -48,989,128, -1545,676,128, 579,-965,128, 4006,-965,128, 965,-652,128
 		PortYaws: 29, 1009, 768, 950, 966, 760, 579, 168, 39, 97
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -209,18 +291,27 @@ cachig03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cachig04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -193,-603,128, -483,845,128, 1303,917,128, -1158,97,128, 869,-869,128, -1545,-169,128, 2027,338,128, 2365,-603,128, 1448,97,128, 193,676,128
 		PortYaws: 306, 683, 924, 526, 128, 494, 997, 41, 1013, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -230,18 +321,27 @@ cachig04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cachig05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 3958,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
 		PortYaws: 754, 247, 717, 442, 460, 981, 84, 874, 533, 25
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -251,18 +351,27 @@ cachig05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cacity01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -272,18 +381,27 @@ cacity01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cacity02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -293,18 +411,27 @@ cacity02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cacity03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -314,18 +441,27 @@ cacity03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cacity04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -335,18 +471,27 @@ cacity04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caeur04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -290,-459,128, -193,1303,128, -1207,217,128, -1593,-652,128, -2462,676,128, -386,-483,128, -1496,-700,128, -1110,193,128, -290,1303,128, -2317,676,128
 		PortYaws: 348, 744, 541, 449, 556, 366, 441, 540, 732, 558
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -356,18 +501,27 @@ caeur04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caeur1:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 3
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,217,128, -1207,603,128, -1110,290,128
 		PortYaws: 535, 588, 554
-		PortCones: 88, 88, 88
+		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -377,18 +531,27 @@ caeur1:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caeur2:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 3
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1448,-48,128, -1448,-265,128, -917,-386,128
 		PortYaws: 507, 483, 447
-		PortCones: 88, 88, 88
+		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -398,18 +561,27 @@ caeur2:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cafarm01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,48,128, -1158,434,128, -821,796,128, -627,-531,128, -1641,-627,128, -1738,-434,128
 		PortYaws: 517, 570, 637, 397, 453, 472
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -419,18 +591,27 @@ cafarm01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cafarm06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4730,-145,128, 2413,-193,128, 193,-386,128, 4730,145,128, 1062,193,128
 		PortYaws: 5, 13, 180, 1019, 995
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -440,18 +621,27 @@ cafarm06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cafrma:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 0,-965,128, -1255,1014,128, -1158,-796,128, -1496,-386,128, -97,-265,128, -724,-1134,128, -1303,290,128, -290,-459,128, -1641,-24,128, 0,-193,128
 		PortYaws: 256, 623, 414, 471, 313, 349, 548, 348, 510, 256
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -461,18 +651,27 @@ cafrma:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cafrmb:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 1
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -48,24,128
 		PortYaws: 588
-		PortCones: 88
+		PortCones: 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -482,18 +681,27 @@ cafrmb:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cagas01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1496,1279,128, -1545,-1014,128, -1110,-169,128, -1593,652,128, -2944,290,128, -1062,145,128, -1834,-1279,128, -1448,1472,128, -869,-579,128, -2124,989,128
 		PortYaws: 627, 417, 487, 575, 528, 534, 413, 641, 416, 583
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -503,18 +711,27 @@ cagas01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,-724,128, -1641,965,128, 193,579,128, -1448,-97,128, -2172,241,128
 		PortYaws: 427, 599, 820, 501, 530
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -524,18 +741,27 @@ cahse01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
 		PortYaws: 76, 587, 512, 896, 384
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -545,18 +771,27 @@ cahse02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
 		PortYaws: 76, 587, 512, 896, 384
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -566,18 +801,27 @@ cahse03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
 		PortYaws: 76, 587, 512, 896, 384
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -587,18 +831,27 @@ cahse04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -965,-965,128, -193,193,128, -97,290,128, -965,-1014,128, -1110,-821,128
 		PortYaws: 384, 640, 715, 380, 408
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -608,18 +861,27 @@ cahse05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -869,1038,128, -917,941,128, -241,-265,128, -917,555,128, -338,-97,128
 		PortYaws: 654, 642, 376, 601, 466
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -629,18 +891,27 @@ cahse06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cahse07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -821,217,128, -869,917,128, -1303,483,128, -1786,-24,128, -1303,483,128
 		PortYaws: 554, 644, 570, 510, 570
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -650,18 +921,27 @@ cahse07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caind01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-2631,128, -3282,1207,128, 821,434,128, -4151,-386,128, -1207,-386,128, -531,796,128, 2027,1086,128, -3089,-1496,128, -4054,531,128, -1834,97,128
 		PortYaws: 363, 569, 945, 497, 462, 672, 944, 438, 533, 521
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -671,18 +951,27 @@ caind01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 calab:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1207,531,128, 1351,121,128, -2269,1014,128, -821,700,128, 1207,-290,128, 1593,-338,128, 1400,724,128, 1110,-241,128, -241,772,128, -1786,1110,128
 		PortYaws: 956, 1009, 580, 627, 38, 34, 946, 35, 719, 603
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -692,18 +981,27 @@ calab:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camex02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1834,2486,128, -338,-821,128, 386,941,128, -4730,989,128, -2172,97,128, -3282,2124,128, 193,2075,128, -1738,1882,128, -3234,-217,128, -2655,2944,128
 		PortYaws: 664, 320, 831, 546, 519, 606, 783, 646, 501, 648
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -713,18 +1011,27 @@ camex02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3089,-1062,128, 3089,-338,128, -290,579,128, 4054,1786,128, 579,869,128, 2606,917,128, -579,241,128, 386,-724,128, 579,869,128, -869,579,128
 		PortYaws: 54, 18, 692, 956, 864, 969, 576, 176, 864, 608
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -734,18 +1041,27 @@ camiam01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2799,-145,128, 386,483,128, 772,-1110,128, 2317,1255,128, -386,1689,128, 3765,2075,128, -965,1641,128, 1351,2075,128, 2606,-1158,128, -193,-821,128
 		PortYaws: 8, 878, 157, 943, 731, 942, 681, 862, 68, 294
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -755,18 +1071,27 @@ camiam02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1738,-386,128, 1351,483,128, 290,-1882,128, 2993,-1448,128, 483,772,128, 2510,1062,128, 772,1062,128, 1158,-1448,128, -869,-1882,128, 4441,483,128
 		PortYaws: 36, 968, 231, 73, 859, 959, 870, 146, 326, 1006
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -776,18 +1101,27 @@ camiam03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 3
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 145,72,128, 193,145,128, 48,-145,128
 		PortYaws: 949, 919, 204
-		PortCones: 88, 88, 88
+		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -797,18 +1131,27 @@ camiam04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,-917,128, 0,-1255,128, -1158,1183,128, -3330,-1351,128, -724,-1424,128, -2027,-796,128, -1448,-193,128, -386,796,128, -2510,410,128, -676,1207,128
 		PortYaws: 409, 256, 642, 449, 333, 451, 490, 694, 538, 685
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -818,18 +1161,27 @@ camiam05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-24,128, -2558,338,128, -579,1496,128, -1158,-2317,128, -3475,265,128, -1400,-1545,128, -241,72,128, -4199,434,128, -3089,1569,128, -2606,1979,128
 		PortYaws: 510, 533, 708, 332, 524, 376, 559, 529, 589, 618
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -839,18 +1191,27 @@ camiam06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camiam07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1400,-2051,128, -1110,-1520,128, -1400,-2051,128, -1110,-1520,128, -2799,-1400,128, -97,-1810,128, -386,869,128, -1110,-386,128, 6999,-845,128, 8109,627,128
 		PortYaws: 354, 359, 354, 359, 436, 265, 700, 457, 20, 1011
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -860,18 +1221,27 @@ camiam07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camov02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1979,338,128, -1689,-410,128, -1931,-72,128, -1207,-796,128, -1738,603,128
 		PortYaws: 540, 473, 506, 417, 566
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -881,18 +1251,27 @@ camov02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camsc07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1062,-700,128, -1351,-290,128, -1110,531,128, -1207,-483,128, -1351,0,128, -1303,290,128
 		PortYaws: 417, 478, 585, 450, 512, 548
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -902,18 +1281,27 @@ camsc07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camsc08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
 		PortYaws: 430, 546, 488, 430, 546, 488
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -923,18 +1311,27 @@ camsc08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camsc09:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
 		PortYaws: 430, 546, 488, 430, 546, 488
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -944,18 +1341,27 @@ camsc09:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 camsc10:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2944,338,128, -3379,627,128, -2220,-1786,128, -3475,-145,128, -2848,-1207,128, -3282,169,128, -2655,-1641,128, -3717,-483,128
 		PortYaws: 531, 542, 402, 505, 447, 520, 422, 491
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -965,18 +1371,27 @@ camsc10:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-265,128, -579,-1762,128, 2269,-193,128, -724,1810,128, -145,821,128, 3717,1424,128, 2413,-1207,128, -241,796,128, -4344,0,128, -2993,-1014,128
 		PortYaws: 491, 308, 14, 706, 740, 964, 76, 720, 512, 459
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -986,18 +1401,27 @@ canewy01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1007,18 +1431,27 @@ canewy05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 7771,-724,128, -338,1545,128, 1786,-507,128, -2075,-193,128, 4537,-700,128, 3475,579,128, -965,-1689,128, 6854,603,128, -2558,724,128, -1496,-1062,128
 		PortYaws: 15, 733, 45, 497, 25, 997, 341, 1010, 557, 411
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1028,18 +1461,27 @@ canewy06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1593,-1038,128, -1014,1786,128, 1255,-48,128, -2075,-24,128, 1496,1303,128, 917,-1327,128, -193,-1665,128, 386,821,128, -1014,941,128, 1158,-700,128
 		PortYaws: 418, 684, 6, 510, 907, 157, 275, 840, 634, 89
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1049,18 +1491,27 @@ canewy07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1110,796,128, -2075,145,128, -579,-1424,128, -676,1327,128, 1738,-507,128, -2027,603,128, 386,-579,128, -2075,748,128, -1351,0,128, 97,579,128
 		PortYaws: 923, 523, 319, 691, 46, 559, 160, 568, 512, 795
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1070,18 +1521,27 @@ canewy08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy10:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,-579,128, 5502,-579,128, 4247,1062,128, 1931,1545,128, 290,1062,128, 1351,290,128, 1641,-579,128, 1351,1545,128, 3668,290,128, 3282,1062,128
 		PortYaws: 28, 17, 984, 914, 811, 990, 55, 885, 1011, 973
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1091,18 +1551,27 @@ canewy10:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy11:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,-772,128, 1255,241,128, 1738,-772,128, 2124,434,128, 1931,1062,128, 772,1545,128, 290,1062,128, -965,-434,128, 2413,1545,128, -1641,1545,128
 		PortYaws: 37, 993, 68, 991, 942, 844, 811, 443, 931, 635
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1112,18 +1581,27 @@ canewy11:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy12:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2317,-1593,128, -290,-1158,128, 1351,-338,128, 1545,531,128, -1062,-338,128, -869,-1110,128, 3282,724,128, -869,-1158,128, 2124,-483,128, 1255,-338,128
 		PortYaws: 98, 296, 40, 970, 462, 364, 989, 361, 36, 43
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1133,18 +1611,27 @@ canewy12:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy13:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
 		PortYaws: 962, 43, 165, 13, 472, 802, 983, 445, 544, 301
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1154,18 +1641,27 @@ canewy13:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy14:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
 		PortYaws: 962, 43, 165, 13, 472, 802, 983, 445, 544, 301
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1175,18 +1671,27 @@ canewy14:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy15:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1545,-1448,128, 1641,-338,128, 1448,1351,128, -772,965,128, -1351,-434,128, 193,-1400,128, -1448,241,128, 290,772,128, -1062,1303,128, 869,-386,128
 		PortYaws: 123, 33, 902, 658, 461, 234, 539, 827, 657, 68
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1196,18 +1701,27 @@ canewy15:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy16:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4537,-724,128, 2896,-772,128, 2027,338,128, 869,917,128, 5985,965,128, 3186,965,128, 2027,-1062,128, 0,-724,128, 5406,338,128, 3186,917,128
 		PortYaws: 26, 42, 997, 892, 998, 976, 79, 256, 1014, 978
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1217,18 +1731,27 @@ canewy16:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy17:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 386,-1062,128, 97,724,128, -1641,338,128, 676,-772,128, 97,676,128, -1641,-483,128, -1448,627,128, 97,772,128, -386,1062,128, -1641,-434,128
 		PortYaws: 199, 790, 545, 139, 791, 465, 579, 788, 711, 470
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1238,18 +1761,27 @@ canewy17:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy18:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 676,-724,128, 193,676,128, 2124,1014,128, 386,-1014,128, 97,724,128, 483,-1014,128, 193,724,128, 1834,-676,128, 1062,-1014,128, 386,1014,128
 		PortYaws: 134, 813, 951, 197, 790, 184, 810, 58, 124, 827
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1259,18 +1791,27 @@ canewy18:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy20:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2848,-1134,128, -2172,-2413,128, -1496,217,128, -2269,-555,128, -2993,-1593,128, -2558,-821,128, -2413,-2172,128, -965,700,128, -2027,-314,128, -2703,-1810,128
 		PortYaws: 450, 375, 535, 473, 432, 461, 393, 614, 487, 416
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1280,18 +1821,27 @@ canewy20:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canewy21:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1303,-459,128, -2075,314,128, -2462,2196,128, -2896,1110,128, -1593,-169,128, -2799,1882,128, -2606,869,128, -2269,2437,128, -1834,48,128, -2413,603,128
 		PortYaws: 457, 536, 631, 572, 495, 608, 564, 646, 516, 552
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1301,18 +1851,27 @@ canewy21:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 869,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
 		PortYaws: 754, 247, 717, 442, 460, 880, 84, 874, 533, 25
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1322,18 +1881,27 @@ canwy05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy09:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4441,-72,128, 2944,-362,128, 97,483,128, 7771,72,128, 3523,748,128, 1786,362,128, -1979,-459,128, 1979,-893,128, 6999,-845,128, 8109,627,128
 		PortYaws: 3, 20, 800, 1022, 990, 991, 475, 69, 20, 1011
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1343,18 +1911,27 @@ canwy09:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy22:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1014,169,128, -2510,-24,128, -2124,772,128, 917,-989,128, 338,700,128, -724,1158,128, -241,-555,128, -1400,-1158,128, -1689,-627,128, 1110,-410,128
 		PortYaws: 539, 510, 569, 134, 841, 677, 323, 399, 454, 58
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1364,18 +1941,27 @@ canwy22:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy23:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 821,-917,128, 869,241,128, -3379,97,128, 7240,-603,128, 4778,652,128, 2124,1448,128, -869,241,128, -821,1713,128, 2558,-121,128, 5309,1231,128
 		PortYaws: 137, 980, 517, 14, 1002, 926, 556, 695, 8, 987
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1385,18 +1971,27 @@ canwy23:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy24:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1255,-1376,128, -1786,-362,128, -1738,676,128, 2993,-241,128, 3523,-821,128, 2462,-265,128, 2462,772,128, 676,917,128, 5358,290,128, 4971,989,128
 		PortYaws: 135, 479, 572, 13, 37, 17, 974, 872, 1015, 992
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1406,18 +2001,27 @@ canwy24:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy25:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 434,917,128, 290,-265,128, -2124,-1086,128, -1255,-72,128, 1400,-1086,128, -1738,434,128, 483,1472,128, -1545,1472,128, 338,-1038,128, -2269,-362,128
 		PortYaws: 840, 121, 435, 503, 108, 552, 820, 636, 205, 486
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1427,18 +2031,27 @@ canwy25:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 canwy26:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2413,989,128, -2172,1110,128, -627,1617,128, 2027,2462,128, -3186,989,128, -483,-145,128, 4103,-1014,128, -97,-821,128, -2655,-748,128, 0,483,128
 		PortYaws: 961, 589, 708, 880, 561, 464, 39, 275, 467, 768
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1448,18 +2061,27 @@ canwy26:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3089,-1038,128, 338,-1400,128, -676,1882,128, -3330,2003,128, -821,-1424,128, -3041,-459,128, -2896,796,128, 1931,-676,128, -2655,-145,128, 2124,-1400,128
 		PortYaws: 459, 217, 712, 600, 341, 488, 556, 55, 503, 95
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1469,18 +2091,27 @@ capars02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
 		PortYaws: 373, 361, 467, 184, 225, 588
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1490,18 +2121,27 @@ capars04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
 		PortYaws: 373, 361, 467, 184, 225, 588
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1511,18 +2151,27 @@ capars05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 6
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,-386,128, -1158,-724,128, 772,1545,128, 0,724,128, -3186,-193,128, -1448,434,128
 		PortYaws: 296, 421, 844, 768, 502, 559
-		PortCones: 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1532,18 +2181,27 @@ capars06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3427,1617,128, -1834,-2293,128, 1931,-652,128, -1255,2558,128, -1545,-603,128, 1979,-1110,128, -1738,-1689,128, -3861,-362,128, -2896,2510,128, 579,652,128
 		PortYaws: 584, 366, 53, 694, 451, 83, 386, 497, 628, 886
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1553,18 +2211,27 @@ capars08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars09:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1738,-2317,128, -4827,1738,128, -1351,3065,128, -3572,-507,128, -3668,3499,128, 2172,-459,128, 338,-145,128, -2075,-1327,128, -4392,2775,128, -5985,1279,128
 		PortYaws: 361, 568, 700, 489, 636, 34, 66, 419, 604, 546
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1574,18 +2241,27 @@ capars09:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars10:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
 		PortYaws: 796, 506, 62, 606, 686, 562, 703, 302, 534, 1003
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1595,18 +2271,27 @@ capars10:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars12:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2558,-1834,128, -1834,-241,128, 1158,1303,128, -1158,700,128, -2799,-1086,128, -724,97,128, -3475,-1738,128, 1834,193,128, -1207,579,128, -1931,-989,128
 		PortYaws: 411, 491, 886, 601, 452, 534, 436, 1007, 585, 435
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1616,18 +2301,27 @@ capars12:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars13:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 483,-1882,128, -1931,145,128, -2751,-1955,128, 290,1038,128, -3234,-941,128, 1014,-24,128, -821,-1086,128, -145,-2317,128, -1545,-193,128, 1738,748,128
 		PortYaws: 215, 524, 411, 812, 466, 4, 361, 266, 492, 958
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1637,18 +2331,27 @@ capars13:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 capars14:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
 		PortYaws: 796, 506, 62, 606, 686, 562, 703, 302, 534, 1003
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1658,18 +2361,27 @@ capars14:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caprs03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -4296,265,128, -4682,2510,128, -1882,-2486,128, -3427,-1400,128, -3523,3330,128, -6275,1545,128, -6082,1762,128, -5068,2751,128, -2510,-1593,128, -2413,-2003,128
 		PortYaws: 522, 592, 362, 449, 635, 551, 558, 593, 420, 399
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1679,18 +2391,27 @@ caprs03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,965,128, -3089,-965,128, 531,-48,128, 0,-748,128, -3089,724,128, -1689,-796,128, -2220,-1738,128, 2462,0,128, -3813,-121,128, -2269,-1400,128
 		PortYaws: 584, 463, 15, 256, 550, 440, 404, 0, 507, 422
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1700,18 +2421,27 @@ carus01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus02g:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1721,18 +2451,27 @@ carus02g:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -724,-121,128, 724,-1062,128, -2413,-2775,128, -1738,-1738,128, 1979,-1593,128, -1207,-2631,128, 676,-700,128, -1931,-1351,128, 1255,-386,128, -1496,-3161,128
 		PortYaws: 485, 158, 373, 384, 110, 326, 131, 413, 49, 328
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1742,18 +2481,27 @@ carus03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1641,-1062,128, -2317,555,128, -2220,-434,128, -1593,1279,128, -1496,1231,128, -917,2003,128, -2365,-338,128, -821,-1882,128
 		PortYaws: 418, 550, 481, 622, 624, 698, 489, 323
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1763,18 +2511,27 @@ carus04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2269,434,128, -821,-1786,128, -2172,-434,128, -869,1882,128, -3523,1110,128, -2124,-531,128, -4054,-386,128, -2220,531,128
 		PortYaws: 543, 326, 480, 698, 562, 472, 497, 550
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1784,18 +2541,27 @@ carus05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 8
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2896,1810,128, -4151,-386,128, -3668,1134,128, -4296,362,128, -2848,-1810,128, -3523,-1158,128, -3089,1134,128, -3668,-241,128
 		PortYaws: 603, 497, 561, 526, 420, 460, 569, 501
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1805,18 +2571,27 @@ carus06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 97,-48,128, -48,24,128, -97,0,128, 48,48,128, -145,-24,128, -97,0,128, -97,24,128, -145,-48,128, -145,121,128, 241,72,128
 		PortYaws: 75, 588, 512, 896, 485, 512, 552, 460, 625, 977
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1826,18 +2601,27 @@ carus07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 627,-169,128, 0,265,128, 145,410,128, 1834,217,128, 1738,290,128
 		PortYaws: 43, 768, 823, 1005, 997
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1847,18 +2631,27 @@ carus08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus09:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2655,-386,128, 2413,-314,128, -48,579,128, 48,-290,128, 965,-483,128
 		PortYaws: 24, 21, 755, 229, 76
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1868,18 +2661,27 @@ carus09:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus10:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -869,-796,128, -241,-145,128, 965,338,128, 1110,483,128, 821,193,128
 		PortYaws: 391, 424, 969, 957, 986
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1889,18 +2691,27 @@ carus10:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 carus11:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 5
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 241,-362,128, 483,121,128, 627,0,128, -869,748,128, -579,459,128
 		PortYaws: 160, 984, 0, 628, 621
-		PortCones: 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1910,18 +2721,27 @@ carus11:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 castl01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -917,-579,128, -965,1062,128, -2510,821,128, -2027,-821,128, -386,-1062,128, -1351,1327,128, -1834,-290,128, -290,-579,128, -1834,869,128, -1207,-290,128
 		PortYaws: 420, 648, 564, 449, 313, 639, 486, 332, 584, 474
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1931,18 +2751,27 @@ castl01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 castl02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2510,290,128, -627,821,128, -1062,-917,128, -1158,265,128, -1979,-1376,128, -1062,1086,128, 338,1351,128, -1303,-1376,128, -1593,555,128, -1979,845,128
 		PortYaws: 531, 662, 396, 549, 413, 642, 808, 380, 567, 578
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1952,18 +2781,27 @@ castl02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 castl03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1641,555,128, -1834,-1014,128, -386,1062,128, -1931,845,128, -2172,-1351,128, -1207,241,128, -1448,-1376,128, -821,1327,128, -2558,-941,128, -2413,290,128
 		PortYaws: 565, 430, 711, 579, 421, 544, 388, 678, 455, 531
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1973,18 +2811,27 @@ castl03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 castl04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1931,338,128, 6419,-2365,128, -579,-3210,128, -48,459,128, 7723,-386,128, 8591,-1327,128, -3861,-3403,128, 3523,-2824,128, 8302,-652,128, 4827,-2679,128
 		PortYaws: 996, 58, 285, 751, 8, 25, 394, 110, 13, 83
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -1994,18 +2841,27 @@ castl04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 caswst01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -48,145,128, 241,-1376,128, 2896,627,128, 2124,-555,128, -627,-555,128, 2075,-1158,128, 97,700,128, 2703,72,128, 4778,24,128, -4296,-1062,128
 		PortYaws: 716, 228, 989, 42, 394, 83, 790, 1020, 1023, 473
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2015,18 +2871,27 @@ caswst01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catech01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -676,772,128, -1931,-1038,128, -1255,-1665,128, -965,1279,128, -531,0,128, -1158,700,128, -1448,217,128, -1979,-700,128, 1255,145,128, -193,-1038,128
 		PortYaws: 651, 432, 361, 663, 512, 601, 536, 457, 1005, 286
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2036,18 +2901,27 @@ catech01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs01:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,0,128, 338,603,128, 2124,-627,128, 2655,579,128, -627,-627,128, 3330,48,128, 1351,24,128, -338,724,128, -434,0,128, 2172,72,128
 		PortYaws: 512, 851, 47, 989, 384, 1022, 1021, 697, 512, 1019
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2057,18 +2931,27 @@ catexs01:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs02:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1882,-1327,128, -3282,-652,128, -1931,-2027,128, -2703,-676,128, -3668,0,128, -1351,-2003,128, -1593,-1641,128, -2124,-1062,128, -676,-145,128, -772,-821,128
 		PortYaws: 412, 480, 380, 472, 512, 353, 382, 436, 478, 379
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2078,18 +2961,27 @@ catexs02:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 48,-869,128, 1014,1858,128, 193,1014,128, -2172,893,128, 2558,-1858,128, 3282,1738,128, -2220,-169,128, 2848,724,128, -2365,-700,128, 193,-1882,128
 		PortYaws: 247, 849, 799, 576, 102, 945, 500, 983, 465, 239
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2099,18 +2991,27 @@ catexs03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2220,-193,128, -1400,1641,128, 1834,265,128, 917,-1834,128, 1786,1858,128, -1158,410,128, -1882,-1158,128, 1786,-217,128, 2558,-989,128, 1641,893,128
 		PortYaws: 498, 653, 1001, 180, 893, 567, 422, 20, 60, 943
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2120,18 +3021,27 @@ catexs04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 434,-459,128, -531,1810,128, -2172,-917,128, 2075,-459,128, -338,-1569,128, -2172,869,128, 965,1110,128, 2655,-941,128, 4392,917,128, 3958,-434,128
 		PortYaws: 133, 721, 447, 35, 291, 574, 885, 56, 990, 18
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2141,18 +3051,27 @@ catexs05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2799,265,128, -2220,-845,128, -627,965,128, -965,-1665,128, -869,241,128, -3234,-290,128, -2558,965,128, -1979,-1545,128, -917,1183,128, -2558,-1014,128
 		PortYaws: 527, 453, 674, 342, 556, 497, 571, 404, 661, 450
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2162,18 +3081,27 @@ catexs06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,1086,128, -1689,-1086,128, 145,193,128, -1979,121,128, -1641,1545,128, 1400,-772,128, -2124,-555,128, -1641,-1569,128, 1303,555,128, 821,-603,128
 		PortYaws: 628, 419, 873, 522, 635, 82, 470, 388, 958, 103
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2183,18 +3111,27 @@ catexs07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 catexs08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -627,507,128, -1786,-1158,128, -965,-121,128, -1882,-1472,128, -1882,0,128, -917,-1641,128, -1786,-314,128, -483,-1303,128, -1062,652,128, -97,-1641,128
 		PortYaws: 623, 418, 492, 404, 512, 339, 484, 314, 602, 266
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2204,18 +3141,27 @@ catexs08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawa2a:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3813,-290,128, -4103,265,128, -4634,265,128, -4344,-290,128, -3717,-121,128, -3958,434,128, -3620,48,128, -4151,72,128, -4247,-97,128, -4537,434,128
 		PortYaws: 500, 523, 521, 501, 507, 530, 514, 515, 508, 528
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2225,18 +3171,27 @@ cawa2a:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawa2b:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3137,-555,128, -2269,169,128, -1931,-1545,128, -3475,-1086,128, -1110,2389,128, -2848,1593,128, -3282,652,128, -3620,-386,128, -1641,-2462,128, -2510,-1545,128
 		PortYaws: 483, 524, 402, 463, 697, 595, 544, 495, 352, 422
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2246,18 +3201,27 @@ cawa2b:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawa2c:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2848,-1110,128, -2896,-507,128, -4006,-531,128, -3572,-941,128, -4151,0,128, -4441,-265,128, -4923,145,128, -3137,-821,128, -3861,-652,128, -4344,-121,128
 		PortYaws: 451, 484, 491, 470, 512, 502, 517, 470, 485, 507
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2267,18 +3231,27 @@ cawa2c:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawa2d:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3668,-507,128, -4151,-97,128, -3668,290,128, -4199,290,128, -4634,-459,128, -4923,-531,128, -4103,-314,128, -4247,-507,128, -4199,97,128, -1931,-2075,128
 		PortYaws: 490, 508, 525, 523, 496, 494, 500, 493, 516, 378
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2288,18 +3261,27 @@ cawa2d:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash03:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2317,-193,128, -1738,-772,128, -2220,241,128, -2558,1424,128, -1979,2051,128, -2172,1207,128, -3282,241,128, -2510,-555,128, -1689,-1400,128, -965,-989,128
 		PortYaws: 498, 444, 530, 595, 643, 595, 524, 477, 399, 382
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2309,18 +3291,27 @@ cawash03:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash04:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2075,193,128, -1303,1110,128, -3668,869,128, -290,-2148,128, -1979,-1545,128, -2075,-338,128, -2896,796,128, -290,1979,128, -1979,1641,128, -1496,2124,128
 		PortYaws: 527, 627, 550, 278, 404, 486, 556, 744, 625, 668
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2330,18 +3321,27 @@ cawash04:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash05:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1158,-772,128, -2027,1303,128, -1641,241,128, -579,2220,128, -2703,1255,128, -1738,290,128, -2413,2269,128, -1158,-241,128, -869,1255,128, -1834,2269,128
 		PortYaws: 96, 605, 536, 726, 583, 539, 635, 479, 669, 657
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2351,18 +3351,27 @@ cawash05:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash06:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
 		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2372,18 +3381,27 @@ cawash06:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash07:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 869,-1545,128, -869,-1207,128, -1158,-1545,128, -483,1496,128, -386,241,128, -1834,-917,128, -97,-579,128, 869,1496,128, -2124,531,128, -1062,-290,128
 		PortYaws: 172, 358, 361, 717, 603, 436, 283, 854, 552, 469
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2393,18 +3411,27 @@ cawash07:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash08:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1931,-1062,128, -2220,-1158,128, -3765,-290,128, -772,772,128, -2606,-2317,128, -772,-2606,128, -1931,483,128, -869,772,128, 1062,1110,128, 193,-676,128
 		PortYaws: 82, 434, 499, 640, 394, 303, 552, 630, 892, 211
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2414,18 +3441,27 @@ cawash08:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash09:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,-1400,128, -965,-1400,128, -1738,434,128, -2510,434,128, -1738,772,128, -1834,1207,128, -869,1641,128, -2317,772,128, -1158,1834,128, -676,1834,128
 		PortYaws: 300, 354, 552, 540, 580, 607, 689, 564, 676, 710
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2435,18 +3471,27 @@ cawash09:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash10:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1110,-338,128, 869,241,128, -3330,-1327,128, -3813,-772,128, -3572,1086,128, 724,0,128, 772,-217,128, -3089,1593,128, 1062,386,128, -3041,-1569,128
 		PortYaws: 48, 980, 450, 479, 560, 0, 45, 590, 967, 434
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2456,18 +3501,27 @@ cawash10:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash11:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,-1158,128, -676,-1158,128, -2510,290,128, -3282,579,128, -2413,579,128, -2462,1207,128, -2124,1207,128, -1158,2124,128, -1931,2124,128, -2799,1207,128
 		PortYaws: 407, 342, 531, 540, 550, 586, 596, 687, 648, 578
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2477,18 +3531,27 @@ cawash11:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash13:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1689,314,128, -241,-1014,128, -2413,1062,128, -627,1448,128, -1593,1062,128, -1400,1641,128, -145,-1158,128, -1207,-1014,128, -1351,0,128, -2365,700,128
 		PortYaws: 542, 294, 580, 701, 608, 653, 276, 398, 512, 559
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2498,18 +3561,27 @@ cawash13:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
 
 cawash17:
 	Cargo@GARRISON:
 		Types: Garrisoner
 		MaxWeight: 10
+		LoadedCondition: garrisoned
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2413,-97,128, -1448,-1400,128, -2993,-917,128, -3765,965,128, -5213,1303,128, -4923,2317,128, -4923,1834,128, -5502,2848,128, -4827,3475,128, -3765,965,128
 		PortYaws: 505, 387, 464, 553, 552, 584, 570, 590, 614, 553
-		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -2519,4 +3591,12 @@ cawash17:
 			yellow: pip-yellow
 			green: pip-green
 			red: pip-red
+	AutoTarget@GARRISON:
+		RequiresCondition: garrisoned
+	AutoTargetPriority@GARRISON:
+		RequiresCondition: garrisoned
+		ValidTargets: Infantry, Vehicle, Water, Underwater, Defense
+		InvalidTargets: NoAutoTarget, WaterStructure
+	-RepairableBuilding:
+	-WithBuildingRepairDecoration:
 	GarrisonOwnership@GARRISON:
