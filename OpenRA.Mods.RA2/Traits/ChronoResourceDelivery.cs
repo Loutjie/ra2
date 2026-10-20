@@ -117,12 +117,12 @@ namespace OpenRA.Mods.RA2.Traits
 		void INotifyHarvestAction.Harvested(Actor self, string resourceType) { }
 
 		/// <summary>
-		/// Decides whether to teleport to a dock cell: never when already there, otherwise whenever the cell is free.
-		/// Deliberately independent of any land path; the destination is what matters, not how the dock is reached.
+		/// Whether to look for a dock the harvester cannot reach over land: only while it is trying to deliver
+		/// (moving to a dock, none reserved yet) and land pathfinding found no dock at all.
 		/// </summary>
-		public static bool ShouldTeleport(bool alreadyAtDestination, bool destinationEnterable)
+		public static bool ShouldSearchUnreachableDock(bool enabled, bool hostReserved, bool movingToDock, bool landDockFound)
 		{
-			return !alreadyAtDestination && destinationEnterable;
+			return enabled && !hostReserved && movingToDock && !landDockFound;
 		}
 
 		/// <summary>Picks the dock cell closest to <paramref name="from"/> in a straight line, ignoring terrain.</summary>
@@ -145,19 +145,23 @@ namespace OpenRA.Mods.RA2.Traits
 
 		static bool IsMovingToDock(Actor self)
 		{
-			// ChildActivity is not public; the debug label lists the current activity and its running children.
+			// Name match: MoveToDock raises no notify on the no-dock path and ChildActivity is protected. An engine hook
+			// would be cleaner; revisit if MoveToDock is renamed or subclassed.
 			return self.CurrentActivity != null && self.CurrentActivity.DebugLabelComponents().Contains(nameof(MoveToDock));
 		}
 
 		void TeleportToUnreachableDock(Actor self)
 		{
-			// Only when the harvester wants to deliver, and is not already docking.
 			var dockClient = self.TraitOrDefault<DockClientManager>();
-			if (dockClient == null || dockClient.IsTraitDisabled || dockClient.ReservedHost != null || !IsMovingToDock(self))
+			if (dockClient == null)
 				return;
 
-			// A dock reachable over land is handled by MovingToDock, exactly as before.
-			if (dockClient.ClosestDock(null) != null)
+			var reserved = dockClient.ReservedHost != null;
+			var moving = IsMovingToDock(self);
+
+			// Land pathfinding is only worth running while the harvester is delivering with nothing reserved.
+			var landDockFound = !reserved && moving && dockClient.ClosestDock(null) != null;
+			if (!ShouldSearchUnreachableDock(!dockClient.IsTraitDisabled, reserved, moving, landDockFound))
 				return;
 
 			var cells = self.World.ActorsWithTrait<IDockHost>()
@@ -180,14 +184,16 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			// HACK: Cancelling the current activity will call Reset, so the destination is passed in.
 			var pos = self.Trait<IPositionable>();
-			if (!ShouldTeleport(self.Location == dest, pos.CanEnterCell(dest)))
-			{
-				// We're already here; no need to interfere.
-				if (self.Location == dest)
-					Reset();
 
+			// We're already here; no need to interfere.
+			if (self.Location == dest)
+			{
+				Reset();
 				return;
 			}
+
+			if (!pos.CanEnterCell(dest))
+				return;
 
 			self.CancelActivity();
 			self.QueueActivity(new ChronoResourceTeleport(dest, info));
