@@ -36,10 +36,10 @@ namespace OpenRA.Mods.RA2.Traits
 		public readonly int DamageInterval = 0;
 
 		[Desc("Damage types for the infection damage.")]
-		public readonly BitSet<DamageType> DamageTypes = default(BitSet<DamageType>);
+		public readonly BitSet<DamageType> DamageTypes = default;
 
 		[Desc("Damage types which allows the infector survive when it's host dies.")]
-		public readonly BitSet<DamageType> SurviveHostDamageTypes = default(BitSet<DamageType>);
+		public readonly BitSet<DamageType> SurviveHostDamageTypes = default;
 
 		public override object Create(ActorInitializer init) { return new AttackInfect(init.Self, this); }
 	}

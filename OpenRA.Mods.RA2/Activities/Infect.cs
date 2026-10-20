@@ -18,7 +18,7 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Activities
 {
-	class Infect : Enter
+	sealed class Infect : Enter
 	{
 		readonly AttackInfect attackInfect;
 		readonly Target target;
