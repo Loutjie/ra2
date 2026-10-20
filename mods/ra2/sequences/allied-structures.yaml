@@ -37,6 +37,13 @@ gacnst:
 		Start: 5
 		Length: 6
 		Tick: 150
+	damaged-idle-fans-low-power:
+		Filename: ggcnst_a.shp
+		TilesetFilenames:
+			SNOW: gacnst_a.shp
+		Start: 5
+		Length: 6
+		Tick: 600
 	crane-overlay:
 		Filename: ggcnst_b.shp
 		TilesetFilenames:
