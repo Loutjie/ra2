@@ -26,6 +26,12 @@ Speed and turning
 Distance
   1 cell = 256 leptons = 1024 WDist.
 
+Projectile speed
+  Weapon Speed= is leptons per frame, converted exactly: x4 WDist per lepton,
+  scaled by RA2_FRAMES_PER_SECOND / OPENRA_TICKS_PER_SECOND like every other
+  per-frame quantity. The mod's existing projectile speeds are not derived
+  from it (TIMING.md section 7).
+
 Rounding is half away from zero on exact decimal values.
 """
 from __future__ import annotations
@@ -92,6 +98,13 @@ def rot_to_turnspeed(rot: int) -> int:
     if rot < 0:
         raise ValueError(f"negative ROT: {rot}")
     return _round(Decimal(str(rot)) * ROT_FACTOR * _frame_scale())
+
+
+def projectile_speed_to_openra(ra2_speed: int) -> int:
+    """RA2 weapon Speed= (leptons per frame) to OpenRA projectile Speed (WDist per tick)."""
+    if ra2_speed < 0:
+        raise ValueError(f"negative projectile speed: {ra2_speed}")
+    return _round(Decimal(str(ra2_speed)) * WDIST_PER_CELL / LEPTONS_PER_CELL * _frame_scale())
 
 
 def _wdist(units: int) -> str:

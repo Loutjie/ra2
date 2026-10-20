@@ -12,6 +12,7 @@ from exact.conversions import (
     leptons_to_wdist,
     minutes_to_ticks,
     percent,
+    projectile_speed_to_openra,
     rot_to_turnspeed,
     speed_to_openra,
 )
@@ -88,6 +89,22 @@ def test_speed_and_rot():
     assert speed_to_openra(6) == 90
     assert speed_to_openra(0) == 0
     assert rot_to_turnspeed(5) == 20
+
+
+def test_projectile_speed_to_openra():
+    # Weapon Speed= is leptons per frame: x4 WDist per lepton, one frame per tick.
+    assert projectile_speed_to_openra(40) == 160
+    assert projectile_speed_to_openra(100) == 400
+    assert projectile_speed_to_openra(0) == 0
+    with pytest.raises(ValueError):
+        projectile_speed_to_openra(-1)
+
+
+def test_projectile_speed_follows_frame_rate(monkeypatch):
+    # 30 frames per second over 25 ticks per second: 1.2 frames per tick.
+    monkeypatch.setattr(conversions, "RA2_FRAMES_PER_SECOND", 30.0)
+    assert projectile_speed_to_openra(40) == 192
+    assert projectile_speed_to_openra(1) == 5  # 4.8 rounds half away from zero
 
 
 def test_percent():

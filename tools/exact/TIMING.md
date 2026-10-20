@@ -17,6 +17,7 @@ Researched 2026-10-20. Quotes are kept short; follow the links for context.
 | ROT | x4 | Kept (mod convention), scaled the same way (hypothesis). |
 | `GameSpeedBias=1.6` | not applied separately | See "GameSpeedBias". |
 | Distance | 1 cell = 256 leptons = 1024 WDist | Settled. |
+| Projectile speed | leptons per frame x 4, scaled by `RA2_FRAMES_PER_SECOND / 25` | Unit settled (leptons per frame); follows the frame rate. Mod's existing projectile speeds are not derived from it (section 7). |
 
 ## 1. Frames are game-logic steps, and their real length depends on the speed setting
 
@@ -160,6 +161,15 @@ user, not something to guess here.
   OpenRA's `WDist.TryParse` (`engine/OpenRA.Game/WDist.cs`) takes the sign
   from the cell part, so `-0c256` would parse as +256; negatives under one
   cell are written as plain WDist units (`-256`).
+- Projectile speed: a weapon's `Speed=` is in leptons per frame, so
+  `projectile_speed_to_openra` converts it as leptons x 4 (WDist per lepton)
+  x `RA2_FRAMES_PER_SECOND / 25` (frames per tick), with the same frame-rate
+  constant as ROF and unit Speed. At the 1:1 fallback, `Speed=40` (120mm)
+  -> 160 WDist per tick; at 30 fps it would be 192. GameSpeedBias does not
+  apply (ModEnc: it "does not affect the speed of projectiles"). The mod's
+  existing projectile speeds are not derived from this rule (many weapons use
+  a hand-set `682`, against 160 for `Speed=40`); Exact values must come from
+  the conversion, not be copied from the Reimagined weapons.
 - Percentages: `"50%"` is a percentage; a bare number (`".5"`, `"1"`) is a
   fraction, as in RA2. Input must match `digits[.digits]` or `.digits` with an
   optional `%`; anything else (`1_0`, `1e2`, negatives) is rejected.
