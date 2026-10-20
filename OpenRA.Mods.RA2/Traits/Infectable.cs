@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Primitives;
+using OpenRA.Support;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Traits
@@ -39,13 +40,20 @@ namespace OpenRA.Mods.RA2.Traits
 			"A dictionary of [actor id]: [condition].")]
 		public readonly Dictionary<string, string> InfectedByConditions = [];
 
+		[ConsumedConditionReference]
+		[Desc("Boolean expression that kills the infector while it is true (e.g. the Iron Curtain's invulnerability condition).")]
+		public readonly BooleanExpression KillInfectorCondition = null;
+
+		[Desc("Leave the infector behind at the origin when the host is teleported (e.g. by the Chronosphere).")]
+		public readonly bool EjectInfectorOnTeleport = true;
+
 		[GrantedConditionReference]
 		public IEnumerable<string> LinterConditions { get { return InfectedByConditions.Values; } }
 
 		public override object Create(ActorInitializer init) { return new Infectable(init.Self, this); }
 	}
 
-	public class Infectable : ConditionalTrait<InfectableInfo>, ISync, ITick, INotifyCreated, INotifyDamage, INotifyKilled, IRemoveInfector
+	public class Infectable : ConditionalTrait<InfectableInfo>, ISync, ITick, INotifyDamage, INotifyKilled, INotifyOwnerChanged, IRemoveInfector
 	{
 		readonly Health health;
 
@@ -62,10 +70,41 @@ namespace OpenRA.Mods.RA2.Traits
 		int infectedToken = Actor.InvalidConditionToken;
 		int infectedByToken = Actor.InvalidConditionToken;
 
+		// The infector is returned to the world in a frame end task; ignore further removals until then.
+		bool removalPending;
+
+		bool killInfectorConditionActive;
+
+		// Teleport detection: the host's generation and position as of the previous tick.
+		int observedGeneration;
+		int ownerChangesSinceTick;
+		WPos lastPosition;
+
 		public Infectable(Actor self, InfectableInfo info)
 			: base(info)
 		{
 			health = self.Trait<Health>();
+		}
+
+		protected override void Created(Actor self)
+		{
+			base.Created(self);
+			observedGeneration = self.Generation;
+			lastPosition = self.CenterPosition;
+		}
+
+		public override IEnumerable<VariableObserver> GetVariableObservers()
+		{
+			foreach (var observer in base.GetVariableObservers())
+				yield return observer;
+
+			if (Info.KillInfectorCondition != null)
+				yield return new VariableObserver(KillInfectorConditionChanged, Info.KillInfectorCondition.Variables);
+		}
+
+		void KillInfectorConditionChanged(Actor self, IReadOnlyDictionary<string, int> conditions)
+		{
+			killInfectorConditionActive = Info.KillInfectorCondition.Evaluate(conditions);
 		}
 
 		public bool TryStartInfecting(Actor self, Actor infector)
@@ -117,62 +156,81 @@ namespace OpenRA.Mods.RA2.Traits
 			}
 		}
 
-		void RemoveInfector(Actor self, bool kill, AttackInfo info)
+		void RemoveInfector(Actor self, InfectorOutcome outcome, AttackInfo info, WPos position)
 		{
-			if (Infector != null && !Infector.IsDead)
+			if (outcome == InfectorOutcome.None || removalPending || Infector == null || Infector.IsDead)
+				return;
+
+			removalPending = true;
+			Infector.TraitOrDefault<IPositionable>()?.SetPosition(Infector, position);
+
+			self.World.AddFrameEndTask(w =>
 			{
-				Infector.TraitOrDefault<IPositionable>()?.SetPosition(Infector, self.CenterPosition);
+				removalPending = false;
+				if (Infector == null || Infector.IsDead)
+					return;
 
-				self.World.AddFrameEndTask(w =>
+				w.Add(Infector);
+
+				if (outcome == InfectorOutcome.InfectorKilled)
 				{
-					if (Infector == null || Infector.IsDead)
-						return;
-
-					w.Add(Infector);
-
-					if (kill)
-					{
-						if (info != null)
-							Infector.Kill(info.Attacker, info.Damage.DamageTypes);
-						else
-							Infector.Kill(self);
-					}
+					if (info != null)
+						Infector.Kill(info.Attacker, info.Damage.DamageTypes);
 					else
-					{
-						Infector.QueueActivity(false, new Nudge(Infector));
-					}
+						Infector.Kill(self);
+				}
+				else
+				{
+					Infector.QueueActivity(false, new Nudge(Infector));
+				}
 
-					RevokeCondition(self);
-					Infector = null;
-					FirepowerMultipliers = Array.Empty<int>();
-				});
-			}
+				RevokeCondition(self);
+				Infector = null;
+				FirepowerMultipliers = Array.Empty<int>();
+			});
 		}
 
 		void INotifyDamage.Damaged(Actor self, AttackInfo e)
 		{
-			if (Infector != null)
-			{
-				if (e.Damage.DamageTypes.Overlaps(Info.KillInfectorDamageTypes))
-					RemoveInfector(self, true, e);
-				else if (e.Damage.DamageTypes.Overlaps(Info.RemoveInfectorDamageTypes))
-					RemoveInfector(self, false, e);
-			}
+			var outcome = InfectionTransitions.OnDamaged(Infector != null,
+				e.Damage.DamageTypes.Overlaps(Info.KillInfectorDamageTypes),
+				e.Damage.DamageTypes.Overlaps(Info.RemoveInfectorDamageTypes));
+
+			RemoveInfector(self, outcome, e, self.CenterPosition);
 		}
 
 		void INotifyKilled.Killed(Actor self, AttackInfo e)
 		{
-			if (Infector != null)
-			{
-				var info = AttackInfect.InfectInfo;
-				var kill = !info.SurviveHostDamageTypes.Overlaps(e.Damage.DamageTypes);
-				RemoveInfector(self, kill, e);
-			}
+			if (Infector == null)
+				return;
+
+			var survives = AttackInfect.InfectInfo.SurviveHostDamageTypes.Overlaps(e.Damage.DamageTypes);
+			RemoveInfector(self, InfectionTransitions.OnHostKilled(true, survives), e, self.CenterPosition);
+		}
+
+		void INotifyOwnerChanged.OnOwnerChanged(Actor self, Player oldOwner, Player newOwner)
+		{
+			// Owner changes also bump Actor.Generation; they must not count as a teleport.
+			ownerChangesSinceTick++;
 		}
 
 		void ITick.Tick(Actor self)
 		{
-			if (!IsTraitDisabled && Infector != null)
+			// Activities tick before traits, so a teleport this tick has already moved the host:
+			// lastPosition still holds the origin, where the infector is left behind.
+			var teleported = InfectionTransitions.HostTeleported(observedGeneration, self.Generation, ownerChangesSinceTick);
+			var origin = lastPosition;
+			observedGeneration = self.Generation;
+			ownerChangesSinceTick = 0;
+			lastPosition = self.CenterPosition;
+
+			if (teleported && Info.EjectInfectorOnTeleport)
+				RemoveInfector(self, InfectionTransitions.OnChronoshift(Infector != null), null, origin);
+
+			if (killInfectorConditionActive)
+				RemoveInfector(self, InfectionTransitions.OnIronCurtain(Infector != null), null, self.CenterPosition);
+
+			if (!IsTraitDisabled && Infector != null && !removalPending)
 			{
 				if (--Ticks < 0)
 				{
@@ -187,7 +245,7 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void IRemoveInfector.RemoveInfector(Actor self, bool kill, AttackInfo e)
 		{
-			RemoveInfector(self, kill, e);
+			RemoveInfector(self, kill ? InfectorOutcome.InfectorKilled : InfectorOutcome.Ejected, e, self.CenterPosition);
 		}
 	}
 }

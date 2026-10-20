@@ -844,6 +844,8 @@
 	Inherits@6: ^ParachutableVehicle
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@7: ^AffectedByTerrorDrone
+	Infectable:
+		KillInfectorCondition: invulnerability
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
