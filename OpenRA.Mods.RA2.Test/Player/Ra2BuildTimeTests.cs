@@ -87,18 +87,22 @@ namespace OpenRA.Mods.RA2.Test
 	[TestFixture]
 	public class BalanceProductionQueueTests
 	{
-		[TestCase(0, 1)]
-		[TestCase(750, 1)]
-		[TestCase(750, 3)]
-		public void BalanceProductionQueue_WithoutPrerequisite_BuildTimeEqualsClassic(int classicTime, int factoryCount)
+		static int NotEvaluated() => throw new AssertionException("Exact-only input evaluated without the prerequisite.");
+
+		[TestCase(0)]
+		[TestCase(750)]
+		public void BalanceProductionQueue_WithoutPrerequisite_BuildTimeEqualsClassic(int classicTime)
 		{
+			// GetBuildTime routes through SelectBuildTime with base.GetBuildTime (ClassicProductionQueue) as classicTime.
 			var info = new BalanceProductionQueueInfo();
-			Assert.That(BalanceProductionQueue.SelectBuildTime(false, classicTime, 1000, factoryCount, info), Is.EqualTo(classicTime));
+			Assert.That(BalanceProductionQueue.SelectBuildTime(false, () => classicTime, NotEvaluated, NotEvaluated, info),
+				Is.EqualTo(classicTime));
 		}
 
 		[Test]
 		public void BalanceProductionQueue_WithoutPrerequisite_LeavesLowPowerToEngine()
 		{
+			// TickInner and RemainingTimeActual defer to the base class when this is null.
 			var info = new BalanceProductionQueueInfo();
 			Assert.That(BalanceProductionQueue.SelectLowPowerSpeedPercent(false, 10, 100, info), Is.Null);
 		}
@@ -107,8 +111,10 @@ namespace OpenRA.Mods.RA2.Test
 		public void BalanceProductionQueue_WithPrerequisite_UsesRa2Rules()
 		{
 			var info = new BalanceProductionQueueInfo();
-			Assert.That(BalanceProductionQueue.SelectBuildTime(true, 123, 1000, 2, info), Is.EqualTo(1000 * info.MultipleFactory / 100));
+			Assert.That(BalanceProductionQueue.SelectBuildTime(true, NotEvaluated, () => 1000, () => 2, info),
+				Is.EqualTo(1000 * info.MultipleFactory / 100));
 			Assert.That(BalanceProductionQueue.SelectLowPowerSpeedPercent(true, 100, 100, info), Is.EqualTo(100));
+			Assert.That(BalanceProductionQueue.SelectLowPowerSpeedPercent(true, 0, 0, info), Is.EqualTo(100));
 			Assert.That(BalanceProductionQueue.SelectLowPowerSpeedPercent(true, 10, 100, info), Is.EqualTo(info.MinLowPowerProductionSpeed));
 		}
 

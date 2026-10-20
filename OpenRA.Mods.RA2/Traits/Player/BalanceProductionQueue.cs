@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
@@ -19,6 +20,7 @@ namespace OpenRA.Mods.RA2.Traits
 	[Desc("A ClassicProductionQueue that applies Red Alert 2's production speed rules when the owner has ExactPrerequisite.",
 		"With it, SpeedUp/BuildTimeSpeedReduction and LowPowerModifier are replaced by RA2's MultipleFactory and low-power rules",
 		"(see Ra2BuildTime). Without it, the queue behaves exactly like ClassicProductionQueue.",
+		"As with SpeedUp, the factory count is taken when an item starts; low power is applied every tick.",
 		"The prerequisite is queried once and cached, so it must not change during a game (e.g. LobbyPrerequisiteDropdown).")]
 	public class BalanceProductionQueueInfo : ClassicProductionQueueInfo, IRulesetLoaded
 	{
@@ -45,9 +47,12 @@ namespace OpenRA.Mods.RA2.Traits
 			if (MultipleFactory <= 0)
 				throw new YamlException($"{nameof(BalanceProductionQueue)} on actor '{info.Name}': MultipleFactory must be at least 1.");
 
-			if (MinLowPowerProductionSpeed <= 0 || MinLowPowerProductionSpeed > MaxLowPowerProductionSpeed)
+			if (MinLowPowerProductionSpeed <= 0 || MinLowPowerProductionSpeed > MaxLowPowerProductionSpeed || MaxLowPowerProductionSpeed > 100)
 				throw new YamlException($"{nameof(BalanceProductionQueue)} on actor '{info.Name}': "
-					+ "MinLowPowerProductionSpeed must be at least 1 and at most MaxLowPowerProductionSpeed.");
+					+ "MinLowPowerProductionSpeed must be at least 1 and at most MaxLowPowerProductionSpeed, which must be at most 100.");
+
+			if (LowPowerPenaltyModifier < 0)
+				throw new YamlException($"{nameof(BalanceProductionQueue)} on actor '{info.Name}': LowPowerPenaltyModifier must not be negative.");
 		}
 
 		public override object Create(ActorInitializer init) { return new BalanceProductionQueue(init, this); }
@@ -60,8 +65,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// Exact replaces the engine's per-item low-power slowdown, which only reads the shared, non-virtual
 		// ProductionQueueInfo.LowPowerModifier. Items are created with the protected playerPower field, so in Exact
-		// it is moved here (leaving null) before any item can be created, and TickInner gates progress instead.
-		PowerManager exactPower;
+		// it is moved to ExactPower (leaving null) before any item can be created, and TickInner gates progress instead.
+		protected PowerManager ExactPower { get; private set; }
+
 		ProductionItem lowPowerItem;
 		int lowPowerProgress;
 
@@ -71,13 +77,20 @@ namespace OpenRA.Mods.RA2.Traits
 			this.info = info;
 		}
 
-		/// <summary>Build time without prerequisite: the classic one. With it: RA2's multiple-factory rule on the raw time.</summary>
-		public static int SelectBuildTime(bool exact, int classicTime, int rawTime, int factoryCount, BalanceProductionQueueInfo info)
+		/// <summary>
+		/// The single build-time decision used by <see cref="GetBuildTime"/>. Without the prerequisite: the classic time,
+		/// without evaluating the others. With it: RA2's multiple-factory rule on the raw time.
+		/// </summary>
+		public static int SelectBuildTime(bool exact, Func<int> classicTime, Func<int> rawTime, Func<int> factoryCount,
+			BalanceProductionQueueInfo info)
 		{
-			return exact ? Ra2BuildTime.MultipleFactoryTicks(rawTime, factoryCount, info.MultipleFactory) : classicTime;
+			return exact ? Ra2BuildTime.MultipleFactoryTicks(rawTime(), factoryCount(), info.MultipleFactory) : classicTime();
 		}
 
-		/// <summary>Production speed percent under RA2's low-power rule, or null to leave low power to the engine.</summary>
+		/// <summary>
+		/// The single low-power decision used by <see cref="LowPowerSpeedPercent()"/>: production speed percent under
+		/// RA2's low-power rule, or null to leave low power to the engine.
+		/// </summary>
 		public static int? SelectLowPowerSpeedPercent(bool exact, int powerProvided, int powerDrained, BalanceProductionQueueInfo info)
 		{
 			if (!exact)
@@ -113,7 +126,10 @@ namespace OpenRA.Mods.RA2.Traits
 					&& p.Actor.Owner == Actor.Owner && p.Trait.Info.Produces.Contains(type));
 		}
 
-		/// <summary>Build time before any factory or power rule, as in ProductionQueue.GetBuildTime.</summary>
+		/// <summary>
+		/// Build time before any factory or power rule. Copied from ProductionQueue.GetBuildTime (which ClassicProductionQueue
+		/// overrides, so it cannot be called directly); re-check it against that method on engine bumps.
+		/// </summary>
 		protected virtual int RawBuildTime(ActorInfo unit, BuildableInfo bi)
 		{
 			var time = bi.BuildDuration;
@@ -130,30 +146,30 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public override int GetBuildTime(ActorInfo unit, BuildableInfo bi)
 		{
-			if (!IsExact)
-				return base.GetBuildTime(unit, bi);
-
-			if (developerMode.FastBuild)
-				return 0;
-
-			return SelectBuildTime(true, 0, RawBuildTime(unit, bi), FactoryCount(bi), info);
+			return SelectBuildTime(IsExact,
+				() => base.GetBuildTime(unit, bi),
+				() => developerMode.FastBuild ? 0 : RawBuildTime(unit, bi),
+				() => FactoryCount(bi),
+				info);
 		}
 
 		/// <summary>Current production speed percent, or null when the engine's LowPowerModifier applies.</summary>
 		protected virtual int? LowPowerSpeedPercent()
 		{
-			if (!IsExact)
-				return null;
-
-			return exactPower == null ? 100 : SelectLowPowerSpeedPercent(true, exactPower.PowerProvided, exactPower.PowerDrained, info);
+			// Without a PowerManager, 0 provided and 0 drained means full speed.
+			return SelectLowPowerSpeedPercent(IsExact, ExactPower?.PowerProvided ?? 0, ExactPower?.PowerDrained ?? 0, info);
 		}
 
-		void DetachEnginePowerGate()
+		/// <summary>
+		/// In Exact, moves playerPower to <see cref="ExactPower"/> so new items skip the engine's low-power gate.
+		/// Subclasses that create ProductionItems outside ResolveOrder/Tick must call this first.
+		/// </summary>
+		protected void DetachEnginePowerGate()
 		{
 			// Also catches the PowerManager the base class re-reads on owner change.
 			if (IsExact && playerPower != null)
 			{
-				exactPower = playerPower;
+				ExactPower = playerPower;
 				playerPower = null;
 			}
 		}
@@ -172,6 +188,13 @@ namespace OpenRA.Mods.RA2.Traits
 
 		protected override void TickInner(Actor self, bool allProductionPaused)
 		{
+			// Forget an item that was finished or cancelled since the last tick.
+			if (lowPowerItem != null && (Queue.Count == 0 || Queue[0] != lowPowerItem))
+			{
+				lowPowerItem = null;
+				lowPowerProgress = 0;
+			}
+
 			var speed = LowPowerSpeedPercent();
 			if (speed == null || Queue.Count == 0 || allProductionPaused)
 			{
