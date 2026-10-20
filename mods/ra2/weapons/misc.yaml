@@ -84,11 +84,11 @@ PsiWave:
 		Explosions: psi_wave
 
 DemoTruckTargeting:
-	ValidTargets: DetonateAttack, Ground
+	ValidTargets: DetonateAttack
 	Range: 2c0
 	Projectile: InstantHit
 	Warhead@1Dam: TargetDamage
-		ValidTargets: DetonateAttack, Ground
+		ValidTargets: DetonateAttack
 
 HornetLauncher:
 	ReloadDelay: 30
