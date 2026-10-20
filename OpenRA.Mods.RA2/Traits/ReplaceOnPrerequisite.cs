@@ -30,13 +30,25 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			return !ownerIsNonCombatant && ownerHasPrerequisite;
 		}
+
+		/// <summary>
+		/// Replacement is only allowed while the actor is still being created: during its creation tick,
+		/// or for actors spawned while the map loads (tick 0), also during the first tick, whose frame-end runs the
+		/// load-time tasks (e.g. initial cargo notifications). This keeps actors that are stored for later use
+		/// (spawner children) and actors that change owner or leave a transport much later untouched.
+		/// </summary>
+		public static bool InCreationWindow(int createdTick, int currentTick)
+		{
+			return currentTick == createdTick || (createdTick == 0 && currentTick == 1);
+		}
 	}
 
 	[Desc("Replaces this actor with another actor type when it is created for an owner that has the given prerequisite.",
 		"Covers actors spawned outside the production queue: map actors, starting units, crates, paradrops and initial cargo.",
 		"Evaluated only while the actor is being created: later owner changes (capture, mind control) never replace it.",
 		"The prerequisite is queried once per owner and cached, so it must not change during a game (e.g. LobbyPrerequisiteDropdown).",
-		"Do not add this to actors that their creator configures after creation (e.g. support power aircraft or spawner children).")]
+		"Do not add this to actors that their creator configures after creation (e.g. support power aircraft or spawner children).",
+		"Actors spawned while the map loads are replaced before the first tick when the world has ReplaceOnPrerequisiteAtLoad.")]
 	public class ReplaceOnPrerequisiteInfo : TraitInfo
 	{
 		[FieldLoader.Require]
@@ -96,16 +108,9 @@ namespace OpenRA.Mods.RA2.Traits
 				creationInit = null;
 		}
 
-		/// <summary>
-		/// Replacement is only allowed while the actor is still being created: during its creation tick,
-		/// or for actors spawned while the map loads (tick 0), during the first tick whose frame-end runs the
-		/// load-time tasks (e.g. initial cargo). This keeps actors that are stored for later use (spawner children)
-		/// and actors that change owner or leave a transport much later untouched.
-		/// </summary>
 		bool InCreationWindow(Actor self)
 		{
-			var tick = self.World.WorldTick;
-			return tick == createdTick || (createdTick == 0 && tick == 1);
+			return ReplaceDecision.InCreationWindow(createdTick, self.World.WorldTick);
 		}
 
 		void INotifyAddedToWorld.AddedToWorld(Actor self)
@@ -120,21 +125,30 @@ namespace OpenRA.Mods.RA2.Traits
 				return;
 			}
 
-			// Defer until the creator has finished setting the actor up (e.g. crates set the sub-cell after creation).
 			queued = true;
-			self.World.AddFrameEndTask(w =>
-			{
-				queued = false;
-				if (!pending || self.IsDead || self.WillDispose)
-					return;
 
-				// Picked up by a transport in the meantime: OnEnteredCargo will handle it.
-				if (!self.IsInWorld)
-					return;
+			// Actors spawned while the map loads are replaced once the map actors and starting units are all spawned,
+			// before the first tick, so that first-tick orders (e.g. the AI deploying its MCV in place) reach the replacement.
+			var atLoad = self.World.WorldActor.TraitOrDefault<ReplaceOnPrerequisiteAtLoad>();
+			if (atLoad != null && atLoad.TryDefer(w => ReplacePendingInWorld(self, w)))
+				return;
 
-				pending = false;
-				ReplaceInWorld(self, w);
-			});
+			// Otherwise defer until the creator has finished setting the actor up (e.g. crates set the sub-cell after creation).
+			self.World.AddFrameEndTask(w => ReplacePendingInWorld(self, w));
+		}
+
+		void ReplacePendingInWorld(Actor self, World w)
+		{
+			queued = false;
+			if (!pending || self.IsDead || self.WillDispose)
+				return;
+
+			// Picked up by a transport in the meantime: OnEnteredCargo will handle it.
+			if (!self.IsInWorld)
+				return;
+
+			pending = false;
+			ReplaceInWorld(self, w);
 		}
 
 		void INotifyEnteredCargo.OnEnteredCargo(Actor self, Actor cargo)

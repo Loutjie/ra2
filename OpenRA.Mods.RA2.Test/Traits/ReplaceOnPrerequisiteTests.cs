@@ -46,5 +46,18 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(typeof(INotifyOwnerChanged).IsAssignableFrom(typeof(ReplaceOnPrerequisite)), Is.False);
 			Assert.That(typeof(INotifyCreated).IsAssignableFrom(typeof(ReplaceOnPrerequisite)), Is.True);
 		}
+
+		[TestCase(0, 0, ExpectedResult = true)]
+		[TestCase(0, 1, ExpectedResult = true)]
+		[TestCase(0, 2, ExpectedResult = false)]
+		[TestCase(5, 5, ExpectedResult = true)]
+		[TestCase(5, 6, ExpectedResult = false)]
+		[TestCase(1, 2, ExpectedResult = false)]
+		public bool ReplaceOnPrerequisite_InCreationWindow(int createdTick, int currentTick)
+		{
+			// Map-load actors (tick 0) may still be replaced in the first tick, where initial cargo is notified;
+			// any other actor only in the tick it was created.
+			return ReplaceDecision.InCreationWindow(createdTick, currentTick);
+		}
 	}
 }
