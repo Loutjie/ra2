@@ -31,3 +31,13 @@ def test_pillbox_muzzle_uses_art_flh():
     # art.ini GAPILL PrimaryFireFLH=90,0,40 (256 leptons/cell) -> 4x in OpenRA's 1024/cell
     x, y, z = (int(v) for v in _load("rules", "allied-structures.yaml")["gapill"]["Armament"]["LocalOffset"].split(","))
     assert (x, y, z) == (90 * 4, 0, 40 * 4)
+
+
+def test_voxel_turret_structures_share_body_zoffset():
+    """The sprite base of every voxel-turret defence sits at ZOffset -512 so the turret draws over it."""
+    allied = _load("sequences", "allied-structures.yaml")
+    soviet = _load("sequences", "soviet-structures.yaml")
+    for seqs in (allied["nasam"], allied["gtgcan"], soviet["naflak"], soviet["nalasr"]):
+        assert _zoffset(seqs["Defaults"]) == -512
+        # the build-up animation is drawn above the (not yet present) turret
+        assert _zoffset(seqs["make"]) == 0

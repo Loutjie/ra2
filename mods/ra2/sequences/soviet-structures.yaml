@@ -736,6 +736,7 @@ nalasr:
 		TilesetFilenames:
 			SNOW: nalasr.shp
 		Offset: 0, -20, 20
+		ZOffset: -512
 	idle:
 		Filename: nglasr.shp
 		TilesetFilenames:
