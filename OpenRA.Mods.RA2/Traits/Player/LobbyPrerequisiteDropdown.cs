@@ -20,7 +20,7 @@ namespace OpenRA.Mods.RA2.Traits
 {
 	[TraitLocation(SystemActors.Player)]
 	[Desc("Grants the prerequisites mapped to the value selected in a lobby dropdown to all players.")]
-	public class LobbyPrerequisiteDropdownInfo : TraitInfo, ILobbyOptions, ITechTreePrerequisiteInfo
+	public class LobbyPrerequisiteDropdownInfo : TraitInfo, ILobbyOptions, ITechTreePrerequisiteInfo, IRulesetLoaded
 	{
 		[FieldLoader.Require]
 		[Desc("Internal id for this dropdown.")]
@@ -65,6 +65,13 @@ namespace OpenRA.Mods.RA2.Traits
 		IEnumerable<LobbyOption> ILobbyOptions.LobbyOptions(MapPreview map)
 		{
 			yield return new LobbyOption(map, ID, Label, Description, Visible, DisplayOrder, Values, Default, Locked);
+		}
+
+		void IRulesetLoaded<ActorInfo>.RulesetLoaded(Ruleset rules, ActorInfo info)
+		{
+			var error = LobbyDropdownPrerequisites.Validate(Default, Values.Keys, Prerequisites.Keys);
+			if (error != null)
+				throw new YamlException($"{nameof(LobbyPrerequisiteDropdown)} '{ID}' on actor '{info.Name}': {error}");
 		}
 
 		public override object Create(ActorInitializer init) { return new LobbyPrerequisiteDropdown(this); }

@@ -43,5 +43,32 @@ namespace OpenRA.Mods.RA2.Test
 		{
 			Assert.That(LobbyDropdownPrerequisites.Resolve(null, "reimagined", Map), Is.EqualTo(new[] { "balance.reimagined" }));
 		}
+
+		static readonly string[] ValueIds = ["reimagined", "exact"];
+
+		[Test]
+		public void Validate_ConsistentDefinition_ReturnsNull()
+		{
+			Assert.That(LobbyDropdownPrerequisites.Validate("reimagined", ValueIds, Map.Keys), Is.Null);
+		}
+
+		[Test]
+		public void Validate_DefaultNotAValue_ReturnsError()
+		{
+			Assert.That(LobbyDropdownPrerequisites.Validate("modern", ValueIds, Map.Keys), Does.Contain("Default 'modern'"));
+		}
+
+		[Test]
+		public void Validate_ValueWithoutPrerequisites_ReturnsError()
+		{
+			Assert.That(LobbyDropdownPrerequisites.Validate("reimagined", ["reimagined", "exact", "modern"], Map.Keys),
+				Does.Contain("modern"));
+		}
+
+		[Test]
+		public void Validate_PrerequisitesWithoutValue_ReturnsError()
+		{
+			Assert.That(LobbyDropdownPrerequisites.Validate("reimagined", ["reimagined"], Map.Keys), Does.Contain("exact"));
+		}
 	}
 }
