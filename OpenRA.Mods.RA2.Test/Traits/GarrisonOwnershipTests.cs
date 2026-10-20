@@ -21,6 +21,7 @@ namespace OpenRA.Mods.RA2.Test
 
 		readonly P neutral = new();
 		readonly P gdi = new();
+		readonly P gdiTeammate = new();
 
 		[TestCase(TestName = "Owner_ChangesToFirstOccupant")]
 		public void Owner_ChangesToFirstOccupant()
@@ -46,10 +47,17 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(GarrisonOwnershipRules.CanEnter(false, false), Is.False);
 		}
 
-		[TestCase(TestName = "CanEnter_AllyWhenOccupied_True")]
-		public void CanEnter_AllyWhenOccupied_True()
+		[TestCase(TestName = "CanEnter_SameOwnerWhenOccupied_True")]
+		public void CanEnter_SameOwnerWhenOccupied_True()
 		{
-			Assert.That(GarrisonOwnershipRules.CanEnter(false, true), Is.True);
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, GarrisonOwnershipRules.SameOwnerAsOccupants(gdi, new[] { gdi, gdi })), Is.True);
+		}
+
+		[TestCase(TestName = "CanEnter_AllyWhenOccupied_False")]
+		public void CanEnter_AllyWhenOccupied_False()
+		{
+			// No allied mixing: the building would re-own the teammate's infantry to the first occupant's owner.
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, GarrisonOwnershipRules.SameOwnerAsOccupants(gdiTeammate, new[] { gdi })), Is.False);
 		}
 
 		[TestCase(TestName = "CanEnter_AnyoneWhenEmpty_True")]
@@ -60,28 +68,42 @@ namespace OpenRA.Mods.RA2.Test
 
 		[TestCase(true, true, true, true, false, ExpectedResult = true, TestName = "CanTarget_EmptyNeutral")]
 		[TestCase(true, true, true, false, false, ExpectedResult = false, TestName = "CanTarget_OccupiedEnemy")]
-		[TestCase(true, true, true, false, true, ExpectedResult = true, TestName = "CanTarget_OccupiedAlly")]
+		[TestCase(true, true, true, false, true, ExpectedResult = true, TestName = "CanTarget_OccupiedSameOwner")]
 		[TestCase(false, true, true, true, true, ExpectedResult = false, TestName = "CanTarget_NotGarrison")]
 		[TestCase(true, false, true, true, true, ExpectedResult = false, TestName = "CanTarget_WrongCargoType")]
 		[TestCase(true, true, false, true, true, ExpectedResult = false, TestName = "CanTarget_Full")]
-		public bool CanTarget(bool garrison, bool type, bool space, bool empty, bool allied)
+		public bool CanTarget(bool garrison, bool type, bool space, bool empty, bool sameOwner)
 		{
-			return GarrisonOwnershipRules.CanTarget(garrison, type, space, empty, allied);
+			return GarrisonOwnershipRules.CanTarget(garrison, type, space, empty, sameOwner);
 		}
 
-		[TestCase(TestName = "CanEnter_SameTickTeammate_True")]
-		public void CanEnter_SameTickTeammate_True()
+		[TestCase(TestName = "CanEnter_SameTickSameOwner_True")]
+		public void CanEnter_SameTickSameOwner_True()
 		{
-			// Building still owned by neutral, first teammate already inside, second is an ally of the occupant.
-			var allied = GarrisonOwnershipRules.AlliedToGarrison(false, true);
-			Assert.That(GarrisonOwnershipRules.CanEnter(false, allied), Is.True);
+			// Building still owned by neutral, the first GI of the same player is already inside.
+			var sameOwner = GarrisonOwnershipRules.SameOwnerAsOccupants(gdi, new[] { gdi });
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, sameOwner), Is.True);
+		}
+
+		[TestCase(TestName = "CanEnter_SameTickTeammate_False")]
+		public void CanEnter_SameTickTeammate_False()
+		{
+			var sameOwner = GarrisonOwnershipRules.SameOwnerAsOccupants(gdiTeammate, new[] { gdi });
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, sameOwner), Is.False);
 		}
 
 		[TestCase(TestName = "CanEnter_SameTickEnemy_False")]
 		public void CanEnter_SameTickEnemy_False()
 		{
-			var allied = GarrisonOwnershipRules.AlliedToGarrison(false, false);
-			Assert.That(GarrisonOwnershipRules.CanEnter(false, allied), Is.False);
+			var sameOwner = GarrisonOwnershipRules.SameOwnerAsOccupants(neutral, new[] { gdi });
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, sameOwner), Is.False);
+		}
+
+		[TestCase(TestName = "GarrisonOwnership_RejectsCapturable")]
+		public void RejectsCapturable()
+		{
+			Assert.Throws<YamlException>(() => GarrisonOwnershipRules.EnsureNotCapturable("cafake01", true));
+			Assert.DoesNotThrow(() => GarrisonOwnershipRules.EnsureNotCapturable("cafake01", false));
 		}
 	}
 }

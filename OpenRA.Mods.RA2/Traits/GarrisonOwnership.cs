@@ -16,13 +16,19 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.RA2.Traits
 {
 	[Desc("Garrisoned buildings take the owner of their first occupant and revert to their original owner when emptied.")]
-	public class GarrisonOwnershipInfo : TraitInfo, Requires<CargoInfo>
+	public class GarrisonOwnershipInfo : TraitInfo, Requires<CargoInfo>, IRulesetLoaded
 	{
 		public override object Create(ActorInitializer init) { return new GarrisonOwnership(init.Self); }
+
+		void IRulesetLoaded<ActorInfo>.RulesetLoaded(Ruleset rules, ActorInfo ai)
+		{
+			GarrisonOwnershipRules.EnsureNotCapturable(ai.Name, ai.HasTraitInfo<CapturableInfo>());
+		}
 	}
 
 	// The original owner is the owner at creation: garrison buildings must be neutral-owned and not Capturable
-	// (enforced by the generated YAML), otherwise "revert when empty" would hand them back to the wrong player.
+	// (Capturable is rejected when the ruleset loads), otherwise "revert when empty" would hand them back to the
+	// wrong player.
 	public class GarrisonOwnership : INotifyPassengerEntered, INotifyPassengerExited
 	{
 		readonly Cargo cargo;
@@ -46,7 +52,8 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void Update(Actor self)
 		{
-			// Changing owner re-owns the passengers (Cargo.OnOwnerChanged), so defer to frame end.
+			// Changing owner re-owns the passengers (Cargo.OnOwnerChanged), so defer to frame end, where the
+			// owner must change synchronously (ChangeOwner would queue yet another frame-end task).
 			// The target owner is derived from the cargo state when the task runs, not when it was queued,
 			// so enter+exit within one drain cannot leave an empty building owned by an occupant.
 			self.World.AddFrameEndTask(_ =>
@@ -57,7 +64,7 @@ namespace OpenRA.Mods.RA2.Traits
 				var first = cargo.Passengers.FirstOrDefault();
 				var next = GarrisonOwnershipRules.NextOwner(originalOwner, self.Owner, cargo.PassengerCount, first?.Owner);
 				if (next != null && next != self.Owner)
-					self.ChangeOwner(next);
+					self.ChangeOwnerSync(next);
 			});
 		}
 	}

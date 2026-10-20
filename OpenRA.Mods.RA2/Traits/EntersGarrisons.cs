@@ -32,10 +32,6 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Cursor to display when able to enter target actor.")]
 		public readonly string EnterCursor = "enter";
 
-		[CursorReference]
-		[Desc("Cursor to display when unable to enter target actor.")]
-		public readonly string EnterBlockedCursor = "enter-blocked";
-
 		public override object Create(ActorInitializer init) { return new EntersGarrisons(this); }
 	}
 
@@ -52,18 +48,16 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public static bool CanEnter(Actor self, Actor building, Cargo cargo, Passenger passenger)
 		{
-			// Ownership flips in a deferred task, so a teammate that entered this tick may not have changed
-			// the building's owner yet: also accept allies of any current occupant.
-			var allied = GarrisonOwnershipRules.AlliedToGarrison(
-				self.Owner.IsAlliedWith(building.Owner),
-				cargo.Passengers.Any(p => self.Owner.IsAlliedWith(p.Owner)));
+			// Occupied buildings only take more infantry of the occupants' owner (no allied mixing). Ownership
+			// flips in a deferred task, so compare against the occupants rather than the building's owner.
+			var sameOwner = GarrisonOwnershipRules.SameOwnerAsOccupants(self.Owner, cargo.Passengers.Select(p => p.Owner));
 
 			return GarrisonOwnershipRules.CanTarget(
 				building.Info.HasTraitInfo<GarrisonOwnershipInfo>(),
 				cargo.Info.Types.Contains(passenger.Info.CargoType),
 				!cargo.IsTraitDisabled && (cargo.CanLoad(self) || cargo.HasSpace(passenger.Info.Weight)),
 				cargo.IsEmpty(),
-				allied);
+				sameOwner);
 		}
 
 		bool CanEnter(Actor self, Actor building)

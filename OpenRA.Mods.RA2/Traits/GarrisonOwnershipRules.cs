@@ -9,30 +9,49 @@
  */
 #endregion
 
+using System.Collections.Generic;
+using System.Linq;
+
 namespace OpenRA.Mods.RA2.Traits
 {
 	/// <summary>Pure decision logic for GarrisonOwnership, kept free of engine state so it can be unit tested.</summary>
 	public static class GarrisonOwnershipRules
 	{
-		/// <summary>Anyone may enter an empty building; an occupied one only accepts the current owner and allies.</summary>
-		public static bool CanEnter(bool isEmpty, bool sameOrAlliedOwner)
+		/// <summary>
+		/// Anyone may enter an empty building; an occupied one only accepts infantry of its occupants' owner.
+		/// Allies may not mix: the building takes a single owner, and re-owning it would re-own their infantry.
+		/// </summary>
+		public static bool CanEnter(bool isEmpty, bool sameOwnerAsOccupants)
 		{
-			return isEmpty || sameOrAlliedOwner;
+			return isEmpty || sameOwnerAsOccupants;
 		}
 
 		/// <summary>
-		/// Allied with the building, or with any occupant. The occupant check covers teammates entering in the
-		/// same tick as the first occupant, before the deferred owner change has happened.
+		/// Whether every current occupant has the entering owner. Checked against the occupants rather than the
+		/// building, so a second infantry entering in the same tick as the first (before the deferred owner
+		/// change) is still accepted.
 		/// </summary>
-		public static bool AlliedToGarrison(bool alliedToBuildingOwner, bool alliedToAnyOccupant)
+		public static bool SameOwnerAsOccupants<T>(T enteringOwner, IEnumerable<T> occupantOwners)
+			where T : class
 		{
-			return alliedToBuildingOwner || alliedToAnyOccupant;
+			return occupantOwners.All(o => o == enteringOwner);
 		}
 
 		/// <summary>Whether a passenger may target (and keep targeting) a garrison building.</summary>
-		public static bool CanTarget(bool isGarrison, bool cargoTypeAccepted, bool hasSpace, bool isEmpty, bool sameOrAlliedOwner)
+		public static bool CanTarget(bool isGarrison, bool cargoTypeAccepted, bool hasSpace, bool isEmpty, bool sameOwnerAsOccupants)
 		{
-			return isGarrison && cargoTypeAccepted && hasSpace && CanEnter(isEmpty, sameOrAlliedOwner);
+			return isGarrison && cargoTypeAccepted && hasSpace && CanEnter(isEmpty, sameOwnerAsOccupants);
+		}
+
+		/// <summary>
+		/// GarrisonOwnership reverts an emptied building to its owner at creation, which is only right for buildings
+		/// that nobody can capture.
+		/// </summary>
+		public static void EnsureNotCapturable(string actorName, bool hasCapturable)
+		{
+			if (hasCapturable)
+				throw new YamlException($"Actor type `{actorName}` has GarrisonOwnership and Capturable: garrison buildings "
+					+ "must not be capturable, because they revert to their original owner when emptied.");
 		}
 
 		/// <summary>
