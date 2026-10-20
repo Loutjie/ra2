@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System.Linq;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -20,6 +21,8 @@ namespace OpenRA.Mods.RA2.Traits
 		public override object Create(ActorInitializer init) { return new GarrisonOwnership(init.Self); }
 	}
 
+	// The original owner is the owner at creation: garrison buildings must be neutral-owned and not Capturable
+	// (enforced by the generated YAML), otherwise "revert when empty" would hand them back to the wrong player.
 	public class GarrisonOwnership : INotifyPassengerEntered, INotifyPassengerExited
 	{
 		readonly Cargo cargo;
@@ -33,25 +36,27 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void INotifyPassengerEntered.OnPassengerEntered(Actor self, Actor passenger)
 		{
-			Update(self, passenger.Owner);
+			Update(self);
 		}
 
 		void INotifyPassengerExited.OnPassengerExited(Actor self, Actor passenger)
 		{
-			Update(self, self.Owner);
+			Update(self);
 		}
 
-		void Update(Actor self, Player enteringOwner)
+		void Update(Actor self)
 		{
-			// Cargo has already updated its passenger list when these notifications fire.
-			var next = GarrisonOwnershipRules.NextOwner(originalOwner, self.Owner, cargo.PassengerCount, enteringOwner);
-			if (next == self.Owner)
-				return;
-
 			// Changing owner re-owns the passengers (Cargo.OnOwnerChanged), so defer to frame end.
+			// The target owner is derived from the cargo state when the task runs, not when it was queued,
+			// so enter+exit within one drain cannot leave an empty building owned by an occupant.
 			self.World.AddFrameEndTask(_ =>
 			{
-				if (!self.IsDead && !self.Disposed)
+				if (self.IsDead || self.Disposed)
+					return;
+
+				var first = cargo.Passengers.FirstOrDefault();
+				var next = GarrisonOwnershipRules.NextOwner(originalOwner, self.Owner, cargo.PassengerCount, first?.Owner);
+				if (next != null && next != self.Owner)
 					self.ChangeOwner(next);
 			});
 		}

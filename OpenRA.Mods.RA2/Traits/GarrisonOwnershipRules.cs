@@ -20,6 +20,15 @@ namespace OpenRA.Mods.RA2.Traits
 			return isEmpty || sameOrAlliedOwner;
 		}
 
+		/// <summary>
+		/// Allied with the building, or with any occupant. The occupant check covers teammates entering in the
+		/// same tick as the first occupant, before the deferred owner change has happened.
+		/// </summary>
+		public static bool AlliedToGarrison(bool alliedToBuildingOwner, bool alliedToAnyOccupant)
+		{
+			return alliedToBuildingOwner || alliedToAnyOccupant;
+		}
+
 		/// <summary>Whether a passenger may target (and keep targeting) a garrison building.</summary>
 		public static bool CanTarget(bool isGarrison, bool cargoTypeAccepted, bool hasSpace, bool isEmpty, bool sameOrAlliedOwner)
 		{

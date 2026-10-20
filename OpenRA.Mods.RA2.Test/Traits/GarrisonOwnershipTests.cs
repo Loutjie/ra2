@@ -68,5 +68,20 @@ namespace OpenRA.Mods.RA2.Test
 		{
 			return GarrisonOwnershipRules.CanTarget(garrison, type, space, empty, allied);
 		}
+
+		[TestCase(TestName = "CanEnter_SameTickTeammate_True")]
+		public void CanEnter_SameTickTeammate_True()
+		{
+			// Building still owned by neutral, first teammate already inside, second is an ally of the occupant.
+			var allied = GarrisonOwnershipRules.AlliedToGarrison(false, true);
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, allied), Is.True);
+		}
+
+		[TestCase(TestName = "CanEnter_SameTickEnemy_False")]
+		public void CanEnter_SameTickEnemy_False()
+		{
+			var allied = GarrisonOwnershipRules.AlliedToGarrison(false, false);
+			Assert.That(GarrisonOwnershipRules.CanEnter(false, allied), Is.False);
+		}
 	}
 }

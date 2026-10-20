@@ -10,6 +10,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Linq;
 using OpenRA.Mods.Common.Orders;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.RA2.Activities;
@@ -51,12 +52,18 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public static bool CanEnter(Actor self, Actor building, Cargo cargo, Passenger passenger)
 		{
+			// Ownership flips in a deferred task, so a teammate that entered this tick may not have changed
+			// the building's owner yet: also accept allies of any current occupant.
+			var allied = GarrisonOwnershipRules.AlliedToGarrison(
+				self.Owner.IsAlliedWith(building.Owner),
+				cargo.Passengers.Any(p => self.Owner.IsAlliedWith(p.Owner)));
+
 			return GarrisonOwnershipRules.CanTarget(
 				building.Info.HasTraitInfo<GarrisonOwnershipInfo>(),
 				cargo.Info.Types.Contains(passenger.Info.CargoType),
 				!cargo.IsTraitDisabled && (cargo.CanLoad(self) || cargo.HasSpace(passenger.Info.Weight)),
 				cargo.IsEmpty(),
-				self.Owner.IsAlliedWith(building.Owner));
+				allied);
 		}
 
 		bool CanEnter(Actor self, Actor building)
@@ -103,6 +110,8 @@ namespace OpenRA.Mods.RA2.Traits
 			public GarrisonTargeter(EntersGarrisonsInfo info, System.Func<Actor, Actor, bool> canEnter)
 				: base(OrderName, 6, info.EnterCursor, false, true)
 			{
+				// Ctrl (force attack) must fall through to the Attack order.
+				ForceAttack = false;
 				this.info = info;
 				this.canEnter = canEnter;
 			}
@@ -112,12 +121,17 @@ namespace OpenRA.Mods.RA2.Traits
 				if (!target.Info.HasTraitInfo<GarrisonOwnershipInfo>() || !target.Info.HasTraitInfo<CargoInfo>())
 					return false;
 
-				cursor = canEnter(self, target) ? info.EnterCursor : info.EnterBlockedCursor;
+				// Only claim the target when entry is possible, so we never shadow Attack with a blocked cursor.
+				if (!canEnter(self, target))
+					return false;
+
+				cursor = info.EnterCursor;
 				return true;
 			}
 
 			public override bool CanTargetFrozenActor(Actor self, FrozenActor target, TargetModifiers modifiers, ref string cursor)
 			{
+				// Fogged (frozen) garrison buildings are deliberately not targetable.
 				return false;
 			}
 		}
