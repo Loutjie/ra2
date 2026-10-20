@@ -206,7 +206,7 @@
 		Delay: 100
 		StartIfBelow: 100
 		DamageCooldown: 125
-		RequiresCondition: rank-veteran && !rank-elite
+		RequiresCondition: rank-elite
 	InaccuracyMultiplier@ELITE:
 		RequiresCondition: rank-elite
 		Modifier: 50
