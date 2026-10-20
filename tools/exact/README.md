@@ -127,6 +127,39 @@ any change to what the twins resolve to, and `test_generated_lists_match_resolve
 catches a base actor whose prerequisites or hosts changed without a regeneration. Run `python3 -m exact.generate --check` locally before
 pushing a change that a twin inherits from.
 
+## Play-test checklist
+
+> **All Exact timers are provisional** until RA2's frame rate is measured in game
+> (`TIMING.md` section 4). Frame-based `rules.ini` values use 1 RA2 frame = 1 OpenRA tick
+> (`RA2_FRAMES_PER_SECOND = 25`), and minute-based values (build times, superweapon
+> recharges, repair rates) use real minutes (`MINUTES_ARE_FRAMES = False`). Build,
+> superweapon and repair pacing in Exact may therefore be off by up to ~1.7x; check
+> relative behaviour, not stopwatch times, until the measurement is done.
+
+Twins share their base's tooltip, name and icon, so the sidebar and tooltips cannot tell
+the modes apart: compare health (e.g. how many hits a unit survives) or damage dealt
+against the same target in each mode.
+
+1. The lobby shows "Balance" with Reimagined (default) and Exact; every player sees the
+   same choice.
+2. **Reimagined:** a normal skirmish behaves as before (costs, build speed, unit health and
+   damage).
+3. **Exact:**
+   - the sidebar offers the same units as in Reimagined;
+   - unit and building costs match RA2 (the sidebar shows the cost), and health and damage
+     match RA2 (compare against the same target in each mode, as above);
+   - the starting units are the twins: they take and deal Exact damage (e.g. a starting
+     unit survives a different number of hits than in Reimagined);
+   - the Chronosphere recharges in 7 minutes **at the default game speed only** (other
+     speeds scale every timer), and subject to the provisional-timer note above;
+   - the Iron Curtain kills infantry;
+   - an AI opponent builds and fights normally.
+4. **Capture a tech building in each mode** whose balance differs between them, e.g. the
+   Tech Airport: its paradrop recharges faster in Exact (4 minutes at the default speed,
+   against 6 in Reimagined) and drops Exact infantry. (The Oil Derrick cannot tell the
+   modes apart: its income is the same in both.)
+5. **Save and load a game in each mode:** it resumes in the same mode.
+
 ## Merging other branches
 
 The separate airfield-capacity branch adds `PadLimitedProductionQueue`. When it is merged
