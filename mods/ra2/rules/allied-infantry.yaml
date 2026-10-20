@@ -148,7 +148,10 @@ e1:
 	Mobile:
 		PauseOnCondition: chronodisable || !undeployed
 	Passenger:
+		CargoType: Garrisoner
 		CustomPipType: green
+	EntersGarrisons:
+		Voice: Move
 	RevealsShroud:
 		Range: 5c0
 	AttackFrontal:
@@ -159,6 +162,9 @@ e1:
 		Armaments: deployed, deployed-elite
 		Voice: Attack
 		RequiresCondition: deployed
+	Armament@GARRISON:
+		Name: garrison
+		Weapon: AlliedOccupyW
 	Armament@primary:
 		Weapon: M60
 		RequiresCondition: !deployed && !rank-elite

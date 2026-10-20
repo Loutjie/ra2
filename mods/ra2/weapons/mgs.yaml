@@ -12,6 +12,24 @@ M1CarbineE:
 	Warhead@1Dam: SpreadDamage
 		Damage: 20
 
+# Occupier weapons (rules.ini AlliedOccupyW / SovietOccupyW): fired from garrisoned
+# buildings by Armament@GARRISON on e1/e2. Timings 1:1 like the other weapons here.
+AlliedOccupyW:
+	Inherits: ^MG
+	ReloadDelay: 15
+	Range: 7c0
+	Report: igiat2a.wav, igiat2b.wav, igiat2c.wav, igiat2d.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 30
+
+SovietOccupyW:
+	Inherits: ^MG
+	ReloadDelay: 20
+	Range: 7c0
+	Report: iconatta.wav, iconattb.wav, iconattc.wav, iconattd.wav, iconatte.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 20
+
 M60:
 	Inherits: ^MG
 

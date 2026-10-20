@@ -3,7 +3,7 @@ bus:
 	Tooltip:
 		Name: actor-bus-name
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Garrisoner
 		MaxWeight: 20
 		UnloadVoice: Move
 	WithCargoPipsDecoration:
@@ -22,7 +22,7 @@ limo:
 	Tooltip:
 		Name: actor-limo-name
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Garrisoner
 		MaxWeight: 20
 		UnloadVoice: Move
 	WithCargoPipsDecoration:

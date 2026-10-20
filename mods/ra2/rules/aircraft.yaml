@@ -49,7 +49,7 @@ shad:
 		RequiresCondition: cruising
 		BobDistance: -45
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Garrisoner
 		MaxWeight: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:

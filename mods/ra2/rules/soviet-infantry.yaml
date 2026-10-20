@@ -23,12 +23,18 @@ e2:
 	Health:
 		HP: 125
 	Passenger:
+		CargoType: Garrisoner
 		CustomPipType: green
+	EntersGarrisons:
+		Voice: Move
 	RevealsShroud:
 		Range: 5c0
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
+	Armament@GARRISON:
+		Name: garrison
+		Weapon: SovietOccupyW
 	Armament@primary:
 		Weapon: M1Carbine
 		RequiresCondition: !rank-elite
