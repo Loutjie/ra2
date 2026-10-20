@@ -48,7 +48,7 @@ def test_twin_inherits_and_overrides():
     assert twin["Valued"] == {"Cost": "900"}
     assert twin["Health"] == {"HP": "400"}
     assert twin["Armor"] == {"Type": "Heavy"}
-    assert twin["Mobile"] == {"Speed": "90", "TurnSpeed": "20"}
+    assert twin["Mobile"] == {"Speed": "72", "TurnSpeed": "16"}
     assert twin["RevealsShroud"] == {"Range": "8c0"}
     assert twin["Buildable"] == {
         "Prerequisites": "~naweap, ~balance.exact",
@@ -103,13 +103,13 @@ def test_twin_without_replace_trait_has_no_removal():
 def test_infantry_without_rot_keeps_turnspeed():
     base = {"Mobile": {"Speed": "56", "TurnSpeed": "1023"}, "Valued": {"Cost": "1"}}
     actor = make_actor("E1", kind="infantry", speed=4, rot=0, raw={"Speed": "4"})
-    assert twin_of(actor, base)["Mobile"] == {"Speed": "60"}
+    assert twin_of(actor, base)["Mobile"] == {"Speed": "48"}
 
 
 def test_aircraft_speed_and_turn():
     base = {"Aircraft": {"Speed": "200", "TurnSpeed": "8"}}
     actor = make_actor("ORCA", kind="aircraft", speed=14, rot=3)
-    assert twin_of(actor, base)["Aircraft"] == {"Speed": "210", "TurnSpeed": "12"}
+    assert twin_of(actor, base)["Aircraft"] == {"Speed": "168", "TurnSpeed": "10"}
 
 
 def test_armor_special_types():
@@ -299,7 +299,7 @@ def test_building_rot_turns_turret():
     base = {"Turreted": {"TurnSpeed": "1023", "Offset": "1,0,0"}, "RevealsShroud": {"Range": "1c0"}}
     actor = make_actor("GAPILL", kind="building", rot=10, raw={"ROT": "10"})
     traits, notes = actors.twin_traits(actor, base)
-    assert traits["Turreted"] == {"TurnSpeed": "40"}
+    assert traits["Turreted"] == {"TurnSpeed": "32"}
     assert not [n for n in notes if "ROT" in n]
 
 

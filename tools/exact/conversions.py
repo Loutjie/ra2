@@ -5,22 +5,21 @@ constants, with sources, is in tools/exact/TIMING.md.
 
 Time
   RA2 runs one game-logic frame per rendered frame, so the length of a frame
-  in real time depends on the game speed setting. RA2_FRAMES_PER_SECOND is the
-  rate at the default skirmish speed. It is not settled yet (see TIMING.md),
-  so it falls back to OPENRA_TICKS_PER_SECOND: one RA2 frame = one OpenRA
-  tick, which is what the mod does today.
+  in real time depends on the game speed setting. RA2_FRAMES_PER_SECOND is 20,
+  the rate of OpenRA's Normal speed, which corresponds to RA2's speed slider
+  position 3. It was set from an in-game measurement (an Ore Refinery builds in
+  60 s at slider 3; TIMING.md section 4). One RA2 frame is therefore 1.25
+  OpenRA ticks.
 
-  Minutes in rules.ini are converted as wall-clock minutes at OpenRA's rate
-  (1 minute = 1500 ticks), matching the mod's current superweapon timers.
-  The RA2 engine itself turns a minute into 900 frames; the two agree only
-  if RA2 runs at 15 frames per second. MINUTES_ARE_FRAMES switches to the
-  engine's 900 frames per minute; TIMING.md explains the open decision.
+  Minutes in rules.ini are the engine's 900 frames (MINUTES_ARE_FRAMES = True),
+  so a minute is 900 / 20 = 45 real seconds = 1125 ticks. The same
+  measurement rules out wall-clock minutes.
 
 Speed and turning
   Speed and ROT are per-frame quantities. The mod's conventions (Speed x15,
   ROT x4) are kept and scaled by RA2_FRAMES_PER_SECOND / OPENRA_TICKS_PER_SECOND
-  so that they stay consistent with frames_to_ticks when the rate is settled
-  (a hypothesis to confirm with the frame-rate measurement).
+  so that they stay consistent with frames_to_ticks (TIMING.md section 6: a
+  hypothesis, not separately measured).
   GameSpeedBias is not applied separately (see TIMING.md).
 
 Distance
@@ -42,17 +41,16 @@ from decimal import ROUND_HALF_UP, Decimal
 # mods/ra2/mod.yaml, GameSpeeds -> default -> Timestep: 40 ms per tick.
 OPENRA_TICKS_PER_SECOND = 25
 
-# Fallback: rate not established by sources (TIMING.md). Best-supported
-# candidate is 30 frames per second; awaiting an in-game measurement.
-RA2_FRAMES_PER_SECOND: float = float(OPENRA_TICKS_PER_SECOND)
+# Measured in game (TIMING.md section 4): slider position 3 = 20 frames per second.
+RA2_FRAMES_PER_SECOND: float = 20.0
 
 # RA2 engine: a rules.ini minute is 900 frames (TIMING.md section 2).
 RA2_FRAMES_PER_MINUTE = 900
 
-# False: a rules.ini minute is a wall-clock minute (the mod today, the brief).
-# True: a minute is RA2_FRAMES_PER_MINUTE frames through frames_to_ticks.
-# The Iron Curtain recharge measurement in TIMING.md section 4 decides it.
-MINUTES_ARE_FRAMES = False
+# True: a rules.ini minute is RA2_FRAMES_PER_MINUTE frames through
+# frames_to_ticks (measured: an Ore Refinery takes 60 s, not 84 s). False would
+# make a minute a wall-clock minute (1500 ticks); kept for tests.
+MINUTES_ARE_FRAMES = True
 
 # The mod's existing factors (GAP_STATS.md: "Speed x15; ROT x4").
 SPEED_FACTOR = 15

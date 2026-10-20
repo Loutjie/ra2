@@ -8,11 +8,11 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Applied by: rule `tesla_charge`
 - Reason: The mod splits RA2's ROF into a charge-up (AttackTesla InitialChargeDelay) and a reload (AttackTesla ReloadDelay, with a short weapon ReloadDelay), and the Tesla Coil fires volleys of three bolts. Exact keeps charge + reload equal to RA2's ROF and fires one bolt per ROF, as RA2 does. The Tesla Coil's overpowered OPCoilBolt (RA2 ROF 100) and normal CoilBolt (ROF 120) share one AttackTesla: the trait is timed for the faster weapon and the slower one's own ReloadDelay holds it to its ROF. RA2 values are used for everything else (damage, range, Versus).
 - Affected:
-  - atesla.exact: AttackTesla ReloadDelay 38; charge 22 + reload 38 = 60 ticks
-  - PrismShot.exact: ReloadDelay 38 (RA2 ROF 60 ticks - charge 22)
-  - tesla.exact: AttackTesla ReloadDelay 78, MaxCharges 1; charge 22 + reload 78 = 100 ticks
-  - CoilBolt.exact: ReloadDelay 120 (RA2 ROF; the armament sets the pace)
-  - OPCoilBolt.exact: ReloadDelay 78 (RA2 ROF 100 ticks - charge 22)
+  - atesla.exact: AttackTesla ReloadDelay 53; charge 22 + reload 53 = 75 ticks
+  - PrismShot.exact: ReloadDelay 53 (RA2 ROF 75 ticks - charge 22)
+  - tesla.exact: AttackTesla ReloadDelay 103, MaxCharges 1; charge 22 + reload 103 = 125 ticks
+  - CoilBolt.exact: ReloadDelay 150 (RA2 ROF; the armament sets the pace)
+  - OPCoilBolt.exact: ReloadDelay 103 (RA2 ROF 125 ticks - charge 22)
 
 ## mind-control
 
@@ -406,11 +406,11 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Applied by: the generator
 - Reason: RechargeTime minutes and [CombatDamage]/[General] frame durations converted by exact.conversions; paratrooper drops are <ParaDropInf> x <ParaDropNum> of the twin infantry.
 - Affected:
-  - amradr.exact: ParatroopersPower@paratroopers ChargeInterval 6000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact (RA2 AmericanParaDropSpecial)
-  - gacsph.exact: ChronoshiftPower@chronoshift ChargeInterval 10500 (RA2 ChronoSphereSpecial)
-  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 15000, Duration 180, HitDelay 10, ScatterDelay 5, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
-  - nairon.exact: GrantExternalConditionPower@IRONCURTAIN ChargeInterval 7500, Duration 750 (RA2 IronCurtainSpecial)
-  - namisl.exact: NukePower ChargeInterval 15000 (RA2 MultiSpecial)
+  - amradr.exact: ParatroopersPower@paratroopers ChargeInterval 4500, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact (RA2 AmericanParaDropSpecial)
+  - gacsph.exact: ChronoshiftPower@chronoshift ChargeInterval 7875 (RA2 ChronoSphereSpecial)
+  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 11250, Duration 225, HitDelay 13, ScatterDelay 6, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
+  - nairon.exact: GrantExternalConditionPower@IRONCURTAIN ChargeInterval 5625, Duration 938 (RA2 IronCurtainSpecial)
+  - namisl.exact: NukePower ChargeInterval 11250 (RA2 MultiSpecial)
 
 ## lightning-storm
 
@@ -484,17 +484,18 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Reason: Tech buildings are not twinned: they are neutral when the map starts and change owner when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the owner has balance.exact, and each balance trait whose RA2 value differs from the mod's becomes a X@EXACT/X@REIMAGINED pair (the Reimagined side is copied from the mod's rule files without globals.yaml). Health (not conditional) keeps the mod's value (RA2's Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost (RA2 gives none for Hospital=yes).
 - Affected:
   - caairp: Armor Type Concrete
-  - caairp: ParatroopersPower@Allies ChargeInterval 6000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact, OrderName AlliedParatroopersExact
-  - caairp: ParatroopersPower@Soviets ChargeInterval 6000, DropItems e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact, OrderName SovietParatroopersExact
-  - cahosp: RepairsUnits Interval 2, HpPerStep 20
+  - caairp: ParatroopersPower@Allies ChargeInterval 4500, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact, OrderName AlliedParatroopersExact
+  - caairp: ParatroopersPower@Soviets ChargeInterval 4500, DropItems e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact, OrderName SovietParatroopersExact
+  - cahosp: RepairsUnits Interval 1, HpPerStep 20
+  - caoild: CashTrickler Interval 125, Amount 20
   - caoutp: Armament Weapon HoverMissile.exact
-  - caoutp: RepairsUnits ValuePercentage 15, Interval 24, HpPerStep 8
+  - caoutp: RepairsUnits ValuePercentage 15, Interval 18, HpPerStep 8
 
-## frame-rate-fallback
+## frame-rate
 
 - Field: Every time, speed and turn rate conversion (exact.conversions)
 - Applied by: the generator
-- Reason: RA2's frame rate at the default skirmish speed is not settled (tools/exact/TIMING.md): until the in-game measurement, one RA2 frame is one OpenRA tick and a rules.ini minute is a wall-clock minute (1500 ticks). Evidence for the engine's own rate: rules.ini comments IronCurtainDuration=750 with "In frames 900 is a minute for 15fps".
+- Reason: RA2's frame rate is the measured 20 frames per second (speed slider position 3, OpenRA's Normal speed; tools/exact/TIMING.md section 4), so one RA2 frame is 1.25 OpenRA ticks, and a rules.ini minute is the engine's 900 frames = 45 s = 1125 ticks. Speed and ROT keep the mod's x15 / x4 factors scaled by the same ratio (an unmeasured hypothesis). rules.ini comments IronCurtainDuration=750 with "In frames 900 is a minute for 15fps"; that is the design basis, not the measured rate.
 - Affected:
-  - RA2_FRAMES_PER_SECOND = 25 (OPENRA_TICKS_PER_SECOND = 25)
-  - MINUTES_ARE_FRAMES = False
+  - RA2_FRAMES_PER_SECOND = 20 (OPENRA_TICKS_PER_SECOND = 25)
+  - MINUTES_ARE_FRAMES = True

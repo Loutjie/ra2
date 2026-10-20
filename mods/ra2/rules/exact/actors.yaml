@@ -15,13 +15,13 @@ aegis.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: radar, ~gayard, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	Health:
 		HP: 800
 	Mobile:
-		Speed: 60
-		TurnSpeed: 4
+		Speed: 48
+		TurnSpeed: 3
 	RenderSprites:
 		Image: aegis
 	RenderVoxels:
@@ -43,13 +43,13 @@ amcv.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~gaweap, gadept, ~balance.exact
-		BuildDuration: 3150
+		BuildDuration: 2362
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: amcv
 	RenderVoxels:
@@ -73,7 +73,7 @@ amradr.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: garefn, ~structures.america, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
@@ -110,13 +110,13 @@ apoc.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~naweap, natech, ~balance.exact
-		BuildDuration: 1837
+		BuildDuration: 1378
 		BuildDurationModifier: 100
 	Health:
 		HP: 800
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: apoc
 	RenderVoxels:
@@ -139,10 +139,10 @@ atesla.exact:
 	Armor:
 		Type: Steel
 	AttackTesla:
-		ReloadDelay: 38
+		ReloadDelay: 53
 	Buildable:
 		Prerequisites: power, radar, ~structures.allies, ~balance.exact
-		BuildDuration: 1575
+		BuildDuration: 1181
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
@@ -168,15 +168,15 @@ beag.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
 	Aircraft:
-		Speed: 210
-		TurnSpeed: 12
+		Speed: 168
+		TurnSpeed: 10
 	Armament:
 		Weapon: Maverick2.exact
 	Armor:
 		Type: Light
 	Buildable:
 		Prerequisites: ~aircraft.korea, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	Health:
 		HP: 200
@@ -203,13 +203,13 @@ carrier.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: gatech, ~gayard, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	Health:
 		HP: 800
 	Mobile:
-		Speed: 60
-		TurnSpeed: 4
+		Speed: 48
+		TurnSpeed: 3
 	RenderSprites:
 		Image: carrier
 	RenderVoxels:
@@ -235,14 +235,14 @@ ccomand.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~gapile, ~allies.tech.infiltrated, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: ccomand
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 75
+		Speed: 60
 	RenderSprites:
 		Image: ccomand
 	RevealsShroud:
@@ -264,14 +264,14 @@ civan.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~nahand, ~allies.tech.infiltrated, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: civan
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 90
+		Speed: 72
 	RenderSprites:
 		Image: civan
 	RevealsShroud:
@@ -291,12 +291,12 @@ cleg.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~gapile, gatech, ~balance.exact
-		BuildDuration: 1575
+		BuildDuration: 1181
 		BuildDurationModifier: 100
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 75
+		Speed: 60
 	RenderSprites:
 		Image: cleg
 	RevealsShroud:
@@ -314,15 +314,15 @@ cmin.exact:
 		Type: Medium
 	Buildable:
 		Prerequisites: ~gaweap, refinery, ~balance.exact
-		BuildDuration: 1470
+		BuildDuration: 1102
 		BuildDurationModifier: 100
 	ChronoResourceDelivery:
 		Image: cmin
 	Health:
 		HP: 1000
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: cmin
 	RenderVoxels:
@@ -348,14 +348,14 @@ deso.exact:
 		Type: Plate
 	Buildable:
 		Prerequisites: naradr, ~infantry.iraq, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: deso
 	Health:
 		HP: 150
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: deso
 	RevealsShroud:
@@ -379,13 +379,13 @@ dest.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~gayard, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
 	Mobile:
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 72
+		TurnSpeed: 16
 	RenderSprites:
 		Image: dest
 	RenderVoxels:
@@ -408,13 +408,13 @@ dlph.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: gatech, ~gayard, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 200
 	Mobile:
-		Speed: 120
-		TurnSpeed: 24
+		Speed: 96
+		TurnSpeed: 19
 	RenderSprites:
 		Image: dlph
 	Repairable:
@@ -436,14 +436,14 @@ dog.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~barracks, ~balance.exact
-		BuildDuration: 210
+		BuildDuration: 157
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: dog
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 120
+		Speed: 96
 	RenderSprites:
 		Image: adog
 	RevealsShroud:
@@ -463,13 +463,13 @@ dron.exact:
 		Type: Drone
 	Buildable:
 		Prerequisites: ~naweap, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 150
-		TurnSpeed: 160
+		Speed: 120
+		TurnSpeed: 128
 	RenderSprites:
 		Image: dron
 	Repairable:
@@ -491,13 +491,13 @@ dtruck.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: naradr, ~vehicles.libya, ~balance.exact
-		BuildDuration: 1575
+		BuildDuration: 1181
 		BuildDurationModifier: 100
 	Health:
 		HP: 150
 	Mobile:
-		Speed: 75
-		TurnSpeed: 20
+		Speed: 60
+		TurnSpeed: 16
 	RenderSprites:
 		Image: dtruck
 	RenderVoxels:
@@ -527,14 +527,14 @@ e1.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~gapile, ~balance.exact
-		BuildDuration: 210
+		BuildDuration: 157
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: e1
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: e1
 	RevealsShroud:
@@ -556,14 +556,14 @@ e2.exact:
 		Type: Flak
 	Buildable:
 		Prerequisites: ~nahand, ~balance.exact
-		BuildDuration: 105
+		BuildDuration: 79
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: e2
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: e2
 	RevealsShroud:
@@ -581,14 +581,14 @@ engineer.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~barracks, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: engineer
 	Health:
 		HP: 75
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: engineer
 	RevealsShroud:
@@ -614,14 +614,14 @@ flakt.exact:
 		Type: None
 	Buildable:
 		Prerequisites: naradr, ~nahand, ~balance.exact
-		BuildDuration: 315
+		BuildDuration: 236
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: flakt
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: flakt
 	RevealsShroud:
@@ -659,13 +659,13 @@ fv.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: ~gaweap, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	Health:
 		HP: 200
 	Mobile:
-		Speed: 150
-		TurnSpeed: 20
+		Speed: 120
+		TurnSpeed: 16
 	RenderSprites:
 		Image: fv
 	RenderVoxels:
@@ -687,7 +687,7 @@ gaairc.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: garefn, ~structures.allies, ~!structures.america, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
@@ -716,7 +716,7 @@ gacnst.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: ~disabled, ~balance.exact
-		BuildDuration: 3150
+		BuildDuration: 2362
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -749,7 +749,7 @@ gacsph.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: gatech, ~structures.allies, ~techlevel.unrestricted, ~balance.exact
-		BuildDuration: 2625
+		BuildDuration: 1969
 		BuildDurationModifier: 100
 	Health:
 		HP: 750
@@ -778,7 +778,7 @@ gadept.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: gaweap, ~structures.allies, ~balance.exact
-		BuildDuration: 840
+		BuildDuration: 630
 		BuildDurationModifier: 100
 	Health:
 		HP: 1200
@@ -807,7 +807,7 @@ gagap.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: gatech, ~structures.allies, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
@@ -836,7 +836,7 @@ gaorep.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: garefn, gatech, ~structures.allies, ~balance.exact
-		BuildDuration: 2625
+		BuildDuration: 1969
 		BuildDurationModifier: 100
 	Health:
 		HP: 900
@@ -865,7 +865,7 @@ gapile.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: power, ~structures.allies, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 500
@@ -896,7 +896,7 @@ gapill.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: barracks, ~structures.allies, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 400
@@ -911,7 +911,7 @@ gapill.exact:
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
 	Turreted:
-		TurnSpeed: 40
+		TurnSpeed: 32
 	UpdatesPlayerStatistics:
 		OverrideActor: gapill
 	Valued:
@@ -925,7 +925,7 @@ gapowr.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: ~structures.allies, ~balance.exact
-		BuildDuration: 840
+		BuildDuration: 630
 		BuildDurationModifier: 100
 	Health:
 		HP: 750
@@ -954,7 +954,7 @@ garefn.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: power, ~structures.allies, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	FreeActor:
 		Actor: cmin.exact
@@ -985,7 +985,7 @@ gaspysat.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: gatech, ~structures.allies, ~balance.exact
-		BuildDuration: 1575
+		BuildDuration: 1181
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1014,7 +1014,7 @@ gatech.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: radar, gaweap, ~structures.allies, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	Health:
 		HP: 500
@@ -1043,7 +1043,7 @@ gawall.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: barracks, ~structures.allies, ~balance.exact
-		BuildDuration: 105
+		BuildDuration: 79
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
@@ -1062,7 +1062,7 @@ gaweap.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: garefn, gapile, ~structures.allies, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	GrantConditionOnProduction@helicopters:
 		Actors: shad, shad.exact
@@ -1095,7 +1095,7 @@ gaweat.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: gatech, ~structures.allies, ~techlevel.unrestricted, ~balance.exact
-		BuildDuration: 5250
+		BuildDuration: 3938
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1124,7 +1124,7 @@ gayard.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: power, refinery, ~structures.allies, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 1500
@@ -1151,7 +1151,7 @@ gtgcan.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: radar, ~structures.france, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	Health:
 		HP: 900
@@ -1170,7 +1170,7 @@ gtgcan.exact:
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
 	Turreted:
-		TurnSpeed: 4
+		TurnSpeed: 3
 	UpdatesPlayerStatistics:
 		OverrideActor: gtgcan
 	Valued:
@@ -1188,13 +1188,13 @@ harv.exact:
 		Type: Medium
 	Buildable:
 		Prerequisites: ~naweap, refinery, ~balance.exact
-		BuildDuration: 1470
+		BuildDuration: 1102
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: harv
 	RenderVoxels:
@@ -1220,13 +1220,13 @@ htk.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~naweap, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 180
 	Mobile:
-		Speed: 120
-		TurnSpeed: 20
+		Speed: 96
+		TurnSpeed: 16
 	RenderSprites:
 		Image: htk
 	RenderVoxels:
@@ -1252,13 +1252,13 @@ htnk.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~naweap, ~balance.exact
-		BuildDuration: 945
+		BuildDuration: 709
 		BuildDurationModifier: 100
 	Health:
 		HP: 400
 	Mobile:
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 72
+		TurnSpeed: 16
 	RenderSprites:
 		Image: htnk
 	RenderVoxels:
@@ -1284,13 +1284,13 @@ hyd.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: naradr, ~nayard, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	Health:
 		HP: 400
 	Mobile:
-		Speed: 120
-		TurnSpeed: 24
+		Speed: 96
+		TurnSpeed: 19
 	RenderSprites:
 		Image: hyd
 	RenderVoxels:
@@ -1316,14 +1316,14 @@ ivan.exact:
 		Type: None
 	Buildable:
 		Prerequisites: naradr, ~nahand, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: ivan
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: ivan
 	RevealsShroud:
@@ -1338,7 +1338,7 @@ jumpjet.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
 	Aircraft:
-		Speed: 135
+		Speed: 108
 	Armament@elite:
 		Weapon: 20mme.exact
 	Armament@primary:
@@ -1347,7 +1347,7 @@ jumpjet.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~gapile, radar, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	Health:
 		HP: 125
@@ -1368,13 +1368,13 @@ lcrf.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: ~gayard, ~balance.exact
-		BuildDuration: 945
+		BuildDuration: 709
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
 	Mobile:
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 72
+		TurnSpeed: 16
 	RenderSprites:
 		Image: lcrf
 	RenderVoxels:
@@ -1400,13 +1400,13 @@ mgtk.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: gatech, ~gaweap, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 200
 	Mobile:
-		Speed: 105
-		TurnSpeed: 20
+		Speed: 84
+		TurnSpeed: 16
 	RenderSprites:
 		Image: mgtk
 	RenderVoxels:
@@ -1432,13 +1432,13 @@ mtnk.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~gaweap, ~balance.exact
-		BuildDuration: 735
+		BuildDuration: 551
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
 	Mobile:
-		Speed: 105
-		TurnSpeed: 20
+		Speed: 84
+		TurnSpeed: 16
 	RenderSprites:
 		Image: mtnk
 	RenderVoxels:
@@ -1460,7 +1460,7 @@ naclon.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: natech, ~structures.soviets, ~balance.exact
-		BuildDuration: 2625
+		BuildDuration: 1969
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1489,7 +1489,7 @@ nacnst.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: ~disabled, ~balance.exact
-		BuildDuration: 3150
+		BuildDuration: 2362
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1520,7 +1520,7 @@ nadept.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: naweap, ~structures.soviets, ~balance.exact
-		BuildDuration: 840
+		BuildDuration: 630
 		BuildDurationModifier: 100
 	Health:
 		HP: 1200
@@ -1551,7 +1551,7 @@ naflak.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: barracks, ~structures.soviets, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 900
@@ -1570,7 +1570,7 @@ naflak.exact:
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
 	Turreted:
-		TurnSpeed: 32
+		TurnSpeed: 26
 	UpdatesPlayerStatistics:
 		OverrideActor: naflak
 	Valued:
@@ -1584,7 +1584,7 @@ nahand.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: power, ~structures.soviets, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 500
@@ -1613,7 +1613,7 @@ nairon.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: natech, ~structures.soviets, ~techlevel.unrestricted, ~balance.exact
-		BuildDuration: 2625
+		BuildDuration: 1969
 		BuildDurationModifier: 100
 	Health:
 		HP: 750
@@ -1644,7 +1644,7 @@ nalasr.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: barracks, ~structures.soviets, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	Health:
 		HP: 400
@@ -1661,7 +1661,7 @@ nalasr.exact:
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
 	Turreted:
-		TurnSpeed: 40
+		TurnSpeed: 32
 	UpdatesPlayerStatistics:
 		OverrideActor: nalasr
 	Valued:
@@ -1675,7 +1675,7 @@ namisl.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: natech, ~structures.soviets, ~techlevel.unrestricted, ~balance.exact
-		BuildDuration: 5250
+		BuildDuration: 3938
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1704,7 +1704,7 @@ nanrct.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: natech, ~structures.soviets, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1733,7 +1733,7 @@ napowr.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: ~structures.soviets, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	Health:
 		HP: 750
@@ -1762,7 +1762,7 @@ napsis.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: natech, ~structures.soviets, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 750
@@ -1791,7 +1791,7 @@ naradr.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: power, narefn, ~structures.soviets, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
@@ -1820,7 +1820,7 @@ narefn.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: power, ~structures.soviets, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	FreeActor:
 		Actor: harv.exact
@@ -1853,7 +1853,7 @@ nasam.exact:
 		Type: Steel
 	Buildable:
 		Prerequisites: barracks, ~structures.allies, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 900
@@ -1884,7 +1884,7 @@ natech.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: naweap, naradr, ~structures.soviets, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	Health:
 		HP: 500
@@ -1913,7 +1913,7 @@ nawall.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: barracks, ~structures.soviets, ~balance.exact
-		BuildDuration: 105
+		BuildDuration: 79
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
@@ -1932,7 +1932,7 @@ naweap.exact:
 		Type: Wood
 	Buildable:
 		Prerequisites: refinery, nahand, ~structures.soviets, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	GrantConditionOnProduction@helicopters:
 		Actors: shad, shad.exact
@@ -1965,7 +1965,7 @@ nayard.exact:
 		Type: Concrete
 	Buildable:
 		Prerequisites: power, refinery, ~structures.soviets, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 1500
@@ -1987,15 +1987,15 @@ orca.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
 	Aircraft:
-		Speed: 210
-		TurnSpeed: 12
+		Speed: 168
+		TurnSpeed: 10
 	Armament:
 		Weapon: Maverick.exact
 	Armor:
 		Type: Light
 	Buildable:
 		Prerequisites: ~aircraft.harrier, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	Health:
 		HP: 150
@@ -2022,14 +2022,14 @@ ptroop.exact:
 		Type: None
 	Buildable:
 		Prerequisites: ~gapile, ~soviets.tech.infiltrated, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: ptroop
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 75
+		Speed: 60
 	RenderSprites:
 		Image: ptroop
 	RevealsShroud:
@@ -2047,13 +2047,13 @@ sapc.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~nayard, ~balance.exact
-		BuildDuration: 945
+		BuildDuration: 709
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
 	Mobile:
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 72
+		TurnSpeed: 16
 	RenderSprites:
 		Image: sapc
 	RenderVoxels:
@@ -2072,15 +2072,15 @@ shad.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
 	Aircraft:
-		Speed: 210
-		TurnSpeed: 20
+		Speed: 168
+		TurnSpeed: 16
 	Armament:
 		Weapon: BlackHawkCannon.exact
 	Armor:
 		Type: Light
 	Buildable:
 		Prerequisites: ~gaweap, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 175
@@ -2109,14 +2109,14 @@ shk.exact:
 		Type: Plate
 	Buildable:
 		Prerequisites: ~nahand, ~balance.exact
-		BuildDuration: 525
+		BuildDuration: 394
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: shk
 	Health:
 		HP: 130
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: shk
 	RevealsShroud:
@@ -2134,13 +2134,13 @@ smcv.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~naweap, repairpad, ~balance.exact
-		BuildDuration: 3150
+		BuildDuration: 2362
 		BuildDurationModifier: 100
 	Health:
 		HP: 1000
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: smcv
 	RenderVoxels:
@@ -2168,14 +2168,14 @@ snipe.exact:
 		Type: None
 	Buildable:
 		Prerequisites: radar, ~infantry.england, ~balance.exact
-		BuildDuration: 630
+		BuildDuration: 473
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: snipe
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: snipe
 	RevealsShroud:
@@ -2193,14 +2193,14 @@ spy.exact:
 		Type: Flak
 	Buildable:
 		Prerequisites: gatech, ~gapile, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: spy
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: spy
 	RevealsShroud:
@@ -2219,13 +2219,13 @@ sqd.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: natech, ~nayard, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 200
 	Mobile:
-		Speed: 120
-		TurnSpeed: 160
+		Speed: 96
+		TurnSpeed: 128
 	RenderSprites:
 		Image: sqd
 	Repairable:
@@ -2249,13 +2249,13 @@ sref.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: gatech, ~gaweap, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	Health:
 		HP: 150
 	Mobile:
-		Speed: 60
-		TurnSpeed: 20
+		Speed: 48
+		TurnSpeed: 16
 	RenderSprites:
 		Image: sref
 	RenderVoxels:
@@ -2281,13 +2281,13 @@ sub.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~nayard, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
 	Mobile:
-		Speed: 60
-		TurnSpeed: 8
+		Speed: 48
+		TurnSpeed: 6
 	RenderSprites:
 		Image: sub
 	RenderVoxels:
@@ -2313,14 +2313,14 @@ tany.exact:
 		Type: Flak
 	Buildable:
 		Prerequisites: gatech, ~gapile, ~balance.exact
-		BuildDuration: 1050
+		BuildDuration: 788
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: tany
 	Health:
 		HP: 125
 	Mobile:
-		Speed: 75
+		Speed: 60
 	RenderSprites:
 		Image: tany
 	RevealsShroud:
@@ -2340,14 +2340,14 @@ terror.exact:
 		Type: Flak
 	Buildable:
 		Prerequisites: naradr, ~infantry.cuba, ~balance.exact
-		BuildDuration: 210
+		BuildDuration: 157
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: terror
 	Health:
 		HP: 75
 	Mobile:
-		Speed: 90
+		Speed: 72
 	RenderSprites:
 		Image: terror
 	RevealsShroud:
@@ -2368,11 +2368,11 @@ tesla.exact:
 	Armor:
 		Type: Steel
 	AttackTesla:
-		ReloadDelay: 78
+		ReloadDelay: 103
 		MaxCharges: 1
 	Buildable:
 		Prerequisites: naradr, ~structures.soviets, ~balance.exact
-		BuildDuration: 1575
+		BuildDuration: 1181
 		BuildDurationModifier: 100
 	Health:
 		HP: 600
@@ -2405,13 +2405,13 @@ tnkd.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~vehicles.germany, ~balance.exact
-		BuildDuration: 945
+		BuildDuration: 709
 		BuildDurationModifier: 100
 	Health:
 		HP: 400
 	Mobile:
-		Speed: 75
-		TurnSpeed: 20
+		Speed: 60
+		TurnSpeed: 16
 	RenderSprites:
 		Image: tnkd
 	RenderVoxels:
@@ -2437,13 +2437,13 @@ ttnk.exact:
 		Type: Heavy
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~vehicles.russia, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	Health:
 		HP: 300
 	Mobile:
-		Speed: 90
-		TurnSpeed: 20
+		Speed: 72
+		TurnSpeed: 16
 	RenderSprites:
 		Image: ttnk
 	RenderVoxels:
@@ -2467,14 +2467,14 @@ yuri.exact:
 		Type: None
 	Buildable:
 		Prerequisites: natech, ~nahand, ~balance.exact
-		BuildDuration: 1260
+		BuildDuration: 945
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: yuri
 	Health:
 		HP: 100
 	Mobile:
-		Speed: 60
+		Speed: 48
 	RenderSprites:
 		Image: yuri
 	RevealsShroud:
@@ -2494,14 +2494,14 @@ yuripr.exact:
 		Type: Flak
 	Buildable:
 		Prerequisites: ~nahand, ~soviets.tech.infiltrated, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	ChronoshiftableWithSpriteEffect:
 		Image: yuripr
 	Health:
 		HP: 200
 	Mobile:
-		Speed: 90
+		Speed: 72
 	RenderSprites:
 		Image: yuripr
 	RevealsShroud:
@@ -2516,8 +2516,8 @@ zep.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
 	Aircraft:
-		Speed: 75
-		TurnSpeed: 40
+		Speed: 60
+		TurnSpeed: 32
 	Armament:
 		Weapon: BlimpBomb.exact
 	Armament@elite:
@@ -2526,7 +2526,7 @@ zep.exact:
 		Type: Light
 	Buildable:
 		Prerequisites: ~naweap, natech, ~balance.exact
-		BuildDuration: 2100
+		BuildDuration: 1575
 		BuildDurationModifier: 100
 	Health:
 		HP: 2000

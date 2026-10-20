@@ -24,7 +24,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-aegis.description",
@@ -137,8 +137,8 @@
 			"Mobile": {
 				"Locomotor": "naval",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
-				"TurnSpeed": "4",
+				"Speed": "48",
+				"TurnSpeed": "3",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -266,7 +266,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "3150",
+				"BuildDuration": "2362",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "80",
 				"Description": "actor-amcv.description",
@@ -373,9 +373,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {
@@ -535,7 +535,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-gaairc.description",
@@ -638,7 +638,7 @@
 			"ParatroopersPower@paratroopers": {
 				"ArrowSequence": "arrow",
 				"CameraActor": "camera",
-				"ChargeInterval": "6000",
+				"ChargeInterval": "4500",
 				"Description": "actor-amradr.paratrooperspower-paratroopers-description",
 				"DropItems": "e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact",
 				"Icon": "airborne",
@@ -690,7 +690,7 @@
 				"Image": "gaairc"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -836,7 +836,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1837",
+				"BuildDuration": "1378",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-apoc.description",
@@ -945,9 +945,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -1109,7 +1109,7 @@
 			"AttackTesla": {
 				"ChargeAudio": "bpripow.wav",
 				"PauseOnCondition": "lowpower",
-				"ReloadDelay": "38",
+				"ReloadDelay": "53",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -1130,7 +1130,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1575",
+				"BuildDuration": "1181",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-atesla.description",
@@ -1217,7 +1217,7 @@
 				"Image": "atesla"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -1305,9 +1305,9 @@
 				"CruisingCondition": "cruising",
 				"IdleBehavior": "ReturnToBase",
 				"InitialFacing": "896",
-				"Speed": "210",
+				"Speed": "168",
 				"TakeOffOnCreation": "false",
-				"TurnSpeed": "12",
+				"TurnSpeed": "10",
 				"VTOL": "true",
 				"Voice": "Move"
 			},
@@ -1336,7 +1336,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-orca.description",
@@ -1536,7 +1536,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-carrier.description",
@@ -1658,8 +1658,8 @@
 			"Mobile": {
 				"Locomotor": "naval",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
-				"TurnSpeed": "4",
+				"Speed": "48",
+				"TurnSpeed": "3",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -1819,7 +1819,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "170",
 				"Description": "actor-ccomand.description",
@@ -1950,7 +1950,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -2122,7 +2122,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "180",
 				"Description": "actor-civan.description",
@@ -2250,7 +2250,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "90",
+				"Speed": "72",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -2413,7 +2413,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1575",
+				"BuildDuration": "1181",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "150",
 				"Description": "actor-cleg.description",
@@ -2545,7 +2545,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -2696,7 +2696,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1470",
+				"BuildDuration": "1102",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-cmin.description",
@@ -2811,9 +2811,9 @@
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -3005,7 +3005,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "120",
 				"Description": "actor-deso.description",
@@ -3136,7 +3136,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -3350,7 +3350,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-dest.description",
@@ -3476,8 +3476,8 @@
 			"Mobile": {
 				"Locomotor": "naval",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "90",
-				"TurnSpeed": "20",
+				"Speed": "72",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -3638,7 +3638,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-dlph.description",
@@ -3732,8 +3732,8 @@
 			},
 			"Mobile": {
 				"Locomotor": "naval",
-				"Speed": "120",
-				"TurnSpeed": "24",
+				"Speed": "96",
+				"TurnSpeed": "19",
 				"Voice": "Move"
 			},
 			"OwnerLostAction": {
@@ -3849,7 +3849,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "210",
+				"BuildDuration": "157",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-dog.description",
@@ -3946,7 +3946,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "120",
+				"Speed": "96",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -4053,7 +4053,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-dron.description",
@@ -4152,9 +4152,9 @@
 			"Mobile": {
 				"Locomotor": "wheeled",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "150",
+				"Speed": "120",
 				"TerrainOrientationAdjustmentMargin": "-1",
-				"TurnSpeed": "160",
+				"TurnSpeed": "128",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -4300,7 +4300,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1575",
+				"BuildDuration": "1181",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-dtruck.description",
@@ -4413,9 +4413,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -4614,7 +4614,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "210",
+				"BuildDuration": "157",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-e1.description",
@@ -4761,7 +4761,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable || !undeployed",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -4997,7 +4997,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "105",
+				"BuildDuration": "79",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-e2.description",
@@ -5131,7 +5131,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -5312,7 +5312,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-engineer.description",
@@ -5441,7 +5441,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -5635,7 +5635,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "315",
+				"BuildDuration": "236",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-flakt.description",
@@ -5769,7 +5769,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -6046,7 +6046,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-fv.description",
@@ -6182,9 +6182,9 @@
 			"Mobile": {
 				"Locomotor": "wheeled",
 				"PauseOnCondition": "notmobile || chronodisable",
-				"Speed": "150",
+				"Speed": "120",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -6367,7 +6367,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-gaairc.description",
@@ -6507,7 +6507,7 @@
 				"Image": "gaairc"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -6617,7 +6617,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "3150",
+				"BuildDuration": "2362",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "1000",
 				"Description": "actor-gacnst.description",
@@ -6732,7 +6732,7 @@
 				"Image": "gacnst"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -6842,7 +6842,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2625",
+				"BuildDuration": "1969",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "80",
@@ -6863,7 +6863,7 @@
 			"CaptureManager": {},
 			"CaptureNotification": {},
 			"ChronoshiftPower@chronoshift": {
-				"ChargeInterval": "10500",
+				"ChargeInterval": "7875",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
 				"Dimensions": "3, 3",
 				"DisplayRadarPing": "True",
@@ -6955,7 +6955,7 @@
 				"Image": "gacsph"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7039,7 +7039,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "840",
+				"BuildDuration": "630",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-gadept.description",
@@ -7138,7 +7138,7 @@
 				"Image": "gadept"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7146,7 +7146,7 @@
 			"RepairsUnits": {
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
-				"Interval": "24",
+				"Interval": "18",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -7233,7 +7233,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-gagap.description",
@@ -7325,7 +7325,7 @@
 				"Image": "gagap"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7399,7 +7399,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2625",
+				"BuildDuration": "1969",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "100",
@@ -7487,7 +7487,7 @@
 				"Image": "gaorep"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7573,7 +7573,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-gapile.description",
@@ -7709,7 +7709,7 @@
 				"Image": "gapile"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7817,7 +7817,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-gapill.description",
@@ -7897,7 +7897,7 @@
 				"Image": "gapill"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -7940,7 +7940,7 @@
 				"Name": "actor-gapill.name"
 			},
 			"Turreted": {
-				"TurnSpeed": "40"
+				"TurnSpeed": "32"
 			},
 			"UpdatesPlayerStatistics": {
 				"OverrideActor": "gapill"
@@ -7982,7 +7982,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "840",
+				"BuildDuration": "630",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-gapowr.description",
@@ -8079,7 +8079,7 @@
 				"Image": "gapowr"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -8159,7 +8159,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-garefn.description",
@@ -8275,7 +8275,7 @@
 				"Image": "garefn"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -8363,7 +8363,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1575",
+				"BuildDuration": "1181",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-gaspysat.description",
@@ -8457,7 +8457,7 @@
 				"Image": "gaspysat"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -8545,7 +8545,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "80",
 				"Description": "actor-gatech.description",
@@ -8639,7 +8639,7 @@
 				"Image": "gatech"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -8723,7 +8723,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "105",
+				"BuildDuration": "79",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-gawall.description",
@@ -8804,7 +8804,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-gaweap.description",
@@ -8937,7 +8937,7 @@
 				"Image": "gaweap"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -9050,7 +9050,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "5250",
+				"BuildDuration": "3938",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "90",
@@ -9145,7 +9145,7 @@
 				"Image": "gaweat"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -9200,15 +9200,15 @@
 				"Cost": "5000"
 			},
 			"WeatherControlSupportPower@LightningStorm": {
-				"ChargeInterval": "15000",
+				"ChargeInterval": "11250",
 				"Cursor": "weatherstorm",
 				"Description": "actor-gaweat.weathercontrolsupportpower-lightningstorm-description",
 				"DisplayBeacon": "true",
 				"DisplayRadarPing": "true",
 				"DisplayTimerRelationships": "Ally, Neutral, Enemy",
-				"Duration": "180",
+				"Duration": "225",
 				"EndChargeSpeechNotification": "LightningStormReady",
-				"HitDelay": "10",
+				"HitDelay": "13",
 				"Icon": "lightningstorm",
 				"IncomingSpeechNotification": "WeathercontrolDeviceDetected",
 				"InsufficientPowerSpeechNotification": "WeathercontrolDeviceOffline",
@@ -9218,7 +9218,7 @@
 				"OrderName": "WeatherControlDevice",
 				"PaletteEffectType": "LightningStorm",
 				"PauseOnCondition": "lowpower",
-				"ScatterDelay": "5",
+				"ScatterDelay": "6",
 				"SelectTargetSpeechNotification": "SelectTarget",
 				"Weapon": "LightningStorm.exact"
 			},
@@ -9248,7 +9248,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-gayard.description",
@@ -9440,7 +9440,7 @@
 				"Image": "gayard"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -9448,7 +9448,7 @@
 			"RepairsUnits": {
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
-				"Interval": "24",
+				"Interval": "18",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -9558,7 +9558,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-gtgcan.description",
@@ -9654,7 +9654,7 @@
 				"Scale": "11.7"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -9699,7 +9699,7 @@
 			"Turreted": {
 				"InitialFacing": "896",
 				"Offset": "400,0,0",
-				"TurnSpeed": "4"
+				"TurnSpeed": "3"
 			},
 			"UpdatesPlayerStatistics": {
 				"OverrideActor": "gtgcan"
@@ -9779,7 +9779,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1470",
+				"BuildDuration": "1102",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-harv.description",
@@ -9895,9 +9895,9 @@
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -10095,7 +10095,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-htk.description",
@@ -10212,9 +10212,9 @@
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "notmobile || chronodisable",
-				"Speed": "120",
+				"Speed": "96",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -10419,7 +10419,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "945",
+				"BuildDuration": "709",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-htnk.description",
@@ -10528,9 +10528,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "90",
+				"Speed": "72",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -10724,7 +10724,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-hyd.description",
@@ -10837,8 +10837,8 @@
 			"Mobile": {
 				"Locomotor": "naval",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "120",
-				"TurnSpeed": "24",
+				"Speed": "96",
+				"TurnSpeed": "19",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -10979,7 +10979,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "110",
 				"Description": "actor-ivan.description",
@@ -11114,7 +11114,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -11260,7 +11260,7 @@
 				"CruiseAltitude": "3072",
 				"IdealSeparation": "512",
 				"InitialFacing": "80",
-				"Speed": "135",
+				"Speed": "108",
 				"TakeOffOnResupply": "true",
 				"TurnSpeed": "1023",
 				"VTOL": "true",
@@ -11304,7 +11304,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-jumpjet.description",
@@ -11538,7 +11538,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "945",
+				"BuildDuration": "709",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-lcrf.description",
@@ -11659,8 +11659,8 @@
 			"Mobile": {
 				"Locomotor": "lcraft",
 				"PauseOnCondition": "notmobile || chronodisable",
-				"Speed": "90",
-				"TurnSpeed": "20",
+				"Speed": "72",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -11832,7 +11832,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-mgtk.description",
@@ -11953,9 +11953,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "105",
+				"Speed": "84",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -12151,7 +12151,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "735",
+				"BuildDuration": "551",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-mtnk.description",
@@ -12260,9 +12260,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "105",
+				"Speed": "84",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -12422,7 +12422,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2625",
+				"BuildDuration": "1969",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "100",
@@ -12574,7 +12574,7 @@
 				"Image": "naclon"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -12657,7 +12657,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "3150",
+				"BuildDuration": "2362",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "1000",
 				"Description": "actor-nacnst.description",
@@ -12757,7 +12757,7 @@
 				"Image": "nacnst"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -12870,7 +12870,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "840",
+				"BuildDuration": "630",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "70",
 				"Description": "actor-nadept.description",
@@ -12968,7 +12968,7 @@
 				"Image": "nadept"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -12976,7 +12976,7 @@
 			"RepairsUnits": {
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
-				"Interval": "24",
+				"Interval": "18",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -13083,7 +13083,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-naflak.description",
@@ -13178,7 +13178,7 @@
 				"Scale": "11.7"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -13223,7 +13223,7 @@
 			"Turreted": {
 				"InitialFacing": "896",
 				"Offset": "450,0,0",
-				"TurnSpeed": "32"
+				"TurnSpeed": "26"
 			},
 			"UpdatesPlayerStatistics": {
 				"OverrideActor": "naflak"
@@ -13265,7 +13265,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-nahand.description",
@@ -13437,7 +13437,7 @@
 				"Image": "nahand"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -13522,7 +13522,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2625",
+				"BuildDuration": "1969",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "80",
@@ -13569,13 +13569,13 @@
 			},
 			"GrantExternalConditionPower@IRONCURTAIN": {
 				"BlockedCursor": "move-blocked",
-				"ChargeInterval": "7500",
+				"ChargeInterval": "5625",
 				"Condition": "invulnerability",
 				"Description": "actor-nairon.grantexternalconditionpower-ironcurtain-description",
 				"Dimensions": "3, 3",
 				"DisplayRadarPing": "True",
 				"DisplayTimerRelationships": "Ally, Neutral, Enemy",
-				"Duration": "750",
+				"Duration": "938",
 				"EndChargeSound": "siroread.wav",
 				"EndChargeSpeechNotification": "IronCurtainReady",
 				"Footprint": "xxx xxx xxx",
@@ -13634,7 +13634,7 @@
 				"Image": "nairon"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -13737,7 +13737,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-nalasr.description",
@@ -13825,7 +13825,7 @@
 				"Scale": "11.7"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -13870,7 +13870,7 @@
 			"Turreted": {
 				"InitialFacing": "896",
 				"Offset": "320,0,0",
-				"TurnSpeed": "40"
+				"TurnSpeed": "32"
 			},
 			"UpdatesPlayerStatistics": {
 				"OverrideActor": "nalasr"
@@ -13912,7 +13912,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "5250",
+				"BuildDuration": "3938",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "90",
@@ -13992,7 +13992,7 @@
 				"ArrowSequence": "arrow",
 				"CameraRange": "10",
 				"CameraRemoveDelay": "70",
-				"ChargeInterval": "15000",
+				"ChargeInterval": "11250",
 				"CircleRanges": "9c0, 8c0, 7c0, 6c0, 5c0, 4c0, 3c0, 2c0, 1c0",
 				"Cursor": "nuke",
 				"Description": "actor-namisl.nukepower-description",
@@ -14039,7 +14039,7 @@
 				"Image": "namisl"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -14123,7 +14123,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "90",
 				"Description": "actor-nanrct.description",
@@ -14221,7 +14221,7 @@
 				"Image": "nanrct"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -14308,7 +14308,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-napowr.description",
@@ -14405,7 +14405,7 @@
 				"Image": "napowr"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -14489,7 +14489,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-napsis.description",
@@ -14584,7 +14584,7 @@
 				"Image": "napsis"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -14668,7 +14668,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "60",
 				"Description": "actor-naradr.description",
@@ -14771,7 +14771,7 @@
 				"Image": "naradr"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -14855,7 +14855,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-narefn.description",
@@ -14971,7 +14971,7 @@
 				"Image": "narefn"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -15074,7 +15074,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "30",
 				"Description": "actor-nasam.description",
@@ -15170,7 +15170,7 @@
 				"Scale": "11.7"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -15256,7 +15256,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "80",
 				"Description": "actor-natech.description",
@@ -15350,7 +15350,7 @@
 				"Image": "natech"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -15430,7 +15430,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "105",
+				"BuildDuration": "79",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-nawall.description",
@@ -15511,7 +15511,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-naweap.description",
@@ -15647,7 +15647,7 @@
 				"Image": "naweap"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -15756,7 +15756,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-nayard.description",
@@ -15948,7 +15948,7 @@
 				"Image": "nayard"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -15956,7 +15956,7 @@
 			"RepairsUnits": {
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
-				"Interval": "24",
+				"Interval": "18",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -16046,9 +16046,9 @@
 				"CruisingCondition": "cruising",
 				"IdleBehavior": "ReturnToBase",
 				"InitialFacing": "896",
-				"Speed": "210",
+				"Speed": "168",
 				"TakeOffOnCreation": "false",
-				"TurnSpeed": "12",
+				"TurnSpeed": "10",
 				"VTOL": "true",
 				"Voice": "Move"
 			},
@@ -16077,7 +16077,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-orca.description",
@@ -16271,7 +16271,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "180",
 				"Description": "actor-ptroop.description",
@@ -16406,7 +16406,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -16562,7 +16562,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "945",
+				"BuildDuration": "709",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "10",
 				"Description": "actor-sapc.description",
@@ -16676,8 +16676,8 @@
 			"Mobile": {
 				"Locomotor": "lcraft",
 				"PauseOnCondition": "notmobile || chronodisable",
-				"Speed": "90",
-				"TurnSpeed": "20",
+				"Speed": "72",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -16815,8 +16815,8 @@
 				"Crushes": "crate",
 				"IdleBehavior": "Land",
 				"LandableTerrainTypes": "Clear, Rough, Road, DirtRoad, Ore, Gems",
-				"Speed": "210",
-				"TurnSpeed": "20",
+				"Speed": "168",
+				"TurnSpeed": "16",
 				"VTOL": "true",
 				"Voice": "Move"
 			},
@@ -16855,7 +16855,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "90",
 				"Description": "actor-shad.description",
@@ -17103,7 +17103,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "525",
+				"BuildDuration": "394",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-shk.description",
@@ -17234,7 +17234,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -17422,7 +17422,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "3150",
+				"BuildDuration": "2362",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "80",
 				"Description": "actor-smcv.description",
@@ -17529,9 +17529,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {
@@ -17722,7 +17722,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "630",
+				"BuildDuration": "473",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "80",
 				"Description": "actor-snipe.description",
@@ -17853,7 +17853,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -18006,7 +18006,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "130",
 				"Description": "actor-spy.description",
@@ -18138,7 +18138,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -18298,7 +18298,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-sqd.description",
@@ -18373,8 +18373,8 @@
 			},
 			"Mobile": {
 				"Locomotor": "naval",
-				"Speed": "120",
-				"TurnSpeed": "160",
+				"Speed": "96",
+				"TurnSpeed": "128",
 				"Voice": "Move"
 			},
 			"OwnerLostAction": {
@@ -18501,7 +18501,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-sref.description",
@@ -18622,9 +18622,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -18833,7 +18833,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "20",
 				"Description": "actor-sub.description",
@@ -18955,8 +18955,8 @@
 			"Mobile": {
 				"Locomotor": "naval",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "60",
-				"TurnSpeed": "8",
+				"Speed": "48",
+				"TurnSpeed": "6",
 				"Voice": "Move"
 			},
 			"OwnerLostAction": {
@@ -19120,7 +19120,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1050",
+				"BuildDuration": "788",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "140",
@@ -19256,7 +19256,7 @@
 			"Mobile": {
 				"Locomotor": "swimsuit",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -19421,7 +19421,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "210",
+				"BuildDuration": "157",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "90",
 				"Description": "actor-terror.description",
@@ -19560,7 +19560,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "90",
+				"Speed": "72",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -19707,7 +19707,7 @@
 				"ChargeAudio": "btespow.wav",
 				"MaxCharges": "1",
 				"PauseOnCondition": "lowpower",
-				"ReloadDelay": "78",
+				"ReloadDelay": "103",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -19728,7 +19728,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1575",
+				"BuildDuration": "1181",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-tesla.description",
@@ -19819,7 +19819,7 @@
 				"Image": "tesla"
 			},
 			"RepairableBuilding": {
-				"RepairInterval": "24",
+				"RepairInterval": "18",
 				"RepairPercent": "15",
 				"RepairStep": "8",
 				"RepairingNotification": "Repairing"
@@ -19938,7 +19938,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "945",
+				"BuildDuration": "709",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "40",
 				"Description": "actor-tnkd.description",
@@ -20047,9 +20047,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "75",
+				"Speed": "60",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -20237,7 +20237,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "50",
 				"Description": "actor-ttnk.description",
@@ -20346,9 +20346,9 @@
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
-				"Speed": "90",
+				"Speed": "72",
 				"TerrainOrientationAdjustmentMargin": "256",
-				"TurnSpeed": "20",
+				"TurnSpeed": "16",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -20522,7 +20522,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "1260",
+				"BuildDuration": "945",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "160",
 				"Description": "actor-yuri.description",
@@ -20668,7 +20668,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "deployed || deploying || chronodisable",
-				"Speed": "60",
+				"Speed": "48",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -20864,7 +20864,7 @@
 			},
 			"Buildable": {
 				"BuildAtProductionType": "Infantry",
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildLimit": "1",
 				"BuildPaletteOrder": "290",
@@ -21008,7 +21008,7 @@
 			"Mobile": {
 				"Locomotor": "foot",
 				"PauseOnCondition": "deployed || deploying || chronodisable",
-				"Speed": "90",
+				"Speed": "72",
 				"Voice": "Move"
 			},
 			"MustBeDestroyed": {},
@@ -21185,9 +21185,9 @@
 				"CanHover": "True",
 				"CanSlide": "True",
 				"CruiseAltitude": "5600",
-				"Speed": "75",
+				"Speed": "60",
 				"TakeOffOnResupply": "true",
-				"TurnSpeed": "40",
+				"TurnSpeed": "32",
 				"VTOL": "true",
 				"Voice": "Move"
 			},
@@ -21233,7 +21233,7 @@
 				"UseClassicPerspectiveFudge": "false"
 			},
 			"Buildable": {
-				"BuildDuration": "2100",
+				"BuildDuration": "1575",
 				"BuildDurationModifier": "100",
 				"BuildPaletteOrder": "90",
 				"Prerequisites": "~naweap, natech, ~balance.exact",
@@ -21403,11 +21403,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "60",
+			"ReloadDelay": "75",
 			"Report": "vgriatta.wav, vgriattb.wav, vgriattc.wav",
 			"Warhead@1Dam": {
 				"Damage": "65",
@@ -21450,11 +21450,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "75",
+			"ReloadDelay": "94",
 			"Report": "vgriatta.wav, vgriattb.wav, vgriattc.wav",
 			"Warhead@1Dam": {
 				"Damage": "55",
@@ -21496,11 +21496,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c768",
-			"ReloadDelay": "65",
+			"ReloadDelay": "81",
 			"Report": "vrhiatta.wav, vrhiattb.wav, vrhiattc.wav, vrhiattd.wav",
 			"Warhead@1Dam": {
 				"Damage": "90",
@@ -21543,11 +21543,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c768",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vrhiatta.wav, vrhiattb.wav, vrhiattc.wav, vrhiattd.wav",
 			"Warhead@1Dam": {
 				"Damage": "85",
@@ -21589,11 +21589,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c768",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vapoat1a.wav",
 			"Warhead@1Dam": {
 				"Damage": "100",
@@ -21636,11 +21636,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c768",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vapoat1a.wav",
 			"Warhead@1Dam": {
 				"Damage": "100",
@@ -21688,11 +21688,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "110",
+			"ReloadDelay": "138",
 			"Report": "vdesatta.wav, vdesattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "60",
@@ -21736,11 +21736,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "110",
+			"ReloadDelay": "138",
 			"Report": "vdesatta.wav, vdesattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "60",
@@ -21783,7 +21783,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "30",
+			"ReloadDelay": "38",
 			"Report": "irocatta.wav",
 			"ValidTargets": "Ground, Water, Air",
 			"Warhead@1Dam": {
@@ -21821,7 +21821,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "5",
+			"ReloadDelay": "6",
 			"Report": "irocatta.wav",
 			"ValidTargets": "Ground, Water, Air",
 			"Warhead@1Dam": {
@@ -21858,7 +21858,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c512",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "vwaratta.wav, vwarattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "30",
@@ -21893,11 +21893,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c768",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "vrhiatta.wav, vrhiattb.wav, vrhiattc.wav, vrhiattd.wav",
 			"Warhead@1Dam": {
 				"Damage": "50",
@@ -21950,7 +21950,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "14c0",
-			"ReloadDelay": "60",
+			"ReloadDelay": "75",
 			"Report": "isniatta.wav",
 			"ValidTargets": "Infantry",
 			"Warhead@1Dam": {
@@ -22005,7 +22005,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "40",
+			"ReloadDelay": "50",
 			"Report": "vblhatta.wav, vblhattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "35",
@@ -22045,7 +22045,7 @@
 				"_value": "GravityBomb"
 			},
 			"Range": "1c512",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "vkiratta.wav",
 			"Warhead@1Dam": {
 				"Damage": "250",
@@ -22097,7 +22097,7 @@
 				"_value": "GravityBomb"
 			},
 			"Range": "1c512",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "vkiratta.wav",
 			"Warhead@1Dam": {
 				"Damage": "250",
@@ -22144,7 +22144,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "45",
+			"ReloadDelay": "56",
 			"Report": "itesatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "60",
@@ -22177,11 +22177,11 @@
 			"Projectile": {
 				"Image": "120mm",
 				"LaunchAngle": "128",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "15",
+			"ReloadDelay": "19",
 			"Report": "vflaat1a.wav, vflaat1b.wav",
 			"Warhead@1Dam": {
 				"Damage": "30",
@@ -22222,7 +22222,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "15",
+			"ReloadDelay": "19",
 			"Report": "vifvat2a.wav, vifvat2b.wav, vifvat2c.wav",
 			"Warhead@1Dam": {
 				"Damage": "20",
@@ -22257,7 +22257,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "itanatta.wav, itanattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "125",
@@ -22323,7 +22323,7 @@
 				"_value": "RadBeam"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "30",
+			"ReloadDelay": "38",
 			"Report": "idesat1a.wav",
 			"ValidTargets": "Ground",
 			"Warhead@1Dam": {
@@ -22355,7 +22355,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "120",
+			"ReloadDelay": "150",
 			"Report": "btesat1a.wav",
 			"Warhead@1Dam": {
 				"Damage": "200",
@@ -22474,7 +22474,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "itanatta.wav, itanattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "125",
@@ -22509,7 +22509,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "itanatta.wav, itanattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "125",
@@ -22571,7 +22571,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "3c0",
-			"ReloadDelay": "60",
+			"ReloadDelay": "75",
 			"Report": "itesatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "50",
@@ -22606,7 +22606,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "40",
+			"ReloadDelay": "50",
 			"Report": "itesat2a.wav, itesat2b.wav",
 			"Warhead@1Dam": {
 				"Damage": "50",
@@ -22644,7 +22644,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "25",
+			"ReloadDelay": "31",
 			"Report": "vflaat2a.wav, vflaat2b.wav, vflaat2c.wav, vflaat2d.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -22690,7 +22690,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "25",
+			"ReloadDelay": "31",
 			"Report": "vflaat2a.wav, vflaat2b.wav, vflaat2c.wav, vflaat2d.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -22731,11 +22731,11 @@
 			"Projectile": {
 				"Image": "120mm",
 				"LaunchAngle": "128",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "vflaat1a.wav, vflaat1b.wav",
 			"Warhead@1Dam": {
 				"Damage": "20",
@@ -22774,11 +22774,11 @@
 			"Projectile": {
 				"Image": "120mm",
 				"LaunchAngle": "128",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "vflaat1a.wav, vflaat1b.wav",
 			"Warhead@1Dam": {
 				"Damage": "20",
@@ -22822,7 +22822,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "10c0",
-			"ReloadDelay": "25",
+			"ReloadDelay": "31",
 			"Report": "vflaat2a.wav, vflaat2b.wav, vflaat2c.wav, vflaat2d.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -22863,11 +22863,11 @@
 			"Projectile": {
 				"Image": "120mm",
 				"LaunchAngle": "128",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "40",
+			"ReloadDelay": "50",
 			"Report": "vflaat1a.wav, vflaat1b.wav",
 			"ValidTargets": "Ground, Water",
 			"Warhead@1Dam": {
@@ -22912,7 +22912,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "12c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "bflaatta.wav, bflaattb.wav, bflaattc.wav, bflaattd.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -22957,11 +22957,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "15c0",
-			"ReloadDelay": "120",
+			"ReloadDelay": "150",
 			"Report": "bgraatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "150",
@@ -23024,13 +23024,13 @@
 				"Palette": "ra",
 				"RangeLimit": "14c512",
 				"Shadow": "true",
-				"Speed": "160",
+				"Speed": "128",
 				"TerrainHeightAware": "true",
 				"VerticalRateOfTurn": "220",
 				"_value": "Missile"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "vifvatta.wav",
 			"ValidTargets": "Ground, Air",
 			"Warhead@1Dam": {
@@ -23089,13 +23089,13 @@
 				"Palette": "ra",
 				"RangeLimit": "14c512",
 				"Shadow": "true",
-				"Speed": "160",
+				"Speed": "128",
 				"TerrainHeightAware": "true",
 				"VerticalRateOfTurn": "220",
 				"_value": "Missile"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "vifvatta.wav",
 			"ValidTargets": "Ground, Air",
 			"Warhead@1Dam": {
@@ -23290,7 +23290,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "4c0",
-			"ReloadDelay": "25",
+			"ReloadDelay": "31",
 			"Report": "iconatta.wav, iconattb.wav, iconattc.wav, iconattd.wav, iconatte.wav",
 			"Warhead@1Dam": {
 				"Damage": "15",
@@ -23325,7 +23325,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "25",
+			"ReloadDelay": "31",
 			"Report": "iconatta.wav, iconattb.wav, iconattc.wav, iconattd.wav, iconatte.wav",
 			"Warhead@1Dam": {
 				"Damage": "20",
@@ -23360,7 +23360,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "4c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "igiat1a.wav, igiat1b.wav, igiat1c.wav",
 			"Warhead@1Dam": {
 				"Damage": "15",
@@ -23395,7 +23395,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "4c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "25",
 			"Report": "igiat1a.wav, igiat1b.wav, igiat1c.wav",
 			"Warhead@1Dam": {
 				"Damage": "25",
@@ -23430,7 +23430,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "iseaatta.wav, iseaattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "125",
@@ -23465,7 +23465,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "iseaatta.wav, iseaattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "125",
@@ -23508,14 +23508,14 @@
 				"Palette": "ra",
 				"RangeLimit": "10c204",
 				"Shadow": "true",
-				"Speed": "80",
+				"Speed": "64",
 				"TerrainHeightAware": "true",
 				"TrailImage": "smokey2",
 				"VerticalRateOfTurn": "220",
 				"_value": "Missile"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vapoat2a.wav, vapoar2b.wav, vapoat2c.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -23569,13 +23569,13 @@
 				"Palette": "ra",
 				"RangeLimit": "10c204",
 				"Shadow": "true",
-				"Speed": "280",
+				"Speed": "224",
 				"TerrainHeightAware": "true",
 				"VerticalRateOfTurn": "160",
 				"_value": "Missile"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "vintatta.wav",
 			"ValidTargets": "Ground, Water",
 			"Warhead@1Dam": {
@@ -23628,13 +23628,13 @@
 				"Palette": "ra",
 				"RangeLimit": "10c204",
 				"Shadow": "true",
-				"Speed": "280",
+				"Speed": "224",
 				"TerrainHeightAware": "true",
 				"VerticalRateOfTurn": "160",
 				"_value": "Missile"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "vbleatta.wav, vbleattb.wav",
 			"ValidTargets": "Ground, Water",
 			"Warhead@1Dam": {
@@ -23687,13 +23687,13 @@
 				"Palette": "ra",
 				"RangeLimit": "15c409",
 				"Shadow": "true",
-				"Speed": "480",
+				"Speed": "384",
 				"TerrainHeightAware": "true",
 				"VerticalRateOfTurn": "220",
 				"_value": "Missile"
 			},
 			"Range": "12c0",
-			"ReloadDelay": "15",
+			"ReloadDelay": "19",
 			"Report": "vaegatta.wav, vaegattb.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -23740,7 +23740,7 @@
 				"_value": "ArcLaserZap"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "200",
+			"ReloadDelay": "250",
 			"ValidTargets": "MindControl",
 			"Warhead@1Dam": {
 				"Damage": "0",
@@ -23758,7 +23758,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "70",
+			"ReloadDelay": "88",
 			"Report": "vmiratta.wav",
 			"Warhead@1Dam": {
 				"Damage": "100",
@@ -23798,7 +23798,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "9c0",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vmiratta.wav",
 			"Warhead@1Dam": {
 				"Damage": "150",
@@ -23909,7 +23909,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "78",
+			"ReloadDelay": "103",
 			"Report": "btesat2a.wav",
 			"Warhead@1Dam": {
 				"Damage": "300",
@@ -23946,7 +23946,7 @@
 				"_value": "LaserZap"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "38",
+			"ReloadDelay": "53",
 			"Report": "bpriat1a.wav",
 			"Warhead@1Dam": {
 				"Damage": "120",
@@ -23978,7 +23978,7 @@
 				"_value": "RadBeam"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "idesat1a.wav",
 			"ValidTargets": "Ground",
 			"Warhead@1Dam": {
@@ -24012,7 +24012,7 @@
 				"_value": "RadBeam"
 			},
 			"Range": "8c0",
-			"ReloadDelay": "50",
+			"ReloadDelay": "63",
 			"Report": "idesat1a.wav",
 			"ValidTargets": "Ground",
 			"Warhead@1Dam": {
@@ -24053,14 +24053,14 @@
 				"Palette": "ra",
 				"RangeLimit": "14c409",
 				"Shadow": "true",
-				"Speed": "400",
+				"Speed": "320",
 				"TerrainHeightAware": "true",
 				"TrailImage": "smokey2",
 				"VerticalRateOfTurn": "220",
 				"_value": "Missile"
 			},
 			"Range": "12c0",
-			"ReloadDelay": "55",
+			"ReloadDelay": "69",
 			"Report": "bpatatta.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {
@@ -24104,7 +24104,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "1c819",
-			"ReloadDelay": "80",
+			"ReloadDelay": "100",
 			"Report": "vifvrepa.wav",
 			"ValidTargets": "Repair",
 			"Warhead@1Dam": {
@@ -24179,7 +24179,7 @@
 			"Burst": "1",
 			"Projectile": "InstantHit",
 			"Range": "1c850",
-			"ReloadDelay": "32",
+			"ReloadDelay": "40",
 			"Report": "vsquat1a.wav",
 			"ValidTargets": "Water, Underwater",
 			"Warhead@1Dam": {
@@ -24213,13 +24213,13 @@
 				"Image": "missile",
 				"Palette": "shadow",
 				"RangeLimit": "8c409",
-				"Speed": "100",
+				"Speed": "80",
 				"TerrainHeightAware": "true",
 				"TrailImage": "bbblelrg",
 				"_value": "Missile"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "120",
+			"ReloadDelay": "150",
 			"Report": "vsubatta.wav",
 			"ValidTargets": "Water, Underwater",
 			"Warhead@1Dam": {
@@ -24265,13 +24265,13 @@
 				"Image": "missile",
 				"Palette": "shadow",
 				"RangeLimit": "8c409",
-				"Speed": "72",
+				"Speed": "58",
 				"TerrainHeightAware": "true",
 				"TrailImage": "bbblelrg",
 				"_value": "Missile"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "120",
+			"ReloadDelay": "150",
 			"Report": "vsubatta.wav",
 			"ValidTargets": "Water, Underwater",
 			"Warhead@1Dam": {
@@ -24366,7 +24366,7 @@
 				"_value": "ArcLaserZap"
 			},
 			"Range": "30c0",
-			"ReloadDelay": "200",
+			"ReloadDelay": "250",
 			"ValidTargets": "MindControl",
 			"Warhead@1Dam": {
 				"Damage": "0",
@@ -24381,7 +24381,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "4c0",
-			"ReloadDelay": "75",
+			"ReloadDelay": "94",
 			"Report": "vtesatta.wav, vtesattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "135",
@@ -24417,7 +24417,7 @@
 				"_value": "ElectricBolt"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "60",
+			"ReloadDelay": "75",
 			"Report": "vtesatta.wav, vtesattb.wav",
 			"Warhead@1Dam": {
 				"Damage": "150",
@@ -24452,7 +24452,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "1c512",
-			"ReloadDelay": "10",
+			"ReloadDelay": "13",
 			"Report": "gexpbara.wav, gexpbarb.wav, gexpbarc.wav",
 			"Warhead@1Dam": {
 				"AffectsParent": "true",
@@ -24489,7 +24489,7 @@
 				"_value": "Bullet"
 			},
 			"Range": "14c0",
-			"ReloadDelay": "150",
+			"ReloadDelay": "188",
 			"Report": "isniatta.wav",
 			"ValidTargets": "Infantry",
 			"Warhead@1Dam": {
@@ -24664,7 +24664,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "15",
+			"ReloadDelay": "19",
 			"Report": "igiat2a.wav, igiat2b.wav, igiat2c.wav, igiat2d.wav, igiat2c.wav, igiat2d.wav",
 			"Warhead@1Dam": {
 				"Damage": "15",
@@ -24699,7 +24699,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "7c0",
-			"ReloadDelay": "5",
+			"ReloadDelay": "6",
 			"Report": "igiat2a.wav, igiat2b.wav, igiat2c.wav, igiat2d.wav, igiat2c.wav, igiat2d.wav",
 			"Warhead@1Dam": {
 				"Damage": "25",
@@ -24734,11 +24734,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "70",
+			"ReloadDelay": "88",
 			"Report": "vtadatta.wav, vtadattb.wav, vtadattc.wav",
 			"ValidTargets": "Ground, Water",
 			"Warhead@1Dam": {
@@ -24782,11 +24782,11 @@
 				"LaunchAngle": "62",
 				"Palette": "ra",
 				"Shadow": "true",
-				"Speed": "200",
+				"Speed": "160",
 				"_value": "Bullet"
 			},
 			"Range": "6c768",
-			"ReloadDelay": "60",
+			"ReloadDelay": "75",
 			"Report": "vtadatta.wav, vtadattb.wav, vtadattc.wav",
 			"ValidTargets": "Ground, Water",
 			"Warhead@1Dam": {
@@ -24829,7 +24829,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c512",
-			"ReloadDelay": "26",
+			"ReloadDelay": "33",
 			"Report": "bsenatta.wav, bsenattb.wav, bsenattc.wav, bsenattd.wav",
 			"Warhead@1Dam": {
 				"Damage": "50",
@@ -24864,7 +24864,7 @@
 				"_value": "InstantHit"
 			},
 			"Range": "5c512",
-			"ReloadDelay": "26",
+			"ReloadDelay": "33",
 			"Report": "bpilatta.wav, bpilattb.wav, bpilattc.wav, bpilattd.wav, bpilattc.wav",
 			"Warhead@1Dam": {
 				"Damage": "50",

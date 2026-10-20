@@ -32,11 +32,11 @@
 
 105mm.exact:
 	Inherits: 105mm
-	ReloadDelay: 60
+	ReloadDelay: 75
 	Range: 5c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 65
 		Spread: 0c307
@@ -56,11 +56,11 @@
 
 105mmE.exact:
 	Inherits: 105mmE
-	ReloadDelay: 75
+	ReloadDelay: 94
 	Range: 5c0
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 55
 		Spread: 0c307
@@ -80,11 +80,11 @@
 
 120mm.exact:
 	Inherits: 120mm
-	ReloadDelay: 65
+	ReloadDelay: 81
 	Range: 5c768
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 90
 		Spread: 0c307
@@ -104,11 +104,11 @@
 
 120mmE.exact:
 	Inherits: 120mmE
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 5c768
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 85
 		Spread: 0c307
@@ -128,11 +128,11 @@
 
 120mmx.exact:
 	Inherits: 120mmx
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 5c768
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
 		Spread: 0c307
@@ -152,11 +152,11 @@
 
 120mmxE.exact:
 	Inherits: 120mmxE
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 5c768
 	Burst: 4
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
 		Spread: 0c307
@@ -176,11 +176,11 @@
 
 155mm.exact:
 	Inherits: 155mm
-	ReloadDelay: 110
+	ReloadDelay: 138
 	Range: 8c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 60
 		Spread: 1c0
@@ -200,11 +200,11 @@
 
 155mmE.exact:
 	Inherits: 155mmE
-	ReloadDelay: 110
+	ReloadDelay: 138
 	Range: 8c0
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 60
 		Spread: 1c0
@@ -224,7 +224,7 @@
 
 20mm.exact:
 	Inherits: 20mm
-	ReloadDelay: 30
+	ReloadDelay: 38
 	Range: 5c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -246,7 +246,7 @@
 
 20mme.exact:
 	Inherits: 20mme
-	ReloadDelay: 5
+	ReloadDelay: 6
 	Range: 5c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -268,7 +268,7 @@
 
 20mmrapid.exact:
 	Inherits: 20mmrapid
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 5c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -290,11 +290,11 @@
 
 20mmrapidE.exact:
 	Inherits: 20mmrapidE
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 5c768
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 50
 		Spread: 0c512
@@ -318,7 +318,7 @@ ASWLauncher.exact:
 
 AWPE.exact:
 	Inherits: AWPE
-	ReloadDelay: 60
+	ReloadDelay: 75
 	Range: 14c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -344,7 +344,7 @@ AssaultBolt.exact:
 
 BlackHawkCannon.exact:
 	Inherits: BlackHawkCannon
-	ReloadDelay: 40
+	ReloadDelay: 50
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -366,7 +366,7 @@ BlackHawkCannon.exact:
 
 BlimpBomb.exact:
 	Inherits: BlimpBomb
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 1c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -388,7 +388,7 @@ BlimpBomb.exact:
 
 BlimpBombE.exact:
 	Inherits: BlimpBombE
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 1c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -410,7 +410,7 @@ BlimpBombE.exact:
 
 CRElectricBolt.exact:
 	Inherits: CRElectricBolt
-	ReloadDelay: 45
+	ReloadDelay: 56
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -432,11 +432,11 @@ CRElectricBolt.exact:
 
 CRFlakGuyGun.exact:
 	Inherits: CRFlakGuyGun
-	ReloadDelay: 15
+	ReloadDelay: 19
 	Range: 7c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 30
 		Spread: 1c0
@@ -456,7 +456,7 @@ CRFlakGuyGun.exact:
 
 CRM60.exact:
 	Inherits: CRM60
-	ReloadDelay: 15
+	ReloadDelay: 19
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -478,7 +478,7 @@ CRM60.exact:
 
 CRMP5.exact:
 	Inherits: CRMP5
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -504,7 +504,7 @@ CRNeutronRifle.exact:
 
 CRRadBeamWeapon.exact:
 	Inherits: CRRadBeamWeapon
-	ReloadDelay: 30
+	ReloadDelay: 38
 	Range: 7c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -526,7 +526,7 @@ CRRadBeamWeapon.exact:
 
 CoilBolt.exact:
 	Inherits: CoilBolt
-	ReloadDelay: 120
+	ReloadDelay: 150
 	Range: 7c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -560,7 +560,7 @@ DogJaw.exact:
 
 DoublePistols.exact:
 	Inherits: DoublePistols
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -582,7 +582,7 @@ DoublePistols.exact:
 
 DoublePistolsE.exact:
 	Inherits: DoublePistolsE
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 8c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -608,7 +608,7 @@ DroneJump.exact:
 
 ElectricBolt.exact:
 	Inherits: ElectricBolt
-	ReloadDelay: 60
+	ReloadDelay: 75
 	Range: 3c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -630,7 +630,7 @@ ElectricBolt.exact:
 
 ElectricBoltE.exact:
 	Inherits: ElectricBoltE
-	ReloadDelay: 40
+	ReloadDelay: 50
 	Range: 5c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -652,7 +652,7 @@ ElectricBoltE.exact:
 
 FlakGuyAAGun.exact:
 	Inherits: FlakGuyAAGun
-	ReloadDelay: 25
+	ReloadDelay: 31
 	Range: 8c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -674,7 +674,7 @@ FlakGuyAAGun.exact:
 
 FlakGuyAAGunE.exact:
 	Inherits: FlakGuyAAGunE
-	ReloadDelay: 25
+	ReloadDelay: 31
 	Range: 8c0
 	Burst: 2
 	Warhead@1Dam: SpreadDamage
@@ -696,11 +696,11 @@ FlakGuyAAGunE.exact:
 
 FlakGuyGun.exact:
 	Inherits: FlakGuyGun
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 5c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 20
 		Spread: 1c0
@@ -720,11 +720,11 @@ FlakGuyGun.exact:
 
 FlakGuyGunE.exact:
 	Inherits: FlakGuyGunE
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 5c0
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 20
 		Spread: 1c0
@@ -744,7 +744,7 @@ FlakGuyGunE.exact:
 
 FlakTrackAAGun.exact:
 	Inherits: FlakTrackAAGun
-	ReloadDelay: 25
+	ReloadDelay: 31
 	Range: 10c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -766,11 +766,11 @@ FlakTrackAAGun.exact:
 
 FlakTrackGun.exact:
 	Inherits: FlakTrackGun
-	ReloadDelay: 40
+	ReloadDelay: 50
 	Range: 5c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 25
 		Spread: 1c0
@@ -790,7 +790,7 @@ FlakTrackGun.exact:
 
 FlakWeapon.exact:
 	Inherits: FlakWeapon
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 12c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -812,11 +812,11 @@ FlakWeapon.exact:
 
 GrandCannonWeapon.exact:
 	Inherits: GrandCannonWeapon
-	ReloadDelay: 120
+	ReloadDelay: 150
 	Range: 15c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
 		Spread: 2c0
@@ -840,11 +840,11 @@ HornetLauncher.exact:
 
 HoverMissile.exact:
 	Inherits: HoverMissile
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 6c0
 	Burst: 2
 	Projectile: Missile
-		Speed: 160
+		Speed: 128
 	Warhead@1Dam: SpreadDamage
 		Damage: 25
 		Spread: 0c512
@@ -864,11 +864,11 @@ HoverMissile.exact:
 
 HoverMissileE.exact:
 	Inherits: HoverMissileE
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 6c0
 	Burst: 4
 	Projectile: Missile
-		Speed: 160
+		Speed: 128
 	Warhead@1Dam: SpreadDamage
 		Damage: 80
 		Spread: 0c512
@@ -916,7 +916,7 @@ LightningStorm.exact:
 
 M1Carbine.exact:
 	Inherits: M1Carbine
-	ReloadDelay: 25
+	ReloadDelay: 31
 	Range: 4c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -938,7 +938,7 @@ M1Carbine.exact:
 
 M1CarbineE.exact:
 	Inherits: M1CarbineE
-	ReloadDelay: 25
+	ReloadDelay: 31
 	Range: 5c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -960,7 +960,7 @@ M1CarbineE.exact:
 
 M60.exact:
 	Inherits: M60
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 4c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -982,7 +982,7 @@ M60.exact:
 
 M60E.exact:
 	Inherits: M60E
-	ReloadDelay: 20
+	ReloadDelay: 25
 	Range: 4c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1005,7 +1005,7 @@ M60E.exact:
 # Exception chrono-commando-mp5: values from RA2 ChronoMP5
 MP5.exact:
 	Inherits: MP5
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1028,7 +1028,7 @@ MP5.exact:
 # Exception chrono-commando-mp5: values from RA2 ChronoMP5E
 MP5E.exact:
 	Inherits: MP5E
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1050,11 +1050,11 @@ MP5E.exact:
 
 MammothTusk.exact:
 	Inherits: MammothTusk
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 8c0
 	Burst: 2
 	Projectile: Missile
-		Speed: 80
+		Speed: 64
 	Warhead@1Dam: SpreadDamage
 		Damage: 50
 		Spread: 0c512
@@ -1074,11 +1074,11 @@ MammothTusk.exact:
 
 Maverick.exact:
 	Inherits: Maverick
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 6c0
 	Burst: 2
 	Projectile: Missile
-		Speed: 280
+		Speed: 224
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
 		Spread: 0c410
@@ -1098,11 +1098,11 @@ Maverick.exact:
 
 Maverick2.exact:
 	Inherits: Maverick2
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 6c0
 	Burst: 2
 	Projectile: Missile
-		Speed: 280
+		Speed: 224
 	Warhead@1Dam: SpreadDamage
 		Damage: 200
 		Spread: 0c410
@@ -1122,11 +1122,11 @@ Maverick2.exact:
 
 Medusa.exact:
 	Inherits: Medusa
-	ReloadDelay: 15
+	ReloadDelay: 19
 	Range: 12c0
 	Burst: 1
 	Projectile: Missile
-		Speed: 480
+		Speed: 384
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
 		Spread: 0c307
@@ -1147,13 +1147,13 @@ Medusa.exact:
 # Exception mind-control: RA2 timing and range; mod damage (0) kept
 MindControl.exact:
 	Inherits: MindControl
-	ReloadDelay: 200
+	ReloadDelay: 250
 	Range: 7c0
 	Burst: 1
 
 MirageGun.exact:
 	Inherits: MirageGun
-	ReloadDelay: 70
+	ReloadDelay: 88
 	Range: 7c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1175,7 +1175,7 @@ MirageGun.exact:
 
 MirageGunE.exact:
 	Inherits: MirageGunE
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 9c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1221,10 +1221,10 @@ NukePayload.exact:
 			Drone: 100
 			Rocket: 100
 
-# Exception tesla-charge: ReloadDelay 78 = RA2 ROF 100 ticks - 22-tick charge
+# Exception tesla-charge: ReloadDelay 103 = RA2 ROF 125 ticks - 22-tick charge
 OPCoilBolt.exact:
 	Inherits: OPCoilBolt
-	ReloadDelay: 78
+	ReloadDelay: 103
 	Range: 8c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1244,10 +1244,10 @@ OPCoilBolt.exact:
 			Drone: 200
 			Rocket: 100
 
-# Exception tesla-charge: ReloadDelay 38 = RA2 ROF 60 ticks - 22-tick charge
+# Exception tesla-charge: ReloadDelay 53 = RA2 ROF 75 ticks - 22-tick charge
 PrismShot.exact:
 	Inherits: PrismShot
-	ReloadDelay: 38
+	ReloadDelay: 53
 	Range: 8c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1269,7 +1269,7 @@ PrismShot.exact:
 
 RadBeamWeapon.exact:
 	Inherits: RadBeamWeapon
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1291,7 +1291,7 @@ RadBeamWeapon.exact:
 
 RadBeamWeaponE.exact:
 	Inherits: RadBeamWeaponE
-	ReloadDelay: 50
+	ReloadDelay: 63
 	Range: 8c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1313,11 +1313,11 @@ RadBeamWeaponE.exact:
 
 RedEye2.exact:
 	Inherits: RedEye2
-	ReloadDelay: 55
+	ReloadDelay: 69
 	Range: 12c0
 	Burst: 1
 	Projectile: Missile
-		Speed: 400
+		Speed: 320
 	Warhead@1Dam: SpreadDamage
 		Damage: 75
 		Spread: 0c307
@@ -1337,7 +1337,7 @@ RedEye2.exact:
 
 RepairBullet.exact:
 	Inherits: RepairBullet
-	ReloadDelay: 80
+	ReloadDelay: 100
 	Range: 1c819
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1363,7 +1363,7 @@ SonicZap.exact:
 
 SquidPunch.exact:
 	Inherits: SquidPunch
-	ReloadDelay: 32
+	ReloadDelay: 40
 	Range: 1c850
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1385,11 +1385,11 @@ SquidPunch.exact:
 
 SubTorpedo.exact:
 	Inherits: SubTorpedo
-	ReloadDelay: 120
+	ReloadDelay: 150
 	Range: 7c0
 	Burst: 1
 	Projectile: Missile
-		Speed: 100
+		Speed: 80
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
 		Spread: 0c512
@@ -1409,11 +1409,11 @@ SubTorpedo.exact:
 
 SubTorpedoE.exact:
 	Inherits: SubTorpedoE
-	ReloadDelay: 120
+	ReloadDelay: 150
 	Range: 7c0
 	Burst: 2
 	Projectile: Missile
-		Speed: 72
+		Speed: 58
 	Warhead@1Dam: SpreadDamage
 		Damage: 100
 		Spread: 0c512
@@ -1438,13 +1438,13 @@ SuperComet.exact:
 # Exception mind-control: RA2 timing and range; mod damage (0) kept
 SuperMindControl.exact:
 	Inherits: SuperMindControl
-	ReloadDelay: 200
+	ReloadDelay: 250
 	Range: 30c0
 	Burst: 1
 
 TankBolt.exact:
 	Inherits: TankBolt
-	ReloadDelay: 75
+	ReloadDelay: 94
 	Range: 4c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1466,7 +1466,7 @@ TankBolt.exact:
 
 TankBoltE.exact:
 	Inherits: TankBoltE
-	ReloadDelay: 60
+	ReloadDelay: 75
 	Range: 6c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1488,7 +1488,7 @@ TankBoltE.exact:
 
 TerrorBomb.exact:
 	Inherits: TerrorBomb
-	ReloadDelay: 10
+	ReloadDelay: 13
 	Range: 1c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1510,7 +1510,7 @@ TerrorBomb.exact:
 
 awp.exact:
 	Inherits: awp
-	ReloadDelay: 150
+	ReloadDelay: 188
 	Range: 14c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1536,7 +1536,7 @@ demobomb.exact:
 
 para.exact:
 	Inherits: para
-	ReloadDelay: 15
+	ReloadDelay: 19
 	Range: 5c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1558,7 +1558,7 @@ para.exact:
 
 paraE.exact:
 	Inherits: paraE
-	ReloadDelay: 5
+	ReloadDelay: 6
 	Range: 7c0
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1580,11 +1580,11 @@ paraE.exact:
 
 sabot.exact:
 	Inherits: sabot
-	ReloadDelay: 70
+	ReloadDelay: 88
 	Range: 5c0
 	Burst: 1
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
 		Spread: 0c1
@@ -1604,11 +1604,11 @@ sabot.exact:
 
 sabotE.exact:
 	Inherits: sabotE
-	ReloadDelay: 60
+	ReloadDelay: 75
 	Range: 6c768
 	Burst: 2
 	Projectile: Bullet
-		Speed: 200
+		Speed: 160
 	Warhead@1Dam: SpreadDamage
 		Damage: 175
 		Spread: 0c1
@@ -1628,7 +1628,7 @@ sabotE.exact:
 
 vulcan.exact:
 	Inherits: vulcan
-	ReloadDelay: 26
+	ReloadDelay: 33
 	Range: 5c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
@@ -1650,7 +1650,7 @@ vulcan.exact:
 
 vulcan2.exact:
 	Inherits: vulcan2
-	ReloadDelay: 26
+	ReloadDelay: 33
 	Range: 5c512
 	Burst: 1
 	Warhead@1Dam: SpreadDamage
