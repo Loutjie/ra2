@@ -84,6 +84,7 @@ namespace OpenRA.Mods.RA2.Traits
 		protected readonly BaseSpawnerChildEntry[] ChildEntries;
 
 		IFacing facing;
+		BodyOrientation body;
 
 		protected IReloadModifier[] reloadModifiers;
 
@@ -117,6 +118,7 @@ namespace OpenRA.Mods.RA2.Traits
 			base.Created(self);
 
 			facing = self.TraitOrDefault<IFacing>();
+			body = self.TraitOrDefault<BodyOrientation>();
 
 			reloadModifiers = self.TraitsImplementing<IReloadModifier>().ToArray();
 		}
@@ -208,10 +210,7 @@ namespace OpenRA.Mods.RA2.Traits
 				if (self.IsDead)
 					return;
 
-				var spawnOffset = WVec.Zero;
-				if (exit != null)
-					spawnOffset = exit.Info.SpawnOffset.Rotate(new WRot(WAngle.Zero, WAngle.Zero, WAngle.FromFacing(64) - facing.Facing));
-
+				var spawnOffset = ExitSpawnOffset(self, exit);
 				child.Trait<IPositionable>().SetCenterPosition(child, centerPosition + spawnOffset);
 
 				var location = self.World.Map.CellContaining(centerPosition + spawnOffset);
@@ -223,6 +222,21 @@ namespace OpenRA.Mods.RA2.Traits
 
 				w.Add(child);
 			});
+		}
+
+		/// <summary>
+		/// Exit.SpawnOffset on a spawner is a body-local offset (X forward, Y right, Z up),
+		/// using the same convention as Armament.LocalOffset, so it turns with the parent.
+		/// </summary>
+		WVec ExitSpawnOffset(Actor self, Exit exit)
+		{
+			if (exit == null)
+				return WVec.Zero;
+
+			if (body == null)
+				return exit.Info.SpawnOffset;
+
+			return body.LocalToWorld(exit.Info.SpawnOffset.Rotate(body.QuantizeOrientation(self.Orientation)));
 		}
 
 		void SetSpawnedFacing(Actor spawned, Exit exit)
