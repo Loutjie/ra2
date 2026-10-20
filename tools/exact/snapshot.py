@@ -18,7 +18,8 @@ What is captured
 
 Comparison
   * Buildable actors and weapons (`strip_ignored`) ignore only the `~balance.reimagined`
-    entry of `Buildable*.Prerequisites` and traits keyed `ReplaceOnPrerequisite@BALANCE`.
+    entry of `Buildable*.Prerequisites`, traits keyed `ReplaceOnPrerequisite@BALANCE`, and
+    twin names `<x>.exact` appended after `<x>` to the repair/rearm lists in HOST_FIELDS.
   * Neutral tech buildings (`strip_neutral`) are not replaced but switch traits by
     condition: `GrantConditionOnPrerequisite@BALANCE` and every `*@EXACT` trait are
     ignored, and a `X@REIMAGINED` trait must equal the original `X` once its
@@ -49,10 +50,31 @@ EXACT_SUFFIX = "@EXACT"
 REIMAGINED_SUFFIX = "@REIMAGINED"
 REIMAGINED_CONDITION = "!balance-exact"
 WEAPON_KEYS = ("Weapon", "EmptyWeapon", "MissileWeapon")
+EXACT_SUFFIX_NAME = ".exact"
+# trait type -> actor list that the Exact overlay may extend with twin names (repair and
+# rearm hosts), so untwinned actors can use Exact facilities.
+HOST_FIELDS = {
+    "Repairable": "RepairActors",
+    "RepairableNear": "RepairActors",
+    "TransformsIntoRepairable": "RepairActors",
+    "Rearmable": "RearmActors",
+}
 
 
 def is_buildable_trait(key: str) -> bool:
     return key == "Buildable" or key.startswith("Buildable@")
+
+
+def strip_appended_twins(value: str) -> str:
+    """An actor list without the trailing `<name>.exact` entries whose `<name>` comes earlier.
+
+    Only such appended twin names are allowed; a `.exact` entry elsewhere, or one whose base
+    is not in the list, is kept so that the comparison fails.
+    """
+    names = [p.strip() for p in value.split(",") if p.strip()]
+    while names and names[-1].endswith(EXACT_SUFFIX_NAME) and names[-1][: -len(EXACT_SUFFIX_NAME)] in names[:-1]:
+        names.pop()
+    return ", ".join(names)
 
 
 def strip_ignored(tree: dict) -> dict:
@@ -60,6 +82,9 @@ def strip_ignored(tree: dict) -> dict:
     out = copy.deepcopy(tree)
     out.pop(IGNORED_TRAIT, None)
     for key, trait in out.items():
+        field = HOST_FIELDS.get(key.split("@")[0])
+        if field and isinstance(trait, dict) and isinstance(trait.get(field), str):
+            trait[field] = strip_appended_twins(trait[field])
         if not is_buildable_trait(key) or not isinstance(trait, dict):
             continue
         prereqs = trait.get("Prerequisites")
@@ -102,25 +127,31 @@ def _blocks(rules_dir: Path) -> dict[str, str]:
             m = re.match(r"([^\s#][^:]*):", line)
             if m:
                 current = m.group(1).strip()
+                # Generated Exact twins (`<name>.exact`) are never base actors. They live in
+                # rules/exact/, which the glob does not reach today; filter them anyway.
+                if current.endswith(EXACT_SUFFIX_NAME):
+                    current = None
+                    continue
                 blocks.setdefault(current, [])
             elif current is not None:
                 blocks[current].append(line)
     return {name: "\n".join(lines) for name, lines in blocks.items()}
 
 
-def actor_names(rules_dir: Path = RULES_DIR) -> list[str]:
-    """Names of non-abstract actors that may be buildable, sorted.
+def actor_names(rules_dir: Path = RULES_DIR, field: str = "Buildable") -> list[str]:
+    """Names of non-abstract actors that may be buildable (or may have `field`), sorted.
 
     Cheap textual pre-filter (a superset of the buildable actors; `capture` makes the
     authoritative check on the resolved rules): an actor is kept if its own text, or
-    that of any actor/template it transitively inherits, mentions `Buildable`.
+    that of any actor/template it transitively inherits, has a line starting with `field`
+    (a regular expression).
     Names starting with '^', '-' or '@' are skipped.
     """
     blocks = _blocks(rules_dir)
 
     def maybe_buildable(name: str, seen: frozenset = frozenset()) -> bool:
         text = blocks.get(name, "")
-        if re.search(r"^\s*Buildable\b", text, re.M):
+        if re.search(rf"^\s*(?:{field})\b", text, re.M):
             return True
         parents = [p.strip() for p in re.findall(r"^\s*Inherits(?:@\w+)?:\s*(\S.*)$", text, re.M)]
         return any(p not in seen and maybe_buildable(p, seen | {name}) for p in parents)

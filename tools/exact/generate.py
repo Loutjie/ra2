@@ -10,9 +10,13 @@ Writes (paths relative to the repository root):
 Which actors get a twin
   Every RA2 player-buildable (exact.model.load_actors) whose lowercased ID is a buildable
   actor of the mod, plus the RA2 actors they deploy into or undeploy from (the construction
-  yards, which RA2 does not list as buildable). Mod buildables without such an RA2
-  counterpart are not twinned and stay buildable in both modes; RA2 buildables without
-  a mod actor are not generated. Both lists are written at the top of actors.yaml.
+  yards, which RA2 does not list as buildable). Mod buildables that RA2 defines but cannot
+  build (ghost) are not twinned and become Reimagined only; mod buildables without any RA2
+  section stay buildable in both modes; RA2 buildables without a mod actor are not
+  generated. These lists, and RA2 values with no trait to go to, head actors.yaml.
+
+Untwinned actors (buildable or not, e.g. hornet, civilian vehicles) get the twins of their
+twinned repair/rearm hosts appended in reimagined.yaml (exact.actors.appended_twins).
 
 The base actors are read from the built mod (ra2data.resolved). A tree read back after a
 previous run already carries the overlay; exact.snapshot.strip_ignored removes it, so the
@@ -32,7 +36,7 @@ from pathlib import Path
 
 from exact import actors
 from exact.model import load_actor, load_actors
-from exact.snapshot import actor_names, has_buildable, strip_ignored, weapon_definitions
+from exact.snapshot import HOST_FIELDS, actor_names, has_buildable, strip_ignored, weapon_definitions
 from ra2data import ini
 from ra2data.resolved import REPO_ROOT, resolve_actor
 
@@ -62,16 +66,18 @@ def _comment(title: str, names) -> str:
     return f"# {title}: {', '.join(names) if names else '(none)'}\n"
 
 
-def build(rules: dict, base_actors: dict, weapons: dict[str, str]) -> dict[str, str]:
+def build(rules: dict, base_actors: dict, weapons: dict[str, str],
+        host_actors: dict | None = None) -> dict[str, str]:
     """Generated file path (relative to the repository root) -> contents.
 
     rules: parsed rules.ini. base_actors: mod buildable ID -> resolved tree.
     weapons: lowercase weapon name -> defined weapon name.
+    host_actors: other actors (not buildable) that have repair/rearm host lists -> resolved tree.
     """
     bases = {name: strip_ignored(tree) for name, tree in base_actors.items()}
+    hosts = {name: strip_ignored(tree) for name, tree in (host_actors or {}).items() if name not in bases}
     ra2 = ra2_actors(rules)
     twins = sorted(set(ra2) & set(bases))
-    twin_bases = {name: bases[name] for name in twins}
     children = actors.spawned_children(bases)
 
     notes: list[str] = []
@@ -86,25 +92,39 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str]) -> dict[str, 
         blocks.append(actors.render_twin(ra2[name], bases[name], twins=twins, weapons=weapons,
             replaced=replaced))
 
-    untwinned = sorted(set(bases) - set(ra2))
+    # RA2 defines these but cannot build them: Reimagined only. Without an RA2 section: both modes.
+    reimagined_only = sorted(n for n in set(bases) - set(ra2) if load_actor(rules, n) is not None)
+    both_modes = sorted(set(bases) - set(ra2) - set(reimagined_only))
     missing = sorted(a.id for key, a in ra2.items() if key not in bases)
     actors_text = (HEADER
-        + _comment("Mod buildables without a twin (available in both modes)", untwinned)
+        + _comment("Mod buildables without a twin, Reimagined only (RA2 cannot build them)", reimagined_only)
+        + _comment("Mod buildables without an RA2 counterpart (available in both modes)", both_modes)
         + _comment("RA2 buildables without a mod actor (not generated)", missing)
         + "".join(f"# Not applied: {note}\n" for note in sorted(notes))
         + "\n" + "\n".join(blocks))
-    overlay_text = HEADER + "\n" + actors.render_reimagined_overlay(twin_bases, no_replace=children)
+    overlay_text = HEADER + "\n" + actors.render_reimagined_overlay({**hosts, **bases}, twins=twins,
+        no_replace=children, reimagined_only=reimagined_only)
     weapons_text = HEADER + "\n" + "\n".join(
         f"{w}{actors.SUFFIX}:\n\tInherits: {w}\n" for w in sorted(stubs))
     return {ACTORS_FILE: actors_text, OVERLAY_FILE: overlay_text, WEAPONS_FILE: weapons_text}
 
 
+def resolve_all(names: list[str]) -> dict[str, dict]:
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        return dict(zip(names, pool.map(resolve_actor, names)))
+
+
 def resolve_base_actors() -> dict[str, dict]:
     """Resolved tree of every buildable actor of the mod (needs a built mod)."""
-    names = actor_names()
-    with ThreadPoolExecutor(max_workers=8) as pool:
-        trees = dict(zip(names, pool.map(resolve_actor, names)))
-    return {name: tree for name, tree in trees.items() if has_buildable(tree)}
+    return {name: tree for name, tree in resolve_all(actor_names()).items() if has_buildable(tree)}
+
+
+def resolve_host_actors() -> dict[str, dict]:
+    """Resolved tree of every non-buildable actor with a repair/rearm host list (needs a built mod)."""
+    fields = "|".join(sorted(set(HOST_FIELDS.values())))
+    trees = resolve_all(actor_names(field=fields))
+    return {name: tree for name, tree in trees.items() if not has_buildable(tree)
+        and any(actors.trait_type(k) in HOST_FIELDS for k in tree)}
 
 
 def load_rules() -> dict:
@@ -118,7 +138,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="store_true", help="report out-of-date files instead of writing")
     args = parser.parse_args(argv)
-    outputs = build(load_rules(), resolve_base_actors(), weapon_definitions())
+    outputs = build(load_rules(), resolve_base_actors(), weapon_definitions(), resolve_host_actors())
     stale = []
     for rel, text in outputs.items():
         path = REPO_ROOT / rel

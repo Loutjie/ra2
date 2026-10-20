@@ -5,7 +5,7 @@ import pytest
 
 from exact import actors, conversions, generate
 from exact.model import ExactActor
-from exact.snapshot import weapon_definitions
+from exact.snapshot import HOST_FIELDS, is_buildable_trait, strip_ignored, weapon_definitions
 from ra2data.resolved import REPO_ROOT, parse_miniyaml, resolve_actor
 
 
@@ -233,11 +233,48 @@ def test_generator_selects_twins(outputs):
     assert twins["mcv.exact"]["Transforms"] == {"IntoActor": "yard.exact"}
     assert twins["yard.exact"]["Transforms"] == {"IntoActor": "mcv.exact"}
     overlay = parse_miniyaml(outputs[generate.OVERLAY_FILE])
-    # seal (no RA2 buildable), drop and pdplane (no RA2 section) stay available in both modes.
-    assert sorted(overlay) == ["mcv", "plant", "troop", "yard"]
+    # seal: RA2 cannot build it, so Reimagined only. drop and pdplane (no RA2 section): both modes.
+    assert sorted(overlay) == ["mcv", "plant", "seal", "troop", "yard"]
+    assert overlay["seal"] == {"Buildable": {"Prerequisites": "~barracks, ~balance.reimagined"}}
     text = outputs[generate.ACTORS_FILE]
-    assert "# Mod buildables without a twin (available in both modes): drop, pdplane, seal" in text
+    assert "# Mod buildables without a twin, Reimagined only (RA2 cannot build them): seal" in text
+    assert "# Mod buildables without an RA2 counterpart (available in both modes): drop, pdplane" in text
     assert "# RA2 buildables without a mod actor (not generated): LOST" in text
+
+
+def test_generator_appends_exact_hosts_for_untwinned_actors():
+    hosts = {
+        "hornet": {"Rearmable": {"RearmActors": "mcv"}},
+        "civcar": {"Repairable": {"RepairActors": "plant, caoutp", "Voice": "Move"},
+            "RepairableNear": {"RepairActors": "plant, plant.exact"}},
+        "boat": {"Repairable": {"RepairActors": "caoutp"}},
+    }
+    bases = {**BASES, "drop": {**BASES["drop"], "Repairable": {"RepairActors": "plant"}},
+        "mcv": {**BASES["mcv"], "Repairable": {"RepairActors": "plant"}}}
+    overlay = parse_miniyaml(generate.build(RULES, bases, {}, hosts)[generate.OVERLAY_FILE])
+    assert overlay["hornet"] == {"Rearmable": {"RearmActors": "mcv, mcv.exact"}}
+    # RepairableNear already carried the twin (read back from a previous run): stripped and re-added once.
+    assert overlay["civcar"] == {"Repairable": {"RepairActors": "plant, caoutp, plant.exact"},
+        "RepairableNear": {"RepairActors": "plant, plant.exact"}}
+    assert overlay["drop"] == {"Repairable": {"RepairActors": "plant, plant.exact"}}
+    assert "boat" not in overlay
+    # Twinned actors are not extended (their twins list both hosts).
+    assert "Repairable" not in overlay["mcv"]
+
+
+def test_generator_notes_dropped_values():
+    rules = {**RULES, "PLANT": {**RULES["PLANT"], "ROT": "10", "Sight": "6"}}
+    text = generate.build(rules, BASES, {})[generate.ACTORS_FILE]
+    assert "# Not applied: plant: ROT=10 has no Mobile, Aircraft or Turreted trait to go to" in text
+    assert "# Not applied: plant: Sight=6 has no RevealsShroud trait to go to" in text
+
+
+def test_building_rot_turns_turret():
+    base = {"Turreted": {"TurnSpeed": "1023", "Offset": "1,0,0"}, "RevealsShroud": {"Range": "1c0"}}
+    actor = make_actor("GAPILL", kind="building", rot=10, raw={"ROT": "10"})
+    traits, notes = actors.twin_traits(actor, base)
+    assert traits["Turreted"] == {"TurnSpeed": "40"}
+    assert not [n for n in notes if "ROT" in n]
 
 
 def test_generator_weapon_stubs(outputs):
@@ -257,7 +294,8 @@ def test_generator_is_deterministic(outputs):
 
 @pytest.mark.integration
 def test_generated_files_up_to_date(ra2ini):
-    outputs = generate.build(ra2ini, generate.resolve_base_actors(), weapon_definitions())
+    outputs = generate.build(ra2ini, generate.resolve_base_actors(), weapon_definitions(),
+        generate.resolve_host_actors())
     stale = [rel for rel, text in outputs.items()
         if not (REPO_ROOT / rel).is_file() or (REPO_ROOT / rel).read_text(encoding="utf-8") != text]
     assert not stale, f"regenerate with `python3 -m exact.generate`: {stale}"
@@ -273,3 +311,28 @@ def test_resolved_twin_and_base():
     assert base["ReplaceOnPrerequisite@BALANCE"] == {"Prerequisite": "balance.exact", "IntoActor": "htnk.exact"}
     assert base["Buildable"]["Prerequisites"].endswith("~balance.reimagined")
     assert resolve_actor("amcv.exact")["Transforms"]["IntoActor"] == "gacnst.exact"
+
+
+@pytest.mark.integration
+def test_generated_lists_match_resolved_mod():
+    """Staleness guard that needs the built mod but not the game's rules.ini: editing a base
+    actor's prerequisites or repair/rearm hosts without regenerating fails here."""
+    twins = parse_miniyaml((REPO_ROOT / generate.ACTORS_FILE).read_text(encoding="utf-8"))
+    overlay = parse_miniyaml((REPO_ROOT / generate.OVERLAY_FILE).read_text(encoding="utf-8"))
+    twinned = {name[: -len(actors.SUFFIX)] for name in twins}
+    bases = {n: strip_ignored(t) for n, t in generate.resolve_all(sorted(twinned)).items()}
+    for name, base in bases.items():
+        for key, trait in base.items():
+            if is_buildable_trait(key):
+                kept = actors.split_list(trait.get("Prerequisites", ""))
+                assert twins[name + actors.SUFFIX][key]["Prerequisites"] == ", ".join([*kept, "~balance.exact"]), name
+                assert overlay[name][key]["Prerequisites"] == ", ".join([*kept, "~balance.reimagined"]), name
+    untwinned = {n: strip_ignored(t) for n, t in {**generate.resolve_host_actors(),
+        **generate.resolve_base_actors()}.items() if n not in twinned}
+    for name, tree in untwinned.items():
+        for key, trait in tree.items():
+            field = HOST_FIELDS.get(actors.trait_type(key))
+            if field and isinstance(trait, dict) and isinstance(trait.get(field), str):
+                expected = actors.appended_twins(trait[field], twinned)
+                if expected != ", ".join(actors.split_list(trait[field])):
+                    assert overlay[name][key][field] == expected, name

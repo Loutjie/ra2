@@ -5,7 +5,8 @@ import json
 
 import pytest
 
-from exact.snapshot import NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, _canonical, capture, strip_ignored, strip_neutral
+from exact.snapshot import (NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, _blocks, _canonical, capture, strip_appended_twins,
+    strip_ignored, strip_neutral)
 
 # --- unit tests of the ignore logic (fictional data) ---
 
@@ -122,6 +123,40 @@ def test_strip_neutral_does_not_mutate_input():
     before = json.dumps(current, sort_keys=True)
     strip_neutral(current)
     assert json.dumps(current, sort_keys=True) == before
+
+
+# --- appended Exact twin names in repair/rearm host lists (fictional data) ---
+
+
+def test_strip_removes_appended_twin_hosts():
+    tree = {"Repairable": {"RepairActors": "fakedepot, fakeoutpost, fakedepot.exact", "Voice": "Move"},
+        "Rearmable@x": {"RearmActors": "fakepad, fakepad.exact"}}
+    assert strip_ignored(tree) == {"Repairable": {"RepairActors": "fakedepot, fakeoutpost", "Voice": "Move"},
+        "Rearmable@x": {"RearmActors": "fakepad"}}
+
+
+def test_strip_keeps_twin_name_without_base():
+    assert strip_appended_twins("fakedepot, other.exact") == "fakedepot, other.exact"
+
+
+def test_strip_keeps_twin_name_not_at_end():
+    assert strip_appended_twins("fakedepot, fakedepot.exact, fakepad") == "fakedepot, fakedepot.exact, fakepad"
+
+
+def test_strip_ignores_twin_names_only_in_host_fields():
+    tree = {"FreeActor": {"Actor": "fakeminer, fakeminer.exact"}}
+    assert strip_ignored(tree) == tree
+
+
+def test_appended_host_change_plus_real_change_fails():
+    old = {"Repairable": {"RepairActors": "fakedepot"}}
+    new = {"Repairable": {"RepairActors": "fakedepot, otherdepot, fakedepot.exact"}}
+    assert strip_ignored(old) != strip_ignored(new)
+
+
+def test_blocks_skip_exact_twins(tmp_path):
+    (tmp_path / "a.yaml").write_text("fake:\n\tBuildable:\nfake.exact:\n\tInherits: fake\n", encoding="utf-8")
+    assert _blocks(tmp_path) == {"fake": "\tBuildable:"}
 
 
 # --- integration test against the built mod ---

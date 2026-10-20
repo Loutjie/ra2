@@ -141,3 +141,7 @@ def test_load_actor_ignores_buildability(sample):
     assert ghost is not None and ghost.id == "GHOST"
     assert model.load_actor(sample, "UNLISTED") is None
     assert model.load_actor(sample, "NOSUCH") is None
+
+
+def test_load_actor_is_case_insensitive(sample):
+    assert model.load_actor(sample, "ghost").id == "GHOST"

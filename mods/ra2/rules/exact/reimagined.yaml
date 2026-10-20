@@ -14,6 +14,10 @@ amcv:
 		Prerequisite: balance.exact
 		IntoActor: amcv.exact
 
+amcv.colorpicker:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 amradr:
 	Buildable:
 		Prerequisites: garefn, ~structures.america, ~balance.reimagined
@@ -27,6 +31,10 @@ apoc:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: apoc.exact
+
+asw:
+	Rearmable:
+		RearmActors: dest, cdest, dest.exact
 
 atesla:
 	Buildable:
@@ -42,6 +50,14 @@ beag:
 		Prerequisite: balance.exact
 		IntoActor: beag.exact
 
+bus:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+car:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 carrier:
 	Buildable:
 		Prerequisites: gatech, ~gayard, ~balance.reimagined
@@ -55,6 +71,10 @@ ccomand:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: ccomand.exact
+
+cdest:
+	Repairable:
+		RepairActors: gayard, nayard, gayard.exact, nayard.exact
 
 civan:
 	Buildable:
@@ -76,6 +96,18 @@ cmin:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: cmin.exact
+
+cona:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+cop:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+cruise:
+	Repairable:
+		RepairActors: gayard, nayard, gayard.exact, nayard.exact
 
 deso:
 	Buildable:
@@ -139,6 +171,10 @@ engineer:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: engineer.exact
+
+euroc:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 flakt:
 	Buildable:
@@ -266,6 +302,10 @@ gayard:
 		Prerequisite: balance.exact
 		IntoActor: gayard.exact
 
+ghost:
+	Buildable:
+		Prerequisites: ~disabled, ~balance.reimagined
+
 gtgcan:
 	Buildable:
 		Prerequisites: radar, ~structures.france, ~balance.reimagined
@@ -279,6 +319,10 @@ harv:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: harv.exact
+
+hornet:
+	Rearmable:
+		RearmActors: carrier, carrier.exact
 
 htk:
 	Buildable:
@@ -321,6 +365,10 @@ lcrf:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: lcrf.exact
+
+limo:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 mgtk:
 	Buildable:
@@ -469,12 +517,24 @@ orca:
 		Prerequisite: balance.exact
 		IntoActor: orca.exact
 
+pick:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+propa:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 ptroop:
 	Buildable:
 		Prerequisites: ~gapile, ~soviets.tech.infiltrated, ~balance.reimagined
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: ptroop.exact
+
+ptruck:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 sapc:
 	Buildable:
@@ -532,6 +592,10 @@ sref:
 		Prerequisite: balance.exact
 		IntoActor: sref.exact
 
+stang:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 sub:
 	Buildable:
 		Prerequisites: ~nayard, ~balance.reimagined
@@ -539,12 +603,24 @@ sub:
 		Prerequisite: balance.exact
 		IntoActor: sub.exact
 
+suvb:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+suvw:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 tany:
 	Buildable:
 		Prerequisites: gatech, ~gapile, ~balance.reimagined
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: tany.exact
+
+taxi:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 terror:
 	Buildable:
@@ -567,12 +643,28 @@ tnkd:
 		Prerequisite: balance.exact
 		IntoActor: tnkd.exact
 
+trucka:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
+truckb:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
+
 ttnk:
 	Buildable:
 		Prerequisites: ~naweap, naradr, ~vehicles.russia, ~balance.reimagined
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: ttnk.exact
+
+tug:
+	Repairable:
+		RepairActors: gayard, nayard, gayard.exact, nayard.exact
+
+wini:
+	Repairable:
+		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 yuri:
 	Buildable:

@@ -214,9 +214,11 @@ def load_actors(rules: dict) -> list[ExactActor]:
 
 def load_actor(rules: dict, actor_id: str) -> ExactActor | None:
     """One registered actor, buildable or not (e.g. a construction yard that
-    is only reached by deploying an MCV). None if `actor_id` is unregistered
-    or has no section."""
-    kind = _registered(rules).get(actor_id)
+    is only reached by deploying an MCV), looked up case-insensitively. None if
+    `actor_id` is unregistered or has no section."""
+    registered = _registered(rules)
+    actor_id = next((k for k in registered if k.lower() == actor_id.lower()), actor_id)
+    kind = registered.get(actor_id)
     section = rules.get(actor_id)
     if kind is None or section is None:
         return None

@@ -7,7 +7,8 @@ values that RA2's rules.ini defines (exact.model), converted by exact.conversion
     of `~balance.reimagined`; BuildDuration = minutes_to_ticks(build_minutes);
     BuildDurationModifier 100 (the engine default of 60 would scale RA2's time).
   * Valued Cost, Health HP, Armor Type, Mobile/Aircraft Speed and TurnSpeed (TurnSpeed
-    only when RA2 sets ROT=; RA2 infantry have none), RevealsShroud Range, Power Amount.
+    only when RA2 sets ROT=; RA2 infantry have none; a building's ROT= goes to its
+    Turreted TurnSpeed), RevealsShroud Range, Power Amount.
     A value is only written to a trait the base actor has; generate.py lists what
     could not be applied.
   * Armament*: Weapon -> `<weapon>.exact`.
@@ -28,7 +29,10 @@ values that RA2's rules.ini defines (exact.model), converted by exact.conversion
 The overlay gives each twinned base actor `~balance.reimagined` in its Buildable
 prerequisites and `ReplaceOnPrerequisite@BALANCE` into its twin, except for actors
 that their creator configures after spawning them (spawner/carrier children and
-support power aircraft), which never get the replacement trait.
+support power aircraft), which never get the replacement trait. Mod buildables that
+RA2 defines but cannot build get only `~balance.reimagined`. Actors without a twin
+(e.g. hornet, civilian vehicles) get the twins of twinned repair/rearm hosts appended
+to their HOST_FIELDS lists (exact.snapshot ignores exactly these appended names).
 """
 from __future__ import annotations
 
@@ -36,7 +40,7 @@ from collections.abc import Collection, Mapping
 
 from exact import conversions
 from exact.model import ExactActor
-from exact.snapshot import IGNORED_TRAIT, REIMAGINED_TOKEN, is_buildable_trait
+from exact.snapshot import HOST_FIELDS, IGNORED_TRAIT, REIMAGINED_TOKEN, is_buildable_trait
 
 SUFFIX = ".exact"
 EXACT_TOKEN = "~balance.exact"
@@ -152,12 +156,17 @@ def twin_traits(actor: ExactActor, base: Mapping, *, twins: Collection[str] = ()
         if ini_key not in actor.raw:
             continue
         value = convert(actor.speed if ini_key == "Speed" else actor.rot)
+        turrets = sorted(k for k in base if trait_type(k) == "Turreted")
         if locomotion:
             put(locomotion, field, value)
-        elif actor.kind != "building":
-            notes.append(f"{base_id}: {ini_key}={actor.raw[ini_key]} has no Mobile or Aircraft trait to go to")
-    if "RevealsShroud" in base:
-        put("RevealsShroud", "Range", conversions.cells_to_wdist(actor.sight))
+        elif actor.kind == "building" and ini_key == "ROT" and turrets:
+            # A building's ROT= turns its turret.
+            for key in turrets:
+                put(key, field, value)
+        else:
+            notes.append(f"{base_id}: {ini_key}={actor.raw[ini_key]} has no Mobile, Aircraft"
+                + (" or Turreted" if actor.kind == "building" else "") + " trait to go to")
+    put_on("RevealsShroud", "Range", conversions.cells_to_wdist(actor.sight), f"Sight={actor.sight}")
     if actor.power or "Power" in base:
         put_on("Power", "Amount", actor.power, f"Power={actor.power}")
     if actor.kind == "building":
@@ -204,20 +213,48 @@ def render_twin(actor: ExactActor, base: dict, *, twins: Collection[str] = (),
     return "\n".join(lines) + "\n"
 
 
-def render_reimagined_overlay(base_actors: dict, *, no_replace: Collection[str] = ()) -> str:
-    """MiniYaml limiting the twinned base actors to Reimagined.
+def appended_twins(value: str, twins: Collection[str]) -> str:
+    """An actor list with the twin of every twinned entry appended at the end."""
+    names = split_list(value)
+    extra = []
+    for name in names:
+        if name in twins and name + SUFFIX not in names and name + SUFFIX not in extra:
+            extra.append(name + SUFFIX)
+    return ", ".join([*names, *extra])
 
-    base_actors: base ID -> resolved tree, for every base actor that has a twin. A tree
-    read back after a previous run already carries the overlay; it is stripped first.
+
+def render_reimagined_overlay(base_actors: dict, *, twins: Collection[str] | None = None,
+        no_replace: Collection[str] = (), reimagined_only: Collection[str] = ()) -> str:
+    """MiniYaml limiting base actors to Reimagined and letting untwinned actors use Exact hosts.
+
+    base_actors: actor ID -> resolved tree (without a previous overlay: see strip_ignored).
+    twins: the IDs that have a twin; default: every actor in base_actors not in reimagined_only.
+      A twinned actor gets `~balance.reimagined` in its Buildable prerequisites and
+      ReplaceOnPrerequisite@BALANCE into its twin (unless listed in no_replace).
+    reimagined_only: untwinned actors that only get `~balance.reimagined`.
+    Every untwinned actor gets the twins of twinned hosts appended to its HOST_FIELDS lists,
+    so it can repair and rearm at Exact facilities. Actors with nothing to add are left out.
     """
+    if twins is None:
+        twins = set(base_actors) - set(reimagined_only)
     blocks = []
     for name in sorted(base_actors):
         lines = [f"{name}:"]
-        for key, trait in sorted(base_actors[name].items()):
-            if is_buildable_trait(key) and isinstance(trait, dict):
-                lines += [f"\t{key}:", f"\t\tPrerequisites: {_prerequisites(trait, REIMAGINED_TOKEN)}"]
-        if name not in no_replace:
-            lines += [f"\t{IGNORED_TRAIT}:", f"\t\tPrerequisite: {EXACT_PREREQUISITE}",
-                f"\t\tIntoActor: {twin_name(name)}"]
-        blocks.append("\n".join(lines) + "\n")
+        tree = base_actors[name]
+        if name in twins or name in reimagined_only:
+            for key, trait in sorted(tree.items()):
+                if is_buildable_trait(key) and isinstance(trait, dict):
+                    lines += [f"\t{key}:", f"\t\tPrerequisites: {_prerequisites(trait, REIMAGINED_TOKEN)}"]
+        if name in twins:
+            if name not in no_replace:
+                lines += [f"\t{IGNORED_TRAIT}:", f"\t\tPrerequisite: {EXACT_PREREQUISITE}",
+                    f"\t\tIntoActor: {twin_name(name)}"]
+        else:
+            for key, trait in sorted(tree.items()):
+                field = HOST_FIELDS.get(trait_type(key))
+                value = trait.get(field) if field and isinstance(trait, dict) else None
+                if isinstance(value, str) and appended_twins(value, twins) != ", ".join(split_list(value)):
+                    lines += [f"\t{key}:", f"\t\t{field}: {appended_twins(value, twins)}"]
+        if len(lines) > 1:
+            blocks.append("\n".join(lines) + "\n")
     return "\n".join(blocks)
