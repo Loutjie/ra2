@@ -24,7 +24,7 @@ def actors(sample):
 def test_load_actors_filters_buildable(actors):
     # GHOST: TechLevel -1. UNLISTED: not in any registration list.
     # NOOWNER: no Owner. LABX: TechLevel 10 is the inclusive upper bound.
-    assert sorted(actors) == ["LABX", "PLANT", "TANKY", "TROOP"]
+    assert sorted(actors) == ["LABX", "PLANT", "PRISM", "TANKY", "TROOP"]
     assert actors["TROOP"].kind == "infantry"
     assert actors["TANKY"].kind == "vehicle"
     assert actors["PLANT"].kind == "building"
@@ -50,7 +50,7 @@ def test_actor_fields(actors):
 
 def test_engine_defaults(actors):
     labx = actors["LABX"]
-    assert (labx.strength, labx.sight, labx.speed, labx.rot) == (1, 1, 0, 0)
+    assert (labx.strength, labx.sight, labx.speed, labx.rot) == (0, 1, 0, 0)
     assert labx.armor == "none" and labx.primary is None
 
 
@@ -90,3 +90,46 @@ def test_real_rules_has_87_buildables(ra2ini):
     weapons = model.load_weapons(ra2ini, actors)
     assert weapons
     assert all(len(w.verses) == 11 for w in weapons.values())
+
+
+def test_numbered_weapons(sample, actors):
+    prism = actors["PRISM"]
+    assert prism.primary is None
+    assert prism.weapons == ["Rifle", "Pistol"]  # index order, undefined skipped
+    assert prism.elite_weapons == ["RifleE"]
+    assert "RifleE" in model.load_weapons(sample, [prism])
+
+
+def test_resolve_prerequisite_aliases(sample):
+    assert model.resolve_prerequisite_aliases(
+        sample, ["power", "TECH", "LABX", "Missing"]) == [
+        ["PLANT", "PLANT2"], ["LABX"], ["LABX"], ["Missing"]]
+
+
+def test_duplicate_registration_raises():
+    rules = {"InfantryTypes": {"1": "A"}, "VehicleTypes": {"1": "A"}}
+    with pytest.raises(ValueError, match="registered as both"):
+        model.load_actors(rules)
+
+
+def test_build_minutes_known_unit(actors):
+    # 800 credits at BuildSpeed .5 -> 0.4 minutes
+    assert actors["PLANT"].build_minutes == pytest.approx(0.4)
+
+
+def test_real_numbered_weapons(ra2ini):
+    actors = model.load_actors(ra2ini)
+    by_id = {a.id: a for a in actors}
+    weapons = model.load_weapons(ra2ini, actors)
+    assert "Comet" in by_id["SREF"].weapons
+    assert "SuperComet" in by_id["SREF"].elite_weapons
+    assert {"Comet", "SuperComet"} <= set(weapons)
+    fv = by_id["FV"]
+    assert len(fv.weapons) >= 10 and len(fv.elite_weapons) >= 10
+    assert {"RepairBullet", "CRM60", "CRMP5", "CRNeutronRifle", "CowShot"} <= set(weapons)
+
+
+def test_real_prerequisite_aliases_resolve(ra2ini):
+    for actor in model.load_actors(ra2ini):
+        for alts in model.resolve_prerequisite_aliases(ra2ini, actor.prerequisites):
+            assert all(a in ra2ini for a in alts), (actor.id, alts)

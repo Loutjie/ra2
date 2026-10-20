@@ -22,7 +22,7 @@ RA2 INI semantics followed
 
 Engine defaults assumed when a key is absent (ModEnc, "Strength",
 "Speed", "ROT", "Sight", "TechLevel", "Armor", "Weapons" pages):
-  Strength 1, Armor none, Speed 0, ROT 0, Sight 1, Cost 0, Power 0,
+  Strength 0, Armor none, Speed 0, ROT 0, Sight 1, Cost 0, Power 0,
   TechLevel -1 (unbuildable), BuildTimeMultiplier 1;
   weapon Damage 0, ROF 0, Range 0, Burst 1, Speed 100, projectile ""; warhead
   Verses 100% for all 11 armours, CellSpread 0, PercentAtMax 100%.
@@ -31,11 +31,14 @@ so the defaults only matter for incomplete (e.g. modded) data.
 
 build_minutes = Cost / 1000 * [General]BuildSpeed * BuildTimeMultiplier, the
 rules.ini definition of BuildSpeed ("minutes to produce a 1000 credit item").
+`prerequisites` keeps the raw tokens, including [General] aliases (POWER,
+RADAR, BARRACKS, TECH, PROC, FACTORY); use resolve_prerequisite_aliases.
 Factory-count (MultipleFactory) and low-power effects are applied at runtime
 and are deliberately not folded in.
 """
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 
 from exact import conversions
@@ -83,6 +86,10 @@ class ExactActor:
     elite_abilities: list[str]
     death_weapon: str | None
     superweapon: str | None
+    # Numbered WeaponN / EliteWeaponN keys (IFV, Prism Tank, ...) in index
+    # order. Only IDs of defined sections are kept.
+    weapons: list[str] = field(default_factory=list)
+    elite_weapons: list[str] = field(default_factory=list)
     raw: dict = field(default_factory=dict)
 
 
@@ -147,13 +154,46 @@ def load_general(rules: dict) -> dict[str, str]:
 
 
 def _registered(rules: dict) -> dict[str, str]:
-    """ID -> kind for every ID in the four type-registration lists."""
+    """ID -> kind for every ID in the four type-registration lists.
+
+    An ID registered in two different lists is ambiguous, so it raises.
+    """
     kinds: dict[str, str] = {}
     for list_name, kind in KIND_LISTS.items():
         for value in rules.get(list_name, {}).values():
-            if value.strip():
-                kinds.setdefault(value.strip(), kind)
+            value = value.strip()
+            if not value:
+                continue
+            if kinds.setdefault(value, kind) != kind:
+                raise ValueError(
+                    f"{value} is registered as both {kinds[value]} and {kind}")
     return kinds
+
+
+def _numbered_weapons(rules: dict, section: dict, prefix: str) -> list[str]:
+    pattern = re.compile(prefix + r"(\d+)", re.IGNORECASE)
+    found = []
+    for key, value in section.items():
+        match = pattern.fullmatch(key)
+        if match and value.strip() in rules:
+            found.append((int(match.group(1)), value.strip()))
+    return [wid for _, wid in sorted(found)]
+
+
+def resolve_prerequisite_aliases(rules: dict, tokens: list[str]) -> list[list[str]]:
+    """Expand prerequisite tokens to alternatives, one list per token.
+
+    A token matching (case-insensitively) a [General] Prerequisite<Name> key,
+    e.g. POWER, RADAR, BARRACKS/Barracks, TECH, PROC, FACTORY, expands to that
+    key's building list (any one suffices). Other tokens are building IDs and
+    map to themselves.
+    """
+    general = rules.get("General", {})
+    aliases = {k[len("Prerequisite"):].lower(): parse_list(v)
+               for k, v in general.items()
+               if k.startswith("Prerequisite") and len(k) > len("Prerequisite")
+               and k != "PrerequisiteOverride"}
+    return [list(aliases.get(t.lower(), [t])) for t in tokens]
 
 
 def _is_buildable(section: dict) -> bool:
@@ -175,7 +215,7 @@ def load_actors(rules: dict) -> list[ExactActor]:
             id=actor_id,
             kind=kind,
             cost=cost,
-            strength=_int(section, "Strength", 1),
+            strength=_int(section, "Strength", 0),
             armor=section.get("Armor", "none").strip().lower() or "none",
             speed=_int(section, "Speed", 0),
             rot=_int(section, "ROT", 0),
@@ -191,6 +231,8 @@ def load_actors(rules: dict) -> list[ExactActor]:
             elite_abilities=parse_list(section.get("EliteAbilities")),
             death_weapon=_opt(section, "DeathWeapon"),
             superweapon=_opt(section, "SuperWeapon"),
+            weapons=_numbered_weapons(rules, section, "Weapon"),
+            elite_weapons=_numbered_weapons(rules, section, "EliteWeapon"),
             raw=dict(section),
         ))
     return actors
@@ -204,12 +246,13 @@ def _verses(warhead: dict) -> list[int]:
 
 def load_weapons(rules: dict, actors: list[ExactActor]) -> dict[str, ExactWeapon]:
     """Every weapon the actors can fire (primary, secondary, elite variants,
-    death weapon), keyed by weapon ID. References to sections that do not
+    death weapon, numbered WeaponN/EliteWeaponN), keyed by weapon ID. References to sections that do not
     exist are skipped."""
     weapons: dict[str, ExactWeapon] = {}
     for actor in actors:
         for wid in (actor.primary, actor.secondary, actor.elite_primary,
-                    actor.elite_secondary, actor.death_weapon):
+                    actor.elite_secondary, actor.death_weapon,
+                    *actor.weapons, *actor.elite_weapons):
             if not wid or wid in weapons or wid not in rules:
                 continue
             w = rules[wid]
