@@ -160,7 +160,7 @@ caoutp:
 		HP: 2000
 	Building:
 		Dimensions: 4,3
-		Footprint: xx== xx== xx==
+		Footprint: x=== x=== x===
 	Reservable:
 	RallyPoint:
 		Palette: mouse
