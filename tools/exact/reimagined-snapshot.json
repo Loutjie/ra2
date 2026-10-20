@@ -21165,6 +21165,802 @@
 			"WithVoxelBody": {}
 		}
 	},
+	"neutral": {
+		"caairp": {
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "concrete"
+			},
+			"BodyOrientation": {
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Building": {
+				"BuildSounds": "uplace.wav",
+				"Dimensions": "3,3",
+				"Footprint": "xxx xxx xxx",
+				"TerrainTypes": "Clear, Road, DirtRoad, Rough",
+				"UndeploySounds": "uselbuil.wav"
+			},
+			"Capturable": {
+				"Types": "building"
+			},
+			"CaptureManager": {},
+			"CaptureNotification": {
+				"LoseNotification": "TechBuildingLost",
+				"Notification": "TechBuildingCaptured"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"Demolishable": {},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"Type": "Footprint",
+				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
+			"FrozenUnderFog": {},
+			"GivesBuildableArea": {
+				"AreaTypes": "building"
+			},
+			"Guardable": {
+				"Range": "3c0"
+			},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "800"
+			},
+			"HitShape": {
+				"Type": {
+					"BottomRight": "1536, 1024",
+					"LocalYaw": "-128",
+					"TopLeft": "-1536, -1024",
+					"_value": "Rectangle"
+				},
+				"UseTargetableCellsOffsets": "true"
+			},
+			"Huntable": {},
+			"InstantlyRepairable": {},
+			"IsometricSelectable": {
+				"Height": "90",
+				"Priority": "3"
+			},
+			"IsometricSelectionDecorations": {},
+			"MapEditorData": {
+				"Categories": "Tech building"
+			},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"ParatroopersPower@Allies": {
+				"ArrowSequence": "arrow",
+				"CameraActor": "camera",
+				"ChargeInterval": "9000",
+				"Description": "actor-caairp.paratrooperspower-allies-description",
+				"DropItems": "e1,e1,e1,e1,e1,e1",
+				"Icon": "paradrop",
+				"Name": "actor-caairp.paratrooperspower-allies-name",
+				"OrderName": "AlliedParatroopers",
+				"Prerequisites": "~techparadrops.allies",
+				"QuantizedFacings": "8",
+				"UnitType": "pdplane"
+			},
+			"ParatroopersPower@Soviets": {
+				"ArrowSequence": "arrow",
+				"CameraActor": "camera",
+				"ChargeInterval": "9000",
+				"Description": "actor-caairp.paratrooperspower-soviets-description",
+				"DropItems": "e2,e2,e2,e2,e2,e2,e2,e2,e2",
+				"Icon": "paradrop",
+				"Name": "actor-caairp.paratrooperspower-soviets-name",
+				"OrderName": "SovietParatroopers",
+				"Prerequisites": "~techparadrops.soviets",
+				"QuantizedFacings": "8",
+				"UnitType": "pdplane"
+			},
+			"ProvidesPrerequisite@Allies": {
+				"Factions": "america, germany, england, france, korea",
+				"Prerequisite": "techparadrops.allies",
+				"ResetOnOwnerChange": "true"
+			},
+			"ProvidesPrerequisite@Soviets": {
+				"Factions": "cuba, libya, iraq, russia",
+				"Prerequisite": "techparadrops.soviets",
+				"ResetOnOwnerChange": "true"
+			},
+			"ProximityCaptor": {
+				"Types": "Building"
+			},
+			"QuantizeFacingsFromSequence": {},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RepairableBuilding": {
+				"RepairingNotification": "Repairing"
+			},
+			"RevealsShroud": {
+				"Range": "4c0"
+			},
+			"ScriptTriggers": {},
+			"ShakeOnDeath": {},
+			"SoundOnDamageTransition": {
+				"DamagedSounds": "gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav",
+				"DestroyedSounds": "bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav"
+			},
+			"SpawnActorOnDeath": {
+				"Actor": "caairp.rubble"
+			},
+			"SpawnActorsOnSell@allies": {
+				"ActorTypes": "e1, e1, e1",
+				"Factions": "america, germany, england, france, korea"
+			},
+			"SpawnActorsOnSell@soviets": {
+				"ActorTypes": "e2, e2, e2, e2",
+				"Factions": "cuba, libya, iraq, russia"
+			},
+			"SupportPowerChargeBar": {},
+			"Targetable": {
+				"TargetTypes": "Ground, C4, DetonateAttack, Structure"
+			},
+			"Targetable@BaseAttackNotify": {
+				"TargetTypes": "BaseAttackNotify"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"Tooltip": {
+				"Name": "actor-caairp.name"
+			},
+			"WithBuildingRepairDecoration": {
+				"Image": "allyrepair",
+				"Palette": "mouse",
+				"Position": "Center",
+				"Sequence": "repair"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@decoration": {},
+			"WithIdleOverlay@flag": {
+				"Sequence": "flag"
+			},
+			"WithSpriteBody": {},
+			"WithTextControlGroupDecoration": {
+				"Margin": "1, 1"
+			}
+		},
+		"cahosp": {
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Concrete"
+			},
+			"BodyOrientation": {
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Building": {
+				"BuildSounds": "uplace.wav",
+				"Dimensions": "6, 4",
+				"Footprint": "xxxx xxxx xxxx xxxx xxxx xxxx",
+				"TerrainTypes": "Clear, Road, DirtRoad, Rough",
+				"UndeploySounds": "uselbuil.wav"
+			},
+			"Capturable": {
+				"Types": "building"
+			},
+			"CaptureManager": {},
+			"CaptureNotification": {
+				"LoseNotification": "TechBuildingLost",
+				"Notification": "TechBuildingCaptured"
+			},
+			"CombatDebugOverlay": {},
+			"CommandBarBlacklist": {
+				"DisableStop": "false"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"Demolishable": {},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"Type": "Footprint",
+				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
+			"FrozenUnderFog": {},
+			"GivesBuildableArea": {
+				"AreaTypes": "building"
+			},
+			"Guardable": {
+				"Range": "3c0"
+			},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "800"
+			},
+			"HitShape": {
+				"Type": {
+					"BottomRight": "3072, 2048",
+					"LocalYaw": "-128",
+					"TopLeft": "-3072, -2048",
+					"_value": "Rectangle"
+				},
+				"UseTargetableCellsOffsets": "true"
+			},
+			"Huntable": {},
+			"InstantlyRepairable": {},
+			"IsometricSelectable": {
+				"Height": "105",
+				"Priority": "3"
+			},
+			"IsometricSelectionDecorations": {},
+			"MapEditorData": {
+				"Categories": "Tech building"
+			},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Building"
+			},
+			"QuantizeFacingsFromSequence": {},
+			"RallyPoint": {
+				"Notification": "NewRallyPointEstablished"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RepairableBuilding": {
+				"RepairingNotification": "Repairing"
+			},
+			"RepairsUnits": {
+				"StartRepairingNotification": {}
+			},
+			"RevealsShroud": {
+				"Range": "6c0"
+			},
+			"ScriptTriggers": {},
+			"ShakeOnDeath": {},
+			"SoundOnDamageTransition": {
+				"DamagedSounds": "gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav",
+				"DestroyedSounds": "bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav"
+			},
+			"SpawnActorOnDeath": {
+				"Actor": "cahosp.rubble"
+			},
+			"SpawnActorsOnSell@allies": {
+				"ActorTypes": "e1, e1, e1",
+				"Factions": "america, germany, england, france, korea"
+			},
+			"SpawnActorsOnSell@soviets": {
+				"ActorTypes": "e2, e2, e2, e2",
+				"Factions": "cuba, libya, iraq, russia"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, C4, DetonateAttack, Structure"
+			},
+			"Targetable@BaseAttackNotify": {
+				"TargetTypes": "BaseAttackNotify"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"Tooltip": {
+				"Name": "actor-cahosp-name"
+			},
+			"WithBuildingRepairDecoration": {
+				"Image": "allyrepair",
+				"Palette": "mouse",
+				"Position": "Center",
+				"Sequence": "repair"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay": {},
+			"WithIdleOverlay@flag": {
+				"Offset": "0,-500,2520",
+				"Sequence": "flag"
+			},
+			"WithSpriteBody": {},
+			"WithTextControlGroupDecoration": {
+				"Margin": "1, 1"
+			}
+		},
+		"caoild": {
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Steel"
+			},
+			"BodyOrientation": {
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Building": {
+				"BuildSounds": "uplace.wav",
+				"Dimensions": "2, 2",
+				"Footprint": "xx xx",
+				"TerrainTypes": "Clear, Road, DirtRoad, Rough",
+				"UndeploySounds": "uselbuil.wav"
+			},
+			"Capturable": {
+				"Types": "building"
+			},
+			"CaptureManager": {},
+			"CaptureNotification": {
+				"LoseNotification": "TechBuildingLost",
+				"Notification": "TechBuildingCaptured"
+			},
+			"CashTrickler": {
+				"Amount": "20",
+				"Interval": "100"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"Demolishable": {},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"Type": "Footprint",
+				"Weapon": "DerrickExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
+			"FrozenUnderFog": {},
+			"GivesBuildableArea": {
+				"AreaTypes": "building"
+			},
+			"GivesCashOnCapture": {
+				"Amount": "1000"
+			},
+			"Guardable": {
+				"Range": "3c0"
+			},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "1000"
+			},
+			"HitShape": {
+				"Type": {
+					"BottomRight": "1024, 1024",
+					"LocalYaw": "-128",
+					"TopLeft": "-1024, -1024",
+					"_value": "Rectangle"
+				},
+				"UseTargetableCellsOffsets": "true"
+			},
+			"Huntable": {},
+			"InstantlyRepairable": {},
+			"IsometricSelectable": {
+				"Height": "75",
+				"Priority": "3"
+			},
+			"IsometricSelectionDecorations": {},
+			"MapEditorData": {
+				"Categories": "Tech building"
+			},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Building"
+			},
+			"QuantizeFacingsFromSequence": {},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RepairableBuilding": {
+				"RepairingNotification": "Repairing"
+			},
+			"RevealsShroud": {
+				"Range": "4c0"
+			},
+			"ScriptTriggers": {},
+			"ShakeOnDeath": {},
+			"SoundOnDamageTransition": {
+				"DamagedSounds": "gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav",
+				"DestroyedSounds": "bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav"
+			},
+			"SpawnActorOnDeath": {
+				"Actor": "caoild.rubble"
+			},
+			"SpawnActorsOnSell@allies": {
+				"ActorTypes": "e1, e1, e1",
+				"Factions": "america, germany, england, france, korea"
+			},
+			"SpawnActorsOnSell@soviets": {
+				"ActorTypes": "e2, e2, e2, e2",
+				"Factions": "cuba, libya, iraq, russia"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, C4, DetonateAttack, Structure"
+			},
+			"Targetable@BaseAttackNotify": {
+				"TargetTypes": "BaseAttackNotify"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"Tooltip": {
+				"Name": "actor-caoild-name"
+			},
+			"UpdatesDerrickCount": {},
+			"WithBuildingRepairDecoration": {
+				"Image": "allyrepair",
+				"Palette": "mouse",
+				"Position": "Center",
+				"Sequence": "repair"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@flag": {
+				"Offset": "1000,0,0",
+				"Sequence": "flag"
+			},
+			"WithIdleOverlay@pump": {
+				"Sequence": "idle-pump"
+			},
+			"WithSpriteBody": {},
+			"WithTextControlGroupDecoration": {
+				"Margin": "1, 1"
+			}
+		},
+		"caoutp": {
+			"AppearsOnRadar": {},
+			"Armament": {
+				"LocalOffset": "500,0,900",
+				"Weapon": "HoverMissile"
+			},
+			"Armor": {
+				"Type": "Concrete"
+			},
+			"AttackTurreted": {
+				"Voice": {}
+			},
+			"AutoTarget": {},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "16",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Building": {
+				"BuildSounds": "uplace.wav",
+				"Dimensions": "4,3",
+				"Footprint": "xx== xx== xx==",
+				"TerrainTypes": "Clear, Road, DirtRoad, Rough",
+				"UndeploySounds": "uselbuil.wav"
+			},
+			"Capturable": {
+				"Types": "building"
+			},
+			"CaptureManager": {},
+			"CaptureNotification": {
+				"LoseNotification": "TechBuildingLost",
+				"Notification": "TechBuildingCaptured"
+			},
+			"CombatDebugOverlay": {},
+			"CommandBarBlacklist": {
+				"DisableStop": "false"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"Demolishable": {},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"Type": "Footprint",
+				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
+			"FrozenUnderFog": {},
+			"GivesBuildableArea": {
+				"AreaTypes": "building"
+			},
+			"Guardable": {
+				"Range": "3c0"
+			},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "2000"
+			},
+			"HitShape": {
+				"Type": {
+					"BottomRight": "2048, 1536",
+					"LocalYaw": "-128",
+					"TopLeft": "-2048, -1536",
+					"_value": "Rectangle"
+				},
+				"UseTargetableCellsOffsets": "true"
+			},
+			"Huntable": {},
+			"InstantlyRepairable": {},
+			"IsometricSelectable": {
+				"Height": "90",
+				"Priority": "3"
+			},
+			"IsometricSelectionDecorations": {},
+			"MapEditorData": {
+				"Categories": "Tech building"
+			},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Building"
+			},
+			"QuantizeFacingsFromSequence": {},
+			"RallyPoint": {
+				"IsPlayerPalette": "false",
+				"Notification": "NewRallyPointEstablished",
+				"Palette": "mouse"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"RepairableBuilding": {
+				"RepairingNotification": "Repairing"
+			},
+			"RepairsUnits": {
+				"FinishRepairingNotification": "UnitRepaired",
+				"Interval": "50"
+			},
+			"Reservable": {},
+			"RevealsShroud": {
+				"Range": "4c0"
+			},
+			"ScriptTriggers": {},
+			"ShakeOnDeath": {},
+			"SoundOnDamageTransition": {
+				"DamagedSounds": "gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav",
+				"DestroyedSounds": "bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav"
+			},
+			"SpawnActorOnDeath": {
+				"Actor": "caoutp.rubble"
+			},
+			"SpawnActorsOnSell@allies": {
+				"ActorTypes": "e1, e1, e1",
+				"Factions": "america, germany, england, france, korea"
+			},
+			"SpawnActorsOnSell@soviets": {
+				"ActorTypes": "e2, e2, e2, e2",
+				"Factions": "cuba, libya, iraq, russia"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, C4, DetonateAttack, Structure"
+			},
+			"Targetable@BaseAttackNotify": {
+				"TargetTypes": "BaseAttackNotify"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"Tooltip": {
+				"Name": "actor-caoutp-name"
+			},
+			"Turreted": {
+				"InitialFacing": "896",
+				"Offset": "700,-1000,1500",
+				"TurnSpeed": "40"
+			},
+			"WithBuildingRepairDecoration": {
+				"Image": "allyrepair",
+				"Palette": "mouse",
+				"Position": "Center",
+				"Sequence": "repair"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@bib": {
+				"Sequence": "bib"
+			},
+			"WithIdleOverlay@flag": {
+				"Sequence": "flag"
+			},
+			"WithIdleOverlay@tower": {
+				"Sequence": "idle-tower"
+			},
+			"WithIdleOverlay@tower-shadow": {
+				"Sequence": "idle-tower-shadow"
+			},
+			"WithRangeCircle": {
+				"Range": "12c0",
+				"Type": "patriot"
+			},
+			"WithResupplyAnimation": {
+				"Sequence": "active-crane"
+			},
+			"WithSpriteBody": {},
+			"WithTextControlGroupDecoration": {
+				"Margin": "1, 1"
+			},
+			"WithVoxelTurret": {}
+		},
+		"cathosp": {
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Concrete"
+			},
+			"BodyOrientation": {
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Building": {
+				"BuildSounds": "uplace.wav",
+				"Dimensions": "6, 4",
+				"Footprint": "xxxx xxxx xxxx xxxx xxxx xxxx",
+				"TerrainTypes": "Clear, Road, DirtRoad, Rough",
+				"UndeploySounds": "uselbuil.wav"
+			},
+			"Capturable": {
+				"Types": "building"
+			},
+			"CaptureManager": {},
+			"CaptureNotification": {
+				"LoseNotification": "TechBuildingLost",
+				"Notification": "TechBuildingCaptured"
+			},
+			"CombatDebugOverlay": {},
+			"CommandBarBlacklist": {
+				"DisableStop": "false"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"Demolishable": {},
+			"EditorOnlyTooltip": {
+				"Name": "actor-cathosp-name"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"Type": "Footprint",
+				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
+			"FrozenUnderFog": {},
+			"GivesBuildableArea": {
+				"AreaTypes": "building"
+			},
+			"Guardable": {
+				"Range": "3c0"
+			},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "800"
+			},
+			"HitShape": {
+				"Type": {
+					"BottomRight": "3072, 2048",
+					"LocalYaw": "-128",
+					"TopLeft": "-3072, -2048",
+					"_value": "Rectangle"
+				},
+				"UseTargetableCellsOffsets": "true"
+			},
+			"Huntable": {},
+			"InstantlyRepairable": {},
+			"IsometricSelectable": {
+				"Height": "105",
+				"Priority": "3"
+			},
+			"IsometricSelectionDecorations": {},
+			"MapEditorData": {
+				"Categories": "Tech building"
+			},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Building"
+			},
+			"QuantizeFacingsFromSequence": {},
+			"RallyPoint": {
+				"Notification": "NewRallyPointEstablished"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {
+				"Image": "cahosp"
+			},
+			"RepairableBuilding": {
+				"RepairingNotification": "Repairing"
+			},
+			"RepairsUnits": {
+				"StartRepairingNotification": {}
+			},
+			"RevealsShroud": {
+				"Range": "6c0"
+			},
+			"ScriptTriggers": {},
+			"ShakeOnDeath": {},
+			"SoundOnDamageTransition": {
+				"DamagedSounds": "gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav",
+				"DestroyedSounds": "bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav"
+			},
+			"SpawnActorOnDeath": {
+				"Actor": "cahosp.rubble"
+			},
+			"SpawnActorsOnSell@allies": {
+				"ActorTypes": "e1, e1, e1",
+				"Factions": "america, germany, england, france, korea"
+			},
+			"SpawnActorsOnSell@soviets": {
+				"ActorTypes": "e2, e2, e2, e2",
+				"Factions": "cuba, libya, iraq, russia"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, C4, DetonateAttack, Structure"
+			},
+			"Targetable@BaseAttackNotify": {
+				"TargetTypes": "BaseAttackNotify"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"Tooltip": {
+				"Name": "actor-cahosp-name"
+			},
+			"WithBuildingRepairDecoration": {
+				"Image": "allyrepair",
+				"Palette": "mouse",
+				"Position": "Center",
+				"Sequence": "repair"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay": {},
+			"WithIdleOverlay@flag": {
+				"Offset": "0,-500,2520",
+				"Sequence": "flag"
+			},
+			"WithSpriteBody": {},
+			"WithTextControlGroupDecoration": {
+				"Margin": "1, 1"
+			}
+		}
+	},
 	"weapons": {
 		"105mm": {
 			"Projectile": {
@@ -22231,6 +23027,39 @@
 			"Warhead@1Dam": {
 				"ValidTargets": "DetonateAttack",
 				"_value": "TargetDamage"
+			}
+		},
+		"DerrickExplode": {
+			"Report": "gexpbara.wav, gexpbarb.wav, gexpbarc.wav",
+			"Warhead@1Dam": {
+				"AffectsParent": "true",
+				"Damage": "600",
+				"DamageTypes": "Prone70Percent, TriggerProne, FlameDeath, SuppressTerrorDrone",
+				"Falloff": "100, 73, 47, 20, 0",
+				"Spread": "0c768",
+				"Versus": {
+					"Concrete": "30",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "50",
+					"Light": "90",
+					"Medium": "50",
+					"None": "150",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "150",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "large_twlt, large_bang, large_brnl, verylarge_clsn, large_tumu",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3Smu": {
+				"SmudgeType": "MediumCrater, MediumScorch",
+				"_value": "LeaveSmudge"
 			}
 		},
 		"DogJaw": {

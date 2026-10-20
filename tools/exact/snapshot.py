@@ -13,9 +13,16 @@ What is captured
     References are matched case-insensitively (OpenRA lowercases weapon names) and
     stored under the defined key; capture raises if a referenced weapon is undefined.
   * SpawnActorOnDeath and similar actor references are not weapons and are not followed.
+  * Neutral tech buildings (NEUTRAL_TECH_ACTORS) are captured whole under "neutral",
+    and the weapons they reference are followed like those of the buildable actors.
 
-Comparison (`strip_ignored`) ignores only the `~balance.reimagined` entry of
-`Buildable*.Prerequisites` and traits keyed `ReplaceOnPrerequisite@BALANCE`.
+Comparison
+  * Buildable actors and weapons (`strip_ignored`) ignore only the `~balance.reimagined`
+    entry of `Buildable*.Prerequisites` and traits keyed `ReplaceOnPrerequisite@BALANCE`.
+  * Neutral tech buildings (`strip_neutral`) are not replaced but switch traits by
+    condition: `GrantConditionOnPrerequisite@BALANCE` and every `*@EXACT` trait are
+    ignored, and a `X@REIMAGINED` trait must equal the original `X` once its
+    `RequiresCondition: !balance-exact` is removed (it may not sit beside `X`).
 
 CLI (run from the tools/ directory, or from anywhere with tools/ on PYTHONPATH):
     python3 -m exact.snapshot --write     # regenerate exact/reimagined-snapshot.json
@@ -36,6 +43,11 @@ RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
 WEAPONS_DIR = REPO_ROOT / "mods" / "ra2" / "weapons"
 REIMAGINED_TOKEN = "~balance.reimagined"
 IGNORED_TRAIT = "ReplaceOnPrerequisite@BALANCE"
+NEUTRAL_TECH_ACTORS = ("caairp", "cahosp", "caoild", "caoutp", "cathosp")
+NEUTRAL_IGNORED_TRAIT = "GrantConditionOnPrerequisite@BALANCE"
+EXACT_SUFFIX = "@EXACT"
+REIMAGINED_SUFFIX = "@REIMAGINED"
+REIMAGINED_CONDITION = "!balance-exact"
 WEAPON_KEYS = ("Weapon", "EmptyWeapon", "MissileWeapon")
 
 
@@ -57,6 +69,27 @@ def strip_ignored(tree: dict) -> dict:
                 trait["Prerequisites"] = ", ".join(kept)
             else:
                 del trait["Prerequisites"]
+    return out
+
+
+def strip_neutral(tree: dict) -> dict:
+    """Copy of a neutral tech building's tree with the Exact/Reimagined trait pairs folded back.
+
+    A `X@REIMAGINED` trait whose RequiresCondition is exactly `!balance-exact` becomes `X`
+    without that condition. Anything else is left in place, so the comparison fails.
+    """
+    out = copy.deepcopy(tree)
+    out.pop(NEUTRAL_IGNORED_TRAIT, None)
+    for key in [k for k in out if k.endswith(EXACT_SUFFIX)]:
+        del out[key]
+    for key in [k for k in out if k.endswith(REIMAGINED_SUFFIX)]:
+        trait = out[key]
+        base = key[: -len(REIMAGINED_SUFFIX)]
+        if base in out or not isinstance(trait, dict) or trait.get("RequiresCondition") != REIMAGINED_CONDITION:
+            continue
+        del out[key]
+        del trait["RequiresCondition"]
+        out[base] = trait
     return out
 
 
@@ -133,26 +166,33 @@ def _canonical(refs: set[str], defs: dict[str, str]) -> set[str]:
     return {defs[r.lower()] for r in refs}
 
 
-def capture(names: list[str]) -> dict:
-    """Resolve `names` (actors); keep the buildable ones plus all weapons they reference."""
+def _resolve(name: str) -> dict:
+    try:
+        return resolve_actor(name)
+    except RuntimeError as e:
+        raise RuntimeError(f"actor {name} no longer exists or cannot be resolved: {e}") from e
+
+
+def capture(names: list[str], neutral: list[str] | tuple[str, ...] = ()) -> dict:
+    """Resolve `names` (actors), keeping the buildable ones, and every `neutral` actor;
+    plus all weapons they reference."""
     actors = {}
     for name in names:
-        try:
-            tree = resolve_actor(name)
-        except RuntimeError as e:
-            raise RuntimeError(f"actor {name} no longer exists or cannot be resolved: {e}") from e
+        tree = _resolve(name)
         if has_buildable(tree):
             actors[name] = tree
+    neutral_trees = {name: _resolve(name) for name in neutral}
     defs = weapon_definitions()
     weapons: dict = {}
-    pending = _canonical(set().union(*(referenced_weapons(t) for t in actors.values())), defs) if actors else set()
+    trees = [*actors.values(), *neutral_trees.values()]
+    pending = _canonical(set().union(*(referenced_weapons(t) for t in trees)), defs) if trees else set()
     while pending:
         name = pending.pop()
         if name in weapons:
             continue
         weapons[name] = resolve_weapon(name)
         pending |= _canonical(referenced_weapons(weapons[name]), defs) - weapons.keys()
-    return {"actors": actors, "weapons": weapons}
+    return {"actors": actors, "neutral": neutral_trees, "weapons": weapons}
 
 
 def dumps(data: dict) -> str:
@@ -165,9 +205,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if not args.write:
         parser.error("nothing to do; pass --write")
-    data = capture(actor_names())
+    data = capture(actor_names(), NEUTRAL_TECH_ACTORS)
     SNAPSHOT_PATH.write_text(dumps(data), encoding="utf-8")
-    print(f"wrote {SNAPSHOT_PATH}: {len(data['actors'])} actors, {len(data['weapons'])} weapons")
+    print(f"wrote {SNAPSHOT_PATH}: {len(data['actors'])} actors, {len(data['neutral'])} neutral actors,"
+        f" {len(data['weapons'])} weapons")
     return 0
 
 
