@@ -25,6 +25,12 @@ namespace OpenRA.Mods.RA2.Traits
 
 		/// <summary>Adds one unit of density to the cell, creating ore if it was empty.</summary>
 		void Add(CPos c);
+
+		/// <summary>
+		/// The cells adjacent to <paramref name="c"/> that spread may target. The enumeration order must be
+		/// fixed and identical on every client (the step picks the n-th candidate with a shared random number),
+		/// and two consecutive enumerations must yield the same sequence.
+		/// </summary>
 		IEnumerable<CPos> Neighbours(CPos c);
 	}
 
