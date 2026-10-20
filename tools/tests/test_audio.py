@@ -76,3 +76,11 @@ def test_osprey_and_hornet_have_death_sounds(sound_ini, actor, section, voiceset
     assert voices["DefaultVariant"][0] == ".wav"
     assert csv(voices["Voices"][1]["Die"][0]) == ini_sounds(sound_ini, section)
     assert multiplier == int(sound_ini[section]["Volume"]) / 100
+
+
+def test_cash_tick_volume_lowered():
+    sounds = load_yaml(MOD / "audio" / "notifications.yaml")["Sounds"][1]["Notifications"][1]
+    for name in ("CashTickUp", "CashTickDown"):
+        volume = float(sounds[name][1]["VolumeModifier"][0])
+        assert 0 < volume < 1.0, name
+    assert float(sounds["CashTickUp"][1]["VolumeModifier"][0]) == 0.6
