@@ -70,3 +70,47 @@ def test_hash_changes_with_yaml_and_dll(monkeypatch, tmp_path):
     base = resolved.mods_hash()
     os.utime(yaml, ns=(1, 1))
     assert resolved.mods_hash() != base
+
+
+def test_cache_file_is_collision_and_traversal_safe(tmp_path):
+    a, b = resolved.cache_file(tmp_path, "HTNK"), resolved.cache_file(tmp_path, "htnk")
+    assert a != b and a.name.lower() != b.name.lower()
+    evil = resolved.cache_file(tmp_path, "../x")
+    assert evil.parent == tmp_path
+    assert resolved.cache_file(tmp_path, "a/b") != resolved.cache_file(tmp_path, "a_b")
+
+
+def test_utility_command(monkeypatch, tmp_path):
+    (tmp_path / "engine" / "bin").mkdir(parents=True)
+    (tmp_path / "engine" / "bin" / "OpenRA.Utility.dll").write_text("")
+    (tmp_path / "mod.config").write_text('MOD_ID="mymod"\nENGINE_DIRECTORY="./engine"\n')
+    monkeypatch.setattr(resolved, "REPO_ROOT", tmp_path)
+    argv, env, cwd = resolved.utility_command("--resolved-rules", "htnk", "/x/dotnet")
+    engine = (tmp_path / "engine").resolve()
+    assert argv == ["/x/dotnet", str(engine / "bin" / "OpenRA.Utility.dll"),
+                    "mymod", "--resolved-rules", "htnk"]
+    assert cwd == engine
+    assert env["ENGINE_DIR"] == ".."
+    assert env["MOD_SEARCH_PATHS"] == f"{tmp_path / 'mods'},./mods"
+    (tmp_path / "user.config").write_text("MOD_ID=other\n")
+    assert resolved.utility_command("--resolved-weapons", "w")[0][2] == "other"
+
+
+def test_utility_command_requires_built_engine(monkeypatch, tmp_path):
+    (tmp_path / "mod.config").write_text("MOD_ID=m\n")
+    monkeypatch.setattr(resolved, "REPO_ROOT", tmp_path)
+    with pytest.raises(RuntimeError, match="not found"):
+        resolved.utility_command("--resolved-rules", "x")
+
+
+def test_empty_output_is_not_cached(monkeypatch, tmp_path):
+    monkeypatch.setattr(resolved, "cache_dir", lambda: tmp_path)
+    monkeypatch.setattr(resolved.shutil, "which", lambda _: "/x/dotnet")
+    monkeypatch.setattr(resolved, "utility_command", lambda f, n, d: ([d], {}, tmp_path))
+
+    class Done:
+        returncode, stdout, stderr = 0, "", ""
+    monkeypatch.setattr(resolved.subprocess, "run", lambda *a, **k: Done())
+    with pytest.raises(RuntimeError, match="no rules"):
+        resolved.resolve_actor("x")
+    assert not list(tmp_path.rglob("*.yaml"))

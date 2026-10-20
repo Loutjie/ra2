@@ -188,7 +188,7 @@ test: all
 unit-test: engine
 	@$(DOTNET) test OpenRA.Mods.RA2.Test -c Debug --nologo -p:TargetPlatform=$(TARGETPLATFORM)
 	@if [ -d tools ]; then \
-		$(PYTHON) -m pytest tools -q || [ $$? -eq 5 ]; \
+		$(PYTHON) -m pytest tools -q; \
 	else \
 		echo "No tools directory, skipping python tests."; \
 	fi

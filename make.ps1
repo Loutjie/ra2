@@ -125,9 +125,14 @@ function UnitTest-Command
 
 	if (Test-Path "tools")
 	{
+		if (-not (Get-Command python -ErrorAction SilentlyContinue))
+		{
+			Write-Host "The python unit tests require python on PATH." -ForegroundColor Red
+			exit 1
+		}
+
 		python -m pytest tools -q
-		# Exit code 5 means no tests were collected, which is fine.
-		if ($lastexitcode -ne 0 -and $lastexitcode -ne 5)
+		if ($lastexitcode -ne 0)
 		{
 			exit 1
 		}
@@ -136,6 +141,8 @@ function UnitTest-Command
 	{
 		Write-Host "No tools directory, skipping python tests." -ForegroundColor Cyan
 	}
+
+	exit 0
 }
 
 function Check-Command
