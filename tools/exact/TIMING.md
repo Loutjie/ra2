@@ -12,9 +12,9 @@ Researched 2026-10-20. Quotes are kept short; follow the links for context.
 | `OPENRA_TICKS_PER_SECOND` | 25 | Settled: `mods/ra2/mod.yaml`, `GameSpeeds` default `Timestep: 40` (ms). |
 | `RA2_FRAMES_PER_SECOND` | 25 (fallback) | **Not settled.** Best-supported value is **30** at the default skirmish speed, but sources disagree (30 vs 45). The brief's fallback (one RA2 frame = one OpenRA tick, the mod's current behaviour) is used until the in-game measurement below is done. |
 | RA2 frames per rules.ini minute | 900 | Settled (engine constant, see below). |
-| `minutes_to_ticks` | wall-clock: 1 min = 1500 ticks | Matches the mod today. Only consistent with the engine's 900 frames per minute if RA2 runs at 15 fps. **Open decision**, see "Minutes". |
-| Speed | x15 | Kept (mod convention), scaled by `RA2_FRAMES_PER_SECOND / 25`. |
-| ROT | x4 | Kept (mod convention), scaled the same way. |
+| `minutes_to_ticks` | wall-clock: 1 min = 1500 ticks (`MINUTES_ARE_FRAMES = False`) | Matches the mod today. Only consistent with the engine's 900 frames per minute if RA2 runs at 15 fps. **Open decision**, see "Minutes". |
+| Speed | x15 | Kept (mod convention), scaled by `RA2_FRAMES_PER_SECOND / 25` (hypothesis, see section 6). |
+| ROT | x4 | Kept (mod convention), scaled the same way (hypothesis). |
 | `GameSpeedBias=1.6` | not applied separately | See "GameSpeedBias". |
 | Distance | 1 cell = 256 leptons = 1024 WDist | Settled. |
 
@@ -92,8 +92,11 @@ minutes of 900 frames, not real time).
 2. **Iron Curtain recharge** (`[IronCurtainSpecial] RechargeTime=5` minutes =
    4500 frames if minutes are 900 frames). Time from the device finishing
    (or from firing) until it is ready again. Expected 150 s at 30 fps, 100 s
-   at 45, 300 s at 15. If test 1 gives 30 fps and this takes 150 s, rules
-   minutes are 900 frames and the "Minutes" decision below must be made.
+   at 45, 300 s at 15. This test decides the `MINUTES_ARE_FRAMES` switch in
+   `conversions.py`: if it takes 4500 / measured-fps seconds (150 s at 30 fps),
+   rules minutes are 900 frames and the switch should become `True` (subject
+   to the balance decision in section 5); if it takes 300 s whatever the
+   rate, minutes are wall-clock and the switch stays `False`.
 3. Optional cross-check: Ivan's time bomb (`IvanTimedDelay=450` frames):
    15 s at 30 fps, 10 s at 45.
 4. Optional: repeat test 1 one notch faster ("Faster") to tell 60 / GameSpeed
@@ -113,7 +116,8 @@ The engine, however, converts a rules minute to 900 frames (section 2). If RA2
 runs at 30 frames per second, a "5-minute" recharge lasts 150 real seconds in
 RA2 but 300 seconds in the mod. The engine-consistent formula is
 `frames_to_ticks(minutes * 900)`, which equals the wall-clock formula only at
-15 fps. Changing it halves every minute-based timer (superweapons, repair and
+15 fps. `conversions.MINUTES_ARE_FRAMES` selects it (default `False`, the
+brief's and the mod's behaviour); tests cover both settings. Changing it halves every minute-based timer (superweapons, repair and
 reload rates, build time) at 30 fps, so it is a balance decision for the
 user, not something to guess here.
 
@@ -124,10 +128,13 @@ user, not something to guess here.
   ModEnc gives Speed's internal value as `min((min(Speed,100)*256/100),255)`
   (<https://modenc.renegadeprojects.com/Speed>) and no unit for ROT
   (<https://modenc.renegadeprojects.com/ROT>).
-- Speed and ROT are per-frame quantities, like ROF. The module scales them by
+- **Hypothesis, to confirm with the frame-rate measurement:** Speed and ROT
+  are per-frame quantities, like ROF. The module scales them by
   `RA2_FRAMES_PER_SECOND / 25`, so with the fallback they stay x15 / x4, and
   when the rate is set every per-frame quantity moves together (at 30 fps:
-  Speed x18, ROT x4.8, ROF x25/30).
+  Speed x18, ROT x4.8, ROF x25/30). Nothing shows x15 / x4 were calibrated
+  against a 1:1 frame mapping; after measuring the rate, time one unit over a
+  known distance in RA2 before relying on the scaling.
 - `GameSpeedBias=1.6` (`rules.ini` line 56, "multiplier to overall game object
   movement speed"). ModEnc: "a global multiplier to the speed of all units"
   and "does not affect the speed of projectiles or animations"; ModEnc also
@@ -149,7 +156,11 @@ user, not something to guess here.
 
 - 1 cell = 256 leptons. ModEnc, Leptons: "a single map cell is 256x256
   leptons" (<https://modenc.renegadeprojects.com/Leptons>). 1 cell = 1024
-  WDist in OpenRA. WDist
-  strings are `<cells>c<remainder>`; `5.75` -> `5c768`.
-- Percentages: `"50%"` is a percentage, a bare number (`".5"`) is a fraction.
+  WDist in OpenRA. WDist strings are `<cells>c<remainder>`; `5.75` -> `5c768`.
+  OpenRA's `WDist.TryParse` (`engine/OpenRA.Game/WDist.cs`) takes the sign
+  from the cell part, so `-0c256` would parse as +256; negatives under one
+  cell are written as plain WDist units (`-256`).
+- Percentages: `"50%"` is a percentage; a bare number (`".5"`, `"1"`) is a
+  fraction, as in RA2. Input must match `digits[.digits]` or `.digits` with an
+  optional `%`; anything else (`1_0`, `1e2`, negatives) is rejected.
   Rounding is half away from zero on exact decimals.
