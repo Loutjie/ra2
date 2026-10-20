@@ -35,12 +35,26 @@ namespace OpenRA.Mods.RA2.Traits
 			self = init.Self;
 		}
 
-		public static bool HasPadForQueuing(int pads, int owned, int queued) { return owned + queued < pads; }
+		public static bool IsPadBound(ActorInfo actor) { return actor.HasTraitInfo<PadBoundInfo>(); }
 
-		public static bool HasPadForDelivery(int pads, int owned) { return owned < pads; }
+		// Pure decisions, kept free of world state so they can be unit tested and reused by other queue types.
+		public static bool CanQueue(bool allTech, ActorInfo item, int pads, int ownedPadBound, IEnumerable<ActorInfo> queued)
+		{
+			return allTech || !IsPadBound(item) || ownedPadBound + queued.Count(IsPadBound) < pads;
+		}
 
-		static bool IsPadBound(ActorInfo actor) { return actor.HasTraitInfo<PadBoundInfo>(); }
+		public static bool CanDeliver(bool allTech, ActorInfo item, int pads, int ownedPadBound)
+		{
+			return allTech || !IsPadBound(item) || ownedPadBound < pads;
+		}
 
+		// Items already in the queue stay buildable so that they wait for a pad instead of being cancelled.
+		public static bool IsBuildable(bool allTech, ActorInfo item, int pads, int ownedPadBound, bool inQueue)
+		{
+			return inQueue || CanDeliver(allTech, item, pads, ownedPadBound);
+		}
+
+		// Pads count from placement, including while the building is still under construction.
 		int OwnedPads()
 		{
 			return self.World.ActorsWithTrait<AircraftPads>()
@@ -54,26 +68,21 @@ namespace OpenRA.Mods.RA2.Traits
 				.Count(a => a.Owner == self.Owner && !a.IsDead);
 		}
 
-		int QueuedPadBound()
-		{
-			var actors = self.World.Map.Rules.Actors;
-			return Queue.Count(i => IsPadBound(actors[i.Item]));
-		}
-
 		public override IEnumerable<ActorInfo> BuildableItems()
 		{
 			var items = base.BuildableItems();
-			if (developerMode.AllTech || HasPadForDelivery(OwnedPads(), OwnedPadBound()))
+			if (developerMode.AllTech)
 				return items;
 
-			// Keep queued items buildable so that they wait for a pad instead of being cancelled.
-			return items.Where(a => !IsPadBound(a) || IsInQueue(a));
+			var pads = OwnedPads();
+			var owned = OwnedPadBound();
+			return items.Where(a => IsBuildable(false, a, pads, owned, IsInQueue(a)));
 		}
 
 		protected override void BeginProduction(ProductionItem item, bool hasPriority)
 		{
-			if (!developerMode.AllTech && IsPadBound(self.World.Map.Rules.Actors[item.Item])
-				&& !HasPadForQueuing(OwnedPads(), OwnedPadBound(), QueuedPadBound()))
+			var actors = self.World.Map.Rules.Actors;
+			if (!CanQueue(developerMode.AllTech, actors[item.Item], OwnedPads(), OwnedPadBound(), Queue.Select(i => actors[i.Item])))
 				return;
 
 			base.BeginProduction(item, hasPriority);
@@ -81,7 +90,7 @@ namespace OpenRA.Mods.RA2.Traits
 
 		protected override bool BuildUnit(ActorInfo unit)
 		{
-			if (!developerMode.AllTech && IsPadBound(unit) && !HasPadForDelivery(OwnedPads(), OwnedPadBound()))
+			if (!CanDeliver(developerMode.AllTech, unit, OwnedPads(), OwnedPadBound()))
 				return false;
 
 			return base.BuildUnit(unit);

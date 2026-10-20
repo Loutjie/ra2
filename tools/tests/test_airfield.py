@@ -8,8 +8,15 @@ ART_FILE = "ra2.mix__local.mix__art.ini"
 AIRFIELDS = ["gaairc", "amradr"]
 PAD_AIRCRAFT = ["orca", "beag"]
 
-# Westwood leptons are 256 per cell, OpenRA world units 1024 per cell.
-LEPTON = 4
+
+def lepton_offset_to_world(lx, ly, lz=0):
+    """Westwood (x, y, z) leptons (256 per cell, along the cell axes) to an OpenRA WVec.
+
+    The mod's MapGrid is RectangularIsometric: Map.CenterOfCell moves one cell-X step by
+    world (+724, +724) and one cell-Y step by (-724, +724), with 724 = 1024 / sqrt(2).
+    """
+    assert lz == 0, "height offsets are not converted"
+    return (round((lx - ly) * 724 / 256), round((lx + ly) * 724 / 256), 0)
 
 
 @pytest.fixture(scope="module")
@@ -42,7 +49,7 @@ def test_airforce_command_docks_four(name, ra2ini, ra2art):
     # One exit per pad, placed on RA2's DockingOffsetN (art.ini, leptons from the centre).
     image = ra2ini[name.upper()].get("Image", name.upper())
     art = ra2art[image]
-    docks = sorted(tuple(c * LEPTON for c in _vec(art[f"DockingOffset{i}"])) for i in range(expected))
+    docks = sorted(lepton_offset_to_world(*_vec(art[f"DockingOffset{i}"])) for i in range(expected))
     exits = sorted(_vec(e["SpawnOffset"]) for e in _traits(actor, "Exit"))
     assert exits == docks
 

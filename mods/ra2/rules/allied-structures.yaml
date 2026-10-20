@@ -329,16 +329,16 @@ gaairc:
 	AircraftPads:
 		Count: 4
 	Exit@1:
-		SpawnOffset: 0,-512,0
+		SpawnOffset: 362,-362,0
 		Facing: 896
 	Exit@2:
-		SpawnOffset: 0,512,0
+		SpawnOffset: -362,362,0
 		Facing: 896
 	Exit@3:
-		SpawnOffset: 1024,-512,0
+		SpawnOffset: 1086,362,0
 		Facing: 896
 	Exit@4:
-		SpawnOffset: 1024,512,0
+		SpawnOffset: 362,1086,0
 		Facing: 896
 	Production:
 		Produces: Aircraft
