@@ -32,7 +32,9 @@ that their creator configures after spawning them (spawner/carrier children and
 support power aircraft), which never get the replacement trait. Mod buildables that
 RA2 defines but cannot build get only `~balance.reimagined`. Actors without a twin
 (e.g. hornet, civilian vehicles) get the twins of twinned repair/rearm hosts appended
-to their HOST_FIELDS lists (exact.snapshot ignores exactly these appended names).
+to their HOST_FIELDS lists (exact.snapshot ignores exactly these appended names). Untwinned
+actors that inherit a twinned actor (cdest, amcv.colorpicker) remove the inherited
+`ReplaceOnPrerequisite@BALANCE`, so they are not turned into the parent's twin in Exact.
 """
 from __future__ import annotations
 
@@ -240,7 +242,8 @@ def appended_host_fields(tree: Mapping, twins: Collection[str]) -> list[tuple[st
 
 
 def render_reimagined_overlay(base_actors: dict, *, twins: Collection[str] | None = None,
-        no_replace: Collection[str] = (), reimagined_only: Collection[str] = ()) -> str:
+        no_replace: Collection[str] = (), reimagined_only: Collection[str] = (),
+        inheritors: Collection[str] = ()) -> str:
     """MiniYaml limiting base actors to Reimagined and letting untwinned actors use Exact hosts.
 
     base_actors: actor ID -> resolved tree (without a previous overlay: see strip_ignored).
@@ -250,13 +253,17 @@ def render_reimagined_overlay(base_actors: dict, *, twins: Collection[str] | Non
     reimagined_only: untwinned actors that only get `~balance.reimagined`.
     Every untwinned actor gets the twins of twinned hosts appended to its HOST_FIELDS lists,
     so it can repair and rearm at Exact facilities. Actors with nothing to add are left out.
+    inheritors: untwinned actors that inherit a twinned actor's ReplaceOnPrerequisite@BALANCE
+      (exact.generate.twin_inheritors); they remove it, so they stay themselves in Exact.
     """
     if twins is None:
         twins = set(base_actors) - set(reimagined_only)
     blocks = []
-    for name in sorted(base_actors):
+    for name in sorted(set(base_actors) | set(inheritors)):
         lines = [f"{name}:"]
-        tree = base_actors[name]
+        tree = base_actors.get(name, {})
+        if name in inheritors and name not in twins:
+            lines.append(f"\t-{IGNORED_TRAIT}:")
         if name in twins or name in reimagined_only:
             for key, trait in sorted(tree.items()):
                 if is_buildable_trait(key) and isinstance(trait, dict):

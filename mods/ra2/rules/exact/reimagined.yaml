@@ -15,6 +15,7 @@ amcv:
 		IntoActor: amcv.exact
 
 amcv.colorpicker:
+	-ReplaceOnPrerequisite@BALANCE:
 	Repairable:
 		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
@@ -73,6 +74,7 @@ ccomand:
 		IntoActor: ccomand.exact
 
 cdest:
+	-ReplaceOnPrerequisite@BALANCE:
 	Repairable:
 		RepairActors: gayard, nayard, gayard.exact, nayard.exact
 

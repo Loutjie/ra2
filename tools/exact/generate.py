@@ -49,6 +49,7 @@ import argparse
 import json
 import re
 import sys
+from collections.abc import Collection, Mapping
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -95,13 +96,35 @@ def neutral_parents(names, rules_dir: Path = RULES_DIR) -> dict[str, str]:
     return out
 
 
+def twin_inheritors(twins: Collection[str], no_replace: Collection[str] = (),
+        blocks: Mapping[str, str] | None = None) -> set[str]:
+    """Untwinned non-abstract actors that inherit `ReplaceOnPrerequisite@BALANCE` from a twinned
+    actor (one of `twins` not in `no_replace`), directly or through abstract (`^`) templates.
+    An untwinned non-abstract parent removes the trait itself, so it passes nothing on.
+    blocks: raw rules text per top-level node (default: the mod's rule files, snapshot._blocks)."""
+    if blocks is None:
+        blocks = _blocks(RULES_DIR)
+    replaced = set(twins) - set(no_replace)
+
+    def parents(name: str) -> list[str]:
+        return [p.strip() for p in re.findall(r"^\s*Inherits(?:@\w+)?:\s*(\S+)\s*$", blocks.get(name, ""), re.M)]
+
+    def carries(name: str, seen: frozenset = frozenset()) -> bool:
+        if name in replaced:
+            return True
+        return name.startswith("^") and any(p not in seen and carries(p, seen | {name}) for p in parents(name))
+
+    return {n for n in blocks if n[0] not in "^-@" and n not in twins and any(carries(p) for p in parents(n))}
+
+
 def _comment(title: str, names) -> str:
     return f"# {title}: {', '.join(names) if names else '(none)'}\n"
 
 
 def build(rules: dict, base_actors: dict, weapons: dict[str, str],
         host_actors: dict | None = None, resolve_base_weapon=resolve_weapon,
-        neutral_actors: dict | None = None, ai_source: dict | None = None) -> dict[str, str]:
+        neutral_actors: dict | None = None, ai_source: dict | None = None,
+        rules_blocks: Mapping[str, str] | None = None) -> dict[str, str]:
     """Generated file path (relative to the repository root) -> contents.
 
     rules: parsed rules.ini. base_actors: mod buildable ID -> resolved tree.
@@ -111,6 +134,7 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
     neutral_actors: neutral tech building -> resolved tree without GLOBALS_FILE
     (resolve_neutral_actors).
     ai_source: parsed AI rules (default: the mod's ai.yaml, exact.ai.AI_SOURCE).
+    rules_blocks: raw rules text per top-level node, for twin_inheritors (default: the mod's files).
     """
     ra2 = ra2_actors(rules)
     twins = sorted(set(ra2) & set(base_actors))
@@ -165,7 +189,8 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
         + "".join(f"# Not applied: {note}\n" for note in sorted(notes))
         + "\n" + "\n".join(blocks))
     overlay_text = HEADER + "\n" + actors.render_reimagined_overlay({**hosts, **bases}, twins=twins,
-        no_replace=children, reimagined_only=reimagined_only)
+        no_replace=children, reimagined_only=reimagined_only,
+        inheritors=twin_inheritors(twins, children, rules_blocks))
     weapons_text = HEADER + weapons_body
     globals_text = HEADER + "\n" + exact_globals.render_globals(rules_globals)
     generated_rules: dict[str, dict] = {}

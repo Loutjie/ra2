@@ -5,7 +5,7 @@ import pytest
 
 from exact import actors, conversions, generate
 from exact.model import ExactActor
-from exact.snapshot import HOST_FIELDS, is_buildable_trait, strip_ignored, weapon_definitions
+from exact.snapshot import HOST_FIELDS, IGNORED_TRAIT, is_buildable_trait, strip_ignored, weapon_definitions
 from ra2data.resolved import REPO_ROOT, parse_miniyaml, resolve_actor
 
 
@@ -180,6 +180,32 @@ def test_overlay_appends_hidden_prerequisite():
     assert tree["e1"] == {"Buildable": {"Prerequisites": "~balance.reimagined"}}
 
 
+
+def test_overlay_removes_inherited_replacement():
+    bases = {"plant": {"Buildable": {"Prerequisites": "~structures"}},
+        "civplant": {"Repairable": {"RepairActors": "plant"}}}
+    tree = parse_miniyaml(actors.render_reimagined_overlay(bases, twins={"plant"},
+        inheritors={"civplant", "preview"}))
+    assert tree["civplant"] == {"-ReplaceOnPrerequisite@BALANCE": {},
+        "Repairable": {"RepairActors": "plant, plant.exact"}}
+    assert tree["preview"] == {"-ReplaceOnPrerequisite@BALANCE": {}}
+    assert "-ReplaceOnPrerequisite@BALANCE" not in tree["plant"]
+
+
+def test_twin_inheritors_follow_templates_only():
+    blocks = {
+        "dest": "\tBuildable:",
+        "cdest": "\tInherits: dest",
+        "cdest2": "\tInherits: cdest",            # cdest already removed it
+        "^Wreck": "\tInherits: dest",
+        "wreck": "\tInherits: ^Wreck",
+        "drone": "\tBuildable:",
+        "dronecopy": "\tInherits: drone",        # drone carries no replacement
+        "other": "\tInherits: ^Ship",
+        "dest2": "\tInherits: dest",             # twinned itself
+    }
+    assert generate.twin_inheritors({"dest", "drone", "dest2"}, {"drone"}, blocks) == {"cdest", "wreck"}
+
 def test_spawned_children_found():
     bases = {
         "carrier": {"CarrierParent": {"Actors": "hornet, hornet"}},
@@ -338,11 +364,18 @@ def test_generated_lists_match_resolved_mod():
                 expected = actors.appended_twins(trait[field], twinned)
                 if expected != ", ".join(actors.split_list(trait[field])):
                     assert overlay[name][key][field] == expected, name
+    # Untwinned actors that inherit a twinned actor remove its inherited replacement.
+    inheritors = generate.twin_inheritors(twinned, actors.spawned_children(bases))
+    for name in inheritors:
+        assert overlay[name][f"-{IGNORED_TRAIT}"] == {}, name
+        assert IGNORED_TRAIT not in resolve_actor(name), name
     # No stray overlay blocks: every untwinned entry is a resolved actor and holds only
-    # Reimagined-only prerequisites or the host lists checked above.
+    # Reimagined-only prerequisites, the host lists checked above or the removal above.
     for name in set(overlay) - twinned:
-        assert name in untwinned, f"overlay block for unknown or no longer listed actor {name}"
+        assert name in untwinned or name in inheritors, f"overlay block for unknown or no longer listed actor {name}"
         for key, value in overlay[name].items():
+            if key == f"-{IGNORED_TRAIT}" and name in inheritors:
+                continue
             if is_buildable_trait(key):
                 kept = actors.split_list(untwinned[name][key].get("Prerequisites", ""))
                 assert value == {"Prerequisites": ", ".join([*kept, "~balance.reimagined"])}, name
