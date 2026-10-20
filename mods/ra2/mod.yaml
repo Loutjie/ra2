@@ -84,6 +84,7 @@ Rules:
 	ra2|rules/exact/actors.yaml
 	ra2|rules/exact/globals.yaml
 	ra2|rules/exact/reimagined.yaml
+	ra2|rules/exact/ai.yaml
 
 Sequences:
 	ra2|sequences/aircraft.yaml
