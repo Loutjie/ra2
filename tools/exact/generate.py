@@ -175,6 +175,12 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
 
     weapons_body, weapons_report = twin_weapons.render_weapons(rules, stubs, [ra2[n] for n in twins],
         resolve_base_weapon, adjust=adjust)
+    # globals.yaml loads after actors.yaml: where it sets or removes SpawnSurvivors, the
+    # rewritten list in actors.yaml would be a dead duplicate.
+    for name in twins:
+        owned = rules_globals.blocks.get(actors.twin_name(name), {})
+        if "SpawnSurvivors" in owned or "-SpawnSurvivors" in owned:
+            twin_traits[name].pop("SpawnSurvivors", None)
     blocks = [actors.render_twin(ra2[name], bases[name], twins=twins, weapons=weapons,
         replaced=name not in children, traits=twin_traits[name]) for name in twins]
 

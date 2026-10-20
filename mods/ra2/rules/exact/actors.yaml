@@ -91,8 +91,6 @@ amradr.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: amradr
 	Valued:
@@ -705,8 +703,6 @@ gaairc.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gaairc
 	Valued:
@@ -736,8 +732,6 @@ gacnst.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact, engineer.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact, engineer.exact
-	SpawnSurvivors:
-		Actors: engineer.exact, e1.exact, e1.exact, e1.exact, e1.exact
 	Transforms:
 		IntoActor: amcv.exact
 	TransformsIntoRepairable:
@@ -771,8 +765,6 @@ gacsph.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gacsph
 	Valued:
@@ -802,8 +794,6 @@ gadept.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gadept
 	Valued:
@@ -833,8 +823,6 @@ gagap.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gagap
 	Valued:
@@ -864,8 +852,6 @@ gaorep.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gaorep
 	Valued:
@@ -895,8 +881,6 @@ gapile.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gapile
 	Valued:
@@ -957,8 +941,6 @@ gapowr.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gapowr
 	Valued:
@@ -990,8 +972,6 @@ garefn.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: garefn
 	Valued:
@@ -1021,8 +1001,6 @@ gaspysat.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gaspysat
 	Valued:
@@ -1052,8 +1030,6 @@ gatech.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gatech
 	Valued:
@@ -1106,8 +1082,6 @@ gaweap.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gaweap
 	Valued:
@@ -1137,8 +1111,6 @@ gaweat.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e1.exact, e1.exact, e1.exact, e1.exact, e1.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: gaweat
 	Valued:
@@ -1504,8 +1476,6 @@ naclon.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: naclon
 	Valued:
@@ -1533,8 +1503,6 @@ nacnst.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact, engineer.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact, engineer.exact
-	SpawnSurvivors:
-		Actors: engineer.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	Transforms:
 		IntoActor: smcv.exact
 	TransformsIntoRepairable:
@@ -1568,8 +1536,6 @@ nadept.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: nadept
 	Valued:
@@ -1634,8 +1600,6 @@ nahand.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: nahand
 	Valued:
@@ -1665,8 +1629,6 @@ nairon.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: nairon
 	Valued:
@@ -1729,8 +1691,6 @@ namisl.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: namisl
 	Valued:
@@ -1760,8 +1720,6 @@ nanrct.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: nanrct
 	Valued:
@@ -1791,8 +1749,6 @@ napowr.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: napowr
 	Valued:
@@ -1822,8 +1778,6 @@ napsis.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: napsis
 	Valued:
@@ -1853,8 +1807,6 @@ naradr.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: naradr
 	Valued:
@@ -1886,8 +1838,6 @@ narefn.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: narefn
 	Valued:
@@ -1950,8 +1900,6 @@ natech.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: natech
 	Valued:
@@ -2004,8 +1952,6 @@ naweap.exact:
 		ActorTypes: e1.exact, e1.exact, e1.exact
 	SpawnActorsOnSell@soviets:
 		ActorTypes: e2.exact, e2.exact, e2.exact, e2.exact
-	SpawnSurvivors:
-		Actors: e2.exact, e2.exact, e2.exact, e2.exact, e2.exact, e2.exact
 	UpdatesPlayerStatistics:
 		OverrideActor: naweap
 	Valued:

@@ -293,6 +293,23 @@ def test_generator_writes_globals():
     assert "CashTrickler@EXACT" in tree["well"]
 
 
+
+def test_survivors_written_once_by_globals():
+    """globals.yaml (loaded after actors.yaml) owns SpawnSurvivors: actors.yaml must not carry a
+    dead copy, whether globals sets the list or removes the trait."""
+    rules = {**RULES, "InfantryTypes": {"1": "RED"}, "VehicleTypes": {}, "AircraftTypes": {},
+        "BuildingTypes": {"1": "PLANT", "2": "CURTAIN"}, "CURTAIN": {**RULES["CURTAIN"], "Crewed": "no"}}
+    bases = {"red": {"Buildable": {}}, "plant": {"Buildable": {}, "SpawnSurvivors": {"Actors": "red, red"}},
+        "curtain": {"Buildable": {}, "SpawnSurvivors": {"Actors": "red"}}}
+    out = generate.build(rules, bases, {})
+    twins = parse_miniyaml(out[generate.ACTORS_FILE])
+    globals_tree = parse_miniyaml(out[generate.GLOBALS_FILE])
+    assert globals_tree["plant.exact"]["SpawnSurvivors"] == {"Actors": "red.exact, red.exact, red.exact, red.exact"}
+    assert "-SpawnSurvivors" in globals_tree["curtain.exact"]
+    for name in ("plant.exact", "curtain.exact"):
+        assert "SpawnSurvivors" not in twins[name], name
+
+
 # --- integration tests against the built mod ---
 
 
