@@ -617,6 +617,11 @@ gapill:
 			SNOW: gapill.shp
 		Start: 2
 		ShadowStart: 5
+	muzzle:
+		# The flash is not part of the building sprite: it must not use the building's depth map or its
+		# (0,-15) alignment offset, and needs its own depth lift so the pillbox does not hide it.
+		DepthSprite:
+		Offset: 0, 0, 30
 	make:
 		TilesetFilenames:
 			TEMPERATE: gtpillmk.shp

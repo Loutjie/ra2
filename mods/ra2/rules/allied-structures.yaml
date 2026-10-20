@@ -737,7 +737,7 @@ gapill:
 		Height: 15
 	Armament:
 		Weapon: vulcan2
-		LocalOffset: 416,0,416
+		LocalOffset: 360,0,160
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		Voice: Attack
