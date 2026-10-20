@@ -11,7 +11,7 @@ EditorPlayer:
 Player:
 	Inherits: ^BasePlayer
 	TechTree:
-	ClassicProductionQueue@Building:
+	BalanceProductionQueue@Building:
 		Type: Building
 		DisplayOrder: 0
 		LowPowerModifier: 300
@@ -21,7 +21,11 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
-	ClassicProductionQueue@Support:
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
+	BalanceProductionQueue@Support:
 		Type: Support
 		DisplayOrder: 1
 		LowPowerModifier: 300
@@ -31,7 +35,11 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
-	ClassicProductionQueue@Vehicle:
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
+	BalanceProductionQueue@Vehicle:
 		Type: Vehicle
 		DisplayOrder: 3
 		LowPowerModifier: 300
@@ -41,7 +49,11 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
-	ClassicProductionQueue@Infantry:
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
+	BalanceProductionQueue@Infantry:
 		Type: Infantry
 		DisplayOrder: 2
 		LowPowerModifier: 300
@@ -51,7 +63,11 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
-	ClassicProductionQueue@Aircraft:
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
+	BalanceProductionQueue@Aircraft:
 		Type: Aircraft
 		DisplayOrder: 4
 		LowPowerModifier: 300
@@ -61,7 +77,11 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
-	ClassicProductionQueue@Ship:
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
+	BalanceProductionQueue@Ship:
 		Type: Ship
 		DisplayOrder: 5
 		LowPowerModifier: 300
@@ -71,6 +91,10 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: true
+		MultipleFactory: 80
+		MinLowPowerProductionSpeed: 50
+		MaxLowPowerProductionSpeed: 80
+		LowPowerPenaltyModifier: 100
 	PlaceBuilding:
 		NewOptionsNotification: NewOptions
 		CannotPlaceNotification: BuildingCannotPlaceAudio
