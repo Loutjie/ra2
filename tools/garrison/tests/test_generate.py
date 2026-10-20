@@ -24,6 +24,11 @@ def test_load_garrisonables_reads_capacity_and_ports(sample):
     assert found["CAFAKE02"].ports[0] == (0, 15)
 
 
+def test_can_be_occupied_is_case_insensitive():
+    rules = {f"CA{i}": {"CanBeOccupied": v, "MaxNumberOccupants": "1"} for i, v in enumerate(["yes", "Yes", "TRUE", "1", "no", "0"])}
+    assert [g.id for g in generate.load_garrisonables(rules, {})] == ["CA0", "CA1", "CA2", "CA3"]
+
+
 def test_pixel_to_wvec_origin_and_axes():
     assert generate.pixel_to_wvec(0, 0) == (0, 0, 0)
     # one cell along world +x is (+30,+15) px; along world +y is (-30,+15) px
@@ -59,11 +64,11 @@ def reversed_sections(sample):
     return dict(reversed(list(rules.items()))), art
 
 
-def test_real_rules_has_119_garrisonables(ra2ini):
+def test_real_rules_has_120_garrisonables(ra2ini):
     folder = ini.ra2ini_dir()
     art = ini.parse_ini(str(folder / generate.ART_FILE))
     found = generate.load_garrisonables(ra2ini, art)
-    assert len(found) == 119
+    assert len(found) == 120
     for g in found:
         assert len(g.ports) == g.capacity
 
@@ -85,7 +90,7 @@ def test_garrison_buildings_stay_neutral_and_uncapturable():
     from ra2data.resolved import resolve_actor
 
     names = re.findall(r"^([a-z0-9_]+):$", generate.DEFAULT_OUT.read_text(encoding="utf-8"), re.M)
-    assert len(names) == 119
+    assert len(names) == 120
     forbidden = ("Capturable", "MustBeDestroyed", "UpdatesPlayerStatistics")
     for name in names:
         rules = resolve_actor(name)

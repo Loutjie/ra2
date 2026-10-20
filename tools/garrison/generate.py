@@ -23,6 +23,7 @@ HEADER = (
     "# Re-run the generator instead of changing this file by hand.\n"
 )
 
+TRUE_VALUES = ("yes", "true", "1")
 PORT_HEIGHT = 128  # WDist above the building's origin; matches the old hand-written cawsh12 ports
 PORT_CONE = 88  # WAngle, as the engine's RA mod uses
 DEFAULT_PORT_RADIUS = 384  # WDist of the fallback ring of ports around the centre
@@ -87,12 +88,12 @@ def load_garrisonables(rules, art) -> list:
     Ports come from art.ini MuzzleFlash0..N-1 (N = capacity); missing or malformed
     entries get a default evenly spaced position. The result is sorted by id.
 
-    The flag is matched exactly ("yes"): the original rules.ini has one building
-    (CAMEX02) written as "Yes", which the 119-building target excludes.
+    The flag is parsed case-insensitively like RA2 does (yes/true/1): the original
+    rules.ini has one building (CAMEX02) written as "Yes".
     """
     result = []
     for name, section in rules.items():
-        if section.get("CanBeOccupied") != "yes":
+        if section.get("CanBeOccupied", "").lower() not in TRUE_VALUES:
             continue
         try:
             capacity = int(section.get("MaxNumberOccupants", "0"))

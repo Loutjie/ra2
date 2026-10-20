@@ -694,6 +694,27 @@ calab:
 			red: pip-red
 	GarrisonOwnership@GARRISON:
 
+camex02:
+	Cargo@GARRISON:
+		Types: Garrisoner
+		MaxWeight: 10
+		EjectOnDeath: true
+	AttackGarrisoned@GARRISON:
+		Armaments: garrison
+		PortOffsets: 3055,-461,128, -341,819,128, 393,-939,128, 4045,2645,128, 1604,1468,128, 3823,819,128, 1331,-1604,128, 2560,-102,128, 2133,2441,128, 3959,-205,128
+		PortYaws: 1000, 320, 833, 94, 121, 34, 881, 1018, 139, 1016
+		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
+	WithCargoPipsDecoration@GARRISON:
+		Position: BottomLeft
+		RequiresSelection: true
+		Palette: pips
+		CustomPipSequences:
+			blue: pip-blue
+			yellow: pip-yellow
+			green: pip-green
+			red: pip-red
+	GarrisonOwnership@GARRISON:
+
 camiam01:
 	Cargo@GARRISON:
 		Types: Garrisoner
