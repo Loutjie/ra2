@@ -24,6 +24,12 @@ gacnst:
 			SNOW: gacnst_a.shp
 		Length: 6
 		Tick: 150
+	idle-fans-low-power:
+		Filename: ggcnst_a.shp
+		TilesetFilenames:
+			SNOW: gacnst_a.shp
+		Length: 6
+		Tick: 600
 	damaged-idle-fans:
 		Filename: ggcnst_a.shp
 		TilesetFilenames:
