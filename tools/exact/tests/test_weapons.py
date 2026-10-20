@@ -173,7 +173,7 @@ def test_weapons_without_mod_counterpart_go_to_exceptions(weapons_file):
     assert tree["DogJaw.exact"] == {"Inherits": "DogJaw"}
     assert tree["MP5.exact"] == {"Inherits": "MP5"}
     # Without AttackTesla on its actor, PrismShot is converted like any weapon.
-    assert tree["PrismShot.exact"]["ReloadDelay"] == "75"
+    assert tree["PrismShot.exact"]["ReloadDelay"] == "50"
     assert tree["Gun.exact"]["Warhead@1Dam"]["Damage"] == "65"
     assert tree["GunE.exact"]["Warhead@1Dam"]["Damage"] == "80"
     assert "# Speed: Gun.exact: Projectile Speed=40: RA2 projectile Shell is Arcing" in weapons_file

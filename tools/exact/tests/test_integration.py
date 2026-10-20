@@ -149,10 +149,10 @@ def test_sample_values():
     assert htnk["Valued"]["Cost"] == "900"
     assert htnk["Health"]["HP"] == "400"
     assert htnk["Armor"]["Type"] == "Heavy"
-    assert htnk["Mobile"]["Speed"] == "72"
+    assert htnk["Mobile"]["Speed"] == "108"
     e1 = resolve_actor("e1.exact")
     assert (e1["Valued"]["Cost"], e1["Health"]["HP"], e1["Armor"]["Type"], e1["Mobile"]["Speed"]) == \
-        ("200", "125", "None", "48")
+        ("200", "125", "None", "72")
     assert e1["Buildable"]["Prerequisites"] == "~gapile, ~balance.exact"
     weapon = resolve_weapon("120mm.exact")
     damage = [w for k, w in weapon.items() if k.startswith("Warhead") and isinstance(w, dict)

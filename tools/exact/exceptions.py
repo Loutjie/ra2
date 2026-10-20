@@ -418,9 +418,9 @@ EXCEPTIONS: list[ConversionException] = [
         listed=_globals("neutral-tech-buildings")),
     ConversionException("frame-rate",
         "Every time, speed and turn rate conversion (exact.conversions)",
-        "RA2's frame rate is the measured 20 frames per second (speed slider position 3, OpenRA's "
-        "Normal speed; tools/exact/TIMING.md section 4), so one RA2 frame is 1.25 OpenRA ticks, "
-        "and a rules.ini minute is the engine's 900 frames = 45 s = 1125 ticks. Speed and ROT "
+        "RA2's frame rate is the measured 30 frames per second (speed slider position 4, chosen as the reference for OpenRA's "
+        "Normal speed; tools/exact/TIMING.md section 4), so one RA2 frame is 0.8333 OpenRA ticks, "
+        "and a rules.ini minute is the engine's 900 frames = 30 s = 750 ticks. Speed and ROT "
         "keep the mod's x15 / x4 factors scaled by the same ratio (an unmeasured hypothesis). "
         "rules.ini comments IronCurtainDuration=750 with \"In frames 900 is a minute for 15fps\"; "
         "that is the design basis, not the measured rate.",

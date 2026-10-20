@@ -78,11 +78,14 @@ of `rules.ini`.
 
 ### RA2's frame rate
 
-`RA2_FRAMES_PER_SECOND = 20` and `MINUTES_ARE_FRAMES = True` in `conversions.py` come from an
-in-game measurement (`TIMING.md` section 4): in original RA2 at speed slider position 3 an Ore
-Refinery (1.4 `rules.ini` minutes) builds in about 60 s, which fits 900 frames per minute at
-roughly 20 fps and rules out wall-clock minutes (84 s). One RA2 frame is therefore 1.25 OpenRA
-ticks and a `rules.ini` minute is 1125 ticks. Changing either constant and regenerating
+`RA2_FRAMES_PER_SECOND = 30` and `MINUTES_ARE_FRAMES = True` in `conversions.py` come from
+in-game measurements (`TIMING.md` section 4): in original RA2 an Ore Refinery (1.4 `rules.ini`
+minutes) builds in about 60 s at speed slider 3 and 40 s at slider 4, the Iron Curtain
+countdown 4:22 (3930 frames) runs in 2:08 and the Iron Curtain effect (750 frames) lasts 23.4 s at
+slider 4 (about 31 to 32 fps). That fits 900 frames per minute at about
+20 fps (slider 3) and 30 fps (slider 4) and rules out wall-clock minutes (84 s). Slider 4 is the
+reference for OpenRA's Normal speed, so one RA2 frame is 0.8333 OpenRA ticks and a `rules.ini`
+minute is 750 ticks. Changing either constant and regenerating
 rescales every time, speed and turn rate in Exact.
 
 ### Map scripts and replaced actors
@@ -139,7 +142,7 @@ pushing a change that a twin inherits from.
 ## Play-test checklist
 
 > **Timer basis.** Exact timers use the measured RA2 rate of 20 frames per second
-> (`RA2_FRAMES_PER_SECOND = 20`, `MINUTES_ARE_FRAMES = True`; `TIMING.md` section 4): one
+> (`RA2_FRAMES_PER_SECOND = 30`, `MINUTES_ARE_FRAMES = True`; `TIMING.md` section 4): one
 > RA2 frame is 1.25 OpenRA ticks and a `rules.ini` minute is 45 s of OpenRA Normal speed.
 > The measurement was one Ore Refinery build (about 60 s observed, 63 s predicted), so
 > stopwatch times may still differ by a few seconds; the speed and turn-rate scaling is

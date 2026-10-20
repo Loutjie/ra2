@@ -61,11 +61,11 @@ amcv.exact:
 
 amradr.exact:
 	ParatroopersPower@paratroopers:
-		ChargeInterval: 4500
+		ChargeInterval: 3000
 		DropItems: e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -103,7 +103,7 @@ apoc.exact:
 atesla.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -156,7 +156,7 @@ caairp:
 	ParatroopersPower@Allies@EXACT:
 		OrderName: AlliedParatroopersExact
 		Icon: paradrop
-		ChargeInterval: 4500
+		ChargeInterval: 3000
 		Name: actor-caairp.paratrooperspower-allies-name
 		Description: actor-caairp.paratrooperspower-allies-description
 		DropItems: e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact
@@ -182,7 +182,7 @@ caairp:
 	ParatroopersPower@Soviets@EXACT:
 		OrderName: SovietParatroopersExact
 		Icon: paradrop
-		ChargeInterval: 4500
+		ChargeInterval: 3000
 		Name: actor-caairp.paratrooperspower-soviets-name
 		Description: actor-caairp.paratrooperspower-soviets-description
 		DropItems: e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact
@@ -223,7 +223,7 @@ cahosp:
 caoild:
 	-CashTrickler:
 	CashTrickler@EXACT:
-		Interval: 125
+		Interval: 83
 		Amount: 20
 		RequiresCondition: balance-exact
 	CashTrickler@REIMAGINED:
@@ -249,7 +249,7 @@ caoutp:
 		Condition: balance-exact
 		Prerequisites: balance.exact
 	RepairsUnits@EXACT:
-		Interval: 18
+		Interval: 12
 		FinishRepairingNotification: UnitRepaired
 		ValuePercentage: 15
 		HpPerStep: 8
@@ -719,7 +719,7 @@ fv.exact:
 gaairc.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -729,7 +729,7 @@ gaairc.exact:
 gacnst.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -738,10 +738,10 @@ gacnst.exact:
 
 gacsph.exact:
 	ChronoshiftPower@chronoshift:
-		ChargeInterval: 7875
+		ChargeInterval: 5250
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -752,11 +752,11 @@ gadept.exact:
 	-SpawnSurvivors:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	RepairsUnits:
 		ValuePercentage: 15
-		Interval: 18
+		Interval: 12
 		HpPerStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -765,7 +765,7 @@ gagap.exact:
 	-SpawnSurvivors:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -773,7 +773,7 @@ gagap.exact:
 gaorep.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	ResourcePurifier:
 		Modifier: 25
@@ -786,7 +786,7 @@ gapile.exact:
 	-SpawnSurvivors:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -794,7 +794,7 @@ gapile.exact:
 gapill.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -803,7 +803,7 @@ gapowr.exact:
 	-SpawnSurvivors:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -811,7 +811,7 @@ gapowr.exact:
 garefn.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -821,7 +821,7 @@ garefn.exact:
 gaspysat.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -831,7 +831,7 @@ gaspysat.exact:
 gatech.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -845,7 +845,7 @@ gawall.exact:
 gaweap.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -855,27 +855,27 @@ gaweap.exact:
 gaweat.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
 	SpawnSurvivors:
 		Actors: e1.exact, e1.exact, e1.exact, e1.exact, e1.exact
 	WeatherControlSupportPower@LightningStorm:
-		ChargeInterval: 11250
-		Duration: 225
-		HitDelay: 13
-		ScatterDelay: 6
+		ChargeInterval: 7500
+		Duration: 150
+		HitDelay: 8
+		ScatterDelay: 4
 		Weapon: LightningStorm.exact
 
 gayard.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	RepairsUnits:
 		ValuePercentage: 15
-		Interval: 18
+		Interval: 12
 		HpPerStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -883,7 +883,7 @@ gayard.exact:
 gtgcan.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1151,7 +1151,7 @@ mtnk.exact:
 naclon.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1161,7 +1161,7 @@ naclon.exact:
 nacnst.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1171,11 +1171,11 @@ nacnst.exact:
 nadept.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	RepairsUnits:
 		ValuePercentage: 15
-		Interval: 18
+		Interval: 12
 		HpPerStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1185,7 +1185,7 @@ nadept.exact:
 naflak.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1193,7 +1193,7 @@ naflak.exact:
 nahand.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1202,11 +1202,11 @@ nahand.exact:
 
 nairon.exact:
 	GrantExternalConditionPower@IRONCURTAIN:
-		ChargeInterval: 5625
-		Duration: 938
+		ChargeInterval: 3750
+		Duration: 625
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1216,17 +1216,17 @@ nairon.exact:
 nalasr.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
 
 namisl.exact:
 	NukePower:
-		ChargeInterval: 11250
+		ChargeInterval: 7500
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1239,7 +1239,7 @@ nanrct.exact:
 		EmptyWeapon: NukePayload.exact
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1249,7 +1249,7 @@ nanrct.exact:
 napowr.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1259,7 +1259,7 @@ napowr.exact:
 napsis.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1269,7 +1269,7 @@ napsis.exact:
 naradr.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1279,7 +1279,7 @@ naradr.exact:
 narefn.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1289,7 +1289,7 @@ narefn.exact:
 nasam.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1297,7 +1297,7 @@ nasam.exact:
 natech.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1311,7 +1311,7 @@ nawall.exact:
 naweap.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1321,11 +1321,11 @@ naweap.exact:
 nayard.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	RepairsUnits:
 		ValuePercentage: 15
-		Interval: 18
+		Interval: 12
 		HpPerStep: 8
 	Sellable:
 		RefundPercent: 50
@@ -1732,7 +1732,7 @@ terror.exact:
 tesla.exact:
 	RepairableBuilding:
 		RepairPercent: 15
-		RepairInterval: 18
+		RepairInterval: 12
 		RepairStep: 8
 	Sellable:
 		RefundPercent: 50

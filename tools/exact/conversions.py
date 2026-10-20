@@ -5,14 +5,14 @@ constants, with sources, is in tools/exact/TIMING.md.
 
 Time
   RA2 runs one game-logic frame per rendered frame, so the length of a frame
-  in real time depends on the game speed setting. RA2_FRAMES_PER_SECOND is 20,
-  the rate of OpenRA's Normal speed, which corresponds to RA2's speed slider
-  position 3. It was set from an in-game measurement (an Ore Refinery builds in
-  60 s at slider 3; TIMING.md section 4). One RA2 frame is therefore 1.25
-  OpenRA ticks.
+  in real time depends on the game speed setting. RA2_FRAMES_PER_SECOND is 30,
+  the rate of RA2's speed slider position 4, chosen as the reference for
+  OpenRA's Normal speed. It was set from in-game measurements (an Ore Refinery
+  builds in 40 s at slider 4, the Iron Curtain countdown 4:22 runs in 2:08;
+  TIMING.md section 4). One RA2 frame is therefore 0.8333 OpenRA ticks.
 
   Minutes in rules.ini are the engine's 900 frames (MINUTES_ARE_FRAMES = True),
-  so a minute is 900 / 20 = 45 real seconds = 1125 ticks. The same
+  so a minute is 900 / 30 = 30 real seconds = 750 ticks. The same
   measurement rules out wall-clock minutes.
 
 Speed and turning
@@ -42,7 +42,7 @@ from decimal import ROUND_HALF_UP, Decimal
 OPENRA_TICKS_PER_SECOND = 25
 
 # Measured in game (TIMING.md section 4): slider position 3 = 20 frames per second.
-RA2_FRAMES_PER_SECOND: float = 20.0
+RA2_FRAMES_PER_SECOND: float = 30.0
 
 # RA2 engine: a rules.ini minute is 900 frames (TIMING.md section 2).
 RA2_FRAMES_PER_MINUTE = 900

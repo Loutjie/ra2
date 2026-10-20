@@ -24,16 +24,16 @@ def test_openra_rate_matches_default_timestep():
 
 
 def test_measured_defaults():
-    # Measured in game (TIMING.md section 4): slider position 3 runs at 20 fps,
+    # Measured in game (TIMING.md section 4): slider position 4 runs at 30 fps,
     # and a rules.ini minute is 900 frames.
-    assert RA2_FRAMES_PER_SECOND == 20
+    assert RA2_FRAMES_PER_SECOND == 30
     assert conversions.MINUTES_ARE_FRAMES is True
 
 
 def test_frames_to_ticks_uses_documented_rate():
-    # Two seconds of RA2 game logic last two seconds in OpenRA: 40 frames, 50 ticks.
+    # Two seconds of RA2 game logic last two seconds in OpenRA: 60 frames, 50 ticks.
     assert frames_to_ticks(RA2_FRAMES_PER_SECOND * 2) == 50
-    assert frames_to_ticks(20) == 25
+    assert frames_to_ticks(30) == 25
     assert frames_to_ticks(0) == 0
 
 
@@ -48,12 +48,12 @@ def test_frames_to_ticks_rejects_negative():
 
 
 def test_minutes_to_ticks():
-    # 900 frames per minute at 20 fps = 45 s = 1125 ticks.
-    assert minutes_to_ticks(7) == frames_to_ticks(7 * 900) == 7875
-    assert minutes_to_ticks(0.5) == 563  # 562.5 rounds half up
-    # The measured Ore Refinery: Cost 2000 x BuildSpeed .7 per 1000 = 1.4 minutes, 60 s.
-    assert minutes_to_ticks(1.4) == 1575
-    assert minutes_to_ticks(1.4) / OPENRA_TICKS_PER_SECOND == 63
+    # 900 frames per minute at 30 fps = 30 s = 750 ticks.
+    assert minutes_to_ticks(7) == frames_to_ticks(7 * 900) == 5250
+    assert minutes_to_ticks(0.5) == 375
+    # The measured Ore Refinery: Cost 2000 x BuildSpeed .7 per 1000 = 1.4 minutes, 40 s measured.
+    assert minutes_to_ticks(1.4) == 1050
+    assert minutes_to_ticks(1.4) / OPENRA_TICKS_PER_SECOND == 42
 
 
 def test_minutes_to_ticks_as_wall_clock(monkeypatch):
@@ -62,9 +62,9 @@ def test_minutes_to_ticks_as_wall_clock(monkeypatch):
     assert minutes_to_ticks(0.5) == 750
 
 
-def test_minutes_to_ticks_as_engine_frames_at_30_fps(monkeypatch):
-    monkeypatch.setattr(conversions, "RA2_FRAMES_PER_SECOND", 30.0)
-    assert minutes_to_ticks(7) == 5250  # 6300 frames at 30 fps = 210 s
+def test_minutes_to_ticks_as_engine_frames_at_20_fps(monkeypatch):
+    monkeypatch.setattr(conversions, "RA2_FRAMES_PER_SECOND", 20.0)
+    assert minutes_to_ticks(7) == 7875  # 6300 frames at 20 fps = 315 s
 
 
 def _parse_wdist(s):
@@ -106,10 +106,10 @@ def test_leptons_to_wdist():
 
 def test_speed_and_rot():
     # Speed x15 and ROT x4, the mod's existing convention (GAP_STATS.md).
-    # Scaled by 20 fps / 25 ticks per second = 0.8.
-    assert speed_to_openra(6) == 72
+    # Scaled by 30 fps / 25 ticks per second = 1.2.
+    assert speed_to_openra(6) == 108
     assert speed_to_openra(0) == 0
-    assert rot_to_turnspeed(5) == 16
+    assert rot_to_turnspeed(5) == 24
 
 
 def test_speed_and_rot_at_one_frame_per_tick(monkeypatch):
@@ -119,19 +119,19 @@ def test_speed_and_rot_at_one_frame_per_tick(monkeypatch):
 
 
 def test_projectile_speed_to_openra():
-    # Weapon Speed= is leptons per frame: x4 WDist per lepton, 0.8 frames per tick.
-    assert projectile_speed_to_openra(40) == 128
-    assert projectile_speed_to_openra(100) == 320
+    # Weapon Speed= is leptons per frame: x4 WDist per lepton, 1.2 frames per tick.
+    assert projectile_speed_to_openra(40) == 192
+    assert projectile_speed_to_openra(100) == 480
     assert projectile_speed_to_openra(0) == 0
     with pytest.raises(ValueError):
         projectile_speed_to_openra(-1)
 
 
 def test_projectile_speed_follows_frame_rate(monkeypatch):
-    # 30 frames per second over 25 ticks per second: 1.2 frames per tick.
-    monkeypatch.setattr(conversions, "RA2_FRAMES_PER_SECOND", 30.0)
-    assert projectile_speed_to_openra(40) == 192
-    assert projectile_speed_to_openra(1) == 5  # 4.8 rounds half away from zero
+    # 20 frames per second over 25 ticks per second: 0.8 frames per tick.
+    monkeypatch.setattr(conversions, "RA2_FRAMES_PER_SECOND", 20.0)
+    assert projectile_speed_to_openra(40) == 128
+    assert projectile_speed_to_openra(1) == 3  # 3.2
 
 
 def test_percent():

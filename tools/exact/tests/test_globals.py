@@ -147,8 +147,8 @@ def test_superweapon_charge_converted(tree):
     assert curtain == {"ChargeInterval": str(conversions.minutes_to_ticks(5)),
         "Duration": str(conversions.frames_to_ticks(300))}
     storm = tree["storm.exact"]["WeatherControlSupportPower@LightningStorm"]
-    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)), "Duration": "113", "HitDelay": "9",
-        "ScatterDelay": "4", "Weapon": "LightningStorm.exact"}
+    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)), "Duration": "75", "HitDelay": "6",
+        "ScatterDelay": "3", "Weapon": "LightningStorm.exact"}
     drop = tree["airdrop.exact"]["ParatroopersPower@paratroopers"]
     assert drop == {"ChargeInterval": str(conversions.minutes_to_ticks(3)),
         "DropItems": "troop.exact,troop.exact,troop.exact,troop.exact"}
@@ -163,9 +163,9 @@ def test_superweapon_follows_frame_rate(monkeypatch):
 def test_economy_rules(tree):
     assert tree["sphere.exact"]["Sellable"] == {"RefundPercent": "40"}
     plant = tree["plant.exact"]
-    assert plant["RepairableBuilding"] == {"RepairPercent": "10", "RepairInterval": "23", "RepairStep": "6"}
+    assert plant["RepairableBuilding"] == {"RepairPercent": "10", "RepairInterval": "15", "RepairStep": "6"}
     assert plant["ResourcePurifier"] == {"Modifier": "30"}
-    assert tree["doc.exact"]["RepairsUnits"] == {"ValuePercentage": "10", "Interval": "45", "HpPerStep": "6"}
+    assert tree["doc.exact"]["RepairsUnits"] == {"ValuePercentage": "10", "Interval": "30", "HpPerStep": "6"}
 
 
 def test_survivors_from_divisor(tree):
@@ -222,7 +222,7 @@ def test_death_weapon_messages():
 def test_tech_buildings_get_condition_pairs(tree):
     well = tree["well"]
     assert well["GrantConditionOnPrerequisite@BALANCE"] == {"Condition": "balance-exact", "Prerequisites": "balance.exact"}
-    assert well["CashTrickler@EXACT"] == {"Interval": "188", "Amount": "30", "RequiresCondition": "balance-exact"}
+    assert well["CashTrickler@EXACT"] == {"Interval": "125", "Amount": "30", "RequiresCondition": "balance-exact"}
     assert well["CashTrickler@REIMAGINED"] == {"Interval": "100", "Amount": "20", "RequiresCondition": "!balance-exact"}
     assert well["GivesCashOnCapture@EXACT"]["Amount"] == "750"
     assert well["RevealsShroud@EXACT"]["Range"] == "5c0"
@@ -259,7 +259,7 @@ def test_inheriting_tech_building_reuses_parent_pairs():
     g = exact_globals.build_globals(rules, {}, {}, set(), neutral,
         neutral_parents={"well2": "well", "well3": "well"})
     assert "well2" not in g.blocks
-    assert g.blocks["well3"] == {"CashTrickler@EXACT": {"Interval": 188, "Amount": 45}}
+    assert g.blocks["well3"] == {"CashTrickler@EXACT": {"Interval": 125, "Amount": 45}}
 
 
 def test_pairing_a_conditional_trait_fails():
