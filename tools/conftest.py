@@ -3,6 +3,8 @@ import pytest
 
 from ra2data import ini
 
+pytest_plugins = ["pytester"]
+
 
 @pytest.fixture
 def ra2ini():

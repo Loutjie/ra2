@@ -1,3 +1,5 @@
+import os
+
 import pytest
 
 from ra2data import resolved
@@ -37,3 +39,34 @@ def test_resolve_actor_htnk():
     t = resolved.resolve_actor("htnk")
     assert t["Valued"]["Cost"] == "900"
     assert t["Health"]["HP"] == "400"
+
+
+@pytest.mark.integration
+def test_missing_actor_error_includes_utility_output():
+    with pytest.raises(RuntimeError, match="Could not find actor 'nosuch_actor'"):
+        resolved.resolve_actor("nosuch_actor")
+
+
+def test_hash_changes_with_yaml_and_dll(monkeypatch, tmp_path):
+    (tmp_path / "mods" / "ra2").mkdir(parents=True)
+    (tmp_path / "mod.config").write_text('ENGINE_VERSION="x"\n')
+    yaml = tmp_path / "mods" / "ra2" / "a.yaml"
+    yaml.write_text("A:\n")
+    dll = tmp_path / "mod.dll"
+    monkeypatch.setattr(resolved, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(resolved, "MOD_DLL", dll)
+    missing = resolved.mods_hash()
+    dll.write_text("1")
+    with_dll = resolved.mods_hash()
+    assert with_dll != missing
+    dll.write_text("22")
+    assert resolved.mods_hash() != with_dll
+    base = resolved.mods_hash()
+    os.utime(dll, ns=(1, 1))
+    assert resolved.mods_hash() != base
+    base = resolved.mods_hash()
+    yaml.write_text("A:\n\tB: 1\n")
+    assert resolved.mods_hash() != base
+    base = resolved.mods_hash()
+    os.utime(yaml, ns=(1, 1))
+    assert resolved.mods_hash() != base

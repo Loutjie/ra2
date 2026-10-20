@@ -15,9 +15,18 @@ def engine_version() -> str:
     return m.group(1) if m else ""
 
 
+MOD_DLL = REPO_ROOT / "engine" / "bin" / "OpenRA.Mods.RA2.dll"
+
+
 def mods_hash() -> str:
-    """sha1 of the engine version plus relative paths, mtimes and sizes of mods/**/*.yaml."""
+    """sha1 of the engine version, the mod dll's mtime/size and the relative
+    paths, mtimes and sizes of mods/**/*.yaml."""
     h = hashlib.sha1(engine_version().encode())
+    try:
+        st = MOD_DLL.stat()
+        h.update(f"dll|{st.st_mtime_ns}|{st.st_size}\n".encode())
+    except OSError:
+        h.update(b"dll|missing\n")
     for p in sorted((REPO_ROOT / "mods").rglob("*.yaml")):
         st = p.stat()
         h.update(f"{p.relative_to(REPO_ROOT).as_posix()}|{st.st_mtime_ns}|{st.st_size}\n".encode())
@@ -38,7 +47,7 @@ def cells(value: str) -> float:
 
 
 def parse_miniyaml(text: str) -> dict[str, dict]:
-    """Parse tab-indented MiniYaml into nested dicts.
+    """Parse tab-indented MiniYaml (tabs only, no space indentation) into nested dicts.
 
     Keys keep their '@' suffixes and '-' removal prefixes. A node's own value
     is stored under '_value' when it also has children; leaves map to strings.
@@ -73,20 +82,24 @@ def _collapse(node: dict) -> None:
 
 
 def _utility() -> list[str]:
-    return ["utility.cmd"] if sys.platform == "win32" else ["./utility.sh"]
+    return [str(REPO_ROOT / ("utility.cmd" if sys.platform == "win32" else "utility.sh"))]
 
 
 def _resolve(flag: str, kind: str, name: str) -> dict[str, dict]:
     cache = cache_dir() / kind
-    cached = cache / f"{name.lower()}.yaml"
+    cached = cache / f"{name}.yaml"
     if cached.is_file():
         return parse_miniyaml(cached.read_text(encoding="utf-8"))
     result = subprocess.run(_utility() + [flag, name], cwd=REPO_ROOT,
                             capture_output=True, text=True, encoding="utf-8", check=False)
     if result.returncode != 0:
-        raise RuntimeError(f"utility {flag} {name} failed ({result.returncode}): {result.stderr.strip()}")
+        detail = "\n".join(t.strip() for t in (result.stdout, result.stderr) if t.strip())
+        raise RuntimeError(f"utility {flag} {name} failed ({result.returncode}): {detail}")
     cache.mkdir(parents=True, exist_ok=True)
-    cached.write_text(result.stdout, encoding="utf-8")
+    fd, tmp = tempfile.mkstemp(dir=cache, suffix=".tmp")
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write(result.stdout)
+    os.replace(tmp, cached)
     return parse_miniyaml(result.stdout)
 
 

@@ -1,4 +1,4 @@
-import pytest
+from pathlib import Path
 
 from ra2data.ini import parse_ini, ra2ini_dir
 
@@ -23,8 +23,9 @@ def test_ra2ini_dir_env(monkeypatch, tmp_path):
 
 
 def test_skips_without_ra2ini(pytester, monkeypatch, tmp_path):
+    tools = Path(__file__).resolve().parents[1]
     monkeypatch.setenv("RA2INI", str(tmp_path / "missing"))
-    pytester.makeconftest(open(__file__.replace("tests/test_ini.py", "conftest.py")).read())
+    pytester.makeconftest((tools / "conftest.py").read_text())
     pytester.makepyfile("def test_x(ra2ini):\n    raise AssertionError('should skip')\n")
-    pytester.syspathinsert(__file__.replace("/tests/test_ini.py", ""))
+    pytester.syspathinsert(tools)
     pytester.runpytest("-p", "no:cacheprovider", "-p", "no:asyncio").assert_outcomes(skipped=1)
