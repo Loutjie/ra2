@@ -5,8 +5,7 @@ FrozenUnderFog is spawned whose whole footprint lies outside the map's
 playable Bounds (or outside the map). This test parses every map.yaml and
 flags such actors.
 
-Run `pytest tools/tests/test_map_actors.py -rx -k offenders` to see the list
-(the offender tests are xfail until the maps are fixed or re-imported).
+Off-map waypoints are allowed (never rendered or frozen).
 """
 from __future__ import annotations
 
@@ -107,32 +106,17 @@ def frozen_footprint_offenders(path: Path):
     return offenders
 
 
-# Maps with known offenders (OpenRA/ra2 #826) to xfail; none remain.
-KNOWN_OUTSIDE_MAP: set[str] = set()
-KNOWN_FROZEN: set[str] = set()
+MAP_IDS = [p.parent.name for p in MAP_YAMLS]
 
 
-def _params(known):
-    return [
-        pytest.param(p, id=p.parent.name, marks=pytest.mark.xfail(
-            reason="#826: pending fix/re-import decision", strict=True, raises=AssertionError)
-            if p.parent.name in known else ())
-        for p in MAP_YAMLS
-    ]
-
-
-def test_maps_found():
-    assert MAP_YAMLS
-
-
-@pytest.mark.parametrize("path", _params(KNOWN_OUTSIDE_MAP))
+@pytest.mark.parametrize("path", MAP_YAMLS, ids=MAP_IDS)
 def test_no_actors_outside_map(path):
     bad = outside_map_actors(path)
     assert not bad, f"{len(bad)} actor(s) outside the map: " + ", ".join(f"{a[0]}:{a[1]}@{a[2]},{a[3]}" for a in bad)
 
 
 @pytest.mark.integration
-@pytest.mark.parametrize("path", _params(KNOWN_FROZEN))
+@pytest.mark.parametrize("path", MAP_YAMLS, ids=MAP_IDS)
 def test_no_frozen_actor_without_footprint(path):
     bad = frozen_footprint_offenders(path)
     assert not bad, f"{len(bad)} crash-prone actor(s): " + ", ".join(f"{a[0]}:{a[1]}@{a[2]},{a[3]}" for a in bad)
