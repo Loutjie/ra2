@@ -135,7 +135,9 @@ def render(garrisonables) -> str:
             "\t\tTypes: Garrisoner\n"
             f"\t\tMaxWeight: {g.capacity}\n"
             "\t\tLoadedCondition: garrisoned\n"
-            "\t\tEjectOnDeath: true\n"
+            # GarrisonOwnership ejects the occupants over the footprint instead: the engine drops them all
+            # into the origin cell, which only has room for three infantry.
+            "\t\tEjectOnDeath: false\n"
             "\tAttackGarrisoned@GARRISON:\n"
             "\t\tArmaments: garrison\n"
             f"\t\tPortOffsets: {', '.join(f'{x},{y},{z}' for x, y, z in offsets)}\n"

@@ -112,14 +112,15 @@ def test_occupy_weapons_match_ra2(ra2ini, weapon):
 
 
 @pytest.mark.integration
-def test_garrison_buildings_autotarget_and_are_not_repairable():
+def test_garrison_buildings_autotarget_eject_in_mod_code_and_are_not_repairable():
     from ra2data.resolved import resolve_actor
 
     names = re.findall(r"^([a-z0-9_]+):$", generate.DEFAULT_OUT.read_text(encoding="utf-8"), re.M)
     assert len(names) == 120
     for name in names:
         rules = resolve_actor(name)
-        assert rules["Cargo@GARRISON"]["EjectOnDeath"].lower() == "true", name
+        # GarrisonOwnership ejects the occupants over the footprint; the engine would cram them into one cell
+        assert rules["Cargo@GARRISON"]["EjectOnDeath"].lower() == "false", name
         assert rules["Cargo@GARRISON"]["LoadedCondition"] == "garrisoned", name
         assert rules["AutoTarget@GARRISON"]["RequiresCondition"] == "garrisoned", name
         assert not any(t.split("@")[0] == "AutoTarget" for t in rules if t != "AutoTarget@GARRISON"), name

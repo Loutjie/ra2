@@ -83,9 +83,10 @@ def test_render_block_autotargets_only_when_garrisoned(sample):
     assert "\tAutoTargetPriority@GARRISON:\n\t\tRequiresCondition: garrisoned\n" in block
 
 
-def test_render_block_cannot_be_repaired(sample):
+def test_render_block_ejects_in_mod_code_and_cannot_be_repaired(sample):
     text = generate.render(generate.load_garrisonables(*sample))
     block = text[text.index("\ncafake01:"):text.index("\ncafake02:")]
+    assert "\t\tEjectOnDeath: false\n" in block
     assert "\t-RepairableBuilding:\n" in block
     assert "\t-WithBuildingRepairDecoration:\n" in block
 

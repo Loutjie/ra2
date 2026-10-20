@@ -6,7 +6,7 @@ caarmy01:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2220,1110,128, -2365,362,128, -1448,-483,128, -2413,941,128, -2124,0,128, -2027,1448,128, -1834,-314,128, -2703,603,128
@@ -36,7 +36,7 @@ caarmy02:
 		Types: Garrisoner
 		MaxWeight: 4
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128
@@ -66,7 +66,7 @@ caarmy03:
 		Types: Garrisoner
 		MaxWeight: 4
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -772,241,128, -627,-72,128, -338,-362,128, -627,434,128
@@ -96,7 +96,7 @@ caarmy04:
 		Types: Garrisoner
 		MaxWeight: 4
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -627,169,128, -869,-121,128, -290,434,128, -676,-386,128
@@ -126,7 +126,7 @@ cabarn02:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,-676,128, -1158,-965,128, -965,772,128, -1545,290,128, -1641,-434,128
@@ -156,7 +156,7 @@ cabunk01:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -579,-676,128, -483,-700,128, -1496,72,128, -1496,48,128, -1158,-434,128, -1207,-483,128, -1207,627,128, -1207,579,128
@@ -186,7 +186,7 @@ cabunk02:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -579,652,128, -1062,-555,128, -1448,-48,128, -1158,434,128, -627,627,128, -1014,-507,128, -1400,-24,128, -1207,459,128
@@ -216,7 +216,7 @@ cachig01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1689,-97,128, -869,-1038,128, -2317,410,128, 1738,1400,128, -290,1400,128, 1158,459,128, 1351,265,128, 2462,-989,128, 772,-579,128, 627,1400,128
@@ -246,7 +246,7 @@ cachig02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,24,128, -1014,941,128, 2365,893,128, 1545,-1472,128, 1545,24,128, 2606,1062,128, 2413,893,128, -2510,-483,128, 434,-1448,128, -434,-1472,128
@@ -276,7 +276,7 @@ cachig03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3668,-652,128, 2799,265,128, 0,1014,128, 3282,1593,128, 2751,1014,128, -48,989,128, -1545,676,128, 579,-965,128, 4006,-965,128, 965,-652,128
@@ -306,7 +306,7 @@ cachig04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -193,-603,128, -483,845,128, 1303,917,128, -1158,97,128, 869,-869,128, -1545,-169,128, 2027,338,128, 2365,-603,128, 1448,97,128, 193,676,128
@@ -336,7 +336,7 @@ cachig05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 3958,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
@@ -366,7 +366,7 @@ cacity01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -396,7 +396,7 @@ cacity02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -426,7 +426,7 @@ cacity03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -456,7 +456,7 @@ cacity04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -486,7 +486,7 @@ caeur04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -290,-459,128, -193,1303,128, -1207,217,128, -1593,-652,128, -2462,676,128, -386,-483,128, -1496,-700,128, -1110,193,128, -290,1303,128, -2317,676,128
@@ -516,7 +516,7 @@ caeur1:
 		Types: Garrisoner
 		MaxWeight: 3
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,217,128, -1207,603,128, -1110,290,128
@@ -546,7 +546,7 @@ caeur2:
 		Types: Garrisoner
 		MaxWeight: 3
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1448,-48,128, -1448,-265,128, -917,-386,128
@@ -576,7 +576,7 @@ cafarm01:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,48,128, -1158,434,128, -821,796,128, -627,-531,128, -1641,-627,128, -1738,-434,128
@@ -606,7 +606,7 @@ cafarm06:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4730,-145,128, 2413,-193,128, 193,-386,128, 4730,145,128, 1062,193,128
@@ -636,7 +636,7 @@ cafrma:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 0,-965,128, -1255,1014,128, -1158,-796,128, -1496,-386,128, -97,-265,128, -724,-1134,128, -1303,290,128, -290,-459,128, -1641,-24,128, 0,-193,128
@@ -666,7 +666,7 @@ cafrmb:
 		Types: Garrisoner
 		MaxWeight: 1
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -48,24,128
@@ -696,7 +696,7 @@ cagas01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1496,1279,128, -1545,-1014,128, -1110,-169,128, -1593,652,128, -2944,290,128, -1062,145,128, -1834,-1279,128, -1448,1472,128, -869,-579,128, -2124,989,128
@@ -726,7 +726,7 @@ cahse01:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,-724,128, -1641,965,128, 193,579,128, -1448,-97,128, -2172,241,128
@@ -756,7 +756,7 @@ cahse02:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
@@ -786,7 +786,7 @@ cahse03:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
@@ -816,7 +816,7 @@ cahse04:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
@@ -846,7 +846,7 @@ cahse05:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -965,-965,128, -193,193,128, -97,290,128, -965,-1014,128, -1110,-821,128
@@ -876,7 +876,7 @@ cahse06:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -869,1038,128, -917,941,128, -241,-265,128, -917,555,128, -338,-97,128
@@ -906,7 +906,7 @@ cahse07:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -821,217,128, -869,917,128, -1303,483,128, -1786,-24,128, -1303,483,128
@@ -936,7 +936,7 @@ caind01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-2631,128, -3282,1207,128, 821,434,128, -4151,-386,128, -1207,-386,128, -531,796,128, 2027,1086,128, -3089,-1496,128, -4054,531,128, -1834,97,128
@@ -966,7 +966,7 @@ calab:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1207,531,128, 1351,121,128, -2269,1014,128, -821,700,128, 1207,-290,128, 1593,-338,128, 1400,724,128, 1110,-241,128, -241,772,128, -1786,1110,128
@@ -996,7 +996,7 @@ camex02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1834,2486,128, -338,-821,128, 386,941,128, -4730,989,128, -2172,97,128, -3282,2124,128, 193,2075,128, -1738,1882,128, -3234,-217,128, -2655,2944,128
@@ -1026,7 +1026,7 @@ camiam01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3089,-1062,128, 3089,-338,128, -290,579,128, 4054,1786,128, 579,869,128, 2606,917,128, -579,241,128, 386,-724,128, 579,869,128, -869,579,128
@@ -1056,7 +1056,7 @@ camiam02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2799,-145,128, 386,483,128, 772,-1110,128, 2317,1255,128, -386,1689,128, 3765,2075,128, -965,1641,128, 1351,2075,128, 2606,-1158,128, -193,-821,128
@@ -1086,7 +1086,7 @@ camiam03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1738,-386,128, 1351,483,128, 290,-1882,128, 2993,-1448,128, 483,772,128, 2510,1062,128, 772,1062,128, 1158,-1448,128, -869,-1882,128, 4441,483,128
@@ -1116,7 +1116,7 @@ camiam04:
 		Types: Garrisoner
 		MaxWeight: 3
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 145,72,128, 193,145,128, 48,-145,128
@@ -1146,7 +1146,7 @@ camiam05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,-917,128, 0,-1255,128, -1158,1183,128, -3330,-1351,128, -724,-1424,128, -2027,-796,128, -1448,-193,128, -386,796,128, -2510,410,128, -676,1207,128
@@ -1176,7 +1176,7 @@ camiam06:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-24,128, -2558,338,128, -579,1496,128, -1158,-2317,128, -3475,265,128, -1400,-1545,128, -241,72,128, -4199,434,128, -3089,1569,128, -2606,1979,128
@@ -1206,7 +1206,7 @@ camiam07:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1400,-2051,128, -1110,-1520,128, -1400,-2051,128, -1110,-1520,128, -2799,-1400,128, -97,-1810,128, -386,869,128, -1110,-386,128, 6999,-845,128, 8109,627,128
@@ -1236,7 +1236,7 @@ camov02:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1979,338,128, -1689,-410,128, -1931,-72,128, -1207,-796,128, -1738,603,128
@@ -1266,7 +1266,7 @@ camsc07:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1062,-700,128, -1351,-290,128, -1110,531,128, -1207,-483,128, -1351,0,128, -1303,290,128
@@ -1296,7 +1296,7 @@ camsc08:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
@@ -1326,7 +1326,7 @@ camsc09:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
@@ -1356,7 +1356,7 @@ camsc10:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2944,338,128, -3379,627,128, -2220,-1786,128, -3475,-145,128, -2848,-1207,128, -3282,169,128, -2655,-1641,128, -3717,-483,128
@@ -1386,7 +1386,7 @@ canewy01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,-265,128, -579,-1762,128, 2269,-193,128, -724,1810,128, -145,821,128, 3717,1424,128, 2413,-1207,128, -241,796,128, -4344,0,128, -2993,-1014,128
@@ -1416,7 +1416,7 @@ canewy05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -1446,7 +1446,7 @@ canewy06:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 7771,-724,128, -338,1545,128, 1786,-507,128, -2075,-193,128, 4537,-700,128, 3475,579,128, -965,-1689,128, 6854,603,128, -2558,724,128, -1496,-1062,128
@@ -1476,7 +1476,7 @@ canewy07:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1593,-1038,128, -1014,1786,128, 1255,-48,128, -2075,-24,128, 1496,1303,128, 917,-1327,128, -193,-1665,128, 386,821,128, -1014,941,128, 1158,-700,128
@@ -1506,7 +1506,7 @@ canewy08:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1110,796,128, -2075,145,128, -579,-1424,128, -676,1327,128, 1738,-507,128, -2027,603,128, 386,-579,128, -2075,748,128, -1351,0,128, 97,579,128
@@ -1536,7 +1536,7 @@ canewy10:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,-579,128, 5502,-579,128, 4247,1062,128, 1931,1545,128, 290,1062,128, 1351,290,128, 1641,-579,128, 1351,1545,128, 3668,290,128, 3282,1062,128
@@ -1566,7 +1566,7 @@ canewy11:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,-772,128, 1255,241,128, 1738,-772,128, 2124,434,128, 1931,1062,128, 772,1545,128, 290,1062,128, -965,-434,128, 2413,1545,128, -1641,1545,128
@@ -1596,7 +1596,7 @@ canewy12:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2317,-1593,128, -290,-1158,128, 1351,-338,128, 1545,531,128, -1062,-338,128, -869,-1110,128, 3282,724,128, -869,-1158,128, 2124,-483,128, 1255,-338,128
@@ -1626,7 +1626,7 @@ canewy13:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
@@ -1656,7 +1656,7 @@ canewy14:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
@@ -1686,7 +1686,7 @@ canewy15:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1545,-1448,128, 1641,-338,128, 1448,1351,128, -772,965,128, -1351,-434,128, 193,-1400,128, -1448,241,128, 290,772,128, -1062,1303,128, 869,-386,128
@@ -1716,7 +1716,7 @@ canewy16:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4537,-724,128, 2896,-772,128, 2027,338,128, 869,917,128, 5985,965,128, 3186,965,128, 2027,-1062,128, 0,-724,128, 5406,338,128, 3186,917,128
@@ -1746,7 +1746,7 @@ canewy17:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 386,-1062,128, 97,724,128, -1641,338,128, 676,-772,128, 97,676,128, -1641,-483,128, -1448,627,128, 97,772,128, -386,1062,128, -1641,-434,128
@@ -1776,7 +1776,7 @@ canewy18:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 676,-724,128, 193,676,128, 2124,1014,128, 386,-1014,128, 97,724,128, 483,-1014,128, 193,724,128, 1834,-676,128, 1062,-1014,128, 386,1014,128
@@ -1806,7 +1806,7 @@ canewy20:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2848,-1134,128, -2172,-2413,128, -1496,217,128, -2269,-555,128, -2993,-1593,128, -2558,-821,128, -2413,-2172,128, -965,700,128, -2027,-314,128, -2703,-1810,128
@@ -1836,7 +1836,7 @@ canewy21:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1303,-459,128, -2075,314,128, -2462,2196,128, -2896,1110,128, -1593,-169,128, -2799,1882,128, -2606,869,128, -2269,2437,128, -1834,48,128, -2413,603,128
@@ -1866,7 +1866,7 @@ canwy05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 869,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
@@ -1896,7 +1896,7 @@ canwy09:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 4441,-72,128, 2944,-362,128, 97,483,128, 7771,72,128, 3523,748,128, 1786,362,128, -1979,-459,128, 1979,-893,128, 6999,-845,128, 8109,627,128
@@ -1926,7 +1926,7 @@ canwy22:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1014,169,128, -2510,-24,128, -2124,772,128, 917,-989,128, 338,700,128, -724,1158,128, -241,-555,128, -1400,-1158,128, -1689,-627,128, 1110,-410,128
@@ -1956,7 +1956,7 @@ canwy23:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 821,-917,128, 869,241,128, -3379,97,128, 7240,-603,128, 4778,652,128, 2124,1448,128, -869,241,128, -821,1713,128, 2558,-121,128, 5309,1231,128
@@ -1986,7 +1986,7 @@ canwy24:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1255,-1376,128, -1786,-362,128, -1738,676,128, 2993,-241,128, 3523,-821,128, 2462,-265,128, 2462,772,128, 676,917,128, 5358,290,128, 4971,989,128
@@ -2016,7 +2016,7 @@ canwy25:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 434,917,128, 290,-265,128, -2124,-1086,128, -1255,-72,128, 1400,-1086,128, -1738,434,128, 483,1472,128, -1545,1472,128, 338,-1038,128, -2269,-362,128
@@ -2046,7 +2046,7 @@ canwy26:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2413,989,128, -2172,1110,128, -627,1617,128, 2027,2462,128, -3186,989,128, -483,-145,128, 4103,-1014,128, -97,-821,128, -2655,-748,128, 0,483,128
@@ -2076,7 +2076,7 @@ capars02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3089,-1038,128, 338,-1400,128, -676,1882,128, -3330,2003,128, -821,-1424,128, -3041,-459,128, -2896,796,128, 1931,-676,128, -2655,-145,128, 2124,-1400,128
@@ -2106,7 +2106,7 @@ capars04:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
@@ -2136,7 +2136,7 @@ capars05:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
@@ -2166,7 +2166,7 @@ capars06:
 		Types: Garrisoner
 		MaxWeight: 6
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -97,-386,128, -1158,-724,128, 772,1545,128, 0,724,128, -3186,-193,128, -1448,434,128
@@ -2196,7 +2196,7 @@ capars08:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3427,1617,128, -1834,-2293,128, 1931,-652,128, -1255,2558,128, -1545,-603,128, 1979,-1110,128, -1738,-1689,128, -3861,-362,128, -2896,2510,128, 579,652,128
@@ -2226,7 +2226,7 @@ capars09:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1738,-2317,128, -4827,1738,128, -1351,3065,128, -3572,-507,128, -3668,3499,128, 2172,-459,128, 338,-145,128, -2075,-1327,128, -4392,2775,128, -5985,1279,128
@@ -2256,7 +2256,7 @@ capars10:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
@@ -2286,7 +2286,7 @@ capars12:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2558,-1834,128, -1834,-241,128, 1158,1303,128, -1158,700,128, -2799,-1086,128, -724,97,128, -3475,-1738,128, 1834,193,128, -1207,579,128, -1931,-989,128
@@ -2316,7 +2316,7 @@ capars13:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 483,-1882,128, -1931,145,128, -2751,-1955,128, 290,1038,128, -3234,-941,128, 1014,-24,128, -821,-1086,128, -145,-2317,128, -1545,-193,128, 1738,748,128
@@ -2346,7 +2346,7 @@ capars14:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
@@ -2376,7 +2376,7 @@ caprs03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -4296,265,128, -4682,2510,128, -1882,-2486,128, -3427,-1400,128, -3523,3330,128, -6275,1545,128, -6082,1762,128, -5068,2751,128, -2510,-1593,128, -2413,-2003,128
@@ -2406,7 +2406,7 @@ carus01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2027,965,128, -3089,-965,128, 531,-48,128, 0,-748,128, -3089,724,128, -1689,-796,128, -2220,-1738,128, 2462,0,128, -3813,-121,128, -2269,-1400,128
@@ -2436,7 +2436,7 @@ carus02g:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -2466,7 +2466,7 @@ carus03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -724,-121,128, 724,-1062,128, -2413,-2775,128, -1738,-1738,128, 1979,-1593,128, -1207,-2631,128, 676,-700,128, -1931,-1351,128, 1255,-386,128, -1496,-3161,128
@@ -2496,7 +2496,7 @@ carus04:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1641,-1062,128, -2317,555,128, -2220,-434,128, -1593,1279,128, -1496,1231,128, -917,2003,128, -2365,-338,128, -821,-1882,128
@@ -2526,7 +2526,7 @@ carus05:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2269,434,128, -821,-1786,128, -2172,-434,128, -869,1882,128, -3523,1110,128, -2124,-531,128, -4054,-386,128, -2220,531,128
@@ -2556,7 +2556,7 @@ carus06:
 		Types: Garrisoner
 		MaxWeight: 8
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2896,1810,128, -4151,-386,128, -3668,1134,128, -4296,362,128, -2848,-1810,128, -3523,-1158,128, -3089,1134,128, -3668,-241,128
@@ -2586,7 +2586,7 @@ carus07:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 97,-48,128, -48,24,128, -97,0,128, 48,48,128, -145,-24,128, -97,0,128, -97,24,128, -145,-48,128, -145,121,128, 241,72,128
@@ -2616,7 +2616,7 @@ carus08:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 627,-169,128, 0,265,128, 145,410,128, 1834,217,128, 1738,290,128
@@ -2646,7 +2646,7 @@ carus09:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 2655,-386,128, 2413,-314,128, -48,579,128, 48,-290,128, 965,-483,128
@@ -2676,7 +2676,7 @@ carus10:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -869,-796,128, -241,-145,128, 965,338,128, 1110,483,128, 821,193,128
@@ -2706,7 +2706,7 @@ carus11:
 		Types: Garrisoner
 		MaxWeight: 5
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 241,-362,128, 483,121,128, 627,0,128, -869,748,128, -579,459,128
@@ -2736,7 +2736,7 @@ castl01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -917,-579,128, -965,1062,128, -2510,821,128, -2027,-821,128, -386,-1062,128, -1351,1327,128, -1834,-290,128, -290,-579,128, -1834,869,128, -1207,-290,128
@@ -2766,7 +2766,7 @@ castl02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2510,290,128, -627,821,128, -1062,-917,128, -1158,265,128, -1979,-1376,128, -1062,1086,128, 338,1351,128, -1303,-1376,128, -1593,555,128, -1979,845,128
@@ -2796,7 +2796,7 @@ castl03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1641,555,128, -1834,-1014,128, -386,1062,128, -1931,845,128, -2172,-1351,128, -1207,241,128, -1448,-1376,128, -821,1327,128, -2558,-941,128, -2413,290,128
@@ -2826,7 +2826,7 @@ castl04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1931,338,128, 6419,-2365,128, -579,-3210,128, -48,459,128, 7723,-386,128, 8591,-1327,128, -3861,-3403,128, 3523,-2824,128, 8302,-652,128, 4827,-2679,128
@@ -2856,7 +2856,7 @@ caswst01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -48,145,128, 241,-1376,128, 2896,627,128, 2124,-555,128, -627,-555,128, 2075,-1158,128, 97,700,128, 2703,72,128, 4778,24,128, -4296,-1062,128
@@ -2886,7 +2886,7 @@ catech01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -676,772,128, -1931,-1038,128, -1255,-1665,128, -965,1279,128, -531,0,128, -1158,700,128, -1448,217,128, -1979,-700,128, 1255,145,128, -193,-1038,128
@@ -2916,7 +2916,7 @@ catexs01:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,0,128, 338,603,128, 2124,-627,128, 2655,579,128, -627,-627,128, 3330,48,128, 1351,24,128, -338,724,128, -434,0,128, 2172,72,128
@@ -2946,7 +2946,7 @@ catexs02:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1882,-1327,128, -3282,-652,128, -1931,-2027,128, -2703,-676,128, -3668,0,128, -1351,-2003,128, -1593,-1641,128, -2124,-1062,128, -676,-145,128, -772,-821,128
@@ -2976,7 +2976,7 @@ catexs03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 48,-869,128, 1014,1858,128, 193,1014,128, -2172,893,128, 2558,-1858,128, 3282,1738,128, -2220,-169,128, 2848,724,128, -2365,-700,128, 193,-1882,128
@@ -3006,7 +3006,7 @@ catexs04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2220,-193,128, -1400,1641,128, 1834,265,128, 917,-1834,128, 1786,1858,128, -1158,410,128, -1882,-1158,128, 1786,-217,128, 2558,-989,128, 1641,893,128
@@ -3036,7 +3036,7 @@ catexs05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 434,-459,128, -531,1810,128, -2172,-917,128, 2075,-459,128, -338,-1569,128, -2172,869,128, 965,1110,128, 2655,-941,128, 4392,917,128, 3958,-434,128
@@ -3066,7 +3066,7 @@ catexs06:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2799,265,128, -2220,-845,128, -627,965,128, -965,-1665,128, -869,241,128, -3234,-290,128, -2558,965,128, -1979,-1545,128, -917,1183,128, -2558,-1014,128
@@ -3096,7 +3096,7 @@ catexs07:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1255,1086,128, -1689,-1086,128, 145,193,128, -1979,121,128, -1641,1545,128, 1400,-772,128, -2124,-555,128, -1641,-1569,128, 1303,555,128, 821,-603,128
@@ -3126,7 +3126,7 @@ catexs08:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -627,507,128, -1786,-1158,128, -965,-121,128, -1882,-1472,128, -1882,0,128, -917,-1641,128, -1786,-314,128, -483,-1303,128, -1062,652,128, -97,-1641,128
@@ -3156,7 +3156,7 @@ cawa2a:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3813,-290,128, -4103,265,128, -4634,265,128, -4344,-290,128, -3717,-121,128, -3958,434,128, -3620,48,128, -4151,72,128, -4247,-97,128, -4537,434,128
@@ -3186,7 +3186,7 @@ cawa2b:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3137,-555,128, -2269,169,128, -1931,-1545,128, -3475,-1086,128, -1110,2389,128, -2848,1593,128, -3282,652,128, -3620,-386,128, -1641,-2462,128, -2510,-1545,128
@@ -3216,7 +3216,7 @@ cawa2c:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2848,-1110,128, -2896,-507,128, -4006,-531,128, -3572,-941,128, -4151,0,128, -4441,-265,128, -4923,145,128, -3137,-821,128, -3861,-652,128, -4344,-121,128
@@ -3246,7 +3246,7 @@ cawa2d:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -3668,-507,128, -4151,-97,128, -3668,290,128, -4199,290,128, -4634,-459,128, -4923,-531,128, -4103,-314,128, -4247,-507,128, -4199,97,128, -1931,-2075,128
@@ -3276,7 +3276,7 @@ cawash03:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2317,-193,128, -1738,-772,128, -2220,241,128, -2558,1424,128, -1979,2051,128, -2172,1207,128, -3282,241,128, -2510,-555,128, -1689,-1400,128, -965,-989,128
@@ -3306,7 +3306,7 @@ cawash04:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2075,193,128, -1303,1110,128, -3668,869,128, -290,-2148,128, -1979,-1545,128, -2075,-338,128, -2896,796,128, -290,1979,128, -1979,1641,128, -1496,2124,128
@@ -3336,7 +3336,7 @@ cawash05:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1158,-772,128, -2027,1303,128, -1641,241,128, -579,2220,128, -2703,1255,128, -1738,290,128, -2413,2269,128, -1158,-241,128, -869,1255,128, -1834,2269,128
@@ -3366,7 +3366,7 @@ cawash06:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
@@ -3396,7 +3396,7 @@ cawash07:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 869,-1545,128, -869,-1207,128, -1158,-1545,128, -483,1496,128, -386,241,128, -1834,-917,128, -97,-579,128, 869,1496,128, -2124,531,128, -1062,-290,128
@@ -3426,7 +3426,7 @@ cawash08:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1931,-1062,128, -2220,-1158,128, -3765,-290,128, -772,772,128, -2606,-2317,128, -772,-2606,128, -1931,483,128, -869,772,128, 1062,1110,128, 193,-676,128
@@ -3456,7 +3456,7 @@ cawash09:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -386,-1400,128, -965,-1400,128, -1738,434,128, -2510,434,128, -1738,772,128, -1834,1207,128, -869,1641,128, -2317,772,128, -1158,1834,128, -676,1834,128
@@ -3486,7 +3486,7 @@ cawash10:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: 1110,-338,128, 869,241,128, -3330,-1327,128, -3813,-772,128, -3572,1086,128, 724,0,128, 772,-217,128, -3089,1593,128, 1062,386,128, -3041,-1569,128
@@ -3516,7 +3516,7 @@ cawash11:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1545,-1158,128, -676,-1158,128, -2510,290,128, -3282,579,128, -2413,579,128, -2462,1207,128, -2124,1207,128, -1158,2124,128, -1931,2124,128, -2799,1207,128
@@ -3546,7 +3546,7 @@ cawash13:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -1689,314,128, -241,-1014,128, -2413,1062,128, -627,1448,128, -1593,1062,128, -1400,1641,128, -145,-1158,128, -1207,-1014,128, -1351,0,128, -2365,700,128
@@ -3576,7 +3576,7 @@ cawash17:
 		Types: Garrisoner
 		MaxWeight: 10
 		LoadedCondition: garrisoned
-		EjectOnDeath: true
+		EjectOnDeath: false
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
 		PortOffsets: -2413,-97,128, -1448,-1400,128, -2993,-917,128, -3765,965,128, -5213,1303,128, -4923,2317,128, -4923,1834,128, -5502,2848,128, -4827,3475,128, -3765,965,128
