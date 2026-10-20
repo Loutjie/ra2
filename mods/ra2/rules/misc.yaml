@@ -237,3 +237,157 @@ INBLULMP:
 		RedTint: 0.01
 		GreenTint: 0.01
 		BlueTint: 0.7
+
+REDLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-redlamp-name
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+GRENLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-grenlamp-name
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+BLUELAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-bluelamp-name
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 0.01
+		GreenTint: 0.01
+		BlueTint: 0.7
+
+YELWLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-yelwlamp-name
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: 0.01
+		RedTint: 1.5
+		GreenTint: 1.5
+		BlueTint: 0.01
+
+PURPLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-purplamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 2
+		GreenTint: 0.01
+		BlueTint: 2
+
+NEGRED:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-negred-name
+	TerrainLightSource:
+		Range: 15c640
+		Intensity: -0.05
+		RedTint: -1.5
+		GreenTint: 0.01
+		BlueTint: 0.01
+
+TEMMORLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-temmorlamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 0.78
+		GreenTint: 0.4
+		BlueTint: 0.01
+
+TEMDAYLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-temdaylamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 0.7
+		GreenTint: 0.3
+		BlueTint: 0.01
+
+TEMDUSLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-temduslamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 0.78
+		GreenTint: 0.4
+		BlueTint: 0.01
+
+TEMNITLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-temnitlamp-name
+	TerrainLightSource:
+		Range: 13c688
+		Intensity: 0.01
+		RedTint: 0.7
+		GreenTint: 0.6
+		BlueTint: 0.01
+
+SNOMORLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-snomorlamp-name
+	TerrainLightSource:
+		Range: 13c688
+		Intensity: 0.01
+		RedTint: 0.3
+		GreenTint: 0.4
+		BlueTint: -0.1
+
+SNODAYLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-snodaylamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.005
+		RedTint: 0.1
+		GreenTint: 0.1
+		BlueTint: 0
+
+SNODUSLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-snoduslamp-name
+	TerrainLightSource:
+		Range: 13c688
+		Intensity: 0.005
+		RedTint: 0.25
+		GreenTint: 0.35
+		BlueTint: -0.2
+
+SNONITLAMP:
+	Inherits: INGALITE
+	EditorOnlyTooltip:
+		Name: actor-snonitlamp-name
+	TerrainLightSource:
+		Range: 11c736
+		Intensity: 0.01
+		RedTint: 0.15
+		GreenTint: 0.25
+		BlueTint: 0.05
