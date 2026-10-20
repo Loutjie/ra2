@@ -261,6 +261,33 @@ def _verses(warhead: dict) -> list[int]:
     return values + [100] * (len(ARMOR_ORDER) - len(values))
 
 
+def load_weapon(rules: dict, weapon_id: str) -> ExactWeapon | None:
+    """One weapon section, looked up case-insensitively (OpenRA weapon names are
+    case-insensitive). None if rules.ini has no such section."""
+    wid = weapon_id if weapon_id in rules else next(
+        (k for k in rules if k.lower() == weapon_id.lower()), None)
+    if wid is None:
+        return None
+    w = rules[wid]
+    warhead_id = w.get("Warhead", "").strip()
+    warhead = rules.get(warhead_id, {})
+    spread = warhead.get("CellSpread", "").strip()
+    at_max = warhead.get("PercentAtMax", "").strip()
+    return ExactWeapon(
+        id=wid,
+        damage=_int(w, "Damage", 0),
+        rof=_int(w, "ROF", 0),
+        range=_flt(w, "Range", 0.0),
+        burst=_int(w, "Burst", 1),
+        projectile=w.get("Projectile", "").strip(),
+        speed=_int(w, "Speed", 100),
+        warhead=warhead_id,
+        verses=_verses(warhead),
+        cell_spread=float(spread) if spread else 0.0,
+        percent_at_max=_percent(at_max) if at_max else 100,
+    )
+
+
 def load_weapons(rules: dict, actors: list[ExactActor]) -> dict[str, ExactWeapon]:
     """Every weapon the actors can fire (primary, secondary, elite variants,
     death weapon, numbered WeaponN/EliteWeaponN), keyed by weapon ID. References to sections that do not
@@ -272,22 +299,5 @@ def load_weapons(rules: dict, actors: list[ExactActor]) -> dict[str, ExactWeapon
                     *actor.weapons, *actor.elite_weapons):
             if not wid or wid in weapons or wid not in rules:
                 continue
-            w = rules[wid]
-            warhead_id = w.get("Warhead", "").strip()
-            warhead = rules.get(warhead_id, {})
-            spread = warhead.get("CellSpread", "").strip()
-            at_max = warhead.get("PercentAtMax", "").strip()
-            weapons[wid] = ExactWeapon(
-                id=wid,
-                damage=_int(w, "Damage", 0),
-                rof=_int(w, "ROF", 0),
-                range=_flt(w, "Range", 0.0),
-                burst=_int(w, "Burst", 1),
-                projectile=w.get("Projectile", "").strip(),
-                speed=_int(w, "Speed", 100),
-                warhead=warhead_id,
-                verses=_verses(warhead),
-                cell_spread=float(spread) if spread else 0.0,
-                percent_at_max=_percent(at_max) if at_max else 100,
-            )
+            weapons[wid] = load_weapon(rules, wid)
     return weapons
