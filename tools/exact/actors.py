@@ -194,14 +194,18 @@ def twin_traits(actor: ExactActor, base: Mapping, *, twins: Collection[str] = ()
 
 
 def render_twin(actor: ExactActor, base: dict, *, twins: Collection[str] = (),
-        weapons: Mapping[str, str] | None = None, replaced: bool = True) -> str:
+        weapons: Mapping[str, str] | None = None, replaced: bool = True,
+        traits: Mapping[str, Mapping[str, str]] | None = None) -> str:
     """MiniYaml of the twin `<id>.exact` of `actor` over its resolved base actor `base`.
 
     twins: base IDs (lowercase) that have a twin, for rewriting actor references.
     weapons: lowercase weapon name -> defined name (OpenRA weapon names are case-insensitive).
     replaced: whether the base carries ReplaceOnPrerequisite@BALANCE (the twin removes it).
+    traits: the trait overrides to write (default: twin_traits; exact.generate passes them
+    after exact.exceptions has adjusted them).
     """
-    traits, _ = twin_traits(actor, base, twins=twins, weapons=weapons)
+    if traits is None:
+        traits, _ = twin_traits(actor, base, twins=twins, weapons=weapons)
     lines = [f"{twin_name(actor.id)}:", f"\tInherits: {actor.id.lower()}"]
     if replaced:
         lines.append(f"\t-{IGNORED_TRAIT}:")
@@ -221,6 +225,18 @@ def appended_twins(value: str, twins: Collection[str]) -> str:
         if name in twins and name + SUFFIX not in names and name + SUFFIX not in extra:
             extra.append(name + SUFFIX)
     return ", ".join([*names, *extra])
+
+
+def appended_host_fields(tree: Mapping, twins: Collection[str]) -> list[tuple[str, str, str]]:
+    """(trait key, field, new list) for each HOST_FIELDS list of `tree` that appended_twins
+    changes, in trait key order."""
+    out = []
+    for key, trait in sorted(tree.items()):
+        field = HOST_FIELDS.get(trait_type(key))
+        value = trait.get(field) if field and isinstance(trait, dict) else None
+        if isinstance(value, str) and appended_twins(value, twins) != ", ".join(split_list(value)):
+            out.append((key, field, appended_twins(value, twins)))
+    return out
 
 
 def render_reimagined_overlay(base_actors: dict, *, twins: Collection[str] | None = None,
@@ -250,11 +266,8 @@ def render_reimagined_overlay(base_actors: dict, *, twins: Collection[str] | Non
                 lines += [f"\t{IGNORED_TRAIT}:", f"\t\tPrerequisite: {EXACT_PREREQUISITE}",
                     f"\t\tIntoActor: {twin_name(name)}"]
         else:
-            for key, trait in sorted(tree.items()):
-                field = HOST_FIELDS.get(trait_type(key))
-                value = trait.get(field) if field and isinstance(trait, dict) else None
-                if isinstance(value, str) and appended_twins(value, twins) != ", ".join(split_list(value)):
-                    lines += [f"\t{key}:", f"\t\t{field}: {appended_twins(value, twins)}"]
+            for key, field, value in appended_host_fields(tree, twins):
+                lines += [f"\t{key}:", f"\t\t{field}: {value}"]
         if len(lines) > 1:
             blocks.append("\n".join(lines) + "\n")
     return "\n".join(blocks)

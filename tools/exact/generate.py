@@ -8,8 +8,13 @@ Writes (paths relative to the repository root):
                                          (exact.weapons, which documents the mapping and the
                                          exceptions that stay `Inherits: <weapon>` stubs)
   tools/exact/weapon_exceptions.json     those exceptions, the RA2 weapons without a mod
-                                         counterpart and the projectile speed notes, for
-                                         EXCEPTIONS.md
+                                         counterpart and the projectile speed notes
+  mods/ra2/rules/exact/EXCEPTIONS.md     every conversion exception (exact.exceptions) with
+                                         its reason and what it affected
+
+Conversion exceptions
+  All twins are computed first; then every rule of exact.exceptions.EXCEPTIONS adjusts them
+  (actor trait overrides and weapon twins), and only then are the files rendered.
 
 Which actors get a twin
   Every RA2 player-buildable (exact.model.load_actors) whose lowercased ID is a buildable
@@ -39,7 +44,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from exact import actors, weapons as twin_weapons
+from exact import actors, exceptions, weapons as twin_weapons
 from exact.model import load_actor, load_actors
 from exact.snapshot import (HOST_FIELDS, actor_names, has_buildable, strip_ignored, twinned_actors,
     weapon_definitions)
@@ -92,16 +97,28 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
     children = actors.spawned_children(bases)
 
     notes: list[str] = []
-    blocks: list[str] = []
     stubs: set[str] = set()
+    twin_traits: dict[str, dict[str, dict[str, str]]] = {}
     for name in twins:
-        replaced = name not in children
         traits, twin_notes = actors.twin_traits(ra2[name], bases[name], twins=twins, weapons=weapons)
+        twin_traits[name] = traits
         notes += twin_notes
         stubs.update(t["Weapon"][: -len(actors.SUFFIX)] for k, t in traits.items()
             if actors.trait_type(k) == "Armament" and "Weapon" in t)
-        blocks.append(actors.render_twin(ra2[name], bases[name], twins=twins, weapons=weapons,
-            replaced=replaced))
+
+    # Weapon twins first, then the exception rules (which also adjust twin_traits).
+    generated = exceptions.Generated(rules, {n: bases[n] for n in twins}, twin_traits, {},
+        resolve_base_weapon)
+    applied: dict[str, list[str]] = {}
+
+    def adjust(weapon_twins: dict) -> None:
+        generated.weapons = weapon_twins
+        applied.update(exceptions.apply(generated))
+
+    weapons_body, weapons_report = twin_weapons.render_weapons(rules, stubs, [ra2[n] for n in twins],
+        resolve_base_weapon, adjust=adjust)
+    blocks = [actors.render_twin(ra2[name], bases[name], twins=twins, weapons=weapons,
+        replaced=name not in children, traits=twin_traits[name]) for name in twins]
 
     # RA2 defines these but cannot build them: Reimagined only. Without an RA2 section: both modes.
     reimagined_only = sorted(n for n in set(bases) - set(ra2) if load_actor(rules, n) is not None)
@@ -115,13 +132,22 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
         + "\n" + "\n".join(blocks))
     overlay_text = HEADER + "\n" + actors.render_reimagined_overlay({**hosts, **bases}, twins=twins,
         no_replace=children, reimagined_only=reimagined_only)
-    weapons_body, weapons_report = twin_weapons.render_weapons(rules, stubs, [ra2[n] for n in twins],
-        resolve_base_weapon)
     weapons_text = HEADER + weapons_body
     report_text = json.dumps({"generated": HEADER[2:].strip(), **weapons_report}, indent="\t",
         ensure_ascii=False) + "\n"
+    buildable = {a.id.lower() for a in load_actors(rules)}
+    facts = {**weapons_report, "twins": twins, "dropped": sorted(notes),
+        "deploy_added": [f"{n}{actors.SUFFIX} (RA2 {ra2[n].id})" for n in twins if n not in buildable],
+        "reimagined_only": reimagined_only, "both_modes": both_modes, "missing": missing,
+        "exact_host_users": sorted(n for n, tree in {**hosts, **bases}.items()
+            if n not in twins and actors.appended_host_fields(tree, twins)),
+        "generated_weapons": sorted(t.twin for t in generated.weapons.values() if t.values is not None),
+        "point_spread": sorted(t.twin for t in generated.weapons.values() if t.values is not None
+            and any(isinstance(v, dict) and v.get("Spread") == twin_weapons.POINT_SPREAD
+                for v in t.values.values()))}
     return {ACTORS_FILE: actors_text, OVERLAY_FILE: overlay_text, WEAPONS_FILE: weapons_text,
-        WEAPON_EXCEPTIONS_FILE: report_text}
+        WEAPON_EXCEPTIONS_FILE: report_text,
+        exceptions.REPORT_FILE: exceptions.render_report(HEADER, facts, applied)}
 
 
 def resolve_all(names: list[str]) -> dict[str, dict]:

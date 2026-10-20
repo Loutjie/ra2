@@ -140,6 +140,8 @@ atesla.exact:
 		Weapon: PrismShot.exact
 	Armor:
 		Type: Steel
+	AttackTesla:
+		ReloadDelay: 38
 	Buildable:
 		Prerequisites: power, radar, ~structures.allies, ~balance.exact
 		BuildDuration: 1575
@@ -2419,6 +2421,9 @@ tesla.exact:
 		Weapon: OPCoilBolt.exact
 	Armor:
 		Type: Steel
+	AttackTesla:
+		ReloadDelay: 78
+		MaxCharges: 1
 	Buildable:
 		Prerequisites: naradr, ~structures.soviets, ~balance.exact
 		BuildDuration: 1575
