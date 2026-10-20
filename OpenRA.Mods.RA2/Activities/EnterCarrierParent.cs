@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Linq;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
@@ -21,12 +22,54 @@ namespace OpenRA.Mods.RA2.Activities
 	{
 		readonly Actor parent;
 		readonly CarrierParent spawnerParent;
+		readonly WDist landingAbortDistance;
 
-		public EnterCarrierParent(Actor self, Actor parent, CarrierParent spawnerParent)
+		WPos lastParentPosition;
+		WPos? landingStartPosition;
+
+		public EnterCarrierParent(Actor self, Actor parent, CarrierParent spawnerParent, WDist landingAbortDistance)
 			: base(self, Target.FromActor(parent))
 		{
 			this.parent = parent;
 			this.spawnerParent = spawnerParent;
+			this.landingAbortDistance = landingAbortDistance;
+			lastParentPosition = parent.CenterPosition;
+		}
+
+		protected override bool TryStartEnter(Actor self, Actor targetActor)
+		{
+			// Remember where the parent was when we committed to landing on it.
+			landingStartPosition = targetActor.CenterPosition;
+			return true;
+		}
+
+		protected override void TickInner(Actor self, in Target target, bool targetIsDeadOrHiddenActor)
+		{
+			if (parent.IsDead)
+				return;
+
+			var parentPosition = parent.CenterPosition;
+			var parentMoved = parentPosition != lastParentPosition;
+			lastParentPosition = parentPosition;
+
+			if (IsCanceling || landingStartPosition == null)
+				return;
+
+			var parentDrift = new WDist((parentPosition - landingStartPosition.Value).HorizontalLength);
+			if (!CarrierChild.ShouldCircle(parentMoved, parentDrift, landingAbortDistance))
+				return;
+
+			// The parent moved away from under us: abort the landing (which takes off again)
+			// and fly a full circle before trying again, instead of landing on a stale position.
+			Cancel(self, true);
+			var aircraft = self.TraitOrDefault<Aircraft>();
+			if (aircraft != null)
+				Queue(new FlyIdle(self, FullCircleTicks(aircraft.TurnSpeed), false));
+		}
+
+		static int FullCircleTicks(WAngle turnSpeed)
+		{
+			return 1024 / Math.Max(1, turnSpeed.Angle);
 		}
 
 		protected override void OnEnterComplete(Actor self, Actor targetActor)
