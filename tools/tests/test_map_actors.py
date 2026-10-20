@@ -73,9 +73,13 @@ def footprint_cells(rules: dict, x: int, y: int):
     return [(x + cx, y + cy) for cy, row in enumerate(rows) for cx, c in enumerate(row) if c != "_"]
 
 
+# Waypoints are never rendered or frozen, so some maps keep them off-map.
+OFF_MAP_ALLOWED = {"waypoint"}
+
+
 def outside_map_actors(path: Path):
     map_size, bounds, actors = parse_map(path)
-    return [a for a in actors if not in_map((a[2], a[3]), map_size)]
+    return [a for a in actors if a[1] not in OFF_MAP_ALLOWED and not in_map((a[2], a[3]), map_size)]
 
 
 _RULES: dict[str, dict] = {}
@@ -103,9 +107,9 @@ def frozen_footprint_offenders(path: Path):
     return offenders
 
 
-# Maps with known offenders (OpenRA/ra2 #826), xfail until fixed or re-imported.
-KNOWN_OUTSIDE_MAP = {"arctic-circle", "wild-animal-park"}
-KNOWN_FROZEN = {"golden-state-freeway", "the-alamo", "wild-animal-park"}
+# Maps with known offenders (OpenRA/ra2 #826) to xfail; none remain.
+KNOWN_OUTSIDE_MAP: set[str] = set()
+KNOWN_FROZEN: set[str] = set()
 
 
 def _params(known):

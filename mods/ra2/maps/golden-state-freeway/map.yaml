@@ -3077,9 +3077,6 @@ Actors:
 	Actor1001: pole01
 		Location: 173,0
 		Owner: Neutral
-	Actor1002: pole01
-		Location: 183,0
-		Owner: Neutral
 	Actor1003: tree28
 		Location: 120,7
 		Owner: Neutral
