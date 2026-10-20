@@ -9,6 +9,12 @@ checkbox-redeployable-mcvs =
     .label = Redeployable MCVs
     .description = Allow undeploying Construction Yard
 
+dropdown-balance =
+    .label = Balance
+    .description = Reimagined: the mod's balance. Exact: original Red Alert 2 values.
+    .reimagined = Reimagined
+    .exact = Exact (original RA2)
+
 ## World
 options-starting-units =
     .mcv-only = MCV Only

@@ -101,6 +101,18 @@ Player:
 		Enabled: True
 		DisplayOrder: 7
 		Prerequisites: global-factundeploy
+	LobbyPrerequisiteDropdown@BALANCE:
+		ID: balance
+		Label: dropdown-balance.label
+		Description: dropdown-balance.description
+		Values:
+			reimagined: dropdown-balance.reimagined
+			exact: dropdown-balance.exact
+		Prerequisites:
+			reimagined: balance.reimagined
+			exact: balance.exact
+		Default: reimagined
+		DisplayOrder: 8
 	FrozenActorLayer:
 	DamageNotifier:
 		AllyNotification: OurAllyIsUnderAttack
