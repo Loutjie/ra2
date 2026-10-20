@@ -2834,7 +2834,6 @@ camiam04:
 		HP: 200
 	MapEditorData:
 		Categories: Decoration
-	MapEditorData:
 		ExcludeTilesets: SNOW
 
 camiam05:
