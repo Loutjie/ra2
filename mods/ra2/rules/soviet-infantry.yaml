@@ -213,6 +213,7 @@ terror:
 	GrantConditionOnAttack:
 		Condition: triggered
 	GrantConditionOnDeploy:
+		SmartDeploy: true
 		DeployedCondition: triggered
 		PauseOnCondition: chronodisable
 		Voice: Attack
@@ -277,6 +278,7 @@ deso:
 		Weapon: RadEruptionWeapon
 		RequiresCondition: deployed
 	GrantConditionOnDeploy:
+		SmartDeploy: true
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		CanDeployOnRamps: true

@@ -436,6 +436,7 @@ dtruck:
 	GrantConditionOnAttack:
 		Condition: triggered
 	GrantConditionOnDeploy:
+		SmartDeploy: true
 		DeployedCondition: triggered
 		PauseOnCondition: chronodisable
 		Voice: Attack
