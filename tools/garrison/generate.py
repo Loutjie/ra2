@@ -26,7 +26,7 @@ HEADER = (
 TRUE_VALUES = ("yes", "true", "1")
 PORT_HEIGHT = 128  # WDist above the building's origin; matches the old hand-written cawsh12 ports
 PORT_CONE = 88  # WAngle, as the engine's RA mod uses
-DEFAULT_PORT_RADIUS = 384  # WDist of the fallback ring of ports around the centre
+DEFAULT_PORT_RADIUS_PX = 24  # horizontal screen radius (px) of the fallback ring of ports
 
 
 @dataclass(frozen=True)
@@ -36,39 +36,52 @@ class Garrisonable:
     ports: list  # list[tuple[int, int]] of RA2 screen-pixel offsets from the building centre
 
 
-def pixel_to_wvec(x: int, y: int) -> tuple[int, int, int]:
-    """Convert an RA2 screen-pixel offset (x right, y down) to a WVec (x, y, 0).
+def pixel_to_world(x: int, y: int) -> tuple[int, int]:
+    """Convert an RA2 screen-pixel offset (x right, y down) to a world (u, v) vector.
 
-    RA2 cells are 60x30 px diamonds and 1024 WDist per cell. One cell step along
-    the world x axis moves the screen by (+30, +15) px; one step along the world
-    y axis moves it by (-30, +15) px. With the offset in cells (wx, wy):
-        sx = 30 * (wx - wy),  sy = 15 * (wx + wy)
-    Inverting gives wx = sx/60 + sy/30 and wy = sy/30 - sx/60, so
-        WVec.x = 1024 * (sx + 2*sy) / 60,  WVec.y = 1024 * (2*sy - sx) / 60
-    rounded half up in integers. The pixel offset is on the ground plane, so z is 0.
+    This mod uses a RectangularIsometric grid (60x30 px cells). Map.CenterOfCell
+    places cell (cx, cy) at WPos(724*(cx-cy+1), 724*(cx+cy+1)), so world axes are
+    screen-aligned (u right, v down) and one cell step of (+30, +15) px is
+    (724, 724) WDist (724 = 512*sqrt(2); 1024 is the length along a cell axis).
+    Hence u = x*724/30 and v = y*724/15, rounded half up.
     """
-    return (_round_div(1024 * (x + 2 * y), 60), _round_div(1024 * (2 * y - x), 60), 0)
+    return (_round_div(x * 724, 30), _round_div(y * 724, 15))
+
+
+def pixel_to_wvec(x: int, y: int) -> tuple[int, int, int]:
+    """Convert an RA2 screen-pixel offset to the LOCAL WVec used by PortOffsets.
+
+    AttackGarrisoned applies BodyOrientation.LocalToWorld to port offsets. With
+    UseClassicPerspectiveFudge: false (defaults.yaml) that is world = (local.Y,
+    -local.X), so local = (-v, u) where (u, v) = pixel_to_world(x, y). A pure
+    screen-down pixel offset therefore has negative local x and zero local y.
+    z is 0.
+    """
+    u, v = pixel_to_world(x, y)
+    return (-v, u, 0)
 
 
 def _round_div(n: int, d: int) -> int:
     return (2 * n + d) // (2 * d)
 
 
-def yaw_towards(x: int, y: int) -> int:
-    """WAngle (1024 per turn, 0 = +x, 256 = +y) from the centre towards (x, y); 0 at the centre."""
-    if x == 0 and y == 0:
+def yaw_of_world(u: int, v: int) -> int:
+    """Engine yaw (WVec.Yaw: ArcTan(-v, u) - 256, 1024 per turn) of a world vector.
+
+    OpenRA north is -v: north is 0, west 256, south 512, east 768. Zero vector gives 0.
+    """
+    if u == 0 and v == 0:
         return 0
-    return round(math.atan2(y, x) * 1024 / (2 * math.pi)) % 1024
+    return (round(math.atan2(-v, u) * 1024 / (2 * math.pi)) - 256) % 1024
 
 
 def _default_ports(capacity: int) -> list:
-    """Evenly spaced ring of pixel offsets, used when art.ini has no MuzzleFlashN."""
-    # A ring of radius R in WVec is generated directly in pixels: invert pixel_to_wvec for (dx, dy).
+    """Evenly spaced ring of screen-pixel offsets (a ground circle seen at 2:1), used
+    when art.ini has no MuzzleFlashN."""
     ports = []
     for i in range(capacity):
         angle = 2 * math.pi * i / capacity
-        wx, wy = DEFAULT_PORT_RADIUS * math.cos(angle), DEFAULT_PORT_RADIUS * math.sin(angle)
-        ports.append((round(30 * (wx - wy) / 1024), round(15 * (wx + wy) / 1024)))
+        ports.append((round(DEFAULT_PORT_RADIUS_PX * math.cos(angle)), round(DEFAULT_PORT_RADIUS_PX * math.sin(angle) / 2)))
     return ports
 
 
@@ -114,9 +127,8 @@ def load_garrisonables(rules, art) -> list:
 def render(garrisonables) -> str:
     out = [HEADER]
     for g in garrisonables:
-        offsets = [pixel_to_wvec(x, y) for x, y in g.ports]
-        offsets = [(wx, wy, PORT_HEIGHT) for wx, wy, _ in offsets]
-        yaws = [yaw_towards(wx, wy) for wx, wy, _ in offsets]
+        offsets = [(lx, ly, PORT_HEIGHT) for lx, ly, _ in (pixel_to_wvec(x, y) for x, y in g.ports)]
+        yaws = [yaw_of_world(*pixel_to_world(x, y)) for x, y in g.ports]
         out.append(
             f"\n{g.id.lower()}:\n"
             "\tCargo@GARRISON:\n"

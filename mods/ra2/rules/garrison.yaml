@@ -8,8 +8,8 @@ caarmy01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2355,785,128, 1929,1417,128, 683,1365,128, 2372,1041,128, 1502,1502,128, 2458,410,128, 1075,1519,128, 2338,1485,128
-		PortYaws: 52, 103, 180, 67, 128, 27, 156, 92
+		PortOffsets: -2220,1110,128, -2365,362,128, -1448,-483,128, -2413,941,128, -2124,0,128, -2027,1448,128, -1834,-314,128, -2703,603,128
+		PortYaws: 588, 537, 460, 573, 512, 613, 484, 548
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -29,8 +29,8 @@ caarmy02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128
-		PortYaws: 564, 53, 128, 768
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128
+		PortYaws: 76, 587, 512, 896
 		PortCones: 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -50,8 +50,8 @@ caarmy03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 717,375,128, 393,495,128, -17,495,128, 751,137,128
-		PortYaws: 79, 147, 262, 29
+		PortOffsets: -772,241,128, -627,-72,128, -338,-362,128, -627,434,128
+		PortYaws: 561, 493, 378, 611
 		PortCones: 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -71,8 +71,8 @@ caarmy04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 563,324,128, 529,700,128, 512,-102,128, 205,751,128
-		PortYaws: 85, 151, 992, 213
+		PortOffsets: -627,169,128, -869,-121,128, -290,434,128, -676,-386,128
+		PortYaws: 555, 489, 672, 427
 		PortCones: 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -92,8 +92,8 @@ cabarn02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -205,751,128, 137,1502,128, 1229,137,128, 1297,887,128, 853,1468,128
-		PortYaws: 299, 241, 18, 98, 170
+		PortOffsets: -386,-676,128, -1158,-965,128, -965,772,128, -1545,290,128, -1641,-434,128
+		PortYaws: 341, 399, 622, 542, 470
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -113,8 +113,8 @@ cabunk01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -68,887,128, -154,836,128, 1109,1007,128, 1092,1024,128, 512,1126,128, 512,1195,128, 1297,410,128, 1263,444,128
-		PortYaws: 268, 286, 120, 123, 186, 190, 50, 55
+		PortOffsets: -579,-676,128, -483,-700,128, -1496,72,128, -1496,48,128, -1158,-434,128, -1207,-483,128, -1207,627,128, -1207,579,128
+		PortYaws: 371, 354, 520, 517, 454, 450, 590, 585
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -134,8 +134,8 @@ cabunk02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 870,-51,128, 358,1143,128, 990,1058,128, 1126,512,128, 887,0,128, 358,1075,128, 973,1007,128, 1178,529,128
-		PortYaws: 1014, 207, 133, 70, 0, 204, 131, 69
+		PortOffsets: -579,652,128, -1062,-555,128, -1448,-48,128, -1158,434,128, -627,627,128, -1014,-507,128, -1400,-24,128, -1207,459,128
+		PortYaws: 650, 434, 507, 570, 640, 436, 509, 571
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -155,8 +155,8 @@ cachig01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1263,-1126,128, -119,1348,128, 1929,1348,128, -239,-2219,128, 1195,-785,128, -495,-1143,128, -768,-1143,128, -2441,-1041,128, -956,-137,128, 546,-1434,128
-		PortYaws: 631, 270, 99, 751, 929, 701, 672, 578, 535, 827
+		PortOffsets: 1689,-97,128, -869,-1038,128, -2317,410,128, 1738,1400,128, -290,1400,128, 1158,459,128, 1351,265,128, 2462,-989,128, 772,-579,128, 627,1400,128
+		PortYaws: 9, 370, 541, 913, 735, 962, 992, 62, 105, 837
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -176,8 +176,8 @@ cachig02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 290,256,128, 1382,51,128, -1041,-2304,128, -2133,-51,128, -1075,-1109,128, -1092,-2594,128, -1075,-2338,128, 1434,2116,128, -1331,717,128, -734,1348,128
-		PortYaws: 118, 6, 699, 516, 643, 703, 698, 159, 431, 337
+		PortOffsets: -386,24,128, -1014,941,128, 2365,893,128, 1545,-1472,128, 1545,24,128, 2606,1062,128, 2413,893,128, -2510,-483,128, 434,-1448,128, -434,-1472,128
+		PortYaws: 522, 634, 965, 124, 1021, 961, 966, 481, 209, 303
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -197,8 +197,8 @@ cachig03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -3055,-2133,128, -1792,-2167,128, 717,-717,128, -1195,-3447,128, -1229,-2662,128, 734,-666,128, 1570,614,128, -1092,273,128, -3516,-2150,128, -1143,-222,128
-		PortYaws: 611, 655, 896, 714, 698, 904, 61, 472, 601, 543
+		PortOffsets: 3668,-652,128, 2799,265,128, 0,1014,128, 3282,1593,128, 2751,1014,128, -48,989,128, -1545,676,128, 579,-965,128, 4006,-965,128, 965,-652,128
+		PortYaws: 29, 1009, 768, 950, 966, 760, 579, 168, 39, 97
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -218,8 +218,8 @@ cachig04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -290,563,128, 939,-256,128, -273,-1570,128, 887,751,128, -1229,0,128, 973,1212,128, -1195,-1673,128, -2099,-1246,128, -956,-1092,128, 341,-614,128
-		PortYaws: 334, 981, 740, 114, 512, 146, 667, 599, 651, 851
+		PortOffsets: -193,-603,128, -483,845,128, 1303,917,128, -1158,97,128, 869,-869,128, -1545,-169,128, 2027,338,128, 2365,-603,128, 1448,97,128, 193,676,128
+		PortYaws: 306, 683, 924, 526, 128, 494, 997, 41, 1013, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -239,8 +239,8 @@ cachig05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 853,-717,128, -1263,1126,128, 1673,-853,128, 819,2185,128, 410,819,128, -2048,-3550,128, -3106,-853,128, 307,-2219,128, 2628,2014,128, -1263,-922,128
-		PortYaws: 910, 393, 947, 198, 180, 683, 556, 790, 107, 615
+		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 3958,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
+		PortYaws: 754, 247, 717, 442, 460, 981, 84, 874, 533, 25
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -260,8 +260,8 @@ cacity01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -281,8 +281,8 @@ cacity02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -302,8 +302,8 @@ cacity03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -323,8 +323,8 @@ cacity04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -344,8 +344,8 @@ caeur04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -119,529,128, 1058,-785,128, 1007,700,128, 666,1587,128, 2219,1263,128, -68,614,128, 563,1553,128, 922,649,128, 1126,-717,128, 2116,1161,128
-		PortYaws: 292, 920, 99, 191, 84, 274, 199, 100, 932, 82
+		PortOffsets: -290,-459,128, -193,1303,128, -1207,217,128, -1593,-652,128, -2462,676,128, -386,-483,128, -1496,-700,128, -1110,193,128, -290,1303,128, -2317,676,128
+		PortYaws: 348, 744, 541, 449, 556, 366, 441, 540, 732, 558
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -365,8 +365,8 @@ caeur1:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1246,939,128, 1280,427,128, 990,580,128
-		PortYaws: 105, 52, 86
+		PortOffsets: -1545,217,128, -1207,603,128, -1110,290,128
+		PortYaws: 535, 588, 554
 		PortCones: 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -386,8 +386,8 @@ caeur2:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 990,1058,128, 836,1212,128, 375,922,128
-		PortYaws: 133, 158, 193
+		PortOffsets: -1448,-48,128, -1448,-265,128, -917,-386,128
+		PortYaws: 507, 483, 447
 		PortCones: 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -407,8 +407,8 @@ cafarm01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1126,1058,128, 1126,512,128, 1143,17,128, 68,819,128, 717,1604,128, 922,1536,128
-		PortYaws: 123, 70, 2, 242, 187, 168
+		PortOffsets: -1545,48,128, -1158,434,128, -821,796,128, -627,-531,128, -1641,-627,128, -1738,-434,128
+		PortYaws: 517, 570, 637, 397, 453, 472
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -428,8 +428,8 @@ cafarm06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -3447,-3243,128, -1843,-1570,128, -410,137,128, -3243,-3447,128, -614,-887,128
-		PortYaws: 635, 627, 459, 645, 669
+		PortOffsets: 4730,-145,128, 2413,-193,128, 193,-386,128, 4730,145,128, 1062,193,128
+		PortYaws: 5, 13, 180, 1019, 995
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -449,8 +449,8 @@ cafrma:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -683,683,128, 1604,171,128, 256,1382,128, 785,1331,128, -119,256,128, -290,1314,128, 1126,717,128, -119,529,128, 1143,1178,128, -137,137,128
-		PortYaws: 384, 17, 226, 169, 327, 291, 92, 292, 130, 384
+		PortOffsets: 0,-965,128, -1255,1014,128, -1158,-796,128, -1496,-386,128, -97,-265,128, -724,-1134,128, -1303,290,128, -290,-459,128, -1641,-24,128, 0,-193,128
+		PortYaws: 256, 623, 414, 471, 313, 349, 548, 348, 510, 256
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -470,8 +470,8 @@ cafrmb:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 51,17,128
-		PortYaws: 52
+		PortOffsets: -48,24,128
+		PortYaws: 588
 		PortCones: 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -491,8 +491,8 @@ cagas01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1963,154,128, 375,1809,128, 666,905,128, 1587,666,128, 2287,1877,128, 853,649,128, 393,2202,128, 2065,-17,128, 205,1024,128, 2202,802,128
-		PortYaws: 13, 223, 153, 65, 112, 106, 227, 1023, 224, 57
+		PortOffsets: -1496,1279,128, -1545,-1014,128, -1110,-169,128, -1593,652,128, -2944,290,128, -1062,145,128, -1834,-1279,128, -1448,1472,128, -869,-579,128, -2124,989,128
+		PortYaws: 627, 417, 487, 575, 528, 534, 413, 641, 416, 583
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -512,8 +512,8 @@ cahse01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 375,1399,128, 1843,478,128, 273,-546,128, 956,1092,128, 1707,1365,128
-		PortYaws: 213, 41, 844, 139, 110
+		PortOffsets: -1255,-724,128, -1641,965,128, 193,579,128, -1448,-97,128, -2172,241,128
+		PortYaws: 427, 599, 820, 501, 530
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -533,8 +533,8 @@ cahse02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128
-		PortYaws: 564, 53, 128, 768, 256
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
+		PortYaws: 76, 587, 512, 896, 384
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -554,8 +554,8 @@ cahse03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128
-		PortYaws: 564, 53, 128, 768, 256
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
+		PortYaws: 76, 587, 512, 896, 384
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -575,8 +575,8 @@ cahse04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128
-		PortYaws: 564, 53, 128, 768, 256
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128
+		PortYaws: 76, 587, 512, 896, 384
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -596,8 +596,8 @@ cahse05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 0,1365,128, 273,0,128, 273,-137,128, -34,1399,128, 205,1365,128
-		PortYaws: 256, 0, 948, 260, 232
+		PortOffsets: -965,-965,128, -193,193,128, -97,290,128, -965,-1014,128, -1110,-821,128
+		PortYaws: 384, 640, 715, 380, 408
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -617,8 +617,8 @@ cahse06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1348,-119,128, 1314,-17,128, -17,358,128, 1041,256,128, 171,307,128
-		PortYaws: 1010, 1022, 264, 39, 173
+		PortOffsets: -869,1038,128, -917,941,128, -241,-265,128, -917,555,128, -338,-97,128
+		PortYaws: 654, 642, 376, 601, 466
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -638,8 +638,8 @@ cahse07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 734,427,128, 1263,-34,128, 1263,580,128, 1246,1280,128, 1263,580,128
-		PortYaws: 86, 1020, 70, 130, 70
+		PortOffsets: -821,217,128, -869,917,128, -1303,483,128, -1786,-24,128, -1303,483,128
+		PortYaws: 554, 644, 570, 510, 570
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -659,8 +659,8 @@ caind01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -427,3294,128, 3174,1468,128, -273,-887,128, 2662,3209,128, 580,1126,128, 939,-188,128, -666,-2202,128, 1126,3243,128, 3243,2492,128, 1365,1229,128
-		PortYaws: 277, 71, 719, 143, 178, 992, 720, 202, 107, 119
+		PortOffsets: -2027,-2631,128, -3282,1207,128, 821,434,128, -4151,-386,128, -1207,-386,128, -531,796,128, 2027,1086,128, -3089,-1496,128, -4054,531,128, -1834,97,128
+		PortYaws: 363, 569, 945, 497, 462, 672, 944, 438, 533, 521
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -680,8 +680,8 @@ calab:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -478,-1229,128, -870,-1041,128, 2321,887,128, 1075,85,128, -1058,-649,128, -1365,-887,128, -478,-1502,128, -956,-614,128, 717,-375,128, 2048,478,128
-		PortYaws: 708, 655, 59, 13, 602, 606, 718, 605, 945, 37
+		PortOffsets: 1207,531,128, 1351,121,128, -2269,1014,128, -821,700,128, 1207,-290,128, 1593,-338,128, 1400,724,128, 1110,-241,128, -241,772,128, -1786,1110,128
+		PortYaws: 956, 1009, 580, 627, 38, 34, 946, 35, 719, 603
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -701,8 +701,8 @@ camex02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 3055,-461,128, -341,819,128, 393,-939,128, 4045,2645,128, 1604,1468,128, 3823,819,128, 1331,-1604,128, 2560,-102,128, 2133,2441,128, 3959,-205,128
-		PortYaws: 1000, 320, 833, 94, 121, 34, 881, 1018, 139, 1016
+		PortOffsets: -1834,2486,128, -338,-821,128, 386,941,128, -4730,989,128, -2172,97,128, -3282,2124,128, 193,2075,128, -1738,1882,128, -3234,-217,128, -2655,2944,128
+		PortYaws: 664, 320, 831, 546, 519, 606, 783, 646, 501, 648
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -722,8 +722,8 @@ camiam01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2935,-1434,128, -2423,-1946,128, 614,-205,128, -1604,-4130,128, 205,-1024,128, -1195,-2492,128, 580,239,128, -785,239,128, 205,-1024,128, 1024,205,128
-		PortYaws: 586, 622, 971, 708, 800, 695, 64, 464, 800, 32
+		PortOffsets: 3089,-1062,128, 3089,-338,128, -290,579,128, 4054,1786,128, 579,869,128, 2606,917,128, -579,241,128, 386,-724,128, 579,869,128, -869,579,128
+		PortYaws: 54, 18, 692, 956, 864, 969, 576, 176, 864, 608
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -743,8 +743,8 @@ camiam02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2082,-1877,128, 68,-614,128, -1331,239,128, -751,-2526,128, 1468,-922,128, -1195,-4130,128, 1843,-478,128, 512,-2423,128, -2662,-1024,128, -444,717,128
-		PortYaws: 632, 786, 483, 721, 933, 722, 983, 802, 572, 346
+		PortOffsets: 2799,-145,128, 386,483,128, 772,-1110,128, 2317,1255,128, -386,1689,128, 3765,2075,128, -965,1641,128, 1351,2075,128, 2606,-1158,128, -193,-821,128
+		PortYaws: 8, 878, 157, 943, 731, 942, 681, 862, 68, 294
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -764,8 +764,8 @@ camiam03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1502,-956,128, -614,-1297,128, -1536,1126,128, -3140,-1092,128, 205,-887,128, -1024,-2526,128, 205,-1297,128, -1843,205,128, -717,1946,128, -2799,-3482,128
-		PortYaws: 604, 696, 409, 567, 805, 705, 794, 494, 314, 658
+		PortOffsets: 1738,-386,128, 1351,483,128, 290,-1882,128, 2993,-1448,128, 483,772,128, 2510,1062,128, 772,1062,128, 1158,-1448,128, -869,-1882,128, 4441,483,128
+		PortYaws: 36, 968, 231, 73, 859, 959, 870, 146, 326, 1006
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -785,8 +785,8 @@ camiam04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -51,-154,128, -34,-239,128, -137,68,128
-		PortYaws: 716, 745, 437
+		PortOffsets: 145,72,128, 193,145,128, 48,-145,128
+		PortYaws: 949, 919, 204
 		PortCones: 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -806,8 +806,8 @@ camiam05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 239,1536,128, -887,887,128, 1655,-17,128, 1399,3311,128, -495,1519,128, 870,1997,128, 887,1161,128, 836,-290,128, 2065,1485,128, 1331,-375,128
-		PortYaws: 231, 384, 1022, 191, 307, 189, 150, 970, 102, 979
+		PortOffsets: -1255,-917,128, 0,-1255,128, -1158,1183,128, -3330,-1351,128, -724,-1424,128, -2027,-796,128, -1448,-193,128, -386,796,128, -2510,410,128, -676,1207,128
+		PortYaws: 409, 256, 642, 449, 333, 451, 490, 694, 538, 685
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -827,8 +827,8 @@ camiam06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1417,1451,128, 2048,1570,128, 1468,-649,128, -819,2458,128, 2645,2270,128, -102,2082,128, 222,119,128, 3277,2662,128, 3294,1075,128, 3243,444,128
-		PortYaws: 130, 107, 956, 308, 116, 264, 80, 111, 51, 22
+		PortOffsets: -2027,-24,128, -2558,338,128, -579,1496,128, -1158,-2317,128, -3475,265,128, -1400,-1545,128, -241,72,128, -4199,434,128, -3089,1569,128, -2606,1979,128
+		PortYaws: 510, 533, 708, 332, 524, 376, 559, 529, 589, 618
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -848,8 +848,8 @@ camiam07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -461,2441,128, -290,1860,128, -461,2441,128, -290,1860,128, 990,2970,128, -1212,1348,128, 887,-341,128, 512,1058,128, -5547,-4352,128, -5291,-6178,128
-		PortYaws: 286, 281, 286, 281, 204, 375, 964, 183, 620, 653
+		PortOffsets: -1400,-2051,128, -1110,-1520,128, -1400,-2051,128, -1110,-1520,128, -2799,-1400,128, -97,-1810,128, -386,869,128, -1110,-386,128, 6999,-845,128, 8109,627,128
+		PortYaws: 354, 359, 354, 359, 436, 265, 700, 457, 20, 1011
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -869,8 +869,8 @@ camov02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1638,1161,128, 905,1485,128, 1314,1417,128, 290,1417,128, 1655,802,128
-		PortYaws: 100, 167, 134, 223, 74
+		PortOffsets: -1979,338,128, -1689,-410,128, -1931,-72,128, -1207,-796,128, -1738,603,128
+		PortYaws: 540, 473, 506, 417, 566
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -890,8 +890,8 @@ camsc07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 256,1246,128, 751,1161,128, 1161,410,128, 512,1195,128, 956,956,128, 1126,717,128
-		PortYaws: 223, 162, 55, 190, 128, 92
+		PortOffsets: -1062,-700,128, -1351,-290,128, -1110,531,128, -1207,-483,128, -1351,0,128, -1303,290,128
+		PortYaws: 417, 478, 585, 450, 512, 548
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -911,8 +911,8 @@ camsc08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 154,529,128, 495,324,128, 290,393,128, 154,529,128, 495,324,128, 290,393,128
-		PortYaws: 210, 94, 152, 210, 94, 152
+		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
+		PortYaws: 430, 546, 488, 430, 546, 488
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -932,8 +932,8 @@ camsc09:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 154,529,128, 495,324,128, 290,393,128, 154,529,128, 495,324,128, 290,393,128
-		PortYaws: 210, 94, 152, 210, 94, 152
+		PortOffsets: -483,-265,128, -579,121,128, -483,-72,128, -483,-265,128, -579,121,128, -483,-72,128
+		PortYaws: 430, 546, 488, 430, 546, 488
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -953,8 +953,8 @@ camsc10:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2321,1843,128, 2833,1946,128, 307,2833,128, 2355,2560,128, 1161,2867,128, 2441,2202,128, 717,3038,128, 2287,2970,128
-		PortYaws: 109, 98, 238, 135, 193, 120, 218, 149
+		PortOffsets: -2944,338,128, -3379,627,128, -2220,-1786,128, -3475,-145,128, -2848,-1207,128, -3282,169,128, -2655,-1641,128, -3717,-483,128
+		PortYaws: 531, 542, 402, 505, 447, 520, 422, 491
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -974,8 +974,8 @@ canewy01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1246,1621,128, -836,1655,128, -1741,-1468,128, 1792,-768,128, 683,-478,128, -1621,-3635,128, -2560,-853,128, 734,-393,128, 3072,3072,128, 1399,2833,128
-		PortYaws: 149, 332, 626, 958, 924, 700, 564, 944, 128, 181
+		PortOffsets: -2027,-265,128, -579,-1762,128, 2269,-193,128, -724,1810,128, -145,821,128, 3717,1424,128, 2413,-1207,128, -241,796,128, -4344,0,128, -2993,-1014,128
+		PortYaws: 491, 308, 14, 706, 740, 964, 76, 720, 512, 459
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -995,8 +995,8 @@ canewy05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1016,8 +1016,8 @@ canewy06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -6007,-4983,128, 1331,-853,128, -1621,-905,128, 1331,1604,128, -3703,-2714,128, -2048,-2867,128, -512,1877,128, -4420,-5274,128, 2321,1297,128, 307,1809,128
-		PortYaws: 625, 931, 595, 143, 615, 667, 299, 654, 83, 229
+		PortOffsets: 7771,-724,128, -338,1545,128, 1786,-507,128, -2075,-193,128, 4537,-700,128, 3475,579,128, -965,-1689,128, 6854,603,128, -2558,724,128, -1496,-1062,128
+		PortYaws: 15, 733, 45, 497, 25, 997, 341, 1010, 557, 411
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1037,8 +1037,8 @@ canewy07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 393,1860,128, 1980,-546,128, -922,-853,128, 1451,1485,128, -137,-1980,128, -1587,290,128, -1041,1314,128, 307,-853,128, 1382,51,128, -1314,-324,128
-		PortYaws: 222, 980, 634, 130, 757, 483, 365, 824, 6, 551
+		PortOffsets: -1593,-1038,128, -1014,1786,128, 1255,-48,128, -2075,-24,128, 1496,1303,128, 917,-1327,128, -193,-1665,128, 386,821,128, -1014,941,128, 1158,-700,128
+		PortYaws: 418, 684, 6, 510, 907, 157, 275, 840, 634, 89
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1058,8 +1058,8 @@ canewy08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -222,-1348,128, 1570,1365,128, -597,1417,128, 1417,-461,128, -1587,-870,128, 1860,1007,128, -683,137,128, 1997,939,128, 956,956,128, 341,-478,128
-		PortYaws: 741, 117, 321, 973, 594, 81, 480, 72, 128, 869
+		PortOffsets: 1110,796,128, -2075,145,128, -579,-1424,128, -676,1327,128, 1738,-507,128, -2027,603,128, 386,-579,128, -2075,748,128, -1351,0,128, 97,579,128
+		PortYaws: 923, 523, 319, 691, 46, 559, 160, 568, 512, 795
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1079,8 +1079,8 @@ canewy10:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2799,-1980,128, -4301,-3482,128, -2253,-3755,128, -273,-2458,128, 546,-956,128, -751,-1161,128, -1570,-751,128, 137,-2048,128, -2389,-2799,128, -1570,-3072,128
-		PortYaws: 612, 623, 680, 750, 853, 674, 585, 779, 653, 691
+		PortOffsets: 3379,-579,128, 5502,-579,128, 4247,1062,128, 1931,1545,128, 290,1062,128, 1351,290,128, 1641,-579,128, 1351,1545,128, 3668,290,128, 3282,1062,128
+		PortYaws: 28, 17, 984, 914, 811, 990, 55, 885, 1011, 973
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1100,8 +1100,8 @@ canewy11:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2935,-1843,128, -717,-1058,128, -1775,-683,128, -1195,-1809,128, -614,-2116,128, 546,-1638,128, 546,-956,128, 375,990,128, -614,-2799,128, 2253,68,128
-		PortYaws: 603, 671, 572, 673, 722, 820, 853, 197, 733, 5
+		PortOffsets: 3379,-772,128, 1255,241,128, 1738,-772,128, 2124,434,128, 1931,1062,128, 772,1545,128, 290,1062,128, -965,-434,128, 2413,1545,128, -1641,1545,128
+		PortYaws: 37, 993, 68, 991, 942, 844, 811, 443, 931, 635
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1121,8 +1121,8 @@ canewy12:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2765,-512,128, -614,1024,128, -1195,-717,128, -717,-1468,128, 512,990,128, -171,1399,128, -1809,-2833,128, -205,1434,128, -1843,-1161,128, -1126,-649,128
-		PortYaws: 542, 344, 600, 694, 178, 276, 675, 279, 604, 597
+		PortOffsets: 2317,-1593,128, -290,-1158,128, 1351,-338,128, 1545,531,128, -1062,-338,128, -869,-1110,128, 3282,724,128, -869,-1158,128, 2124,-483,128, 1255,-338,128
+		PortYaws: 98, 296, 40, 970, 462, 364, 989, 361, 36, 43
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1142,8 +1142,8 @@ canewy13:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1434,-3345,128, -956,-546,128, -1604,375,128, -2731,-2321,128, 717,1195,128, 751,-1161,128, -2731,-4642,128, 307,785,128, 1229,819,128, -683,1229,128
-		PortYaws: 702, 597, 475, 627, 168, 862, 681, 195, 96, 339
+		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
+		PortYaws: 962, 43, 165, 13, 472, 802, 983, 445, 544, 301
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1163,8 +1163,8 @@ canewy14:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1434,-3345,128, -956,-546,128, -1604,375,128, -2731,-2321,128, 717,1195,128, 751,-1161,128, -2731,-4642,128, 307,785,128, 1229,819,128, -683,1229,128
-		PortYaws: 702, 597, 475, 627, 168, 862, 681, 195, 96, 339
+		PortOffsets: 3379,1351,128, 1062,-290,128, 869,-1400,128, 3572,-290,128, -1351,-338,128, 290,1351,128, 5213,1351,128, -772,-338,128, -1448,290,128, -386,-1351,128
+		PortYaws: 962, 43, 165, 13, 472, 802, 983, 445, 544, 301
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1184,8 +1184,8 @@ canewy15:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2116,-68,128, -1399,-922,128, -68,-1980,128, 1229,-137,128, 649,1263,128, -1126,853,128, 1195,853,128, 341,-751,128, 1673,-171,128, -887,-341,128
-		PortYaws: 517, 607, 762, 1006, 179, 406, 101, 837, 1007, 572
+		PortOffsets: 1545,-1448,128, 1641,-338,128, 1448,1351,128, -772,965,128, -1351,-434,128, 193,-1400,128, -1448,241,128, 290,772,128, -1062,1303,128, 869,-386,128
+		PortYaws: 123, 33, 902, 658, 461, 234, 539, 827, 657, 68
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1205,8 +1205,8 @@ canewy16:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -3721,-2697,128, -2594,-1502,128, -1195,-1673,128, 34,-1263,128, -3550,-4915,128, -1570,-2935,128, -2185,-683,128, -512,512,128, -3584,-4062,128, -1604,-2901,128
-		PortYaws: 614, 598, 667, 772, 666, 688, 561, 384, 650, 686
+		PortOffsets: 4537,-724,128, 2896,-772,128, 2027,338,128, 869,917,128, 5985,965,128, 3186,965,128, 2027,-1062,128, 0,-724,128, 5406,338,128, 3186,917,128
+		PortYaws: 26, 42, 997, 892, 998, 976, 79, 256, 1014, 978
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1226,8 +1226,8 @@ canewy17:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,478,128, 444,-580,128, 1399,922,128, -1024,68,128, 410,-546,128, 819,1502,128, 1468,580,128, 478,-614,128, 1024,-478,128, 853,1468,128
-		PortYaws: 441, 874, 95, 501, 873, 175, 61, 876, 953, 170
+		PortOffsets: 386,-1062,128, 97,724,128, -1641,338,128, 676,-772,128, 97,676,128, -1641,-483,128, -1448,627,128, 97,772,128, -386,1062,128, -1641,-434,128
+		PortYaws: 199, 790, 545, 139, 791, 465, 579, 788, 711, 470
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1247,8 +1247,8 @@ canewy18:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -990,34,128, 341,-614,128, -785,-2219,128, -990,444,128, 444,-580,128, -1058,375,128, 375,-649,128, -1775,-819,128, -1468,-34,128, 444,-990,128
-		PortYaws: 506, 851, 713, 443, 874, 456, 853, 582, 516, 837
+		PortOffsets: 676,-724,128, 193,676,128, 2124,1014,128, 386,-1014,128, 97,724,128, 483,-1014,128, 193,724,128, 1834,-676,128, 1062,-1014,128, 386,1014,128
+		PortYaws: 134, 813, 951, 197, 790, 184, 810, 58, 124, 827
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1268,8 +1268,8 @@ canewy20:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1212,2816,128, -171,3243,128, 1212,905,128, 1212,1997,128, 990,3243,128, 1229,2389,128, 171,3243,128, 1178,188,128, 1212,1655,128, 631,3191,128
-		PortYaws: 190, 265, 105, 167, 208, 179, 247, 26, 153, 224
+		PortOffsets: -2848,-1134,128, -2172,-2413,128, -1496,217,128, -2269,-555,128, -2993,-1593,128, -2558,-821,128, -2413,-2172,128, -965,700,128, -2027,-314,128, -2703,-1810,128
+		PortYaws: 450, 375, 535, 473, 432, 461, 393, 614, 487, 416
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1289,8 +1289,8 @@ canewy21:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 597,1246,128, 1690,1246,128, 3294,188,128, 2833,1263,128, 1007,1246,128, 3311,649,128, 2458,1229,128, 3328,-119,128, 1331,1263,128, 2133,1280,128
-		PortYaws: 183, 104, 9, 68, 145, 32, 76, 1018, 124, 88
+		PortOffsets: -1303,-459,128, -2075,314,128, -2462,2196,128, -2896,1110,128, -1593,-169,128, -2799,1882,128, -2606,869,128, -2269,2437,128, -1834,48,128, -2413,603,128
+		PortYaws: 457, 536, 631, 572, 495, 608, 564, 646, 516, 552
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1310,8 +1310,8 @@ canwy05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 853,-717,128, -1263,1126,128, 1673,-853,128, 819,2185,128, 410,819,128, 137,-1365,128, -3106,-853,128, 307,-2219,128, 2628,2014,128, -1263,-922,128
-		PortYaws: 910, 393, 947, 198, 180, 784, 556, 790, 107, 615
+		PortOffsets: -97,1110,128, 97,-1689,128, -579,1786,128, -2124,-965,128, -869,-290,128, 869,1062,128, 2799,-1593,128, 1351,1786,128, -3282,434,128, 1545,-241,128
+		PortYaws: 754, 247, 717, 442, 460, 880, 84, 874, 533, 25
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1331,8 +1331,8 @@ canwy09:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -3191,-3089,128, -2338,-1826,128, 273,-410,128, -5444,-5547,128, -1963,-3021,128, -1007,-1519,128, 1075,1724,128, -2031,-768,128, -5547,-4352,128, -5291,-6178,128
-		PortYaws: 637, 620, 864, 642, 674, 673, 165, 571, 620, 653
+		PortOffsets: 4441,-72,128, 2944,-362,128, 97,483,128, 7771,72,128, 3523,748,128, 1786,362,128, -1979,-459,128, 1979,-893,128, 6999,-845,128, 8109,627,128
+		PortYaws: 3, 20, 800, 1022, 990, 991, 475, 69, 20, 1011
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1352,8 +1352,8 @@ canwy22:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 836,597,128, 1758,1792,128, 2048,956,128, -1348,51,128, 256,-734,128, 1331,-307,128, -222,563,128, 171,1809,128, 751,1638,128, -1075,-495,128
-		PortYaws: 101, 130, 71, 506, 823, 987, 317, 241, 186, 582
+		PortOffsets: -1014,169,128, -2510,-24,128, -2124,772,128, 917,-989,128, 338,700,128, -724,1158,128, -241,-555,128, -1400,-1158,128, -1689,-627,128, 1110,-410,128
+		PortYaws: 539, 510, 569, 134, 841, 677, 323, 399, 454, 58
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1373,8 +1373,8 @@ canwy23:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1229,68,128, -444,-785,128, 2458,2321,128, -5547,-4693,128, -2918,-3840,128, -478,-2526,128, 785,444,128, 1792,-631,128, -1894,-1724,128, -2884,-4625,128
-		PortYaws: 503, 684, 123, 626, 662, 738, 84, 969, 632, 677
+		PortOffsets: 821,-917,128, 869,241,128, -3379,97,128, 7240,-603,128, 4778,652,128, 2124,1448,128, -869,241,128, -821,1713,128, 2558,-121,128, 5309,1231,128
+		PortYaws: 137, 980, 517, 14, 1002, 926, 556, 695, 8, 987
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1394,8 +1394,8 @@ canwy24:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1860,85,128, 1007,1519,128, 1707,751,128, -2287,-1946,128, -3072,-1911,128, -1929,-1553,128, -1195,-2287,128, 171,-1126,128, -3584,-3994,128, -2816,-4215,128
-		PortYaws: 505, 161, 68, 627, 603, 622, 690, 793, 649, 672
+		PortOffsets: 1255,-1376,128, -1786,-362,128, -1738,676,128, 2993,-241,128, 3523,-821,128, 2462,-265,128, 2462,772,128, 676,917,128, 5358,290,128, 4971,989,128
+		PortYaws: 135, 479, 572, 13, 37, 17, 974, 872, 1015, 992
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1415,8 +1415,8 @@ canwy25:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 341,-956,128, -393,-17,128, 734,2270,128, 836,939,128, -1758,-222,128, 1536,922,128, 700,-1382,128, 2133,51,128, -973,495,128, 1348,1860,128
-		PortYaws: 824, 519, 205, 137, 532, 88, 844, 4, 435, 154
+		PortOffsets: 434,917,128, 290,-265,128, -2124,-1086,128, -1255,-72,128, 1400,-1086,128, -1738,434,128, 483,1472,128, -1545,1472,128, 338,-1038,128, -2269,-362,128
+		PortYaws: 840, 121, 435, 503, 108, 552, 820, 636, 205, 486
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1436,8 +1436,8 @@ canwy26:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1007,-2406,128, 2321,751,128, 1587,-700,128, 307,-3174,128, 2953,1553,128, 239,444,128, -3618,-2185,128, -512,649,128, 1348,2406,128, 341,-341,128
-		PortYaws: 703, 51, 956, 784, 79, 176, 601, 365, 173, 896
+		PortOffsets: 2413,989,128, -2172,1110,128, -627,1617,128, 2027,2462,128, -3186,989,128, -483,-145,128, 4103,-1014,128, -97,-821,128, -2655,-748,128, 0,483,128
+		PortYaws: 961, 589, 708, 880, 561, 464, 39, 275, 467, 768
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1457,8 +1457,8 @@ capars02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1451,2918,128, -1229,751,128, 1809,-853,128, 3772,939,128, -427,1587,128, 1826,2475,128, 2611,1485,128, -1843,-887,128, 1775,1980,128, -2492,-512,128
-		PortYaws: 181, 423, 952, 40, 299, 152, 84, 585, 137, 545
+		PortOffsets: -3089,-1038,128, 338,-1400,128, -676,1882,128, -3330,2003,128, -821,-1424,128, -3041,-459,128, -2896,796,128, 1931,-676,128, -2655,-145,128, 2124,-1400,128
+		PortYaws: 459, 217, 712, 600, 341, 488, 556, 55, 503, 95
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1478,8 +1478,8 @@ capars04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -137,2048,128, -205,1434,128, 341,614,128, -1707,614,128, -853,580,128, 1229,410,128
-		PortYaws: 267, 279, 173, 456, 415, 52
+		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
+		PortYaws: 373, 361, 467, 184, 225, 588
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1499,8 +1499,8 @@ capars05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -137,2048,128, -205,1434,128, 341,614,128, -1707,614,128, -853,580,128, 1229,410,128
-		PortYaws: 267, 279, 173, 456, 415, 52
+		PortOffsets: -1351,-1545,128, -869,-1158,128, -676,-193,128, 772,-1641,128, 193,-1014,128, -1158,579,128
+		PortYaws: 373, 361, 467, 184, 225, 588
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1520,8 +1520,8 @@ capars06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -205,341,128, 307,1331,128, 546,-1638,128, 512,-512,128, 2116,2389,128, 1331,717,128
-		PortYaws: 344, 219, 820, 896, 138, 81
+		PortOffsets: -97,-386,128, -1158,-724,128, 772,1545,128, 0,724,128, -3186,-193,128, -1448,434,128
+		PortYaws: 296, 421, 844, 768, 502, 559
 		PortCones: 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1541,8 +1541,8 @@ capars08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 3567,1280,128, -324,2918,128, -1826,-905,128, 2697,-922,128, 666,1519,128, -2185,-614,128, 34,2423,128, 2475,2987,128, 3823,273,128, 51,-870,128
-		PortYaws: 56, 274, 587, 970, 189, 557, 254, 143, 12, 778
+		PortOffsets: -3427,1617,128, -1834,-2293,128, 1931,-652,128, -1255,2558,128, -1545,-603,128, 1979,-1110,128, -1738,-1689,128, -3861,-362,128, -2896,2510,128, 579,652,128
+		PortYaws: 584, 366, 53, 694, 451, 83, 386, 497, 628, 886
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1562,8 +1562,8 @@ capars09:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -410,2867,128, 4642,2185,128, 3123,-1212,128, 2167,2884,128, 5069,119,128, -1860,-1212,128, -341,-137,128, 529,2406,128, 5069,1143,128, 5137,3328,128
-		PortYaws: 279, 72, 964, 151, 4, 606, 574, 221, 36, 94
+		PortOffsets: -1738,-2317,128, -4827,1738,128, -1351,3065,128, -3572,-507,128, -3668,3499,128, 2172,-459,128, 338,-145,128, -2075,-1327,128, -4392,2775,128, -5985,1279,128
+		PortYaws: 361, 568, 700, 489, 636, 34, 66, 419, 604, 546
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1583,8 +1583,8 @@ capars10:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1161,-1638,128, 1348,1451,128, -1621,-700,128, 2867,614,128, 768,-222,128, 3055,1587,128, 2406,-973,128, -495,905,128, 2099,1587,128, -563,-734,128
-		PortYaws: 868, 134, 578, 34, 978, 78, 961, 338, 106, 661
+		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
+		PortYaws: 796, 506, 62, 606, 686, 562, 703, 302, 534, 1003
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1604,8 +1604,8 @@ capars12:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 512,3106,128, 1126,1468,128, 102,-1741,128, 1314,324,128, 1212,2748,128, 580,444,128, 1229,3686,128, -1161,-1434,128, 1263,444,128, 666,2065,128
-		PortYaws: 229, 149, 778, 39, 188, 106, 204, 657, 55, 205
+		PortOffsets: -2558,-1834,128, -1834,-241,128, 1158,1303,128, -1158,700,128, -2799,-1086,128, -724,97,128, -3475,-1738,128, 1834,193,128, -1207,579,128, -1931,-989,128
+		PortYaws: 411, 491, 886, 601, 452, 534, 436, 1007, 585, 435
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1625,8 +1625,8 @@ capars13:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1673,990,128, 1468,1263,128, 563,3328,128, 529,-939,128, 1621,2953,128, -734,-700,128, -188,1348,128, -1536,1741,128, 956,1229,128, -700,-1758,128
-		PortYaws: 425, 116, 229, 852, 174, 636, 279, 374, 148, 706
+		PortOffsets: 483,-1882,128, -1931,145,128, -2751,-1955,128, 290,1038,128, -3234,-941,128, 1014,-24,128, -821,-1086,128, -145,-2317,128, -1545,-193,128, 1738,748,128
+		PortYaws: 215, 524, 411, 812, 466, 4, 361, 266, 492, 958
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1646,8 +1646,8 @@ capars14:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1161,-1638,128, 1348,1451,128, -1621,-700,128, 2867,614,128, 768,-222,128, 3055,1587,128, 2406,-973,128, -495,905,128, 2099,1587,128, -563,-734,128
-		PortYaws: 868, 134, 578, 34, 978, 78, 961, 338, 106, 661
+		PortOffsets: 338,1979,128, -1979,-72,128, 1641,-652,128, -2462,1593,128, -386,700,128, -3282,1038,128, -1014,2389,128, -290,-989,128, -2606,362,128, 917,121,128
+		PortYaws: 796, 506, 62, 606, 686, 562, 703, 302, 534, 1003
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1667,8 +1667,8 @@ caprs03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 3226,2850,128, 5086,1536,128, -427,3089,128, 1434,3413,128, 4847,137,128, 5530,3345,128, 5547,3055,128, 5530,1638,128, 649,2901,128, 290,3123,128
-		PortYaws: 118, 48, 278, 191, 5, 89, 82, 47, 220, 241
+		PortOffsets: -4296,265,128, -4682,2510,128, -1882,-2486,128, -3427,-1400,128, -3523,3330,128, -6275,1545,128, -6082,1762,128, -5068,2751,128, -2510,-1593,128, -2413,-2003,128
+		PortYaws: 522, 592, 362, 449, 635, 551, 558, 593, 420, 399
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1688,8 +1688,8 @@ carus01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2116,751,128, 1502,2867,128, -410,-341,128, -529,529,128, 2697,1673,128, 631,1758,128, 341,2799,128, -1741,-1741,128, 2611,2782,128, 614,2594,128
-		PortYaws: 56, 177, 625, 384, 90, 200, 236, 640, 133, 218
+		PortOffsets: -2027,965,128, -3089,-965,128, 531,-48,128, 0,-748,128, -3089,724,128, -1689,-796,128, -2220,-1738,128, 2462,0,128, -3813,-121,128, -2269,-1400,128
+		PortYaws: 584, 463, 15, 256, 550, 440, 404, 0, 507, 422
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1709,8 +1709,8 @@ carus02g:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1730,8 +1730,8 @@ carus03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 427,597,128, -1263,239,128, -256,3669,128, 0,2458,128, -2526,-273,128, -1007,2714,128, -973,17,128, 410,2321,128, -1161,-614,128, -1178,3294,128
-		PortYaws: 155, 482, 267, 256, 530, 314, 509, 228, 591, 312
+		PortOffsets: -724,-121,128, 724,-1062,128, -2413,-2775,128, -1738,-1738,128, 1979,-1593,128, -1207,-2631,128, 676,-700,128, -1931,-1351,128, 1255,-386,128, -1496,-3161,128
+		PortYaws: 485, 158, 373, 384, 110, 326, 131, 413, 49, 328
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1751,8 +1751,8 @@ carus04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 410,1911,128, 2031,1246,128, 1263,1877,128, 2031,222,128, 1929,188,128, 2065,-768,128, 1434,1911,128, -751,1911,128
-		PortYaws: 222, 90, 159, 18, 16, 966, 151, 317
+		PortOffsets: -1641,-1062,128, -2317,555,128, -2220,-434,128, -1593,1279,128, -1496,1231,128, -917,2003,128, -2365,-338,128, -821,-1882,128
+		PortYaws: 418, 550, 481, 622, 624, 698, 489, 323
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1772,8 +1772,8 @@ carus05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1911,1297,128, -683,1843,128, 1229,1843,128, 1946,-717,128, 3277,1707,128, 1126,1877,128, 2594,3140,128, 1946,1195,128
-		PortYaws: 97, 314, 160, 966, 78, 168, 143, 90
+		PortOffsets: -2269,434,128, -821,-1786,128, -2172,-434,128, -869,1882,128, -3523,1110,128, -2124,-531,128, -4054,-386,128, -2220,531,128
+		PortYaws: 543, 326, 480, 698, 562, 472, 497, 550
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1793,8 +1793,8 @@ carus06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 3328,768,128, 2662,3209,128, 3396,1792,128, 3294,2782,128, 734,3294,128, 1673,3311,128, 2987,1382,128, 2423,2765,128
-		PortYaws: 37, 143, 79, 114, 220, 180, 71, 139
+		PortOffsets: -2896,1810,128, -4151,-386,128, -3668,1134,128, -4296,362,128, -2848,-1810,128, -3523,-1158,128, -3089,1134,128, -3668,-241,128
+		PortYaws: 603, 497, 561, 526, 420, 460, 569, 501
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1814,8 +1814,8 @@ carus07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -102,-34,128, 51,17,128, 68,68,128, 0,-68,128, 85,119,128, 68,68,128, 85,51,128, 68,137,128, 188,17,128, -119,-222,128
-		PortYaws: 564, 52, 128, 768, 155, 128, 88, 181, 15, 688
+		PortOffsets: 97,-48,128, -48,24,128, -97,0,128, 48,48,128, -145,-24,128, -97,0,128, -97,24,128, -145,-48,128, -145,121,128, 241,72,128
+		PortYaws: 75, 588, 512, 896, 485, 512, 552, 460, 625, 977
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1835,8 +1835,8 @@ carus08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -563,-324,128, 188,-188,128, 188,-393,128, -1143,-1451,128, -1024,-1434,128
-		PortYaws: 597, 896, 841, 659, 667
+		PortOffsets: 627,-169,128, 0,265,128, 145,410,128, 1834,217,128, 1738,290,128
+		PortYaws: 43, 768, 823, 1005, 997
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1856,8 +1856,8 @@ carus09:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2150,-1604,128, -1929,-1485,128, 444,-375,128, -239,171,128, -1024,-341,128
-		PortYaws: 616, 619, 910, 411, 564
+		PortOffsets: 2655,-386,128, 2413,-314,128, -48,579,128, 48,-290,128, 965,-483,128
+		PortYaws: 24, 21, 755, 229, 76
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1877,8 +1877,8 @@ carus10:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 51,1178,128, 68,273,128, -444,-922,128, -444,-1126,128, -444,-717,128
-		PortYaws: 249, 216, 695, 707, 678
+		PortOffsets: -869,-796,128, -241,-145,128, 965,338,128, 1110,483,128, 821,193,128
+		PortYaws: 391, 424, 969, 957, 986
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1898,8 +1898,8 @@ carus11:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -427,85,128, -256,-427,128, -444,-444,128, 1143,85,128, 734,85,128
-		PortYaws: 480, 680, 640, 12, 19
+		PortOffsets: 241,-362,128, 483,121,128, 627,0,128, -869,748,128, -579,459,128
+		PortYaws: 160, 984, 0, 628, 621
 		PortCones: 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1919,8 +1919,8 @@ castl01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 239,1058,128, 1434,-68,128, 2355,1195,128, 853,2014,128, -478,1024,128, 1894,17,128, 1092,1502,128, -205,614,128, 1911,683,128, 649,1058,128
-		PortYaws: 220, 1016, 77, 191, 327, 1, 154, 309, 56, 166
+		PortOffsets: -917,-579,128, -965,1062,128, -2510,821,128, -2027,-821,128, -386,-1062,128, -1351,1327,128, -1834,-290,128, -290,-579,128, -1834,869,128, -1207,-290,128
+		PortYaws: 420, 648, 564, 449, 313, 639, 486, 332, 584, 474
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1940,8 +1940,8 @@ castl02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1980,1570,128, 1024,-137,128, 102,1399,128, 1007,631,128, 427,2372,128, 1519,-17,128, 717,-1195,128, -51,1894,128, 1519,734,128, 1997,802,128
-		PortYaws: 109, 1002, 244, 91, 227, 1022, 856, 260, 73, 62
+		PortOffsets: -2510,290,128, -627,821,128, -1062,-917,128, -1158,265,128, -1979,-1376,128, -1062,1086,128, 338,1351,128, -1303,-1376,128, -1593,555,128, -1979,845,128
+		PortYaws: 531, 662, 396, 549, 413, 642, 808, 380, 567, 578
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1961,8 +1961,8 @@ castl03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1553,768,128, 580,2014,128, 1024,-478,128, 1963,768,128, 580,2492,128, 1024,683,128, 51,1997,128, 1519,-358,128, 1143,2475,128, 1911,1502,128
-		PortYaws: 75, 210, 953, 61, 219, 96, 252, 986, 185, 109
+		PortOffsets: -1641,555,128, -1834,-1014,128, -386,1062,128, -1931,845,128, -2172,-1351,128, -1207,241,128, -1448,-1376,128, -821,1327,128, -2558,-941,128, -2413,290,128
+		PortYaws: 565, 430, 711, 579, 421, 544, 388, 678, 455, 531
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -1982,8 +1982,8 @@ castl04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1126,-1604,128, -6212,-2867,128, -1860,2679,128, 358,-290,128, -5734,-5188,128, -7014,-5137,128, 324,5137,128, -4489,-495,128, -6332,-5410,128, -5308,-1519,128
-		PortYaws: 668, 582, 355, 913, 632, 615, 246, 530, 627, 557
+		PortOffsets: 1931,338,128, 6419,-2365,128, -579,-3210,128, -48,459,128, 7723,-386,128, 8591,-1327,128, -3861,-3403,128, 3523,-2824,128, 8302,-652,128, 4827,-2679,128
+		PortYaws: 996, 58, 285, 751, 8, 25, 394, 110, 13, 83
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2003,8 +2003,8 @@ caswst01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 137,-68,128, -1143,802,128, -1604,-2492,128, -1894,-1109,128, 51,836,128, -2287,-649,128, 427,-563,128, -1860,-1963,128, -3362,-3396,128, 2287,3789,128
-		PortYaws: 949, 412, 675, 598, 246, 557, 874, 644, 641, 167
+		PortOffsets: -48,145,128, 241,-1376,128, 2896,627,128, 2124,-555,128, -627,-555,128, 2075,-1158,128, 97,700,128, 2703,72,128, 4778,24,128, -4296,-1062,128
+		PortYaws: 716, 228, 989, 42, 394, 83, 790, 1020, 1023, 473
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2024,8 +2024,8 @@ catech01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1024,-68,128, 631,2099,128, -290,2065,128, 1587,-222,128, 375,375,128, 1314,324,128, 1178,870,128, 905,1894,128, -785,-990,128, -597,870,128
-		PortYaws: 1013, 208, 279, 1001, 128, 39, 104, 183, 659, 354
+		PortOffsets: -676,772,128, -1931,-1038,128, -1255,-1665,128, -965,1279,128, -531,0,128, -1158,700,128, -1448,217,128, -1979,-700,128, 1255,145,128, -193,-1038,128
+		PortYaws: 651, 432, 361, 663, 512, 601, 536, 457, 1005, 286
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2045,8 +2045,8 @@ catexs01:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 887,887,128, 188,-666,128, -1946,-1058,128, -1468,-2287,128, 0,887,128, -2321,-2389,128, -939,-973,128, 751,-273,128, 307,307,128, -1485,-1587,128
-		PortYaws: 128, 813, 593, 675, 256, 642, 643, 967, 128, 645
+		PortOffsets: -1255,0,128, 338,603,128, 2124,-627,128, 2655,579,128, -627,-627,128, 3330,48,128, 1351,24,128, -338,724,128, -434,0,128, 2172,72,128
+		PortYaws: 512, 851, 47, 989, 384, 1022, 1021, 697, 512, 1019
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2066,8 +2066,8 @@ catexs02:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 393,2270,128, 1860,2782,128, -68,2799,128, 1434,2389,128, 2594,2594,128, -461,2372,128, -34,2287,128, 751,2253,128, 375,580,128, -34,1126,128
-		PortYaws: 228, 160, 260, 168, 128, 287, 258, 204, 162, 261
+		PortOffsets: -1882,-1327,128, -3282,-652,128, -1931,-2027,128, -2703,-676,128, -3668,0,128, -1351,-2003,128, -1593,-1641,128, -2124,-1062,128, -676,-145,128, -772,-821,128
+		PortYaws: 412, 480, 380, 472, 512, 353, 382, 436, 478, 379
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2087,8 +2087,8 @@ catexs03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -649,580,128, 597,-2031,128, 580,-853,128, 2167,905,128, -3123,-495,128, -1092,-3550,128, 1451,1690,128, -1502,-2526,128, 1178,2167,128, -1468,1195,128
-		PortYaws: 393, 815, 865, 64, 538, 719, 140, 681, 175, 401
+		PortOffsets: 48,-869,128, 1014,1858,128, 193,1014,128, -2172,893,128, 2558,-1858,128, 3282,1738,128, -2220,-169,128, 2848,724,128, -2365,-700,128, 193,-1882,128
+		PortYaws: 247, 849, 799, 576, 102, 945, 500, 983, 465, 239
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2108,8 +2108,8 @@ catexs04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1434,1707,128, 2150,-171,128, -1109,-1485,128, -1946,649,128, 51,-2577,128, 1109,529,128, 512,2150,128, -1417,-1109,128, -2509,-1109,128, -529,-1792,128
-		PortYaws: 142, 1011, 663, 460, 771, 73, 218, 620, 580, 721
+		PortOffsets: -2220,-193,128, -1400,1641,128, 1834,265,128, 917,-1834,128, 1786,1858,128, -1158,410,128, -1882,-1158,128, 1786,-217,128, 2558,-989,128, 1641,893,128
+		PortYaws: 498, 653, 1001, 180, 893, 567, 422, 20, 60, 943
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2129,8 +2129,8 @@ catexs05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -631,17,128, 1655,-905,128, 887,2185,128, -1792,-1143,128, -870,1348,128, 2150,922,128, 102,-1468,128, -2543,-1212,128, -2458,-3755,128, -3106,-2492,128
-		PortYaws: 508, 942, 193, 605, 349, 66, 779, 584, 674, 622
+		PortOffsets: 434,-459,128, -531,1810,128, -2172,-917,128, 2075,-459,128, -338,-1569,128, -2172,869,128, 965,1110,128, 2655,-941,128, 4392,917,128, 3958,-434,128
+		PortYaws: 133, 721, 447, 35, 291, 574, 885, 56, 990, 18
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2150,8 +2150,8 @@ catexs06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2167,1792,128, 973,2167,128, 1126,-239,128, -495,1860,128, 785,444,128, 2082,2492,128, 2492,1126,128, 307,2492,128, 1485,-188,128, 1092,2526,128
-		PortYaws: 113, 187, 990, 298, 84, 143, 69, 236, 1003, 189
+		PortOffsets: -2799,265,128, -2220,-845,128, -627,965,128, -965,-1665,128, -869,241,128, -3234,-290,128, -2558,965,128, -1979,-1545,128, -917,1183,128, -2558,-1014,128
+		PortYaws: 527, 453, 674, 342, 556, 497, 571, 404, 661, 450
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2171,8 +2171,8 @@ catexs07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1655,119,128, 427,1963,128, 34,-239,128, 1485,1314,128, 2253,68,128, -1536,-444,128, 1109,1894,128, 51,2270,128, -529,-1314,128, -1007,-154,128
-		PortYaws: 12, 221, 791, 118, 5, 558, 170, 252, 706, 537
+		PortOffsets: -1255,1086,128, -1689,-1086,128, 145,193,128, -1979,121,128, -1641,1545,128, 1400,-772,128, -2124,-555,128, -1641,-1569,128, 1303,555,128, 821,-603,128
+		PortYaws: 628, 419, 873, 522, 635, 82, 470, 388, 958, 103
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2192,8 +2192,8 @@ catexs08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 802,85,128, 444,2082,128, 597,768,128, 290,2372,128, 1331,1331,128, -512,1809,128, 1041,1485,128, -580,1263,128, 1212,290,128, -1092,1229,128
-		PortYaws: 17, 222, 148, 236, 128, 301, 156, 326, 38, 374
+		PortOffsets: -627,507,128, -1786,-1158,128, -965,-121,128, -1882,-1472,128, -1882,0,128, -917,-1641,128, -1786,-314,128, -483,-1303,128, -1062,652,128, -97,-1641,128
+		PortYaws: 623, 418, 492, 404, 512, 339, 484, 314, 602, 266
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2213,8 +2213,8 @@ cawa2a:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2492,2901,128, 3089,2714,128, 3465,3089,128, 2867,3277,128, 2543,2714,128, 3106,2492,128, 2594,2526,128, 2987,2884,128, 2935,3072,128, 3516,2901,128
-		PortYaws: 140, 117, 119, 139, 133, 110, 126, 125, 132, 112
+		PortOffsets: -3813,-290,128, -4103,265,128, -4634,265,128, -4344,-290,128, -3717,-121,128, -3958,434,128, -3620,48,128, -4151,72,128, -4247,-97,128, -4537,434,128
+		PortYaws: 500, 523, 521, 501, 507, 530, 514, 515, 508, 528
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2234,8 +2234,8 @@ cawa2b:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1826,2611,128, 1724,1485,128, 273,2458,128, 1690,3226,128, 2475,-905,128, 3140,887,128, 2782,1860,128, 2287,2833,128, -580,2901,128, 683,2867,128
-		PortYaws: 157, 116, 238, 177, 967, 45, 96, 145, 288, 218
+		PortOffsets: -3137,-555,128, -2269,169,128, -1931,-1545,128, -3475,-1086,128, -1110,2389,128, -2848,1593,128, -3282,652,128, -3620,-386,128, -1641,-2462,128, -2510,-1545,128
+		PortYaws: 483, 524, 402, 463, 697, 595, 544, 495, 352, 422
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2255,8 +2255,8 @@ cawa2c:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1229,2799,128, 1690,2406,128, 2458,3209,128, 1860,3191,128, 2935,2935,128, 2953,3328,128, 3584,3379,128, 1638,2799,128, 2270,3191,128, 2987,3157,128
-		PortYaws: 189, 156, 149, 170, 128, 138, 123, 170, 155, 133
+		PortOffsets: -2848,-1110,128, -2896,-507,128, -4006,-531,128, -3572,-941,128, -4151,0,128, -4441,-265,128, -4923,145,128, -3137,-821,128, -3861,-652,128, -4344,-121,128
+		PortYaws: 451, 484, 491, 470, 512, 502, 517, 470, 485, 507
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2276,8 +2276,8 @@ cawa2d:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 2236,2953,128, 2867,3004,128, 2799,2389,128, 3174,2765,128, 2953,3601,128, 3106,3857,128, 2679,3123,128, 2645,3362,128, 3038,2901,128, -102,2833,128
-		PortYaws: 150, 132, 115, 117, 144, 146, 140, 147, 124, 262
+		PortOffsets: -3668,-507,128, -4151,-97,128, -3668,290,128, -4199,290,128, -4634,-459,128, -4923,-531,128, -4103,-314,128, -4247,-507,128, -4199,97,128, -1931,-2075,128
+		PortYaws: 490, 508, 525, 523, 496, 494, 500, 493, 516, 378
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2297,8 +2297,8 @@ cawash03:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1502,1775,128, 683,1775,128, 1741,1399,128, 2816,802,128, 2850,-51,128, 2389,683,128, 2492,2150,128, 1382,2167,128, 205,2185,128, -17,1382,128
-		PortYaws: 142, 196, 110, 45, 1021, 45, 116, 163, 241, 258
+		PortOffsets: -2317,-193,128, -1738,-772,128, -2220,241,128, -2558,1424,128, -1979,2051,128, -2172,1207,128, -3282,241,128, -2510,-555,128, -1689,-1400,128, -965,-989,128
+		PortYaws: 498, 444, 530, 595, 643, 595, 524, 477, 399, 382
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2318,8 +2318,8 @@ cawash04:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1604,1331,128, 1707,137,128, 3209,1980,128, -1314,1724,128, 307,2492,128, 1229,1707,128, 2611,1485,128, 1604,-1195,128, 2560,239,128, 2560,-444,128
-		PortYaws: 113, 13, 90, 362, 236, 154, 84, 920, 15, 996
+		PortOffsets: -2075,193,128, -1303,1110,128, -3668,869,128, -290,-2148,128, -1979,-1545,128, -2075,-338,128, -2896,796,128, -290,1979,128, -1979,1641,128, -1496,2124,128
+		PortYaws: 527, 627, 550, 278, 404, 486, 556, 744, 625, 668
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2339,8 +2339,8 @@ cawash05:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1365,-273,128, 2355,512,128, 1331,990,128, 1980,-1161,128, 2799,1024,128, 1434,1024,128, 3311,102,128, 649,990,128, 1502,-273,128, 2901,-307,128
-		PortYaws: 544, 35, 104, 938, 57, 101, 5, 161, 995, 1007
+		PortOffsets: 1158,-772,128, -2027,1303,128, -1641,241,128, -579,2220,128, -2703,1255,128, -1738,290,128, -2413,2269,128, -1158,-241,128, -869,1255,128, -1834,2269,128
+		PortYaws: 96, 605, 536, 726, 583, 539, 635, 479, 669, 657
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2360,8 +2360,8 @@ cawash06:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-341,128, 512,171,128, 171,171,128, 0,-683,128, 0,341,128, 683,683,128, 683,341,128, 683,1365,128, 1280,1109,128, 427,-768,128
-		PortYaws: 564, 53, 128, 768, 256, 128, 75, 180, 116, 851
+		PortOffsets: 965,-483,128, -483,241,128, -241,0,128, 483,483,128, -241,-241,128, -965,0,128, -724,241,128, -1448,-483,128, -1689,121,128, 241,845,128
+		PortYaws: 76, 587, 512, 896, 384, 512, 564, 460, 524, 813
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2381,8 +2381,8 @@ cawash07:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1707,478,128, -239,1468,128, -273,1911,128, 1399,-717,128, 444,102,128, 649,1946,128, -341,478,128, 444,-1673,128, 1877,1126,128, 546,956,128
-		PortYaws: 468, 282, 279, 947, 37, 204, 357, 810, 88, 171
+		PortOffsets: 869,-1545,128, -869,-1207,128, -1158,-1545,128, -483,1496,128, -386,241,128, -1834,-917,128, -97,-579,128, 869,1496,128, -2124,531,128, -1062,-290,128
+		PortYaws: 172, 358, 361, 717, 603, 436, 283, 854, 552, 469
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2402,8 +2402,8 @@ cawash08:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -2116,-614,128, 751,2389,128, 2458,2867,128, 1092,0,128, 205,3482,128, -1297,2389,128, 1707,1024,128, 1161,68,128, 34,-1536,128, -614,341,128
-		PortYaws: 558, 206, 140, 0, 246, 337, 88, 10, 772, 429
+		PortOffsets: 1931,-1062,128, -2220,-1158,128, -3765,-290,128, -772,772,128, -2606,-2317,128, -772,-2606,128, -1931,483,128, -869,772,128, 1062,1110,128, 193,-676,128
+		PortYaws: 82, 434, 499, 640, 394, 303, 552, 630, 892, 211
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2423,8 +2423,8 @@ cawash09:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -717,1263,128, -307,1673,128, 1536,922,128, 2082,1468,128, 1775,683,128, 2150,444,128, 1775,-546,128, 2185,1092,128, 2116,-478,128, 1775,-819,128
-		PortYaws: 340, 286, 88, 100, 60, 33, 975, 76, 988, 954
+		PortOffsets: -386,-1400,128, -965,-1400,128, -1738,434,128, -2510,434,128, -1738,772,128, -1834,1207,128, -869,1641,128, -2317,772,128, -1158,1834,128, -676,1834,128
+		PortYaws: 300, 354, 552, 540, 580, 607, 689, 564, 676, 710
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2444,8 +2444,8 @@ cawash10:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: -1024,-546,128, -444,-785,128, 1417,3294,128, 2150,3243,128, 3294,1758,128, -512,-512,128, -700,-393,128, 3311,1058,128, -478,-1024,128, 1041,3260,128
-		PortYaws: 592, 684, 190, 161, 80, 640, 595, 50, 697, 206
+		PortOffsets: 1110,-338,128, 869,241,128, -3330,-1327,128, -3813,-772,128, -3572,1086,128, 724,0,128, 772,-217,128, -3089,1593,128, 1062,386,128, -3041,-1569,128
+		PortYaws: 48, 980, 450, 479, 560, 0, 45, 590, 967, 434
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2465,8 +2465,8 @@ cawash11:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 273,1911,128, -341,1297,128, 1980,1570,128, 2731,1911,128, 2116,1297,128, 2594,887,128, 2355,649,128, 2321,-683,128, 2867,-137,128, 2833,1126,128
-		PortYaws: 233, 298, 109, 100, 90, 54, 44, 977, 1016, 62
+		PortOffsets: -1545,-1158,128, -676,-1158,128, -2510,290,128, -3282,579,128, -2413,579,128, -2462,1207,128, -2124,1207,128, -1158,2124,128, -1931,2124,128, -2799,1207,128
+		PortYaws: 407, 342, 531, 540, 550, 586, 596, 687, 648, 578
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2486,8 +2486,8 @@ cawash13:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1417,973,128, -546,887,128, 2458,956,128, 1468,-580,128, 1877,375,128, 2150,-171,128, -717,922,128, 137,1570,128, 956,956,128, 2167,1178,128
-		PortYaws: 98, 346, 60, 963, 32, 1011, 364, 242, 128, 81
+		PortOffsets: -1689,314,128, -241,-1014,128, -2413,1062,128, -627,1448,128, -1593,1062,128, -1400,1641,128, -145,-1158,128, -1207,-1014,128, -1351,0,128, -2365,700,128
+		PortYaws: 542, 294, 580, 701, 608, 653, 276, 398, 512, 559
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
@@ -2507,8 +2507,8 @@ cawash17:
 		EjectOnDeath: true
 	AttackGarrisoned@GARRISON:
 		Armaments: garrison
-		PortOffsets: 1638,1775,128, 34,2014,128, 1468,2765,128, 3345,1980,128, 4608,2765,128, 5120,1843,128, 4779,2185,128, 5905,1877,128, 5871,956,128, 3345,1980,128
-		PortYaws: 135, 253, 176, 87, 88, 56, 70, 50, 26, 87
+		PortOffsets: -2413,-97,128, -1448,-1400,128, -2993,-917,128, -3765,965,128, -5213,1303,128, -4923,2317,128, -4923,1834,128, -5502,2848,128, -4827,3475,128, -3765,965,128
+		PortYaws: 505, 387, 464, 553, 552, 584, 570, 590, 614, 553
 		PortCones: 88, 88, 88, 88, 88, 88, 88, 88, 88, 88
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft

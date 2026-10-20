@@ -31,12 +31,28 @@ def test_can_be_occupied_is_case_insensitive():
 
 def test_pixel_to_wvec_origin_and_axes():
     assert generate.pixel_to_wvec(0, 0) == (0, 0, 0)
-    # one cell along world +x is (+30,+15) px; along world +y is (-30,+15) px
-    assert generate.pixel_to_wvec(30, 15) == (1024, 0, 0)
-    assert generate.pixel_to_wvec(-30, 15) == (0, 1024, 0)
-    # a pure +x pixel offset lies on the x/y diagonal: +x and -y in equal measure
-    x, y, z = generate.pixel_to_wvec(60, 0)
-    assert x == -y > 0 and z == 0
+    # Map.CenterOfCell: one cell step of (30,15) px is (724,724) WDist, world u right / v down
+    assert generate.pixel_to_world(30, 15) == (724, 724)
+    assert generate.pixel_to_world(-30, 15) == (-724, 724)
+    # local = (-v, u) because LocalToWorld(local) = (local.Y, -local.X)
+    assert generate.pixel_to_wvec(30, 15) == (-724, 724, 0)
+    # pure screen-down pixel: local x negative, y 0
+    x, y, z = generate.pixel_to_wvec(0, 15)
+    assert x < 0 and y == 0 and z == 0
+    # pure screen-right pixel: local x 0, y positive
+    x, y, z = generate.pixel_to_wvec(30, 0)
+    assert x == 0 and y > 0 and z == 0
+
+
+def test_yaw_matches_engine_wvec_yaw():
+    # WVec.Yaw = ArcTan(-v, u) - 256: north (-v) 0, west 256, south 512, east 768
+    assert generate.yaw_of_world(0, -100) == 0
+    assert generate.yaw_of_world(-100, 0) == 256
+    assert generate.yaw_of_world(0, 100) == 512
+    assert generate.yaw_of_world(100, 0) == 768
+    assert generate.yaw_of_world(0, 0) == 0
+    # port pixels map to world direction: screen-right port faces east
+    assert generate.yaw_of_world(*generate.pixel_to_world(30, 0)) == 768
 
 
 def test_missing_ports_get_defaults(sample):
