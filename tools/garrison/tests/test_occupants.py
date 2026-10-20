@@ -30,7 +30,7 @@ def actor_blocks():
 
 def test_only_gi_and_conscript_are_garrisoners():
     found = {n for n, lines in actor_blocks() if any(re.match(r"\s*CargoType:\s*Garrisoner\s*$", l) for l in lines)}
-    # Garrisoner may come from a template only if that template is itself one of the allowed actors
+    # a template (^name) carrying the type would show up here and fail the subset check
     assert found, "nobody can garrison"
     assert found <= GARRISONERS, f"unexpected garrisoners: {sorted(found - GARRISONERS)}"
     assert {"e1", "e2"} <= found
@@ -87,19 +87,28 @@ def test_gi_and_conscript_resolve_as_garrisoners():
         assert rules["Armament@GARRISON"]["Weapon"] == weapon
 
 
+# rules.ini Verses order -> the mod's armour type names
+ARMOUR_ORDER = ["None", "Flak", "Plate", "Light", "Medium", "Heavy", "Wood", "Steel", "Concrete", "Drone", "Rocket"]
+
+
 @pytest.mark.integration
-@pytest.mark.parametrize("weapon,ini_name", [("AlliedOccupyW", "AlliedOccupyW"), ("SovietOccupyW", "SovietOccupyW")])
-def test_occupy_weapons_match_ra2(ra2ini, weapon, ini_name):
+@pytest.mark.parametrize("weapon", ["AlliedOccupyW", "SovietOccupyW"])
+def test_occupy_weapons_match_ra2(ra2ini, weapon):
     from ra2data.resolved import resolve_weapon
 
-    src = ra2ini[ini_name]
-    assert (src["Damage"], src["ROF"], src["Range"]) == (
-        {"AlliedOccupyW": ("30", "15", "7"), "SovietOccupyW": ("20", "20", "7")}[weapon])
+    src = ra2ini[weapon]
+    warhead = ra2ini[src["Warhead"]]
     rules = resolve_weapon(weapon)
     # timings 1:1 (the mod's existing convention): ROF -> ReloadDelay, Range in cells
     assert int(rules["ReloadDelay"]) == int(src["ROF"])
     assert cells(rules["Range"]) == float(src["Range"])
-    assert int(rules["Warhead@1Dam"]["Damage"]) == int(src["Damage"])
+    dam = rules["Warhead@1Dam"]
+    assert int(dam["Damage"]) == int(src["Damage"])
+    verses = [int(v.strip().rstrip("%")) for v in warhead["Verses"].split(",")]
+    assert len(verses) == len(ARMOUR_ORDER)
+    assert {k: int(v) for k, v in dam["Versus"].items()} == dict(zip(ARMOUR_ORDER, verses))
+    prone = int(warhead["ProneDamage"].split(";")[0].strip().rstrip("%"))
+    assert f"Prone{prone}Percent" in dam["DamageTypes"]
 
 
 @pytest.mark.integration

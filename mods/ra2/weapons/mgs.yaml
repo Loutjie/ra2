@@ -13,7 +13,8 @@ M1CarbineE:
 		Damage: 20
 
 # Occupier weapons (rules.ini AlliedOccupyW / SovietOccupyW): fired from garrisoned
-# buildings by Armament@GARRISON on e1/e2. Timings 1:1 like the other weapons here.
+# buildings by Armament@GARRISON on e1/e2. Timings 1:1 like the other weapons here;
+# Versus and prone damage follow warhead SSAB (Steel 30, Concrete 20, ProneDamage 50%).
 AlliedOccupyW:
 	Inherits: ^MG
 	ReloadDelay: 15
@@ -21,6 +22,10 @@ AlliedOccupyW:
 	Report: igiat2a.wav, igiat2b.wav, igiat2c.wav, igiat2d.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 30
+		Versus:
+			Steel: 30
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 SovietOccupyW:
 	Inherits: ^MG
@@ -29,6 +34,10 @@ SovietOccupyW:
 	Report: iconatta.wav, iconattb.wav, iconattc.wav, iconattd.wav, iconatte.wav
 	Warhead@1Dam: SpreadDamage
 		Damage: 20
+		Versus:
+			Steel: 30
+			Concrete: 20
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 
 M60:
 	Inherits: ^MG
