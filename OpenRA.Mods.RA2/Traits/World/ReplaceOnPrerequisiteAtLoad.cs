@@ -12,6 +12,7 @@
 using System;
 using System.Collections.Generic;
 using OpenRA.Graphics;
+using OpenRA.Mods.Common.Scripting;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Traits;
 
@@ -20,8 +21,10 @@ namespace OpenRA.Mods.RA2.Traits
 	[TraitLocation(SystemActors.World)]
 	[Desc("Replaces the actors with " + nameof(ReplaceOnPrerequisite) + " that are spawned while the map loads (map actors, starting units)",
 		"as soon as they are all spawned, before the first tick, instead of at the end of the first tick.",
-		"This lets first-tick orders, such as the AI deploying its starting MCV, reach the replacement.")]
-	public class ReplaceOnPrerequisiteAtLoadInfo : TraitInfo, NotBefore<SpawnMapActorsInfo>, NotBefore<SpawnStartingUnitsInfo>
+		"This lets first-tick orders, such as the AI deploying its starting MCV, reach the replacement.",
+		"Runs after the map script's WorldLoaded, so the actors that the script creates there are replaced the same way.")]
+	public class ReplaceOnPrerequisiteAtLoadInfo : TraitInfo, NotBefore<SpawnMapActorsInfo>, NotBefore<SpawnStartingUnitsInfo>,
+		NotBefore<LuaScriptInfo>
 	{
 		public override object Create(ActorInitializer init) { return new ReplaceOnPrerequisiteAtLoad(); }
 	}
