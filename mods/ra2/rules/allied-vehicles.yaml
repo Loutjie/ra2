@@ -81,8 +81,20 @@ cmin:
 	WithHarvestOverlay:
 		LocalOffset: 121,0,0
 		Palette: effect
-	GainsExperience: # can get experience, i.e. speed
-		LevelUpImage: crate-effects
+	# RA2: CMIN has Trainable=no
+	-GainsExperience:
+	-FirepowerMultiplier@VETERAN:
+	-FirepowerMultiplier@ELITE:
+	-DamageMultiplier@VETERAN:
+	-DamageMultiplier@ELITE:
+	-SpeedMultiplier@VETERAN:
+	-SpeedMultiplier@ELITE:
+	-ReloadDelayMultiplier@VETERAN:
+	-ReloadDelayMultiplier@ELITE:
+	-ChangesHealth@ELITE:
+	-InaccuracyMultiplier@ELITE:
+	-WithDecoration@VETERAN:
+	-WithDecoration@ELITE:
 	RenderSprites: # TODO: WithHarvestOverlay relies on this, but it should actually be removed
 	RenderVoxels:
 	WithVoxelUnloadBody:
