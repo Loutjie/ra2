@@ -43,13 +43,20 @@ def test_voxel_turret_structures_share_body_zoffset():
         assert _zoffset(seqs["make"]) == 0
 
 
+def test_sentry_gun_muzzle_does_not_inherit_turret_zoffset():
+    muzzle = _load("sequences", "soviet-structures.yaml")["nalasr"]["muzzle"]
+    assert _zoffset(muzzle) == 0
+    assert muzzle["Offset"].replace(" ", "") == "0,0"
+
+
 def test_gaweap_ramp_overlay_draws_below_spawned_units():
-    """Exit@1 spawns at (-384,-384) from the centre (world Y -384), so a ramp at ZOffset 0 sorts over the unit."""
+    """Sort order must be body < ramp < spawned unit (spawn Y delta from SpawnOffset)."""
     gaweap = _load("sequences", "allied-structures.yaml")["gaweap"]
-    for name in ("build-ramp", "damaged-build-ramp"):
-        z = _zoffset(gaweap[name])
-        assert -1024 < z < -384, f"{name} ZOffset {z} must be above the body (-1024) and below the spawn point"
     rules = _load("rules", "allied-structures.yaml")["gaweap"]
-    assert rules["Exit@1"]["SpawnOffset"].replace(" ", "") == "-384,-384,0"
+    spawn_y = int(rules["Exit@1"]["SpawnOffset"].split(",")[1])
+    body = _zoffset(gaweap["idle"])
+    for name in ("build-ramp", "damaged-build-ramp"):
+        ramp = _zoffset(gaweap[name])
+        assert body < ramp < spawn_y, f"{name}: body {body} < ramp {ramp} < spawn {spawn_y}"
     # the lintel stays above vehicles
     assert _zoffset(gaweap["build-top"]) > 0
