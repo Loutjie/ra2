@@ -25,6 +25,14 @@ base actors with the previous run's additions stripped, so `--check` is clean st
 after a regeneration. Regenerate after any change to a base actor, weapon or `ai.yaml`
 that a twin inherits from.
 
+After a regeneration (or any intended change to a base actor or weapon that a twin inherits),
+refresh the Exact drift snapshot and review its diff:
+
+```sh
+cd tools
+python3 -m exact.snapshot --write-exact   # rewrite exact/exact-snapshot.json (needs a built mod, not rules.ini)
+```
+
 A new generated rules file must exist before the mod can load it: when adding one to
 `mod.yaml`, first create it with only the header line, then run the generator.
 
@@ -96,6 +104,11 @@ Run from the repository root: `python3 -m pytest tools -q` (also part of `make u
   when an overlay starts changing an actor the snapshot does not hold. The snapshot is a
   fixed record; regenerate it (`python3 -m exact.snapshot --write`, needs a built mod) only
   for an intended change to the Reimagined balance or a new overlaid actor.
+- **Exact snapshot** (`tests/test_exact_snapshot.py`, `exact-snapshot.json`): every twin
+  actor and twin weapon as the whole mod resolves it. Twins inherit their base, so an edit to
+  a base actor or weapon can change Exact without touching a generated file; this test fails
+  until the snapshot is regenerated on purpose (`python3 -m exact.snapshot --write-exact`).
+  It needs a built mod but not `rules.ini`, so it runs in CI.
 - **Unit tests** (`tests/test_*.py`) use inline fictional data.
 - **Integration tests** (marked `integration`; need a built mod) read the committed files and
   the mod as the engine resolves it: `tests/test_integration.py` checks the twin count, that
@@ -109,9 +122,9 @@ Run from the repository root: `python3 -m pytest tools -q` (also part of `make u
 
 CI has no `rules.ini`. Tests that need it (they use the `ra2ini` fixture: the up-to-date
 check and the checks against real `rules.ini` values) skip. The snapshot and integration
-tests still run against the committed generated files, and
-`test_generated_lists_match_resolved_mod` catches a base actor whose prerequisites or hosts
-changed without a regeneration. Run `python3 -m exact.generate --check` locally before
+tests still run against the committed generated files: `test_exact_twins_unchanged` catches
+any change to what the twins resolve to, and `test_generated_lists_match_resolved_mod`
+catches a base actor whose prerequisites or hosts changed without a regeneration. Run `python3 -m exact.generate --check` locally before
 pushing a change that a twin inherits from.
 
 ## Merging other branches

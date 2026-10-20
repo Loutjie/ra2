@@ -1,4 +1,4 @@
-"""Snapshot of the Reimagined balance (the guard that it never changes).
+"""Snapshots of both balances: the Reimagined guard and the Exact drift guard.
 
 Reimagined snapshot (reimagined-snapshot.json, `--write`)
   Captured from the mod resolved WITHOUT the generated Exact files (exact_mod_entries, via
@@ -36,8 +36,15 @@ Reimagined snapshot (reimagined-snapshot.json, `--write`)
     additions (strip_ai_twins); on the World, the empty ReplaceOnPrerequisiteAtLoad
     (strip_world). Nothing else.
 
+Exact snapshot (exact-snapshot.json, `--write-exact`)
+  Every twin actor (`<x>.exact` of the generated actors.yaml) and twin weapon (the top-level
+  keys of the generated weapons.yaml), as the whole mod resolves them. Twins inherit their
+  base, so an edit to a base actor or weapon can silently change Exact; the test fails until
+  the snapshot is regenerated on purpose.
+
 CLI (run from the tools/ directory, or from anywhere with tools/ on PYTHONPATH; needs a built mod):
     python3 -m exact.snapshot --write        # regenerate exact/reimagined-snapshot.json
+    python3 -m exact.snapshot --write-exact  # regenerate exact/exact-snapshot.json
 """
 from __future__ import annotations
 
@@ -48,6 +55,7 @@ import json
 import re
 import sys
 from collections.abc import Collection
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from ra2data.resolved import REPO_ROOT, config_value, resolve_actor, resolve_weapon
@@ -56,6 +64,8 @@ SNAPSHOT_PATH = Path(__file__).resolve().parent / "reimagined-snapshot.json"
 RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
 WEAPONS_DIR = REPO_ROOT / "mods" / "ra2" / "weapons"
 EXACT_ACTORS_PATH = RULES_DIR / "exact" / "actors.yaml"
+EXACT_WEAPONS_PATH = WEAPONS_DIR / "exact" / "weapons.yaml"
+EXACT_SNAPSHOT_PATH = Path(__file__).resolve().parent / "exact-snapshot.json"
 MOD_YAML = REPO_ROOT / "mods" / "ra2" / "mod.yaml"
 # Generated files that change existing (non-twin) actors; actors.yaml only defines twins.
 OVERLAY_PATHS = tuple(RULES_DIR / "exact" / f for f in ("reimagined.yaml", "globals.yaml", "ai.yaml"))
@@ -423,6 +433,21 @@ def capture_reimagined() -> dict:
         without=exact_mod_entries())
 
 
+def twin_weapons(path: Path = EXACT_WEAPONS_PATH) -> list[str]:
+    """The twin weapons: the top-level keys of the generated weapons file, sorted."""
+    return sorted(_top_level_keys(path)) if path.is_file() else []
+
+
+def capture_exact() -> dict:
+    """The Exact drift snapshot: every twin actor and twin weapon as the whole mod resolves it."""
+    actors = sorted(n + EXACT_SUFFIX_NAME for n in twinned_actors())
+    weapons = twin_weapons()
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        actor_trees = dict(zip(actors, pool.map(_resolve, actors)))
+        weapon_trees = dict(zip(weapons, pool.map(resolve_weapon, weapons)))
+    return {"actors": actor_trees, "weapons": weapon_trees}
+
+
 def dumps(data: dict) -> str:
     return json.dumps(data, indent="\t", sort_keys=True, ensure_ascii=False) + "\n"
 
@@ -430,13 +455,19 @@ def dumps(data: dict) -> str:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--write", action="store_true", help=f"regenerate {SNAPSHOT_PATH.name}")
+    parser.add_argument("--write-exact", action="store_true", help=f"regenerate {EXACT_SNAPSHOT_PATH.name}")
     args = parser.parse_args(argv)
-    if not args.write:
-        parser.error("nothing to do; pass --write")
-    data = capture_reimagined()
-    SNAPSHOT_PATH.write_text(dumps(data), encoding="utf-8")
-    print(f"wrote {SNAPSHOT_PATH}: {len(data['actors'])} actors, {len(data['neutral'])} neutral actors,"
-        f" {len(data['others'])} other actors, {len(data['weapons'])} weapons")
+    if not args.write and not args.write_exact:
+        parser.error("nothing to do; pass --write and/or --write-exact")
+    if args.write:
+        data = capture_reimagined()
+        SNAPSHOT_PATH.write_text(dumps(data), encoding="utf-8")
+        print(f"wrote {SNAPSHOT_PATH}: {len(data['actors'])} actors, {len(data['neutral'])} neutral actors,"
+            f" {len(data['others'])} other actors, {len(data['weapons'])} weapons")
+    if args.write_exact:
+        data = capture_exact()
+        EXACT_SNAPSHOT_PATH.write_text(dumps(data), encoding="utf-8")
+        print(f"wrote {EXACT_SNAPSHOT_PATH}: {len(data['actors'])} twin actors, {len(data['weapons'])} twin weapons")
     return 0
 
 
