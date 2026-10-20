@@ -1,6 +1,6 @@
-﻿#region Copyright & License Information
+#region Copyright & License Information
 /*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
+ * Copyright (c) The OpenRA Developers and Contributors
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -23,7 +23,7 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Range of the final jump of the infector.")]
 		public readonly WDist JumpRange = WDist.Zero;
 
-		[Desc("Conditions that last from start of the joust until the attack.")]
+		[Desc("Conditions that last from start of the jump until the attack.")]
 		[GrantedConditionReference]
 		public readonly string JumpCondition = "jumping";
 
@@ -48,7 +48,7 @@ namespace OpenRA.Mods.RA2.Traits
 	{
 		public readonly AttackInfectInfo InfectInfo;
 
-		int joustToken = Actor.InvalidConditionToken;
+		int jumpToken = Actor.InvalidConditionToken;
 
 		public AttackInfect(Actor self, AttackInfectInfo info)
 			: base(self, info)
@@ -67,16 +67,16 @@ namespace OpenRA.Mods.RA2.Traits
 			return base.CanAttack(self, target);
 		}
 
-		public void GrantJoustCondition(Actor self)
+		public void GrantJumpCondition(Actor self)
 		{
 			if (!string.IsNullOrEmpty(InfectInfo.JumpCondition))
-				joustToken = self.GrantCondition(InfectInfo.JumpCondition);
+				jumpToken = self.GrantCondition(InfectInfo.JumpCondition);
 		}
 
-		public void RevokeJoustCondition(Actor self)
+		public void RevokeJumpCondition(Actor self)
 		{
-			if (joustToken != Actor.InvalidConditionToken)
-				joustToken = self.RevokeCondition(joustToken);
+			if (jumpToken != Actor.InvalidConditionToken)
+				jumpToken = self.RevokeCondition(jumpToken);
 		}
 
 		public override Activity GetAttackActivity(Actor self, AttackSource source, in Target newTarget, bool allowMove, bool forceAttack, Color? targetLineColor)

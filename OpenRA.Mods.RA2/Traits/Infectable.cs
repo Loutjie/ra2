@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
+ * Copyright (c) The OpenRA Developers and Contributors
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -53,7 +53,7 @@ namespace OpenRA.Mods.RA2.Traits
 		public override object Create(ActorInitializer init) { return new Infectable(init.Self, this); }
 	}
 
-	public class Infectable : ConditionalTrait<InfectableInfo>, ISync, ITick, INotifyDamage, INotifyKilled, INotifyOwnerChanged, IRemoveInfector
+	public class Infectable : ConditionalTrait<InfectableInfo>, ISync, ITick, INotifyDamage, INotifyKilled, INotifyOwnerChanged, INotifyActorDisposing, IRemoveInfector
 	{
 		readonly Health health;
 
@@ -76,6 +76,9 @@ namespace OpenRA.Mods.RA2.Traits
 		bool killInfectorConditionActive;
 
 		// Teleport detection: the host's generation and position as of the previous tick.
+		// Relies on every teleport bumping Actor.Generation, which the three current teleport
+		// paths do: Cnc Teleport (Chronosphere and its return), Common SimpleTeleport and
+		// RA2 ChronoResourceTeleport (chrono miner). Actor.ChangeOwnerSync bumps it as well.
 		int observedGeneration;
 		int ownerChangesSinceTick;
 		WPos lastPosition;
@@ -167,13 +170,21 @@ namespace OpenRA.Mods.RA2.Traits
 			self.World.AddFrameEndTask(w =>
 			{
 				removalPending = false;
-				if (Infector == null || Infector.IsDead)
+				if (Infector == null)
 					return;
+
+				if (Infector.IsDead)
+				{
+					ClearInfector(self);
+					return;
+				}
 
 				w.Add(Infector);
 
 				if (outcome == InfectorOutcome.InfectorKilled)
 				{
+					// Without an AttackInfo (Iron Curtain) the host is credited with the kill, deliberately:
+					// the drone died to the host's protection, not to a third party.
 					if (info != null)
 						Infector.Kill(info.Attacker, info.Damage.DamageTypes);
 					else
@@ -184,10 +195,17 @@ namespace OpenRA.Mods.RA2.Traits
 					Infector.QueueActivity(false, new Nudge(Infector));
 				}
 
-				RevokeCondition(self);
-				Infector = null;
-				FirepowerMultipliers = Array.Empty<int>();
+				ClearInfector(self);
 			});
+		}
+
+		void ClearInfector(Actor self)
+		{
+			if (!self.Disposed)
+				RevokeCondition(self);
+
+			Infector = null;
+			FirepowerMultipliers = Array.Empty<int>();
 		}
 
 		void INotifyDamage.Damaged(Actor self, AttackInfo e)
@@ -214,8 +232,22 @@ namespace OpenRA.Mods.RA2.Traits
 			ownerChangesSinceTick++;
 		}
 
+		void INotifyActorDisposing.Disposing(Actor self)
+		{
+			// The host left the game without dying (e.g. an infected MCV deploying via Transforms):
+			// put the drone back next to it rather than losing it inside a disposed actor.
+			if (self.World.Disposing)
+				return;
+
+			RemoveInfector(self, InfectionTransitions.OnHostDisposed(Infector != null), null, self.CenterPosition);
+		}
+
 		void ITick.Tick(Actor self)
 		{
+			// The drone can die while out of the world (e.g. OwnerLostAction when its owner is defeated).
+			if (InfectionTransitions.InfectorLost(Infector != null, Infector != null && Infector.IsDead) && !removalPending)
+				ClearInfector(self);
+
 			// Activities tick before traits, so a teleport this tick has already moved the host:
 			// lastPosition still holds the origin, where the infector is left behind.
 			var teleported = InfectionTransitions.HostTeleported(observedGeneration, self.Generation, ownerChangesSinceTick);

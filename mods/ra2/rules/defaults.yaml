@@ -710,15 +710,6 @@
 	Targetable@airborne:
 		TargetTypes: Air
 		RequiresCondition: parachute
-	Targetable@Parasiteable:
-		TargetTypes: DroneParasiteable
-		RequiresCondition: !parachute && !infected
-	Targetable@byTerrorDrone:
-		TargetTypes: ValidForTerrorDrone
-		RequiresCondition: !parachute
-	Targetable@InfectedByTerrorDrone:
-		TargetTypes: TerrorDroned
-		RequiresCondition: !parachute && infected
 	ExternalCondition@PARACHUTE:
 		Condition: parachute
 
@@ -841,9 +832,9 @@
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
+	Inherits@7: ^AffectedByTerrorDrone
 	Inherits@6: ^ParachutableVehicle
 	Inherits@handicaps: ^PlayerHandicaps
-	Inherits@7: ^AffectedByTerrorDrone
 	Infectable:
 		KillInfectorCondition: invulnerability
 	OwnerLostAction:

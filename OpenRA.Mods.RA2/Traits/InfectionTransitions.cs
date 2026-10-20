@@ -60,6 +60,18 @@ namespace OpenRA.Mods.RA2.Traits
 			return infectorSurvives ? InfectorOutcome.Ejected : InfectorOutcome.InfectorKilled;
 		}
 
+		/// <summary>The host was disposed without being killed (e.g. transformed): the infector is put back alive.</summary>
+		public static InfectorOutcome OnHostDisposed(bool infected)
+		{
+			return infected ? InfectorOutcome.Ejected : InfectorOutcome.None;
+		}
+
+		/// <summary>The attached infector died while out of the world: the host must forget it and become targetable again.</summary>
+		public static bool InfectorLost(bool infected, bool infectorDead)
+		{
+			return infected && infectorDead;
+		}
+
 		/// <summary>
 		/// Teleport activities bump <see cref="Actor.Generation"/>, but so does an owner change.
 		/// The host teleported if the generation advanced by more than the owner changes account for.

@@ -63,6 +63,21 @@ namespace OpenRA.Mods.RA2.Test
 			return InfectionTransitions.OnHostKilled(infected: true, survivable);
 		}
 
+		[TestCase(TestName = "A host disposed without dying puts its infector back alive")]
+		public void HostDisposedEjectsInfector()
+		{
+			Assert.That(InfectionTransitions.OnHostDisposed(infected: true), Is.EqualTo(InfectorOutcome.Ejected));
+			Assert.That(InfectionTransitions.OnHostDisposed(infected: false), Is.EqualTo(InfectorOutcome.None));
+		}
+
+		[TestCase(true, true, ExpectedResult = true, TestName = "A dead attached infector is cleared from its host")]
+		[TestCase(true, false, ExpectedResult = false, TestName = "A living attached infector is kept")]
+		[TestCase(false, false, ExpectedResult = false, TestName = "A clean host has nothing to clear")]
+		public bool InfectorLostDetection(bool infected, bool infectorDead)
+		{
+			return InfectionTransitions.InfectorLost(infected, infectorDead);
+		}
+
 		[TestCase(5, 5, 0, ExpectedResult = false, TestName = "Unchanged generation is not a teleport")]
 		[TestCase(5, 6, 0, ExpectedResult = true, TestName = "Generation bump is a teleport")]
 		[TestCase(5, 6, 1, ExpectedResult = false, TestName = "Owner change alone is not a teleport")]
