@@ -20,14 +20,23 @@ namespace OpenRA.Mods.RA2.Traits
 {
 	public static class ResourceGrowthBatching
 	{
-		/// <summary>Cells to process per tick so that every cell is visited once per <paramref name="interval"/> ticks.</summary>
-		public static int BatchSize(int cellCount, int interval)
+		/// <summary>
+		/// Cells to process this tick so that, on average, every cell is visited once per <paramref name="interval"/> ticks
+		/// for any cell count: a fractional budget carries the remainder between ticks. Deterministic and allocation-free.
+		/// </summary>
+		public static int NextBatch(ref int budget, int cellCount, int interval)
 		{
 			if (cellCount <= 0)
+			{
+				budget = 0;
 				return 0;
+			}
 
 			interval = Math.Max(interval, 1);
-			return (cellCount + interval - 1) / interval;
+			budget += cellCount;
+			var size = budget / interval;
+			budget %= interval;
+			return size;
 		}
 	}
 
@@ -42,11 +51,9 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Ticks in which every cell holding the resource is visited once. RA2: GrowthRate of 5 minutes = 7500 ticks.")]
 		public readonly int Interval = 7500;
 
-		[FieldLoader.Require]
 		[Desc("Chance in 1/1000 per visit that a cell below maximum density gains one density.")]
 		public readonly int GrowthChance = 0;
 
-		[FieldLoader.Require]
 		[Desc("Chance in 1/1000 per visit that a cell adds one density to a random adjacent cell that accepts it.")]
 		public readonly int SpreadChance = 0;
 
@@ -63,7 +70,8 @@ namespace OpenRA.Mods.RA2.Traits
 		readonly Grid grid;
 		readonly IGrowthRandom random;
 
-		// Tracked cells in insertion order. Removal swaps the last cell into the hole; CellChanged is raised
+		// Tracked cells in insertion order (swap-remove can make a cell be visited twice or skipped within one cycle: deterministic, harmless).
+		//  Removal swaps the last cell into the hole; CellChanged is raised
 		// deterministically from synced simulation code, so the order stays identical on every client.
 		readonly List<CPos> cells = [];
 		readonly Dictionary<CPos, int> indexOf = [];
@@ -71,6 +79,7 @@ namespace OpenRA.Mods.RA2.Traits
 		readonly bool enabled;
 		bool scanned;
 		int cursor;
+		int budget;
 
 		public ResourceGrowth(Actor self, ResourceGrowthInfo info)
 		{
@@ -140,10 +149,10 @@ namespace OpenRA.Mods.RA2.Traits
 			}
 
 			var count = cells.Count;
-			if (count == 0)
+			var size = Math.Min(ResourceGrowthBatching.NextBatch(ref budget, count, info.Interval), count);
+			if (size == 0)
 				return;
 
-			var size = Math.Min(ResourceGrowthBatching.BatchSize(count, info.Interval), count);
 			if (cursor >= count)
 				cursor = 0;
 

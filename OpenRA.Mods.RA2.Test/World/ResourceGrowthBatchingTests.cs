@@ -17,25 +17,48 @@ namespace OpenRA.Mods.RA2.Test
 	[TestFixture]
 	public class ResourceGrowthBatchingTests
 	{
-		[Test]
-		public void BatchSize_VisitsEveryCellOncePerInterval()
+		static int Total(int cells, int interval, int ticks, out int maxPerTick)
 		{
-			Assert.That(ResourceGrowthBatching.BatchSize(7500, 7500), Is.EqualTo(1));
-			Assert.That(ResourceGrowthBatching.BatchSize(10, 7500), Is.EqualTo(1));
-			Assert.That(ResourceGrowthBatching.BatchSize(30000, 7500), Is.EqualTo(4));
-			Assert.That(ResourceGrowthBatching.BatchSize(7501, 7500), Is.EqualTo(2));
+			var budget = 0;
+			var total = 0;
+			maxPerTick = 0;
+			for (var i = 0; i < ticks; i++)
+			{
+				var n = ResourceGrowthBatching.NextBatch(ref budget, cells, interval);
+				total += n;
+				maxPerTick = System.Math.Max(maxPerTick, n);
+			}
+
+			return total;
 		}
 
 		[Test]
-		public void BatchSize_ZeroCells_Zero()
+		public void NextBatch_VisitsEveryCellOncePerInterval()
 		{
-			Assert.That(ResourceGrowthBatching.BatchSize(0, 7500), Is.EqualTo(0));
+			Assert.That(Total(7500, 7500, 7500, out var max), Is.EqualTo(7500));
+			Assert.That(max, Is.EqualTo(1));
+			Assert.That(Total(30000, 7500, 7500, out max), Is.EqualTo(30000));
+			Assert.That(max, Is.EqualTo(4));
+			Assert.That(Total(2000, 7500, 7500, out _), Is.EqualTo(2000));
 		}
 
 		[Test]
-		public void BatchSize_NonPositiveInterval_ClampedToOne()
+		public void NextBatch_FewCells_WaitsThenVisits()
 		{
-			Assert.That(ResourceGrowthBatching.BatchSize(5, 0), Is.EqualTo(5));
+			var budget = 0;
+			for (var i = 0; i < 749; i++)
+				Assert.That(ResourceGrowthBatching.NextBatch(ref budget, 10, 7500), Is.EqualTo(0));
+
+			Assert.That(ResourceGrowthBatching.NextBatch(ref budget, 10, 7500), Is.EqualTo(1));
+			Assert.That(Total(10, 7500, 7500, out _), Is.EqualTo(10));
+		}
+
+		[Test]
+		public void NextBatch_ZeroCells_ZeroAndResetsBudget()
+		{
+			var budget = 123;
+			Assert.That(ResourceGrowthBatching.NextBatch(ref budget, 0, 7500), Is.EqualTo(0));
+			Assert.That(budget, Is.EqualTo(0));
 		}
 	}
 }
