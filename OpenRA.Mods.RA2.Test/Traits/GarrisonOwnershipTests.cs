@@ -57,5 +57,16 @@ namespace OpenRA.Mods.RA2.Test
 		{
 			Assert.That(GarrisonOwnershipRules.CanEnter(true, false), Is.True);
 		}
+
+		[TestCase(true, true, true, true, false, ExpectedResult = true, TestName = "CanTarget_EmptyNeutral")]
+		[TestCase(true, true, true, false, false, ExpectedResult = false, TestName = "CanTarget_OccupiedEnemy")]
+		[TestCase(true, true, true, false, true, ExpectedResult = true, TestName = "CanTarget_OccupiedAlly")]
+		[TestCase(false, true, true, true, true, ExpectedResult = false, TestName = "CanTarget_NotGarrison")]
+		[TestCase(true, false, true, true, true, ExpectedResult = false, TestName = "CanTarget_WrongCargoType")]
+		[TestCase(true, true, false, true, true, ExpectedResult = false, TestName = "CanTarget_Full")]
+		public bool CanTarget(bool garrison, bool type, bool space, bool empty, bool allied)
+		{
+			return GarrisonOwnershipRules.CanTarget(garrison, type, space, empty, allied);
+		}
 	}
 }

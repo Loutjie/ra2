@@ -20,6 +20,12 @@ namespace OpenRA.Mods.RA2.Traits
 			return isEmpty || sameOrAlliedOwner;
 		}
 
+		/// <summary>Whether a passenger may target (and keep targeting) a garrison building.</summary>
+		public static bool CanTarget(bool isGarrison, bool cargoTypeAccepted, bool hasSpace, bool isEmpty, bool sameOrAlliedOwner)
+		{
+			return isGarrison && cargoTypeAccepted && hasSpace && CanEnter(isEmpty, sameOrAlliedOwner);
+		}
+
 		/// <summary>
 		/// Owner the building should have after its occupant count changed.
 		/// Empty: back to the original owner. First occupant: the entering owner. Otherwise unchanged.
