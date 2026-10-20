@@ -45,3 +45,7 @@ _ReSharper.*/
 
 # IntelliJ files
 .idea
+
+# Python tools
+tools/**/__pycache__/
+.pytest_cache/
