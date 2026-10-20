@@ -38,6 +38,7 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+			# alliedparadrop and sovietparadrop (tech airport) match airborne except for OrderName.
 			alliedparadrop:
 				OrderName: AlliedParatroopers
 				MinimumAttractiveness: 5
@@ -158,7 +159,6 @@ Player:
 			namisl: 1
 			nairon: 1
 			gaweat: 1
-			gacsph: 1
 		DefenseTypes: gapill, nasam, gtgcan, atesla, naflak, tesla, nalasr
 	SquadManagerBotModule@test:
 		RequiresCondition: enable-test-ai
@@ -213,6 +213,7 @@ Player:
 	HarvesterBotModule:
 		RequiresCondition: enable-test-ai
 		HarvesterTypes: harv, cmin
+		InitialHarvesters: 2
 		RefineryTypes: garefn, narefn
 	BuildingRepairBotModule:
 		RequiresCondition: enable-test-ai
