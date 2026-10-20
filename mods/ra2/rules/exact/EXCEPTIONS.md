@@ -416,7 +416,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: Lightning Storm weapon twin and timing
 - Applied by: the generator
-- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (delay before the storm starts), LightningCellSpread and LightningSeparation have no field in WeatherControlSupportPower and are not applied; the mod's strike delay and cloud spread are kept.
+- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (delay before the storm starts) and LightningSeparation have no field in WeatherControlSupportPower and are not applied. LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of -5c0..5c0 already spread the clouds over a 10-cell area.
 - Affected:
   - LightningStorm.exact: from [General] LightningDamage, LightningWarhead
 
@@ -450,11 +450,13 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)
 - Applied by: the generator
-- Reason: They fire the twin of their death weapon, with RA2 values where the mod weapon takes them (weapon-structure-stubs otherwise). Twins whose RA2 actor does not explode keep the mod's death weapons, which are visual only (no damage warhead).
+- Reason: They fire the twin of their death weapon, with RA2 values where the mod weapon takes them (weapon-structure-stubs otherwise). Twins whose RA2 actor does not explode keep the mod's death weapons: most are visual only (no damage warhead); a damaging one the mod fires only under a condition is listed (fv.exact: CRNuke while it carries a terrorist, RA2's DeathWeapon=CRNuke). The neutral Oil Derrick (RA2 Explodes=yes, DeathWeapon=OilExplosion) is not twinned and keeps the mod's DerrickExplode.
 - Affected:
   - dtruck.exact: FireWarheadsOnDeath demobomb.exact (RA2 Demobomb)
+  - fv.exact: FireWarheadsOnDeath@demo CRNuke kept: RA2 sets DeathWeapon=CRNuke without Explodes=yes, and the mod fires it only under ifv-demo
   - nanrct.exact: FireWarheadsOnDeath NukePayload.exact (RA2 NukePayload)
   - terror.exact: FireWarheadsOnDeath TerrorBomb.exact (RA2 TerrorBomb)
+  - caoild: RA2 DeathWeapon OilExplosion not mapped; mod DerrickExplode kept (neutral buildings are not twinned)
 
 ## death-weapon-strength
 
@@ -469,36 +471,30 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 ## spy-satellite
 
-- Field: RevealsMap of the Spy Satellite twin (#803)
+- Field: RevealsMap of the Spy Satellite twin (#803): the base trait is kept
 - Applied by: the generator
-- Reason: RA2's SpySat reveals the map once; there is no fog of war, so it never hides again. The mod's RevealsMap keeps every cell visible, which removes the fog of war. The twin reveals only while its make animation runs (build-incomplete): the map is explored, the fog of war stays. A map-placed or captured satellite does not reveal.
+- Reason: RA2 has no fog of war: once the SpySat reveals the map, it stays visible for good (only Gap Generators shroud it again). The mod plays with fog of war, and its RevealsMap (live vision of the whole map while powered, !lowpower) is the closest equivalent, so the twin keeps it. A faithful mechanic, permanent passive visibility that yields to Gap Generators, needs a new trait and is a follow-up.
 - Affected:
-  - gaspysat.exact: RevealsMap while build-incomplete
+  - gaspysat.exact: the base RevealsMap is kept (RequiresCondition !lowpower)
 
 ## neutral-tech-buildings
 
 - Field: Exact/Reimagined trait pairs of caairp, cahosp, caoild, caoutp, cathosp (globals.yaml)
 - Applied by: the generator
-- Reason: Tech buildings are not twinned: they are neutral when the map starts and change owner when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the owner has balance.exact, and each balance trait with an RA2 value becomes a X@EXACT/X@REIMAGINED pair. Health (not conditional) keeps the mod's value (RA2's Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost (RA2 gives none for Hospital=yes).
+- Reason: Tech buildings are not twinned: they are neutral when the map starts and change owner when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the owner has balance.exact, and each balance trait whose RA2 value differs from the mod's becomes a X@EXACT/X@REIMAGINED pair (the Reimagined side is copied from the mod's rule files without globals.yaml). Health (not conditional) keeps the mod's value (RA2's Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost (RA2 gives none for Hospital=yes).
 - Affected:
   - caairp: Armor Type Concrete
   - caairp: ParatroopersPower@Allies ChargeInterval 6000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact, OrderName AlliedParatroopersExact
   - caairp: ParatroopersPower@Soviets ChargeInterval 6000, DropItems e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact, OrderName SovietParatroopersExact
-  - cahosp: Armor Type Concrete
   - cahosp: RepairsUnits Interval 2, HpPerStep 20
-  - caoild: Armor Type Steel
-  - caoild: CashTrickler Interval 100, Amount 20
-  - caoild: GivesCashOnCapture Amount 1000
-  - caoild: RevealsShroud Range 4c0
   - caoutp: Armament Weapon HoverMissile.exact
-  - caoutp: Armor Type Concrete
   - caoutp: RepairsUnits ValuePercentage 15, Interval 24, HpPerStep 8
 
 ## frame-rate-fallback
 
 - Field: Every time, speed and turn rate conversion (exact.conversions)
 - Applied by: the generator
-- Reason: RA2's frame rate at the default skirmish speed is not settled (tools/exact/TIMING.md): until the in-game measurement, one RA2 frame is one OpenRA tick and a rules.ini minute is a wall-clock minute (1500 ticks).
+- Reason: RA2's frame rate at the default skirmish speed is not settled (tools/exact/TIMING.md): until the in-game measurement, one RA2 frame is one OpenRA tick and a rules.ini minute is a wall-clock minute (1500 ticks). Evidence for the engine's own rate: rules.ini comments IronCurtainDuration=750 with "In frames 900 is a minute for 15fps".
 - Affected:
   - RA2_FRAMES_PER_SECOND = 25 (OPENRA_TICKS_PER_SECOND = 25)
   - MINUTES_ARE_FRAMES = False

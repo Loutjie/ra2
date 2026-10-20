@@ -8,7 +8,7 @@ import pytest
 from exact import conversions, generate, globals as exact_globals
 from exact.model import load_actor
 from exact.snapshot import SNAPSHOT_PATH, strip_neutral
-from ra2data.resolved import parse_miniyaml, resolve_actor, resolve_weapon
+from ra2data.resolved import REPO_ROOT, parse_miniyaml, resolve_actor, resolve_weapon
 
 GENERAL = {
     "BuildSpeed": ".5", "VeteranRatio": "2.5", "VeteranCombat": "1.2", "VeteranArmor": "2.0",
@@ -200,8 +200,23 @@ def test_death_weapon_twin(g, tree):
     assert {"Kaboom", "LightningStorm"} <= g.weapons
 
 
-def test_spy_satellite_explores_once(tree):
-    assert tree["eye.exact"]["RevealsMap"] == {"RequiresCondition": "build-incomplete"}
+def test_spy_satellite_keeps_base_reveal(g, tree):
+    assert "eye.exact" not in tree or "RevealsMap" not in tree["eye.exact"]
+    assert g.notes["spy-satellite"] == ["eye.exact: the base RevealsMap is kept (RequiresCondition !lowpower)"]
+
+
+def test_death_weapon_messages():
+    rules = {**RULES, "VehicleTypes": {"1": "IFV", "2": "DUD"},
+        "IFV": {"TechLevel": "2", "Owner": "Reds", "Cost": "600", "DeathWeapon": "Kaboom"},
+        "DUD": {"TechLevel": "2", "Owner": "Reds", "Cost": "600", "Explodes": "yes", "DeathWeapon": "Missing"}}
+    bases = {"ifv": {"FireWarheadsOnDeath@demo": {"Weapon": "Kaboom", "RequiresCondition": "ifv-demo"}},
+        "dud": {"FireWarheadsOnDeath": {"Weapon": "Missing"}}}
+    g = exact_globals.build_globals(rules, actors_of(rules, ["ifv", "dud"]), bases, {"ifv", "dud"})
+    assert "ifv.exact" not in g.blocks and "dud.exact" not in g.blocks
+    assert g.notes["death-weapons"] == [
+        "dud.exact: RA2 DeathWeapon Missing has no rules.ini section; mod death weapon kept",
+        "ifv.exact: FireWarheadsOnDeath@demo Kaboom kept: RA2 sets DeathWeapon=Kaboom without Explodes=yes, "
+        "and the mod fires it only under ifv-demo"]
 
 
 def test_tech_buildings_get_condition_pairs(tree):
@@ -211,8 +226,9 @@ def test_tech_buildings_get_condition_pairs(tree):
     assert well["CashTrickler@REIMAGINED"] == {"Interval": "100", "Amount": "20", "RequiresCondition": "!balance-exact"}
     assert well["GivesCashOnCapture@EXACT"]["Amount"] == "750"
     assert well["RevealsShroud@EXACT"]["Range"] == "5c0"
-    assert well["Armor@EXACT"]["Type"] == "Steel"
     assert "-CashTrickler" in well and "Health@EXACT" not in well
+    # RA2 and the mod agree on the armour: no pair.
+    assert "Armor@EXACT" not in well and "-Armor" not in well
     port = tree["port"]
     assert port["ParatroopersPower@Allies@EXACT"] == {"OrderName": "AlliedDropExact",
         "ChargeInterval": str(conversions.minutes_to_ticks(4)), "DropItems": "troop.exact,troop.exact,troop.exact",
@@ -301,3 +317,20 @@ def test_resolved_tech_buildings_fold_back_to_snapshot():
         current = resolve_actor(name)
         assert strip_neutral(current) == strip_neutral(original), name
     assert "ParatroopersPower@Allies@EXACT" in resolve_actor("caairp")
+
+
+@pytest.mark.integration
+def test_reimagined_pairs_match_source_files():
+    """Staleness guard: each committed X@REIMAGINED equals X as the mod's rule files define it
+    (resolved without globals.yaml), so an edit of a tech building needs a regeneration."""
+    committed = parse_miniyaml((REPO_ROOT / generate.GLOBALS_FILE).read_text(encoding="utf-8"))
+    source = generate.resolve_neutral_actors()
+    checked = 0
+    for name, tree in source.items():
+        assert not any(k.endswith(("@EXACT", "@REIMAGINED")) for k in tree), name
+        for key, trait in committed.get(name, {}).items():
+            if key.endswith("@REIMAGINED"):
+                original = tree[key[: -len("@REIMAGINED")]]
+                assert trait == {**original, "RequiresCondition": "!balance-exact"}, (name, key)
+                checked += 1
+    assert checked

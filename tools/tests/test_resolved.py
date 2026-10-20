@@ -114,3 +114,25 @@ def test_empty_output_is_not_cached(monkeypatch, tmp_path):
     with pytest.raises(RuntimeError, match="no rules"):
         resolved.resolve_actor("x")
     assert not list(tmp_path.rglob("*.yaml"))
+
+
+def test_mods_without_drops_only_the_named_rules(tmp_path, monkeypatch):
+    from ra2data import resolved
+    repo = tmp_path / "repo"
+    (repo / "mods" / "fake" / "rules").mkdir(parents=True)
+    (repo / "mods" / "other").mkdir()
+    (repo / "mod.config").write_text('MOD_ID="fake"\n', encoding="utf-8")
+    (repo / "mods" / "fake" / "mod.yaml").write_text(
+        "Rules:\n\tfake|rules/a.yaml\n\tfake|rules/b.yaml\n", encoding="utf-8")
+    (repo / "mods" / "fake" / "rules" / "a.yaml").write_text("x:\n", encoding="utf-8")
+    monkeypatch.setattr(resolved, "REPO_ROOT", repo)
+    monkeypatch.setattr(resolved, "MOD_DLL", repo / "missing.dll")
+    monkeypatch.setattr(resolved.tempfile, "tempdir", str(tmp_path / "tmp"))
+    (tmp_path / "tmp").mkdir()
+    out = resolved.mods_without(("rules/b.yaml",))
+    assert (out / "fake" / "mod.yaml").read_text(encoding="utf-8") == "Rules:\n\tfake|rules/a.yaml\n"
+    assert (out / "fake" / "rules" / "a.yaml").read_text(encoding="utf-8") == "x:\n"
+    assert (out / "other").resolve() == (repo / "mods" / "other").resolve()
+    assert resolved.mods_without(("rules/b.yaml",)) == out
+    with pytest.raises(RuntimeError, match="does not list"):
+        resolved.mods_without(("rules/nope.yaml",))

@@ -40,13 +40,12 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
     twin from its FireWarheadsOnDeath (DEATH_WEAPON_TRAIT). Explodes=yes without a
     DeathWeapon (RA2's DefaultDeathWeapon, whose damage "is based on" the unit's strength by
     an undocumented formula) keeps the mod's death weapon.
-  #803 Spy Satellite (SpySat=yes): RA2 reveals the map once; the mod's RevealsMap keeps the
-    whole map visible. The twin reveals while its make animation runs (build-incomplete), so
-    the map is explored once and the fog of war stays.
+  #803 Spy Satellite (SpySat=yes): the base RevealsMap (live map vision while powered) is kept,
+    the closest equivalent with the fog of war on (exact.exceptions "spy-satellite").
 
 Neutral tech buildings (exact.snapshot.NEUTRAL_TECH_ACTORS) get
 `GrantConditionOnPrerequisite@BALANCE` (condition balance-exact on the owner's balance.exact)
-and, for each balance trait with an RA2 value (NEUTRAL_TRAITS), `-X`, `X@REIMAGINED` (the
+and, for each balance trait (NEUTRAL_TRAITS) whose RA2 value differs from the mod's, `-X`, `X@REIMAGINED` (the
 original plus RequiresCondition !balance-exact) and `X@EXACT` (with the RA2 values,
 RequiresCondition balance-exact). exact.snapshot.strip_neutral folds them back. A support
 power pair gets `<OrderName>Exact` on the Exact side: instances sharing an OrderName share one
@@ -64,14 +63,12 @@ from decimal import Decimal
 from exact import conversions
 from exact.actors import ARMOR_TYPES, SUFFIX, split_list, trait_type
 from exact.model import ExactActor, load_actor, load_weapon, parse_bool
-from exact.snapshot import EXACT_CONDITION, EXACT_SUFFIX, NEUTRAL_IGNORED_TRAIT, REIMAGINED_CONDITION, \
-    REIMAGINED_SUFFIX
+from exact.snapshot import EXACT_CONDITION, EXACT_SUFFIX, NEUTRAL_GRANT, NEUTRAL_IGNORED_TRAIT, \
+    REIMAGINED_CONDITION, REIMAGINED_SUFFIX
 
-EXACT_PREREQUISITE = "balance.exact"
 VETERAN, ELITE = "rank-veteran", "rank-elite"
 INVULNERABILITY = "invulnerability"
 DEATH_WEAPON_TRAIT = "FireWarheadsOnDeath"
-SPYSAT_CONDITION = "build-incomplete"
 
 # (multiplier trait type, RA2 ability, [General] key, inverse): the rank traits of ^GainsExperience.
 VETERAN_MULTIPLIERS = (
@@ -336,14 +333,22 @@ def iron_curtain(g: Globals, actor: ExactActor, base: Mapping, twin: str) -> Non
 
 def death_weapon(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin: str,
         weapons: Mapping[str, str]) -> None:
-    if not parse_bool(actor.raw.get("Explodes")):
-        return
-    if actor.death_weapon is None or load_weapon(rules, actor.death_weapon) is None:
-        g.note("death-weapon-strength", f"{twin}: RA2 Explodes=yes without DeathWeapon; mod death weapon kept")
-        return
-    wanted = actor.death_weapon.lower()
+    wanted = (actor.death_weapon or "").lower()
     keys = [k for k, t in sorted(base.items()) if trait_type(k) == DEATH_WEAPON_TRAIT and isinstance(t, Mapping)
         and isinstance(t.get("Weapon"), str) and t["Weapon"].strip().lower() == wanted]
+    if not parse_bool(actor.raw.get("Explodes")):
+        for key in keys:
+            g.note("death-weapons", f"{twin}: {key} {base[key]['Weapon'].strip()} kept: RA2 sets "
+                f"DeathWeapon={actor.death_weapon} without Explodes=yes, and the mod fires it only "
+                f"under {base[key].get('RequiresCondition', 'no condition')}")
+        return
+    if actor.death_weapon is None:
+        g.note("death-weapon-strength", f"{twin}: RA2 Explodes=yes without DeathWeapon; mod death weapon kept")
+        return
+    if load_weapon(rules, actor.death_weapon) is None:
+        g.note("death-weapons", f"{twin}: RA2 DeathWeapon {actor.death_weapon} has no rules.ini section; "
+            "mod death weapon kept")
+        return
     if not keys:
         g.note("death-weapons", f"{twin}: RA2 DeathWeapon {actor.death_weapon} has no {DEATH_WEAPON_TRAIT} "
             "firing it; not applied")
@@ -363,15 +368,16 @@ def spy_satellite(g: Globals, actor: ExactActor, base: Mapping, twin: str) -> No
     if "RevealsMap" not in base:
         g.note("spy-satellite", f"{twin}: no RevealsMap trait to go to")
         return
-    g.put(twin, "RevealsMap", {"RequiresCondition": SPYSAT_CONDITION})
-    g.note("spy-satellite", f"{twin}: RevealsMap while {SPYSAT_CONDITION}")
+    g.note("spy-satellite", f"{twin}: the base RevealsMap is kept "
+        f"(RequiresCondition {base['RevealsMap'].get('RequiresCondition', 'none')})")
 
 
 # --- neutral tech buildings -------------------------------------------------------------------
 
 def neutral_values(rules: dict, actor: ExactActor, tree: Mapping, twins: Collection[str],
         weapons: Mapping[str, str], twin_weapons: Collection[str]) -> dict[str, dict]:
-    """Trait key -> the Exact field values of the neutral tech building `tree`."""
+    """Trait key -> the Exact field values of the neutral tech building `tree`, for the traits
+    where they differ from the mod's."""
     raw = actor.raw
     out: dict[str, dict] = {}
     for key, trait in sorted(tree.items()):
@@ -412,10 +418,11 @@ def neutral_values(rules: dict, actor: ExactActor, tree: Mapping, twins: Collect
                     values["ChargeInterval"] = conversions.minutes_to_ticks(float(sw["RechargeTime"]))
                 if items:
                     values["DropItems"] = items
-                if values and isinstance(trait.get("OrderName"), str):
-                    values["OrderName"] = trait["OrderName"] + "Exact"
-        if values:
-            out[key] = values
+        if not any(str(trait.get(k)) != str(v) for k, v in values.items()):
+            continue  # RA2 and the mod agree: no pair
+        if kind == "ParatroopersPower" and isinstance(trait.get("OrderName"), str):
+            values["OrderName"] = trait["OrderName"] + "Exact"
+        out[key] = values
     return out
 
 
@@ -433,7 +440,7 @@ def neutral_pairs(g: Globals, name: str, tree: Mapping, values: Mapping[str, Map
     values = {k: v for k, v in values.items() if k not in inherited}
     if not values:
         return
-    g.put(name, NEUTRAL_IGNORED_TRAIT, {"Condition": EXACT_CONDITION, "Prerequisites": EXACT_PREREQUISITE})
+    g.put(name, NEUTRAL_IGNORED_TRAIT, NEUTRAL_GRANT)
     for key in sorted(values):
         original = tree[key]
         if "RequiresCondition" in original:
@@ -498,6 +505,11 @@ def build_globals(rules: dict, ra2: Mapping[str, ExactActor], bases: Mapping[str
             g.note("neutral-tech-buildings", f"{name}: no RA2 section; unchanged")
             continue
         found[name] = neutral_values(rules, actor, tree, twins, weapons or {}, twin_weapons)
+        if parse_bool(actor.raw.get("Explodes")) and actor.death_weapon:
+            fired = sorted(t["Weapon"].strip() for k, t in tree.items() if trait_type(k) == DEATH_WEAPON_TRAIT
+                and isinstance(t, Mapping) and isinstance(t.get("Weapon"), str))
+            g.note("death-weapons", f"{name}: RA2 DeathWeapon {actor.death_weapon} not mapped; mod "
+                f"{', '.join(fired) or 'nothing'} kept (neutral buildings are not twinned)")
     parents = neutral_parents or {}
     for name in sorted(found):
         if parents.get(parents.get(name, "")) in found:

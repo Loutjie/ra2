@@ -22,7 +22,7 @@ Comparison
     entry of `Buildable*.Prerequisites`, traits keyed `ReplaceOnPrerequisite@BALANCE`, and
     twin names `<x>.exact` appended after `<x>` to the repair/rearm lists in HOST_FIELDS.
   * Neutral tech buildings (`strip_neutral`) are not replaced but switch traits by
-    condition: `GrantConditionOnPrerequisite@BALANCE` and every `*@EXACT` trait whose
+    condition: `GrantConditionOnPrerequisite@BALANCE` (exactly NEUTRAL_GRANT) and every `*@EXACT` trait whose
     RequiresCondition is exactly `balance-exact` are ignored, and a `X@REIMAGINED` trait must
     equal the original `X` once its `RequiresCondition: !balance-exact` is removed (it may not
     sit beside `X`). Their weapons are collected after that stripping, so the twin weapons
@@ -56,6 +56,8 @@ EXACT_SUFFIX = "@EXACT"
 REIMAGINED_SUFFIX = "@REIMAGINED"
 EXACT_CONDITION = "balance-exact"
 REIMAGINED_CONDITION = "!balance-exact"
+# The only allowed NEUTRAL_IGNORED_TRAIT.
+NEUTRAL_GRANT = {"Condition": EXACT_CONDITION, "Prerequisites": "balance.exact"}
 WEAPON_KEYS = ("Weapon", "EmptyWeapon", "MissileWeapon")
 EXACT_SUFFIX_NAME = ".exact"
 # trait type -> actor list that the Exact overlay may extend with twin names (repair and
@@ -134,12 +136,14 @@ def strip_ignored(tree: dict, twins: Collection[str] | None = None) -> dict:
 def strip_neutral(tree: dict) -> dict:
     """Copy of a neutral tech building's tree with the Exact/Reimagined trait pairs folded back.
 
-    A `X@EXACT` trait whose RequiresCondition is exactly `balance-exact` is dropped, and a
+    `GrantConditionOnPrerequisite@BALANCE` is dropped only when it is exactly NEUTRAL_GRANT. A
+    `X@EXACT` trait whose RequiresCondition is exactly `balance-exact` is dropped, and a
     `X@REIMAGINED` trait whose RequiresCondition is exactly `!balance-exact` becomes `X`
     without that condition. Anything else is left in place, so the comparison fails.
     """
     out = copy.deepcopy(tree)
-    out.pop(NEUTRAL_IGNORED_TRAIT, None)
+    if out.get(NEUTRAL_IGNORED_TRAIT) == NEUTRAL_GRANT:
+        del out[NEUTRAL_IGNORED_TRAIT]
     for key in [k for k in out if k.endswith(EXACT_SUFFIX)]:
         if isinstance(out[key], dict) and out[key].get("RequiresCondition") == EXACT_CONDITION:
             del out[key]

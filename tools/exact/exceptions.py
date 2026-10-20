@@ -372,9 +372,10 @@ EXCEPTIONS: list[ConversionException] = [
         "Lightning Storm weapon twin and timing",
         "RA2 has no weapon section for the storm: its damage is [General] LightningDamage with "
         "the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's "
-        "storm weapon. LightningDeferment (delay before the storm starts), LightningCellSpread "
-        "and LightningSeparation have no field in WeatherControlSupportPower and are not "
-        "applied; the mod's strike delay and cloud spread are kept.",
+        "storm weapon. LightningDeferment (delay before the storm starts) and "
+        "LightningSeparation have no field in WeatherControlSupportPower and are not applied. "
+        "LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of "
+        "-5c0..5c0 already spread the clouds over a 10-cell area.",
         listed=_globals("lightning-storm")),
     ConversionException("iron-curtain-kills-infantry",
         "ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins",
@@ -385,7 +386,10 @@ EXCEPTIONS: list[ConversionException] = [
         "FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)",
         "They fire the twin of their death weapon, with RA2 values where the mod weapon takes "
         "them (weapon-structure-stubs otherwise). Twins whose RA2 actor does not explode keep "
-        "the mod's death weapons, which are visual only (no damage warhead).",
+        "the mod's death weapons: most are visual only (no damage warhead); a damaging one the "
+        "mod fires only under a condition is listed (fv.exact: CRNuke while it carries a "
+        "terrorist, RA2's DeathWeapon=CRNuke). The neutral Oil Derrick (RA2 Explodes=yes, "
+        "DeathWeapon=OilExplosion) is not twinned and keeps the mod's DerrickExplode.",
         listed=_globals("death-weapons")),
     ConversionException("death-weapon-strength",
         "Twins whose RA2 actor has Explodes=yes without a DeathWeapon",
@@ -394,18 +398,20 @@ EXCEPTIONS: list[ConversionException] = [
         "mod's death weapon is kept.",
         listed=_globals("death-weapon-strength")),
     ConversionException("spy-satellite",
-        "RevealsMap of the Spy Satellite twin (#803)",
-        "RA2's SpySat reveals the map once; there is no fog of war, so it never hides again. The "
-        "mod's RevealsMap keeps every cell visible, which removes the fog of war. The twin "
-        "reveals only while its make animation runs (build-incomplete): the map is explored, "
-        "the fog of war stays. A map-placed or captured satellite does not reveal.",
+        "RevealsMap of the Spy Satellite twin (#803): the base trait is kept",
+        "RA2 has no fog of war: once the SpySat reveals the map, it stays visible for good "
+        "(only Gap Generators shroud it again). The mod plays with fog of war, and its "
+        "RevealsMap (live vision of the whole map while powered, !lowpower) is the closest "
+        "equivalent, so the twin keeps it. A faithful mechanic, permanent passive visibility "
+        "that yields to Gap Generators, needs a new trait and is a follow-up.",
         listed=_globals("spy-satellite")),
     ConversionException("neutral-tech-buildings",
         "Exact/Reimagined trait pairs of caairp, cahosp, caoild, caoutp, cathosp (globals.yaml)",
         "Tech buildings are not twinned: they are neutral when the map starts and change owner "
         "when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the "
-        "owner has balance.exact, and each balance trait with an RA2 value becomes a "
-        "X@EXACT/X@REIMAGINED pair. Health (not conditional) keeps the mod's value (RA2's "
+        "owner has balance.exact, and each balance trait whose RA2 value differs from the mod's "
+        "becomes a X@EXACT/X@REIMAGINED pair (the Reimagined side is copied from the mod's rule "
+        "files without globals.yaml). Health (not conditional) keeps the mod's value (RA2's "
         "Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): "
         "powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost "
         "(RA2 gives none for Hospital=yes).",
@@ -414,7 +420,8 @@ EXCEPTIONS: list[ConversionException] = [
         "Every time, speed and turn rate conversion (exact.conversions)",
         "RA2's frame rate at the default skirmish speed is not settled (tools/exact/TIMING.md): "
         "until the in-game measurement, one RA2 frame is one OpenRA tick and a rules.ini minute "
-        "is a wall-clock minute (1500 ticks).",
+        "is a wall-clock minute (1500 ticks). Evidence for the engine's own rate: rules.ini "
+        "comments IronCurtainDuration=750 with \"In frames 900 is a minute for 15fps\".",
         listed=_frame_rate),
 ]
 

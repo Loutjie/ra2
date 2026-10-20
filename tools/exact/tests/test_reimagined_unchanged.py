@@ -126,6 +126,16 @@ def test_strip_neutral_does_not_mutate_input():
     assert json.dumps(current, sort_keys=True) == before
 
 
+def test_neutral_balance_grant_must_be_exact():
+    paired = _neutral_with_pair({"Interval": "100", "Amount": "20", "RequiresCondition": "!balance-exact"})
+    assert strip_neutral(paired) == strip_neutral(NEUTRAL_ORIGINAL)
+    for grant in ({"Condition": "balance-exact", "Prerequisites": "other"},
+            {"Condition": "x", "Prerequisites": "balance.exact"},
+            {"Condition": "balance-exact", "Prerequisites": "balance.exact", "Extra": "1"}):
+        paired["GrantConditionOnPrerequisite@BALANCE"] = grant
+        assert strip_neutral(paired) != strip_neutral(NEUTRAL_ORIGINAL), grant
+
+
 def test_neutral_exact_trait_without_exact_condition_fails():
     for condition in (None, "!balance-exact", "balance-exact && foo", "foo"):
         current = _neutral_with_pair({"Interval": "100", "Amount": "20", "RequiresCondition": "!balance-exact"})

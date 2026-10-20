@@ -51,7 +51,7 @@ from pathlib import Path
 from exact import actors, exceptions, globals as exact_globals, weapons as twin_weapons
 from exact.model import load_actor, load_actors
 from exact.snapshot import (HOST_FIELDS, NEUTRAL_TECH_ACTORS, RULES_DIR, _blocks, actor_names,
-    has_buildable, strip_ignored, strip_neutral, twinned_actors, weapon_definitions)
+    has_buildable, strip_ignored, twinned_actors, weapon_definitions)
 from ra2data import ini
 from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
 
@@ -103,8 +103,8 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
     weapons: lowercase weapon name -> defined weapon name.
     host_actors: other actors (not buildable) that have repair/rearm host lists -> resolved tree.
     resolve_base_weapon: mod weapon name -> resolved tree (default: the built mod).
-    neutral_actors: neutral tech building -> resolved tree (read back with or without a previous
-    run's Exact/Reimagined pairs; exact.snapshot.strip_neutral removes them).
+    neutral_actors: neutral tech building -> resolved tree without GLOBALS_FILE
+    (resolve_neutral_actors).
     """
     ra2 = ra2_actors(rules)
     twins = sorted(set(ra2) & set(base_actors))
@@ -126,7 +126,7 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
             if actors.trait_type(k) == "Armament" and "Weapon" in t)
 
     # Global rules; the death and Lightning Storm weapons they name get twins too.
-    neutral = {name: strip_neutral(tree) for name, tree in (neutral_actors or {}).items()}
+    neutral = dict(neutral_actors or {})
     rules_globals = exact_globals.build_globals(rules, ra2, bases, twins, neutral, weapons, stubs,
         neutral_parents(neutral))
     stubs.update(rules_globals.weapons)
@@ -199,9 +199,18 @@ def resolve_host_actors() -> dict[str, dict]:
         and any(actors.trait_type(k) in HOST_FIELDS for k in tree)}
 
 
+# GLOBALS_FILE as listed in mod.yaml's Rules (relative to the mod folder).
+GLOBALS_RULES_ENTRY = GLOBALS_FILE.removeprefix("mods/ra2/")
+
+
 def resolve_neutral_actors() -> dict[str, dict]:
-    """Resolved tree of every neutral tech building (exact.snapshot.NEUTRAL_TECH_ACTORS)."""
-    return resolve_all(list(NEUTRAL_TECH_ACTORS))
+    """Resolved tree of every neutral tech building (exact.snapshot.NEUTRAL_TECH_ACTORS) as the
+    mod's own rule files define it, without GLOBALS_FILE: the Reimagined side of each pair is
+    copied from these trees, so an edit of the source files must reach it (a tree read back with
+    the previous pairs would keep the previous copy)."""
+    names = list(NEUTRAL_TECH_ACTORS)
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        return dict(zip(names, pool.map(lambda n: resolve_actor(n, without=(GLOBALS_RULES_ENTRY,)), names)))
 
 
 def load_rules() -> dict:
