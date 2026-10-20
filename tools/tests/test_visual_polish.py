@@ -41,3 +41,15 @@ def test_voxel_turret_structures_share_body_zoffset():
         assert _zoffset(seqs["Defaults"]) == -512
         # the build-up animation is drawn above the (not yet present) turret
         assert _zoffset(seqs["make"]) == 0
+
+
+def test_gaweap_ramp_overlay_draws_below_spawned_units():
+    """Exit@1 spawns at (-384,-384) from the centre (world Y -384), so a ramp at ZOffset 0 sorts over the unit."""
+    gaweap = _load("sequences", "allied-structures.yaml")["gaweap"]
+    for name in ("build-ramp", "damaged-build-ramp"):
+        z = _zoffset(gaweap[name])
+        assert -1024 < z < -384, f"{name} ZOffset {z} must be above the body (-1024) and below the spawn point"
+    rules = _load("rules", "allied-structures.yaml")["gaweap"]
+    assert rules["Exit@1"]["SpawnOffset"].replace(" ", "") == "-384,-384,0"
+    # the lintel stays above vehicles
+    assert _zoffset(gaweap["build-top"]) > 0

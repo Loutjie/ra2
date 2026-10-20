@@ -298,6 +298,7 @@ gaweap:
 		Offset: -30, -60, 15
 		ZRamp: 1
 		DepthSprite:
+		ZOffset: -512
 	damaged-build-ramp:
 		Filename: ggweap_1.shp
 		TilesetFilenames:
@@ -307,6 +308,7 @@ gaweap:
 		Offset: -30, -60, 15
 		ZRamp: 1
 		DepthSprite:
+		ZOffset: -512
 	build-top:
 		Filename: ggweap_2.shp
 		TilesetFilenames:
