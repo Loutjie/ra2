@@ -84,3 +84,53 @@ def test_cash_tick_volume_lowered():
         volume = float(sounds[name][1]["VolumeModifier"][0])
         assert 0 < volume < 1.0, name
     assert float(sounds["CashTickUp"][1]["VolumeModifier"][0]) == 0.6
+
+
+def _descendants(root):
+    """Names of all actors/templates whose Inherits chain reaches `root`."""
+    parents = {}
+    for path in sorted((MOD / "rules").glob("*.yaml")):
+        for name, (_, traits) in load_yaml(path).items():
+            parents[name] = [v for k, (v, _) in traits.items() if k == "Inherits" or k.startswith("Inherits@")]
+    found = set()
+    changed = True
+    while changed:
+        changed = False
+        for name, ps in parents.items():
+            if name not in found and any(p == root or p in found for p in ps):
+                found.add(name)
+                changed = True
+    return found
+
+
+def test_infantry_death_sounds_from_template():
+    defaults = rules("defaults")
+    infantry = defaults["^Infantry"][1]
+    inherited = [v for k, (v, _) in infantry.items() if k.startswith("Inherits")]
+    assert "^InfantryDeathSounds" in inherited
+
+    # The template is the only place that configures infantry death sounds.
+    template = defaults["^InfantryDeathSounds"][1]
+    assert not [k for k in infantry if k.startswith("DeathSounds")]
+    by_voice = {}
+    for key, (_, trait) in template.items():
+        assert key.startswith("DeathSounds"), key
+        voice = trait["Voice"][0] if "Voice" in trait else "Die"
+        by_voice.setdefault(voice, set()).update(csv(trait["DeathTypes"][0]))
+    assert by_voice["Die"] >= {"ExplosionDeath", "BulletDeath", "FlameDeath"}
+    assert by_voice["Zapped"] == {"ElectroDeath"}
+    assert by_voice["Melted"] == {"RadiationDeath"}
+    assert by_voice["PsyCrush"] == {"PsychicDeath"}
+
+    # No infantry actor removes or replaces the template.
+    for path in sorted((MOD / "rules").glob("*.yaml")):
+        actors = load_yaml(path)
+        for name in _descendants("^Infantry") & actors.keys():
+            assert "-DeathSounds" not in actors[name][1], name
+
+
+def test_voices_have_no_placeholder_burned_sound():
+    death = load_yaml(MOD / "audio" / "voices.yaml")["^InfantryDeath"][1]["Voices"][1]
+    assert "Burned" not in death
+    assert "Burned" not in csv(death["DisablePrefixes"][0])
+    assert "PsyCrush" in death

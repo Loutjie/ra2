@@ -1,10 +1,9 @@
 ^InfantryDeath:
 	Voices:
 		Zapped: igenzapa
-		Burned: ienadia #gotta put something as temp else game crashes
 		Melted: igenmela, igenmelb, igenmelc
 		PsyCrush: igenexpa
-		DisablePrefixes: Zapped, Burned, Melted, PsyCrush
+		DisablePrefixes: Zapped, Melted, PsyCrush
 
 EngineerVoice:
 	Inherits@death: ^InfantryDeath
@@ -70,6 +69,7 @@ SovietNavalVoice:
 		Attack: vwasata, vwasatb, vwasatc
 
 GIVoice:
+	Inherits@death: ^InfantryDeath
 	DefaultVariant: .wav
 	Voices:
 		Select: igisea, igiseb, igisec, igised, igisee, igisef
@@ -77,9 +77,6 @@ GIVoice:
 		Attack: igiata, igiatb, igiatc, igiatd, igiate, igiatf
 		Feedback: igifea, igifeb
 		Die: igidia, igidib, igidic, igidid, igidie
-		Zapped: igenzapa
-		Burned: ienadia #gotta put something as temp else game crashes
-		Melted: igenmela, igenmelb, igenmelc
 
 ConscriptVoice:
 	Inherits@death: ^InfantryDeath
