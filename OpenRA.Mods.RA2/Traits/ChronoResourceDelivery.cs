@@ -9,6 +9,8 @@
  */
 #endregion
 
+using System.Collections.Generic;
+using System.Linq;
 using OpenRA.Mods.Common.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.RA2.Activities;
@@ -52,6 +54,7 @@ namespace OpenRA.Mods.RA2.Traits
 
 		CPos? destination;
 		int ticksTillCheck;
+		int ticksTillDockSearch;
 
 		// TODO: Rewrite this entire thing, possible to be a subclass of harvester
 		// and make it work properly with activities
@@ -63,7 +66,19 @@ namespace OpenRA.Mods.RA2.Traits
 		void ITick.Tick(Actor self)
 		{
 			if (!destination.HasValue)
+			{
+				// Movement to a dock normally announces the destination (MovingToDock). It never does when no dock
+				// is reachable over land (e.g. refinery across water), so look for one ourselves.
+				if (ticksTillDockSearch <= 0)
+				{
+					ticksTillDockSearch = info.CheckTeleportDelay;
+					TeleportToUnreachableDock(self);
+				}
+				else
+					ticksTillDockSearch--;
+
 				return;
+			}
 
 			if (ticksTillCheck <= 0)
 			{
@@ -101,29 +116,87 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void INotifyHarvestAction.Harvested(Actor self, string resourceType) { }
 
+		/// <summary>
+		/// Decides whether to teleport to a dock cell: never when already there, otherwise whenever the cell is free.
+		/// Deliberately independent of any land path; the destination is what matters, not how the dock is reached.
+		/// </summary>
+		public static bool ShouldTeleport(bool alreadyAtDestination, bool destinationEnterable)
+		{
+			return !alreadyAtDestination && destinationEnterable;
+		}
+
+		/// <summary>Picks the dock cell closest to <paramref name="from"/> in a straight line, ignoring terrain.</summary>
+		public static CPos? ClosestDockCell(CPos from, IEnumerable<CPos> dockCells)
+		{
+			CPos? best = null;
+			var bestDistance = int.MaxValue;
+			foreach (var cell in dockCells)
+			{
+				var distance = (cell - from).LengthSquared;
+				if (distance < bestDistance)
+				{
+					bestDistance = distance;
+					best = cell;
+				}
+			}
+
+			return best;
+		}
+
+		static bool IsMovingToDock(Actor self)
+		{
+			// ChildActivity is not public; the debug label lists the current activity and its running children.
+			return self.CurrentActivity != null && self.CurrentActivity.DebugLabelComponents().Contains(nameof(MoveToDock));
+		}
+
+		void TeleportToUnreachableDock(Actor self)
+		{
+			// Only when the harvester wants to deliver, and is not already docking.
+			var dockClient = self.TraitOrDefault<DockClientManager>();
+			if (dockClient == null || dockClient.IsTraitDisabled || dockClient.ReservedHost != null || !IsMovingToDock(self))
+				return;
+
+			// A dock reachable over land is handled by MovingToDock, exactly as before.
+			if (dockClient.ClosestDock(null) != null)
+				return;
+
+			var cells = self.World.ActorsWithTrait<IDockHost>()
+				.Select(h => h.Actor)
+				.Distinct()
+				.SelectMany(a => dockClient.AvailableDockHosts(a))
+				.Select(h => self.World.Map.CellContaining(h.Trait.DockPosition));
+
+			var dest = ClosestDockCell(self.Location, cells);
+			if (dest.HasValue)
+				TeleportIfPossible(self, dest.Value);
+		}
+
 		void TeleportIfPossible(Actor self)
 		{
-			// We're already here; no need to interfere.
-			if (self.Location == destination.Value)
+			TeleportIfPossible(self, destination.Value);
+		}
+
+		void TeleportIfPossible(Actor self, CPos dest)
+		{
+			// HACK: Cancelling the current activity will call Reset, so the destination is passed in.
+			var pos = self.Trait<IPositionable>();
+			if (!ShouldTeleport(self.Location == dest, pos.CanEnterCell(dest)))
 			{
-				Reset();
+				// We're already here; no need to interfere.
+				if (self.Location == dest)
+					Reset();
+
 				return;
 			}
 
-			// HACK: Cancelling the current activity will call Reset, so cache the destination here
-			var dest = destination.Value;
-			var pos = self.Trait<IPositionable>();
-			if (pos.CanEnterCell(dest))
-			{
-				self.CancelActivity();
-				self.QueueActivity(new ChronoResourceTeleport(dest, info));
+			self.CancelActivity();
+			self.QueueActivity(new ChronoResourceTeleport(dest, info));
 
-				// HACK: Manually queue a delivery and new find since we just cancelled all activities.
-				// No explicit host, so MoveToDock picks the closest available dock (normally the one we just teleported to).
-				self.QueueActivity(new MoveToDock(self, dockLineColor: self.Trait<DockClientManager>().DockLineColor));
-				self.QueueActivity(new FindAndDeliverResources(self));
-				Reset();
-			}
+			// HACK: Manually queue a delivery and new find since we just cancelled all activities.
+			// No explicit host, so MoveToDock picks the closest available dock (normally the one we just teleported to).
+			self.QueueActivity(new MoveToDock(self, dockLineColor: self.Trait<DockClientManager>().DockLineColor));
+			self.QueueActivity(new FindAndDeliverResources(self));
+			Reset();
 		}
 
 		void Reset()
