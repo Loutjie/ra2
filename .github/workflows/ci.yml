@@ -34,6 +34,11 @@ jobs:
           make check
           make check-packaging-scripts
 
+      - name: Unit Tests
+        run: |
+          python3 -m pip install pytest
+          make unit-test
+
       - name: Check Mod
         run: |
           sudo apt-get install lua5.1
@@ -59,6 +64,12 @@ jobs:
           # Work around runtime failures on the GH Actions runner
           dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
           .\make.ps1 check
+
+      - name: Unit Tests
+        shell: powershell
+        run: |
+          python -m pip install pytest
+          .\make.ps1 unit-test
 
       - name: Check Mods
         run: |
