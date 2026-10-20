@@ -58,7 +58,7 @@ from collections.abc import Collection
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from ra2data.resolved import REPO_ROOT, config_value, resolve_actor, resolve_weapon
+from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
 
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "reimagined-snapshot.json"
 RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
