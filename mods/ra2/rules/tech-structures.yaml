@@ -46,7 +46,7 @@ caairp:
 	Tooltip:
 		Name: actor-caairp.name
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 800
 	Building:

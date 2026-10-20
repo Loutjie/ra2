@@ -229,7 +229,7 @@ caeuro05:
 	Tooltip:
 		Name: actor-caeuro05-name
 	Armor:
-		Type: concrete
+		Type: Concrete
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -290,7 +290,7 @@ castrt01:
 	Tooltip:
 		Name: actor-castrt01-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -305,7 +305,7 @@ castrt02:
 	Tooltip:
 		Name: actor-castrt02-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -320,7 +320,7 @@ castrt03:
 	Tooltip:
 		Name: actor-castrt03-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -335,7 +335,7 @@ castrt04:
 	Tooltip:
 		Name: actor-castrt04-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -350,7 +350,7 @@ castrt05:
 	Tooltip:
 		Name: actor-castrt05-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -364,7 +364,7 @@ camov01:
 	Tooltip:
 		Name: actor-camov01-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -382,7 +382,7 @@ camov02:
 	Tooltip:
 		Name: actor-camov02-name
 	Armor:
-		Type: steel
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Health:
@@ -483,7 +483,7 @@ spkr01:
 carus02c:
 	Inherits: ^CivBuilding
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 1000
 	MapEditorData:
@@ -494,7 +494,7 @@ carus02c:
 carus02d:
 	Inherits: ^CivBuilding
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 1000
 	MapEditorData:
@@ -503,7 +503,7 @@ carus02d:
 carus02e:
 	Inherits: ^CivBuilding
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 1000
 	MapEditorData:
@@ -512,7 +512,7 @@ carus02e:
 carus02f:
 	Inherits: ^CivBuilding
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 1000
 	MapEditorData:
@@ -521,7 +521,7 @@ carus02f:
 carus07:
 	Inherits: ^CivBuilding
 	Armor:
-		Type: concrete
+		Type: Concrete
 	RevealsShroud:
 		Range: 6c0
 	Health:
