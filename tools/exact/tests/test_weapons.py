@@ -1,6 +1,8 @@
 """Twin weapon generator (exact.weapons). Fictional rules and resolved trees."""
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from exact import conversions, generate, weapons
@@ -73,10 +75,19 @@ def test_zero_cell_spread_is_point_damage():
 def test_projectile_speed_converted_only_for_flying_ra2_projectiles():
     assert twin(projectile={"ROT": "20"})["Projectile"] == {"_value": "Bullet",
         "Speed": str(conversions.projectile_speed_to_openra(40))}
-    for flags in ({"Inviso": "yes"}, {"Arcing": "true"}, {"Vertical": "yes"}):
+    for flags in ({"Inviso": "yes"}, {"Vertical": "yes"}):
         assert "Projectile" not in twin(projectile=flags)
-    assert weapons.speed_note(make_weapon(), BASE, {"Arcing": "true"}) is not None
-    assert weapons.speed_note(make_weapon(), BASE, {}) is None
+        speed, note = weapons.ra2_projectile_speed(make_weapon(), flags)
+        assert speed is None and "base speed kept" in note
+    assert weapons.ra2_projectile_speed(make_weapon(), {}) == (40, None)
+
+
+def test_arcing_projectiles_fly_at_fixed_speed():
+    # ModEnc "Arcing": the weapon's Speed= (40 here) is ignored, Arcing flies at 50.
+    assert twin(projectile={"Arcing": "true"})["Projectile"]["Speed"] == str(
+        conversions.projectile_speed_to_openra(weapons.ARCING_SPEED))
+    speed, note = weapons.ra2_projectile_speed(make_weapon(), {"Arcing": "yes"})
+    assert speed == weapons.ARCING_SPEED == 50 and "Arcing" in note
 
 
 def test_exception_reasons():
@@ -93,6 +104,8 @@ def test_exception_reasons():
     assert "TargetDamage" in weapons.exception_reason("Gun", w, target)
     steps = {**no_damage, "Warhead@1Dam": {"_value": "SpreadDamage", "Damage": "5", "Range": "0, 32"}}
     assert "Range" in weapons.exception_reason("Gun", w, steps)
+    assert weapons.exception_reason("Gun", w, BASE, fired={"gun"}) is None
+    assert weapons.exception_reason("Gun", w, BASE, fired={"other"}) == weapons.NOT_FIRED
 
 
 RULES = {
@@ -102,7 +115,11 @@ RULES = {
     "BuildingTypes": {"1": "PRISM"},
     "ENGINEER": {"TechLevel": "1", "Owner": "Reds", "Primary": "Sapper"},
     "SPY": {"TechLevel": "1", "Owner": "Reds", "Primary": "FakeC4", "Secondary": "MakeupKit"},
-    "TANK": {"TechLevel": "1", "Owner": "Reds", "Primary": "Gun", "ElitePrimary": "GunE"},
+    "TANK": {"TechLevel": "1", "Owner": "Reds", "Primary": "Gun", "ElitePrimary": "GunE",
+        "Secondary": "BadTeeth"},
+    "BadTeeth": {"Damage": "1", "Warhead": "AP"},
+    # Same name as a mod weapon, but no twinned actor fires it (like MP5 vs ChronoMP5).
+    "MP5": {"Damage": "1", "Warhead": "AP"},
     "PRISM": {"TechLevel": "1", "Owner": "Reds", "Primary": "PrismShot", "Secondary": "PrismSupport"},
     "Sapper": {"Damage": "1", "Warhead": "AP"},
     "FakeC4": {"Damage": "1", "Warhead": "AP"},
@@ -118,10 +135,11 @@ RULES = {
 }
 
 TANK_BASE = {"Buildable": {}, "Armament@primary": {"Weapon": "Gun"},
-    "Armament@elite": {"Weapon": "GunE"}, "Armament@beam": {"Weapon": "Dogjaw"}}
+    "Armament@elite": {"Weapon": "GunE"}, "Armament@beam": {"Weapon": "DogJaw"},
+    "Armament@pistol": {"Weapon": "MP5"}}
 PRISM_BASE = {"Buildable": {}, "Armament": {"Weapon": "PrismShot"}}
 OTHER_BASES = {"engineer": {"Buildable": {}}, "spy": {"Buildable": {}}}
-MOD_WEAPONS = {"gun": "Gun", "gune": "GunE", "dogjaw": "Dogjaw", "prismshot": "PrismShot"}
+MOD_WEAPONS = {"gun": "Gun", "gune": "GunE", "dogjaw": "DogJaw", "mp5": "MP5", "prismshot": "PrismShot"}
 
 
 def resolve(name):
@@ -129,25 +147,49 @@ def resolve(name):
 
 
 @pytest.fixture
-def weapons_file():
-    outputs = generate.build(RULES, {"tank": TANK_BASE, "prism": PRISM_BASE, **OTHER_BASES}, MOD_WEAPONS,
-        resolve_base_weapon=resolve)
+def outputs():
+    # resolve() raises KeyError for anything but Gun, GunE, PrismShot: the not-fired MP5 and
+    # the section-less DogJaw are never resolved.
+    return generate.build(RULES, {"tank": TANK_BASE, "prism": PRISM_BASE, **OTHER_BASES},
+        MOD_WEAPONS, resolve_base_weapon=resolve)
+
+
+@pytest.fixture
+def weapons_file(outputs):
     return outputs[generate.WEAPONS_FILE]
 
 
 def test_weapons_without_mod_counterpart_go_to_exceptions(weapons_file):
     assert ("# RA2 weapons of twinned actors without a mod counterpart (not generated): "
-        "FakeC4, MakeupKit, PrismSupport, Sapper") in weapons_file
-    assert "# Exception: Dogjaw.exact: no rules.ini section of that name" in weapons_file
+        "BadTeeth (mod: DogJaw.exact), FakeC4, MakeupKit, PrismSupport, Sapper\n") in weapons_file
+    assert ("# Exception: DogJaw.exact: no rules.ini section of that name "
+        "(RA2 counterpart: BadTeeth)") in weapons_file
+    assert ("# Exception: MP5.exact: rules.ini section not fired by the twinned RA2 actor "
+        "(RA2 counterpart: ChronoMP5)") in weapons_file
     assert f"# Exception: PrismShot.exact: {weapons.RESTRUCTURED['PrismShot']}" in weapons_file
     tree = parse_miniyaml(weapons_file)
-    assert sorted(tree) == ["Dogjaw.exact", "Gun.exact", "GunE.exact", "PrismShot.exact"]
+    assert sorted(tree) == ["DogJaw.exact", "Gun.exact", "GunE.exact", "MP5.exact", "PrismShot.exact"]
     # Exceptions stay Inherits stubs: base values kept, nothing fabricated.
-    assert tree["Dogjaw.exact"] == {"Inherits": "Dogjaw"}
+    assert tree["DogJaw.exact"] == {"Inherits": "DogJaw"}
+    assert tree["MP5.exact"] == {"Inherits": "MP5"}
     assert tree["PrismShot.exact"] == {"Inherits": "PrismShot"}
     assert tree["Gun.exact"]["Warhead@1Dam"]["Damage"] == "65"
     assert tree["GunE.exact"]["Warhead@1Dam"]["Damage"] == "80"
-    assert "# Not applied: Gun.exact: Projectile Speed" in weapons_file
+    assert "# Speed: Gun.exact: Projectile Speed=40: RA2 projectile Shell is Arcing" in weapons_file
+
+
+def test_weapon_exceptions_report(outputs):
+    report = json.loads(outputs[generate.WEAPON_EXCEPTIONS_FILE])
+    assert report["generated"].startswith("GENERATED by tools/exact/generate.py")
+    assert report["exceptions"] == [
+        {"twin": "DogJaw.exact", "reason": "no rules.ini section of that name",
+            "ra2_counterpart": "BadTeeth"},
+        {"twin": "MP5.exact", "reason": weapons.NOT_FIRED, "ra2_counterpart": "ChronoMP5"},
+        {"twin": "PrismShot.exact", "reason": weapons.RESTRUCTURED["PrismShot"]},
+    ]
+    assert report["ra2_without_mod_counterpart"][0] == {"weapon": "BadTeeth",
+        "mod_twins": ["DogJaw.exact"]}
+    assert [n["twin"] for n in report["notes"]] == ["Gun.exact", "GunE.exact"]
 
 
 def test_weapons_file_is_deterministic(weapons_file):

@@ -285,8 +285,9 @@ def test_generator_weapon_stubs(outputs):
 def test_generator_is_deterministic(outputs):
     again = generate.build(RULES, dict(reversed(list(BASES.items()))), {"rifle": "Rifle"})
     assert again == outputs
-    for text in outputs.values():
-        assert text.startswith(generate.HEADER)
+    for rel, text in outputs.items():
+        if rel.endswith(".yaml"):
+            assert text.startswith(generate.HEADER)
 
 
 # --- integration tests against the built mod and the real rules.ini ---
