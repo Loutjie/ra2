@@ -34,7 +34,10 @@ namespace OpenRA.Mods.RA2.Traits
 		public bool IsValid => Actor != null && !Actor.IsDead;
 	}
 
-	[Desc("This actor can spawn actors.")]
+	[Desc("This actor can spawn actors.",
+		"Exit.SpawnOffset on a spawner is body-local (X forward, Y right, Z up, like Armament.LocalOffset)",
+		"and turns with the spawner, unlike Production, which uses it as an unrotated world offset.",
+		"Spawners are usually mobile (ships), so a fixed world offset would drift around the hull as it turns.")]
 	public class BaseSpawnerParentInfo : ConditionalTraitInfo
 	{
 		[ActorReference]
