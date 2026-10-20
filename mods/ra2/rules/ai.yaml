@@ -101,6 +101,7 @@ Player:
 		RequiresCondition: enable-test-ai
 		SquadSize: 5
 		ExcludeFromSquadsTypes: cmin, harv, amcv, smcv
+		IgnoredEnemyTargetTypes: Missile
 		ConstructionYardTypes: gacnst, nacnst
 		NavalUnitsTypes: dest, aegis, dlph, carrier, sub, hyd, sqd
 		NavalProductionTypes: nayard, gayard

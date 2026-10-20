@@ -1,0 +1,57 @@
+# SPIKE (plan E Task 6 Step 1, branch spike/voxel-missile): launch weapons for shootable voxel missiles.
+# The warheads below are carried by the missile actor and only applied if it arrives.
+
+V3Launcher:
+	ReloadDelay: 150
+	Range: 18c0
+	MinRange: 5c0
+	Projectile: LaunchMissileActor
+		Actor: v3rocket
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 200
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 90
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 100
+			Concrete: 50
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: expnew09.wav
+		ValidTargets: Ground, Air, Water
+
+DredLauncher:
+	ReloadDelay: 50
+	Burst: 2
+	Range: 25c0
+	MinRange: 8c0
+	Projectile: LaunchMissileActor
+		Actor: dmisl
+	Warhead@1Dam: SpreadDamage
+		Spread: 384
+		Damage: 300
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 100
+			Medium: 80
+			Heavy: 80
+			Wood: 85
+			Steel: 65
+			Concrete: 28
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: expnew09.wav
+		ValidTargets: Ground, Air, Water

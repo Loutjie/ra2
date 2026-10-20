@@ -1,0 +1,133 @@
+# SPIKE (plan E Task 6 Step 1, branch spike/voxel-missile): shootable voxel missiles.
+# Throwaway prototype; values are first approximations, see docs/spikes/voxel-missiles.md.
+
+^SpikeMissile:
+	Interactable:
+	AppearsOnRadar:
+		UseLocation: true
+	HiddenUnderFog:
+		Type: CenterPosition
+	Health:
+		HP: 50
+	Armor:
+		Type: Rocket
+	# 'Missile' lets bots ignore missiles when picking squad targets (IgnoredEnemyTargetTypes)
+	# while AA AutoTarget (ValidTargets: Air) still engages them.
+	Targetable:
+		TargetTypes: Air, Missile
+	HitShape:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.4,1.4,1.4
+	WithVoxelBody:
+	# Shot down: effects only, so the target takes no damage.
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+v3rocket:
+	Inherits: ^SpikeMissile
+	MissileActor:
+		PauseTicks: 0
+		TiltTicks: 60
+		PitchInitial: 54
+		PitchFinal: 128
+		PitchTurnRate: 13
+		YawTurnRate: 16
+		Acceleration: 8
+		MaxSpeed: 200
+		CruiseAltitude: 3072
+		Profile: LazyCurve
+
+dmisl:
+	Inherits: ^SpikeMissile
+	MissileActor:
+		PauseTicks: 20
+		TiltTicks: 60
+		PitchInitial: 0
+		PitchFinal: 128
+		PitchTurnRate: 20
+		YawTurnRate: 24
+		Acceleration: 16
+		MaxSpeed: 250
+		CruiseAltitude: 3072
+		Profile: Cruise
+
+v3:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-v3.name
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 900
+		Prerequisites: ~naweap
+		Description: actor-v3.description
+	Mobile:
+		Speed: 72
+		TurnSpeed: 20
+		Locomotor: heavytracked
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+	Armament@primary:
+		Weapon: V3Launcher
+		LocalOffset: -640,0,300
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	RenderVoxels:
+		NormalsPalette: ts-normals
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+	HitShape:
+
+dred:
+	Inherits: ^Ship
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: actor-dred.name
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 900
+		Prerequisites: ~nayard
+		Description: actor-dred.description
+	Mobile:
+		TurnSpeed: 8
+		Speed: 72
+	Health:
+		HP: 800
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament@primary:
+		Weapon: DredLauncher
+		LocalOffset: 120,172,368, 120,-172,368
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 128
+	RenderSprites:
+	Selectable:
+		Bounds: 2412, 2412, 0, -289
+	WithVoxelBody:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	HitShape:
