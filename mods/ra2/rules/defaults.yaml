@@ -1067,9 +1067,12 @@
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
-	Repairable:
+	# Repairable needs the ship at the yard's centre, a cell corner for a 4x4 building, which a ship
+	# can never reach. RepairableNear measures range to the yard's hit shape instead (OpenRA/ra2#715).
+	RepairableNear:
 		Voice: Move
 		RepairActors: gayard, nayard
+		CloseEnough: 1c512
 	HiddenUnderFog:
 	ActorLostNotification:
 	ProximityCaptor:
