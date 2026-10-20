@@ -1,5 +1,6 @@
 Speech:
 	DefaultVariant: .wav
+	DefaultPrefix: ceva
 	Prefixes:
 		america: ceva
 		korea: ceva

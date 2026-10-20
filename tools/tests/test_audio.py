@@ -134,3 +134,16 @@ def test_voices_have_no_placeholder_burned_sound():
     assert "Burned" not in death
     assert "Burned" not in csv(death["DisablePrefixes"][0])
     assert "PsyCrush" in death
+
+
+def test_observer_eva_prefix_exists():
+    speech = load_yaml(MOD / "audio" / "notifications.yaml")["Speech"][1]
+    prefixes = {v for v, _ in speech["Prefixes"][1].values()}
+    # Observers resolve no faction prefix, so Speech needs a default one, and it
+    # must be a real faction prefix so each line still plays exactly once.
+    default = speech["DefaultPrefix"][0]
+    assert default
+    assert default in prefixes
+    # Only Speech gets the default; Sounds notifications are prefix-less.
+    sounds = load_yaml(MOD / "audio" / "notifications.yaml")["Sounds"][1]
+    assert "DefaultPrefix" not in sounds
