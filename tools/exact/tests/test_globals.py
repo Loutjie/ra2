@@ -334,3 +334,19 @@ def test_reimagined_pairs_match_source_files():
                 assert trait == {**original, "RequiresCondition": "!balance-exact"}, (name, key)
                 checked += 1
     assert checked
+
+
+# The BalanceProductionQueue fields in player.yaml are RA2's [General] production rules.
+QUEUE_GENERAL_KEYS = ("MultipleFactory", "MinLowPowerProductionSpeed", "MaxLowPowerProductionSpeed",
+    "LowPowerPenaltyModifier")
+
+
+def test_player_queues_match_rules_ini(ra2ini):
+    player = parse_miniyaml((REPO_ROOT / "mods/ra2/rules/player.yaml").read_text(encoding="utf-8"))["Player"]
+    queues = {k: v for k, v in player.items() if k.split("@")[0] == "BalanceProductionQueue"}
+    assert len(queues) == 6
+    expected = {key: str(conversions.percent(ra2ini["General"][key])) for key in QUEUE_GENERAL_KEYS}
+    assert expected == {"MultipleFactory": "80", "MinLowPowerProductionSpeed": "50",
+        "MaxLowPowerProductionSpeed": "80", "LowPowerPenaltyModifier": "100"}
+    for name, queue in queues.items():
+        assert {key: queue.get(key) for key in QUEUE_GENERAL_KEYS} == expected, name
