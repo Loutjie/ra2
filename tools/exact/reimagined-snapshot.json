@@ -21961,6 +21961,6554 @@
 			}
 		}
 	},
+	"others": {
+		"Player": {
+			"AllyRepair": {},
+			"BalanceProductionQueue@Aircraft": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "4",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Training",
+				"ReadyAudio": "UnitReady",
+				"SpeedUp": "true",
+				"Type": "Aircraft"
+			},
+			"BalanceProductionQueue@Building": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "0",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Building",
+				"ReadyAudio": "ConstructionComplete",
+				"SpeedUp": "true",
+				"Type": "Building"
+			},
+			"BalanceProductionQueue@Infantry": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "2",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Training",
+				"ReadyAudio": "UnitReady",
+				"SpeedUp": "true",
+				"Type": "Infantry"
+			},
+			"BalanceProductionQueue@Ship": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "5",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Training",
+				"ReadyAudio": "UnitReady",
+				"SpeedUp": "true",
+				"Type": "Ship"
+			},
+			"BalanceProductionQueue@Support": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "1",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Building",
+				"ReadyAudio": "ConstructionComplete",
+				"SpeedUp": "true",
+				"Type": "Support"
+			},
+			"BalanceProductionQueue@Vehicle": {
+				"BlockedAudio": "NoBuild",
+				"CancelledAudio": "Cancelled",
+				"DisplayOrder": "3",
+				"LowPowerModifier": "300",
+				"LowPowerPenaltyModifier": "100",
+				"MaxLowPowerProductionSpeed": "80",
+				"MinLowPowerProductionSpeed": "50",
+				"MultipleFactory": "80",
+				"OnHoldAudio": "OnHold",
+				"QueuedAudio": "Training",
+				"ReadyAudio": "UnitReady",
+				"SpeedUp": "true",
+				"Type": "Vehicle"
+			},
+			"BaseBuilderBotModule@test": {
+				"BuildingFractions": {
+					"amradr": "1",
+					"atesla": "4",
+					"gaairc": "1",
+					"gadept": "1",
+					"gagap": "1",
+					"gapile": "1",
+					"gapill": "10",
+					"gapowr": "35",
+					"garefn": "30",
+					"gatech": "1",
+					"gaweap": "1",
+					"gayard": "1",
+					"gtgcan": "1",
+					"naclon": "1",
+					"nadept": "1",
+					"naflak": "4",
+					"nahand": "1",
+					"nalasr": "10",
+					"namisl": "1",
+					"nanrct": "10",
+					"napowr": "25",
+					"naradr": "1",
+					"narefn": "30",
+					"nasam": "4",
+					"natech": "1",
+					"naweap": "1",
+					"nayard": "1",
+					"tesla": "4"
+				},
+				"BuildingLimits": {
+					"amradr": "2",
+					"gaairc": "2",
+					"gadept": "1",
+					"gagap": "2",
+					"gapile": "2",
+					"gapowr": "8",
+					"garefn": "4",
+					"gatech": "1",
+					"gaweap": "2",
+					"gayard": "1",
+					"nadept": "1",
+					"nahand": "2",
+					"nanrct": "1",
+					"napowr": "8",
+					"naradr": "1",
+					"narefn": "4",
+					"natech": "1",
+					"naweap": "2",
+					"nayard": "1"
+				},
+				"ConstructionYardTypes": "gacnst, nacnst",
+				"DefenseQueues": "Support",
+				"DefenseTypes": "gapill, nasam, gtgcan, atesla, naflak, tesla, nalasr",
+				"MaxBaseRadius": "50",
+				"NavalProductionTypes": "nayard, gayard",
+				"PowerTypes": "gapowr, napowr, nanrct",
+				"ProductionTypes": "gapile, nahand, gaweap, naweap, gaairc, amradr",
+				"RefineryTypes": "garefn, narefn",
+				"RequiresCondition": "enable-test-ai"
+			},
+			"BuildingRepairBotModule": {
+				"RequiresCondition": "enable-test-ai"
+			},
+			"ConquestVictoryConditions": {},
+			"DamageNotifier": {
+				"AllyNotification": "OurAllyIsUnderAttack",
+				"Notification": "BaseAttack",
+				"ValidTargets": "BaseAttackNotify"
+			},
+			"DeveloperMode": {
+				"CheckboxDisplayOrder": "5",
+				"CheckboxEnabled": "true"
+			},
+			"FrozenActorLayer": {},
+			"GameSaveViewportManager": {},
+			"GpsWatcher": {},
+			"GrantConditionOnBotOwner@test": {
+				"Bots": "test",
+				"Condition": "enable-test-ai"
+			},
+			"GrantConditionOnPrerequisiteManager": {},
+			"HarvesterAttackNotifier": {
+				"Notification": "OreMinerUnderAttack"
+			},
+			"HarvesterBotModule": {
+				"RequiresCondition": "enable-test-ai"
+			},
+			"LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY": {
+				"Description": "checkbox-redeployable-mcvs.description",
+				"DisplayOrder": "7",
+				"Enabled": "True",
+				"ID": "factundeploy",
+				"Label": "checkbox-redeployable-mcvs.label",
+				"Prerequisites": "global-factundeploy"
+			},
+			"LobbyPrerequisiteDropdown@BALANCE": {
+				"Default": "reimagined",
+				"Description": "dropdown-balance.description",
+				"DisplayOrder": "8",
+				"ID": "balance",
+				"Label": "dropdown-balance.label",
+				"Prerequisites": {
+					"exact": "balance.exact",
+					"reimagined": "balance.reimagined"
+				},
+				"Values": {
+					"exact": "dropdown-balance.exact",
+					"reimagined": "dropdown-balance.reimagined"
+				}
+			},
+			"McvManagerBotModule@test": {
+				"ConstructionYardTypes": "gacnst, nacnst",
+				"McvFactoryTypes": "gaweap, naweap",
+				"McvTypes": "amcv, smcv",
+				"RequiresCondition": "enable-test-ai"
+			},
+			"MissionObjectives": {
+				"LeaveNotification": "Leave",
+				"LoseNotification": "Lose",
+				"WinNotification": "Win"
+			},
+			"ModularBot@testai": {
+				"Name": "actor-player-modularbot-testai-name",
+				"Type": "test"
+			},
+			"PlaceBeacon": {
+				"ArrowSequence": {},
+				"BeaconSequence": "idle",
+				"CircleSequence": {},
+				"IsPlayerPalette": "true",
+				"Palette": "player"
+			},
+			"PlaceBuilding": {
+				"CannotPlaceNotification": "BuildingCannotPlaceAudio",
+				"NewOptionsNotification": "NewOptions"
+			},
+			"PlayerRadarTerrain": {},
+			"PlayerResources": {
+				"CashTickDownNotification": "CashTickDown",
+				"CashTickUpNotification": "CashTickUp",
+				"ResourceValues": {
+					"Gems": "50",
+					"Ore": "25"
+				}
+			},
+			"PlayerStatistics": {},
+			"PowerManager": {
+				"AdviceInterval": "30000",
+				"SpeechNotification": "LowPower"
+			},
+			"ProductionIconOverlayManager": {
+				"Image": "cameo-chevron",
+				"Palette": "cameo-chevron",
+				"Sequence": "idle",
+				"Type": "Veterancy"
+			},
+			"ProvidesTechPrerequisite@infonly": {
+				"Id": "infantryonly",
+				"Name": "options-tech-level.infantry-only",
+				"Prerequisites": "techlevel.infonly"
+			},
+			"ProvidesTechPrerequisite@low": {
+				"Id": "low",
+				"Name": "options-tech-level.low",
+				"Prerequisites": "techlevel.infonly, techlevel.low"
+			},
+			"ProvidesTechPrerequisite@medium": {
+				"Id": "medium",
+				"Name": "options-tech-level.medium",
+				"Prerequisites": "techlevel.infonly, techlevel.low, techlevel.medium"
+			},
+			"ProvidesTechPrerequisite@unrestricted": {
+				"Id": "unrestricted",
+				"Name": "options-tech-level.unrestricted",
+				"Prerequisites": "techlevel.infonly, techlevel.low, techlevel.medium, techlevel.unrestricted"
+			},
+			"ScriptTriggers": {},
+			"Shroud": {
+				"FogCheckboxDisplayOrder": "3"
+			},
+			"SquadManagerBotModule@test": {
+				"AirUnitsTypes": "jumpjet, shad, zep, orca, beag",
+				"ConstructionYardTypes": "gacnst, nacnst",
+				"ExcludeFromSquadsTypes": "cmin, harv, amcv, smcv",
+				"NavalProductionTypes": "nayard, gayard",
+				"NavalUnitsTypes": "dest, aegis, dlph, carrier, sub, hyd, sqd",
+				"ProtectionTypes": "gacnst, gapowr, gapile, garefn, gaairc, amradr, gaweap, gayard, gadept, gatech, gapill, nasam, gtgcan, gaorep, gaspysat, gagap, gaweat, gacsph, atesla, nacnst, napowr, nahand, narefn, naradr, naweap, nayard, nadept, nanrct, natech, naclon, napsis, nairon, namisl, naflak, tesla, nalasr, amcv, cmin, smcv, harv",
+				"RequiresCondition": "enable-test-ai",
+				"SquadSize": "5"
+			},
+			"SupportPowerBotModule@test": {
+				"Decisions": {
+					"airborne": {
+						"Consideration@1": {
+							"Against": "Enemy",
+							"Attractiveness": "1",
+							"CheckRadius": "8c0",
+							"TargetMetric": "None",
+							"Types": "Structure"
+						},
+						"Consideration@2": {
+							"Against": "Enemy",
+							"Attractiveness": "-5",
+							"CheckRadius": "8c0",
+							"TargetMetric": "None",
+							"Types": "Water"
+						},
+						"MinimumAttractiveness": "5",
+						"OrderName": "AmericanParatroopers"
+					},
+					"nukepower": {
+						"Consideration@1": {
+							"Against": "Enemy",
+							"Attractiveness": "1",
+							"CheckRadius": "5c0",
+							"TargetMetric": "Value",
+							"Types": "Structure"
+						},
+						"Consideration@2": {
+							"Against": "Ally",
+							"Attractiveness": "-10",
+							"CheckRadius": "7c0",
+							"TargetMetric": "Value",
+							"Types": "Air, Ground, Water"
+						},
+						"MinimumAttractiveness": "3000",
+						"OrderName": "NukePowerInfoOrder"
+					}
+				},
+				"RequiresCondition": "enable-test-ai"
+			},
+			"SupportPowerManager": {},
+			"TechTree": {},
+			"UnitBuilderBotModule@test": {
+				"RequiresCondition": "enable-test-ai",
+				"UnitLimits": {
+					"cmin": "8",
+					"dog": "4",
+					"harv": "8"
+				},
+				"UnitsToBuild": {
+					"aegis": "20",
+					"apoc": "10",
+					"carrier": "3",
+					"cmin": "10",
+					"deso": "1",
+					"dest": "20",
+					"dlph": "5",
+					"dog": "1",
+					"e1": "90",
+					"e2": "90",
+					"flakt": "10",
+					"fv": "20",
+					"harv": "10",
+					"htk": "20",
+					"htnk": "50",
+					"hyd": "20",
+					"ivan": "3",
+					"jumpjet": "2",
+					"mgtk": "10",
+					"mtnk": "50",
+					"shk": "10",
+					"snipe": "5",
+					"sqd": "5",
+					"sref": "10",
+					"sub": "20",
+					"tany": "1",
+					"tnkd": "15",
+					"ttnk": "15",
+					"yuri": "1"
+				}
+			}
+		},
+		"World": {
+			"ActorMap": {},
+			"AutoSave": {},
+			"BridgeLayer": {},
+			"BuildingInfluence": {},
+			"ChatCommands": {},
+			"CliffBackImpassabilityLayer": {},
+			"ColorPickerManager": {
+				"PresetColors": "F21818, F2BC18, DAF218, 18F26F, 18BEF2, 1821F2, BA18F2, F218BC, F29191, F2DF79, CDF291, 79F2BF, 91DBF2, 7997F2, CD91F2, F279E6",
+				"PreviewActor": "amcv.colorpicker"
+			},
+			"ColorPickerPalette@colorpicker": {
+				"AllowModifiers": "false",
+				"BasePalette": "player",
+				"Name": "colorpicker",
+				"RemapIndex": "16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31"
+			},
+			"ControlGroups": {},
+			"CrateSpawner": {
+				"CheckboxDisplayOrder": "1",
+				"InitialSpawnDelay": "1000",
+				"Maximum": "3",
+				"Minimum": "1",
+				"SpawnInterval": "3000",
+				"WaterChance": "25"
+			},
+			"CreateMapPlayers": {},
+			"CustomTerrainDebugOverlay": {},
+			"DebugPauseState": {},
+			"DebugVisualizationCommands": {},
+			"DebugVisualizations": {},
+			"DevCommands": {},
+			"Faction@1": {
+				"Description": "faction-america.description",
+				"InternalName": "america",
+				"Name": "faction-america.name",
+				"Side": "Allies"
+			},
+			"Faction@2": {
+				"Description": "faction-germany.description",
+				"InternalName": "germany",
+				"Name": "faction-germany.name",
+				"Side": "Allies"
+			},
+			"Faction@3": {
+				"Description": "faction-england.description",
+				"InternalName": "england",
+				"Name": "faction-england.name",
+				"Side": "Allies"
+			},
+			"Faction@4": {
+				"Description": "faction-france.description",
+				"InternalName": "france",
+				"Name": "faction-france.name",
+				"Side": "Allies"
+			},
+			"Faction@5": {
+				"Description": "faction-korea.description",
+				"InternalName": "korea",
+				"Name": "faction-korea.name",
+				"Side": "Allies"
+			},
+			"Faction@6": {
+				"Description": "faction-cuba.description",
+				"InternalName": "cuba",
+				"Name": "faction-cuba.name",
+				"Side": "Soviets"
+			},
+			"Faction@7": {
+				"Description": "faction-libya.description",
+				"InternalName": "libya",
+				"Name": "faction-libya.name",
+				"Side": "Soviets"
+			},
+			"Faction@8": {
+				"Description": "faction-iraq.description",
+				"InternalName": "iraq",
+				"Name": "faction-iraq.name",
+				"Side": "Soviets"
+			},
+			"Faction@9": {
+				"Description": "faction-russia.description",
+				"InternalName": "russia",
+				"Name": "faction-russia.name",
+				"Side": "Soviets"
+			},
+			"Faction@allies": {
+				"Description": "faction-allies.description",
+				"InternalName": "random-allies",
+				"Name": "faction-allies.name",
+				"RandomFactionMembers": "america, germany, england, france, korea",
+				"Side": "Randoms"
+			},
+			"Faction@random": {
+				"Description": "faction-random.description",
+				"InternalName": "Random",
+				"Name": "faction-random.name",
+				"RandomFactionMembers": "random-allies, random-soviets",
+				"Side": "Randoms"
+			},
+			"Faction@soviets": {
+				"Description": "faction-soviets.description",
+				"InternalName": "random-soviets",
+				"Name": "faction-soviets.name",
+				"RandomFactionMembers": "cuba, libya, iraq, russia",
+				"Side": "Randoms"
+			},
+			"FlashPostProcessEffect@NUKE": {
+				"Length": "90",
+				"Type": "Nuke"
+			},
+			"HelpCommand": {},
+			"HierarchicalPathFinderOverlay": {},
+			"LoadWidgetAtGameStart": {
+				"ShellmapRoot": "MAINMENU_PRERELEASE_NOTIFICATION"
+			},
+			"Locomotor@FLAMEGUY": {
+				"Crushes": "crate",
+				"Name": "flameguy",
+				"SharesCell": "true",
+				"TerrainSpeeds": {
+					"Clear": "45",
+					"DirtRoad": "50",
+					"Gems": "45",
+					"Ore": "45",
+					"Rail": "45",
+					"Road": "50",
+					"Rough": "40"
+				}
+			},
+			"Locomotor@FOOT": {
+				"Crushes": "crate",
+				"Name": "foot",
+				"SharesCell": "true",
+				"TerrainSpeeds": {
+					"Bridge": "100",
+					"Clear": "100",
+					"DirtRoad": "100",
+					"Gems": "80",
+					"Ore": "90",
+					"Rail": "90",
+					"Road": "100",
+					"Rough": "100"
+				}
+			},
+			"Locomotor@HEAVYTRACKED": {
+				"Crushes": "wall, crate, infantry",
+				"Name": "heavytracked",
+				"TerrainSpeeds": {
+					"Beach": "100",
+					"Bridge": "100",
+					"Clear": "100",
+					"DirtRoad": "100",
+					"Gems": "70",
+					"Ore": "70",
+					"Rail": "50",
+					"Road": "100",
+					"Rough": "100"
+				}
+			},
+			"Locomotor@LANDINGCRAFT": {
+				"Crushes": "crate",
+				"Name": "lcraft",
+				"TerrainSpeeds": {
+					"Beach": "60",
+					"Clear": "80",
+					"DirtRoad": "100",
+					"Gems": "50",
+					"Ore": "50",
+					"Rail": "50",
+					"Road": "100",
+					"Rough": "80",
+					"Water": "100"
+				}
+			},
+			"Locomotor@NAVAL": {
+				"Crushes": "crate",
+				"Name": "naval",
+				"TerrainSpeeds": {
+					"Water": "100"
+				}
+			},
+			"Locomotor@SWIMSUIT": {
+				"Crushes": "crate",
+				"Name": "swimsuit",
+				"SharesCell": "true",
+				"TerrainSpeeds": {
+					"Bridge": "100",
+					"Clear": "100",
+					"DirtRoad": "100",
+					"Gems": "80",
+					"Ore": "90",
+					"Rail": "90",
+					"Road": "100",
+					"Rough": "100",
+					"Water": "70"
+				}
+			},
+			"Locomotor@TRACKED": {
+				"Crushes": "crate, infantry",
+				"Name": "tracked",
+				"TerrainSpeeds": {
+					"Beach": "100",
+					"Bridge": "100",
+					"Clear": "100",
+					"DirtRoad": "100",
+					"Gems": "70",
+					"Ore": "70",
+					"Rail": "50",
+					"Road": "100",
+					"Rough": "100"
+				}
+			},
+			"Locomotor@WHEELED": {
+				"Crushes": "crate",
+				"Name": "wheeled",
+				"TerrainSpeeds": {
+					"Beach": "100",
+					"Bridge": "100",
+					"Clear": "100",
+					"DirtRoad": "100",
+					"Gems": "70",
+					"Ore": "70",
+					"Rail": "50",
+					"Road": "100",
+					"Rough": "100"
+				}
+			},
+			"MapBuildRadius": {
+				"AllyBuildRadiusCheckboxDisplayOrder": "4",
+				"BuildRadiusCheckboxVisible": "false"
+			},
+			"MapOptions": {
+				"GameSpeedDropdownDisplayOrder": "4",
+				"ShortGameCheckboxDisplayOrder": "2",
+				"TechLevelDropdownDisplayOrder": "3"
+			},
+			"MapStartingLocations": {
+				"SeparateTeamSpawnsCheckboxDisplayOrder": "6"
+			},
+			"MenuPostProcessEffect": {},
+			"ModelRenderer": {},
+			"MusicPlaylist": {
+				"DefeatMusic": "score",
+				"VictoryMusic": "score"
+			},
+			"ObjectivesPanel": {
+				"PanelName": "SKIRMISH_STATS"
+			},
+			"OrderEffects": {
+				"TerrainFlashImage": "moveflsh",
+				"TerrainFlashPalette": "moveflash",
+				"TerrainFlashSequence": "idle"
+			},
+			"PaletteFromFile@chrome": {
+				"AllowModifiers": "false",
+				"Filename": "cameo.pal",
+				"Name": "chrome",
+				"ShadowIndex": "242"
+			},
+			"PaletteFromFile@effect": {
+				"Filename": "anim.pal",
+				"Name": "effect"
+			},
+			"PaletteFromFile@mousepal": {
+				"CursorPalette": "true",
+				"Filename": "mousepal.pal",
+				"Name": "mouse"
+			},
+			"PaletteFromFile@outpost-rubble": {
+				"Filename": "isosno.pal",
+				"Name": "outpost-rubble",
+				"ShadowIndex": "1"
+			},
+			"PaletteFromFile@pips": {
+				"AllowModifiers": "false",
+				"Filename": "palette.pal",
+				"Name": "pips",
+				"ShadowIndex": "4"
+			},
+			"PaletteFromFile@playersno": {
+				"Filename": "unitsno.pal",
+				"Name": "player",
+				"ShadowIndex": "1",
+				"Tileset": "SNOW"
+			},
+			"PaletteFromFile@playertem": {
+				"Filename": "unittem.pal",
+				"Name": "player",
+				"ShadowIndex": "1",
+				"Tileset": "TEMPERATE"
+			},
+			"PaletteFromFile@playerurb": {
+				"Filename": "uniturb.pal",
+				"Name": "player",
+				"ShadowIndex": "1",
+				"Tileset": "URBAN"
+			},
+			"PaletteFromFile@ra": {
+				"Filename": "palette.pal",
+				"Name": "ra",
+				"ShadowIndex": "4"
+			},
+			"PaletteFromFile@resource": {
+				"Filename": "temperat.pal",
+				"Name": "resource",
+				"ShadowIndex": "1"
+			},
+			"PaletteFromFile@snowcity": {
+				"Filename": "citysno.pal",
+				"Name": "city",
+				"ShadowIndex": "1",
+				"Tileset": "SNOW"
+			},
+			"PaletteFromFile@snowliberty": {
+				"Filename": "libsno.pal",
+				"Name": "liberty",
+				"ShadowIndex": "1",
+				"Tileset": "SNOW"
+			},
+			"PaletteFromFile@temperatecity": {
+				"Filename": "citytem.pal",
+				"Name": "city",
+				"ShadowIndex": "1",
+				"Tileset": "TEMPERATE"
+			},
+			"PaletteFromFile@temperateliberty": {
+				"Filename": "libtem.pal",
+				"Name": "liberty",
+				"ShadowIndex": "1",
+				"Tileset": "TEMPERATE"
+			},
+			"PaletteFromFile@terrain-snow": {
+				"Filename": "isosno.pal",
+				"Name": "terrain",
+				"ShadowIndex": "1",
+				"Tileset": "SNOW"
+			},
+			"PaletteFromFile@terrain-temperate": {
+				"Filename": "isotem.pal",
+				"Name": "terrain",
+				"ShadowIndex": "1",
+				"Tileset": "TEMPERATE"
+			},
+			"PaletteFromFile@terrain-urban": {
+				"Filename": "isourb.pal",
+				"Name": "terrain",
+				"ShadowIndex": "1",
+				"Tileset": "URBAN"
+			},
+			"PaletteFromFile@ts-chrome": {
+				"AllowModifiers": "false",
+				"Filename": "tscameo.pal",
+				"Name": "ts-chrome",
+				"ShadowIndex": "242"
+			},
+			"PaletteFromFile@ts-mousepal": {
+				"Filename": "ts-mousepal.pal",
+				"Name": "ts-mouse"
+			},
+			"PaletteFromFile@urbancity": {
+				"Filename": "cityurb.pal",
+				"Name": "city",
+				"ShadowIndex": "1",
+				"Tileset": "URBAN"
+			},
+			"PaletteFromFile@urbanliberty": {
+				"Filename": "liburb.pal",
+				"Name": "liberty",
+				"ShadowIndex": "1",
+				"Tileset": "URBAN"
+			},
+			"PaletteFromPaletteWithAlpha@effect50alpha": {
+				"Alpha": "0.5",
+				"BasePalette": "effect",
+				"Name": "effect50alpha"
+			},
+			"PaletteFromPaletteWithAlpha@effect75alpha": {
+				"Alpha": "0.75",
+				"BasePalette": "ra",
+				"Name": "effect75alpha"
+			},
+			"PaletteFromPaletteWithAlpha@terrainalpha": {
+				"Alpha": "0.55",
+				"BasePalette": "terrain",
+				"Name": "terrainalpha"
+			},
+			"PaletteFromPlayerPaletteWithAlpha@cloak": {
+				"Alpha": "0.50",
+				"BaseName": "cloak",
+				"BasePalette": "player"
+			},
+			"PaletteFromPng@cameo-chevron": {
+				"AllowModifiers": "false",
+				"Filename": "cameo-chevron.png",
+				"Name": "cameo-chevron"
+			},
+			"PaletteFromRGBA@disabled": {
+				"A": "180",
+				"B": "0",
+				"G": "0",
+				"Name": "disabled",
+				"R": "0"
+			},
+			"PaletteFromRGBA@highlight": {
+				"A": "128",
+				"B": "255",
+				"G": "255",
+				"Name": "highlight",
+				"R": "255"
+			},
+			"PaletteFromRGBA@invuln": {
+				"A": "128",
+				"B": "0",
+				"G": "0",
+				"Name": "invuln",
+				"R": "128"
+			},
+			"PaletteFromRGBA@moveflash": {
+				"A": "64",
+				"B": "255",
+				"G": "255",
+				"Name": "moveflash",
+				"R": "255"
+			},
+			"PaletteFromRGBA@shadow": {
+				"A": "140",
+				"B": "0",
+				"G": "0",
+				"Name": "shadow",
+				"R": "0"
+			},
+			"PathFinder": {},
+			"PathFinderOverlay": {},
+			"PlayerColorPalette": {
+				"BasePalette": "player",
+				"RemapIndex": "16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31"
+			},
+			"PlayerCommands": {},
+			"ProductionQueueFromSelection": {
+				"ProductionPaletteWidget": "PRODUCTION_PALETTE"
+			},
+			"RadarPings": {},
+			"ReplaceOnPrerequisiteAtLoad": {},
+			"ResourceClaimLayer": {},
+			"ResourceLayer": {
+				"RecalculateResourceDensity": "true",
+				"ResourceTypes": {
+					"Gems": {
+						"AllowedTerrainTypes": "Clear, Rough, Road",
+						"MaxDensity": "12",
+						"ResourceIndex": "2",
+						"TerrainType": "Gems"
+					},
+					"Ore": {
+						"AllowedTerrainTypes": "Clear, Rough, Road",
+						"MaxDensity": "12",
+						"ResourceIndex": "1",
+						"TerrainType": "Ore"
+					}
+				}
+			},
+			"ResourceRenderer": {
+				"ResourceTypes": {
+					"Gems": {
+						"Name": "resource-minerals",
+						"Palette": "resource",
+						"Sequences": "gem01, gem02, gem03, gem04, gem05, gem06, gem07, gem08, gem09, gem10, gem11, gem12"
+					},
+					"Ore": {
+						"Name": "resource-minerals",
+						"Palette": "resource",
+						"Sequences": "tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12, tib13, tib14, tib15, tib16, tib17, tib18, tib19, tib20"
+					}
+				}
+			},
+			"ScreenMap": {},
+			"ScreenShaker": {},
+			"Selection": {},
+			"ShroudRenderer": {
+				"FogPalette": "shroud",
+				"Index": "255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255",
+				"ShroudPalette": "shroud",
+				"UseExtendedIndex": "true"
+			},
+			"SmudgeLayer@largecrater": {
+				"Sequence": "largecraters",
+				"SmokeChance": "25",
+				"SmokeImage": "largesmoke",
+				"SmokeSequences": "idle",
+				"Type": "LargeCrater"
+			},
+			"SmudgeLayer@largescorch": {
+				"Sequence": "largescorches",
+				"SmokeChance": "100",
+				"SmokeImage": "largefire",
+				"SmokeSequences": "idle",
+				"Type": "LargeScorch"
+			},
+			"SmudgeLayer@mediumcrater": {
+				"Sequence": "mediumcraters",
+				"SmokeChance": "25",
+				"SmokeImage": "smallsmoke",
+				"SmokeSequences": "idle",
+				"Type": "MediumCrater"
+			},
+			"SmudgeLayer@mediumscorch": {
+				"Sequence": "mediumscorches",
+				"SmokeChance": "75",
+				"SmokeImage": "mediumfire",
+				"SmokeSequences": "idle",
+				"Type": "MediumScorch"
+			},
+			"SmudgeLayer@smallcrater": {
+				"Sequence": "smallcraters",
+				"SmokeChance": "25",
+				"SmokeImage": "smallsmoke",
+				"SmokeSequences": "idle",
+				"Type": "SmallCrater"
+			},
+			"SmudgeLayer@smallscorch": {
+				"Sequence": "smallscorches",
+				"SmokeChance": "50",
+				"SmokeImage": "smallfire",
+				"SmokeSequences": "idle",
+				"Type": "SmallScorch"
+			},
+			"SpawnMapActors": {},
+			"SpawnStartingUnits": {
+				"DropdownDisplayOrder": "2"
+			},
+			"StartGameNotification": {},
+			"StartingUnits@amcv": {
+				"BaseActor": "amcv",
+				"BaseActorFacing": "896",
+				"Class": "none",
+				"ClassName": "options-starting-units.mcv-only",
+				"Factions": "allies, america, germany, england, france, korea"
+			},
+			"StartingUnits@heavyallies": {
+				"BaseActor": "amcv",
+				"BaseActorFacing": "896",
+				"Class": "heavy",
+				"ClassName": "options-starting-units.heavy",
+				"Factions": "allies, america, germany, england, france, korea",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e1,e1,e1,e1,mtnk,mtnk,fv,engineer",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@heavysoviets": {
+				"BaseActor": "smcv",
+				"BaseActorFacing": "896",
+				"Class": "heavy",
+				"ClassName": "options-starting-units.heavy",
+				"Factions": "soviets, cuba, libya, iraq, russia",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e2,e2,e2,e2,e2,htnk,htnk,htk,engineer",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@lightallies": {
+				"BaseActor": "amcv",
+				"BaseActorFacing": "896",
+				"Class": "light",
+				"ClassName": "options-starting-units.light",
+				"Factions": "allies, america, germany, england, france, korea",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e1,e1",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@lightsoviets": {
+				"BaseActor": "smcv",
+				"BaseActorFacing": "896",
+				"Class": "light",
+				"ClassName": "options-starting-units.light",
+				"Factions": "soviets, cuba, libya, iraq, russia",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e2,e2,e2",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@mediumallies": {
+				"BaseActor": "amcv",
+				"BaseActorFacing": "896",
+				"Class": "medium",
+				"ClassName": "options-starting-units.medium",
+				"Factions": "allies, america, germany, england, france, korea",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e1,e1,e1,mtnk,engineer",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@mediumsoviets": {
+				"BaseActor": "smcv",
+				"BaseActorFacing": "896",
+				"Class": "medium",
+				"ClassName": "options-starting-units.medium",
+				"Factions": "soviets, cuba, libya, iraq, russia",
+				"InnerSupportRadius": "3",
+				"OuterSupportRadius": "5",
+				"SupportActors": "dog,e2,e2,e2,e2,htnk,engineer",
+				"SupportActorsFacing": "896"
+			},
+			"StartingUnits@smcv": {
+				"BaseActor": "smcv",
+				"BaseActorFacing": "896",
+				"Class": "none",
+				"ClassName": "options-starting-units.mcv-only",
+				"Factions": "soviets, cuba, libya, iraq, russia"
+			},
+			"TSShroudPalette@shroud": {
+				"Name": "shroud"
+			},
+			"TerrainGeometryOverlay": {},
+			"TerrainLighting": {},
+			"TerrainRenderer": {},
+			"TimeLimitManager": {
+				"TimeLimitDisplayOrder": "1",
+				"TimeLimitWarnings": {
+					"1": "OneMinuteRemaining",
+					"10": "TenMinutesRemaining",
+					"2": "TwoMinutesRemaining",
+					"20": "TwentyMinutesRemaining",
+					"3": "ThreeMinutesRemaining",
+					"4": "FourMinutesRemaining",
+					"5": "FiveMinutesRemaining"
+				}
+			},
+			"TintedCellsLayer@radiation": {
+				"Brightest": "128",
+				"Darkest": "32"
+			},
+			"ValidateOrder": {},
+			"VoxelCache": {},
+			"VoxelNormalsPalette@normals": {
+				"Name": "normals",
+				"Type": "RedAlert2"
+			},
+			"VoxelNormalsPalette@ts-normals": {
+				"Name": "ts-normals",
+				"Type": "TiberianSun"
+			},
+			"WarheadDebugOverlay": {},
+			"WeatherPaletteEffect@LIGHTNINGSTORM": {
+				"Color": "08112e50",
+				"Length": "300",
+				"Type": "LightningStorm"
+			}
+		},
+		"amcv.colorpicker": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Heavy"
+			},
+			"BaseBuilding": {},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "1000"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "heavytracked",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "60",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {
+				"RequiredForShortGame": "true"
+			},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"Image": "amcv",
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Palette": "colorpicker",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "4c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1641, 2702, 0, -337",
+				"Priority": "4"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"Name": "actor-amcv.name"
+			},
+			"Transforms": {
+				"Facing": "384",
+				"IntoActor": "gacnst",
+				"NoTransformNotification": "BuildingCannotPlaceAudio",
+				"Offset": "-1,-1",
+				"TransformSounds": "uplace.wav",
+				"Voice": "Move"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "3000"
+			},
+			"Voiced": {
+				"VoiceSet": "AlliedConstructionVehicleVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"asw": {
+			"Aircraft": {
+				"AirborneCondition": "airborne",
+				"AltitudeVelocity": "240",
+				"CanHover": "True",
+				"CanSlide": "True",
+				"CruiseAltitude": "5600",
+				"CruisingCondition": "cruising",
+				"IdleBehavior": "ReturnToBase",
+				"InitialFacing": "768",
+				"LandingSounds": "vosplana.wav",
+				"RepulsionSpeed": "40",
+				"Speed": "180",
+				"TakeOffOnCreation": "false",
+				"TakeoffSounds": "vospstaa.wav",
+				"TurnSpeed": "32",
+				"VTOL": "true",
+				"Voice": "Move"
+			},
+			"AmmoPool": {
+				"Ammo": "5",
+				"AmmoCondition": "ammo"
+			},
+			"AppearsOnRadar": {
+				"UseLocation": "true"
+			},
+			"Armament": {
+				"PauseOnCondition": "!ammo",
+				"RequiresCondition": "!rank-elite",
+				"Weapon": "ASWBomb"
+			},
+			"Armament@Elite": {
+				"PauseOnCondition": "!ammo",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "ASWBombE"
+			},
+			"Armor": {
+				"Type": "Light"
+			},
+			"AttackAircraft": {
+				"FacingTolerance": "80",
+				"RequiresCondition": "ammo"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"CarrierChild": {
+				"LandingDistance": "8c0"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DeathSounds": {},
+			"DrawLineToTarget": {},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"ExperienceModifier": "500",
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "135"
+			},
+			"HiddenUnderFog": {
+				"Type": "CenterPosition"
+			},
+			"HitShape": {},
+			"Hovers@CRUISING": {
+				"RequiresCondition": "cruising"
+			},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"Interactable": {},
+			"MapEditorData": {
+				"Categories": "Aircraft"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"Rearmable": {
+				"RearmActors": "dest, cdest"
+			},
+			"RejectsOrders": {},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"RevealsShroud": {
+				"Range": "2c0",
+				"Type": "CenterPosition"
+			},
+			"ScriptTriggers": {},
+			"SelectionDecorations": {},
+			"SpawnActorOnDeath": {
+				"Actor": "aswhusk"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "!airborne && damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "airborne",
+				"TargetTypes": "Air"
+			},
+			"Targetable@ground": {
+				"RequiresCondition": "!airborne",
+				"TargetTypes": "Ground, Vehicle"
+			},
+			"Tooltip": {
+				"Name": "actor-asw-name"
+			},
+			"UpdatesPlayerStatistics": {
+				"AddToArmyValue": "true"
+			},
+			"Valued": {
+				"Cost": "50"
+			},
+			"WithAmmoPipsDecoration": {
+				"Palette": "pips",
+				"Position": "BottomLeft",
+				"RequiresSelection": "true"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"bus": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Cargo": {
+				"MaxWeight": "20",
+				"Types": "Infantry",
+				"UnloadVoice": "Move"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-bus-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithCargoPipsDecoration": {
+				"CustomPipSequences": {
+					"blue": "pip-blue",
+					"green": "pip-green",
+					"red": "pip-red",
+					"yellow": "pip-yellow"
+				},
+				"Palette": "pips",
+				"PipCount": "5",
+				"Position": "BottomLeft",
+				"RequiresSelection": "true"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"car": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-car-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"cdest": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armament@asw": {
+				"Name": "asw",
+				"Weapon": "ASWLauncher"
+			},
+			"Armament@elite": {
+				"FireDelay": "2",
+				"LocalOffset": "1152,0,800",
+				"MuzzleSequence": "muzzle-2",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "155mmE"
+			},
+			"Armament@primary": {
+				"FireDelay": "2",
+				"LocalOffset": "1152,0,800",
+				"MuzzleSequence": "muzzle",
+				"RequiresCondition": "!rank-elite",
+				"Weapon": "155mm"
+			},
+			"Armor": {
+				"Type": "Light"
+			},
+			"AttackFrontal": {
+				"Armaments": "primary",
+				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
+				"Voice": "Attack"
+			},
+			"AttackFrontal@Spawner": {
+				"Armaments": "asw",
+				"FacingTolerance": "512",
+				"Voice": "Attack"
+			},
+			"AttackMove": {
+				"AssaultMoveCondition": "assault-move",
+				"Voice": "Attack"
+			},
+			"AutoTarget": {
+				"AttackAnythingCondition": "stance-attackanything"
+			},
+			"AutoTargetPriority@ATTACKANYTHING": {
+				"InvalidTargets": "NoAutoTarget",
+				"RequiresCondition": "stance-attackanything || assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Structure, Defense"
+			},
+			"AutoTargetPriority@DEFAULT": {
+				"InvalidTargets": "NoAutoTarget, WaterStructure",
+				"RequiresCondition": "!stance-attackanything && !assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Defense"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"CarrierParent": {
+				"Actors": "asw",
+				"ArmamentNames": "asw",
+				"LoadedCondition": "loaded",
+				"RespawnTicks": "300"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DetectCloaked": {
+				"DetectionTypes": "Underwater",
+				"Range": "4c0"
+			},
+			"DrawLineToTarget": {},
+			"Exit": {
+				"SpawnOffset": "768,0,0"
+			},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplode",
+				"Weapon": "UnitExplode"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "600"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"LeavesTrails": {
+				"Image": "wake",
+				"MovingInterval": "6",
+				"Palette": "effect50alpha",
+				"StationaryInterval": "18",
+				"TerrainTypes": "Water"
+			},
+			"MapEditorData": {
+				"Categories": "Naval"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "naval",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "90",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Ship"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderDetectionCircle": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gayard, nayard",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "7c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1930, 3861, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-ship-generic-name",
+				"Name": "actor-cdest-name"
+			},
+			"UpdatesPlayerStatistics": {
+				"AddToArmyValue": "true"
+			},
+			"Valued": {
+				"Cost": "1000"
+			},
+			"WithCarrierParentPipsDecoration": {
+				"Palette": "pips",
+				"Position": "BottomLeft"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithMuzzleOverlay": {},
+			"WithVoxelBody@EMPTY": {
+				"RequiresCondition": "!loaded",
+				"Sequence": "empty"
+			},
+			"WithVoxelBody@FULL": {
+				"RequiresCondition": "loaded"
+			}
+		},
+		"cona": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-cona-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"cop": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-cop-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"cruise": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "300"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"LeavesTrails": {
+				"Image": "wake",
+				"MovingInterval": "6",
+				"Palette": "effect50alpha",
+				"StationaryInterval": "18",
+				"TerrainTypes": "Water"
+			},
+			"MapEditorData": {
+				"Categories": "Naval"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "naval",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "60",
+				"TurnSpeed": "4",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Ship"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gayard, nayard",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "8c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-ship-generic-name",
+				"Name": "actor-cruise-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "500"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithVoxelBody": {}
+		},
+		"euroc": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-euroc-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"hornet": {
+			"Aircraft": {
+				"AirborneCondition": "airborne",
+				"AltitudeVelocity": "240",
+				"CanHover": "True",
+				"CanSlide": "True",
+				"CruiseAltitude": "5600",
+				"CruisingCondition": "cruising",
+				"IdleBehavior": "None",
+				"InitialFacing": "896",
+				"LandingSounds": "vhorlana.wav, vhorlanb.wav",
+				"Repulsable": "false",
+				"Speed": "273",
+				"TakeOffOnCreation": "false",
+				"TakeoffSounds": "vhortaka.wav, vhortakb.wav",
+				"VTOL": "true",
+				"Voice": "Move"
+			},
+			"AmmoPool": {
+				"Ammo": "5",
+				"AmmoCondition": "ammo"
+			},
+			"AppearsOnRadar": {
+				"UseLocation": "true"
+			},
+			"Armament": {
+				"PauseOnCondition": "!ammo",
+				"RequiresCondition": "!rank-elite",
+				"Weapon": "HornetBomb"
+			},
+			"Armament@Elite": {
+				"PauseOnCondition": "!ammo",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "HornetBombE"
+			},
+			"Armor": {
+				"Type": "Light"
+			},
+			"AttackAircraft": {
+				"FacingTolerance": "80",
+				"Voice": "Attack"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"CarrierChild": {
+				"DamageTypes": "DefaultDeath",
+				"LandingDistance": "8c0"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DrawLineToTarget": {},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"ExperienceModifier": "500",
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "75"
+			},
+			"HiddenUnderFog": {
+				"Type": "CenterPosition"
+			},
+			"HitShape": {},
+			"Hovers@CRUISING": {
+				"RequiresCondition": "cruising"
+			},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"Interactable": {
+				"Bounds": "362, 579"
+			},
+			"MapEditorData": {
+				"Categories": "Aircraft"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"Rearmable": {
+				"RearmActors": "carrier"
+			},
+			"RejectsOrders": {},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"RevealsShroud": {
+				"Range": "1c512",
+				"Type": "CenterPosition"
+			},
+			"ScriptTriggers": {},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "!airborne && damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "airborne",
+				"TargetTypes": "Air"
+			},
+			"Targetable@ground": {
+				"RequiresCondition": "!airborne",
+				"TargetTypes": "Ground, Vehicle"
+			},
+			"Tooltip": {
+				"Name": "actor-hornet-name"
+			},
+			"UpdatesPlayerStatistics": {
+				"AddToArmyValue": "true"
+			},
+			"Valued": {
+				"Cost": "50"
+			},
+			"WithAmmoPipsDecoration": {
+				"EmptySequence": "pip-ammoempty",
+				"FullSequence": "pip-ammo",
+				"Palette": "pips",
+				"Position": "BottomLeft",
+				"RequiresSelection": "true"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"limo": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Cargo": {
+				"MaxWeight": "20",
+				"Types": "Infantry",
+				"UnloadVoice": "Move"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-limo-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithCargoPipsDecoration": {
+				"CustomPipSequences": {
+					"blue": "pip-blue",
+					"green": "pip-green",
+					"red": "pip-red",
+					"yellow": "pip-yellow"
+				},
+				"Palette": "pips",
+				"PipCount": "5",
+				"Position": "BottomLeft",
+				"RequiresSelection": "true"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"pick": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-pick-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"propa": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-propa-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"ptruck": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-ptruck-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"stang": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "actor-stang.generic-name",
+				"Name": "actor-stang.name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"suvb": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-suvb-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"suvw": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-suvw-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"taxi": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-taxi-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"trucka": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-trucka-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"truckb": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-truckb-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		},
+		"tug": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "200"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"LeavesTrails": {
+				"Image": "wake",
+				"MovingInterval": "6",
+				"Palette": "effect50alpha",
+				"StationaryInterval": "18",
+				"TerrainTypes": "Water"
+			},
+			"MapEditorData": {
+				"Categories": "Naval"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "naval",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "60",
+				"TurnSpeed": "8",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Ship"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gayard, nayard",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "8c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-ship-generic-name",
+				"Name": "actor-tug-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "500"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithVoxelBody": {}
+		},
+		"wini": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armor": {
+				"Type": "Light"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "130",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"1000": "rank-elite",
+					"500": "rank-veteran"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "100"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "50",
+				"RequiresCondition": "rank-elite"
+			},
+			"MapEditorData": {
+				"Categories": "Civilian vehicle"
+			},
+			"MindControllable": {
+				"Condition": "controlled"
+			},
+			"Mobile": {
+				"Locomotor": "wheeled",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "113",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "20",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "ChangeOwner",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "75",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "90",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {},
+			"RenderVoxels": {
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, nadept, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "5c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "140",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@MC": {
+				"RequiresCondition": "!controlled",
+				"TargetTypes": "MindControl"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-civvehicle-generic-name",
+				"Name": "actor-wini-name"
+			},
+			"UpdatesPlayerStatistics": {},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "CarVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithIdleOverlay@mindcontrol": {
+				"Palette": "effect",
+				"RequiresCondition": "controlled",
+				"Sequence": "mindcontrol"
+			},
+			"WithMindControlArc": {
+				"Offset": "0,0,960",
+				"UsePlayerColor": "true"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
+		}
+	},
 	"weapons": {
 		"105mm": {
 			"Projectile": {
@@ -22471,6 +29019,128 @@
 				"Explosions": "medium_clsn",
 				"ImpactSounds": "gexp14a.wav",
 				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"ASWBomb": {
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"BoundToTerrainType": "Water",
+				"ContrailLength": "8",
+				"ContrailStartColor": "D8D8FF",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "32",
+				"Image": "DRAGON",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "11c512",
+				"Shadow": "true",
+				"Speed": "384",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "3c0",
+			"ReloadDelay": "3",
+			"Report": "vospatta.wav",
+			"ValidTargets": "Submergeable",
+			"Warhead@1Dam": {
+				"Damage": "50",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 0",
+				"Spread": "426",
+				"ValidTargets": "Submergeable",
+				"Versus": {
+					"Concrete": "60",
+					"Drone": "25",
+					"Flak": "25",
+					"Heavy": "100",
+					"Light": "75",
+					"Medium": "100",
+					"None": "25",
+					"Plate": "25",
+					"Rocket": "100",
+					"Steel": "85",
+					"Wood": "65"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"ExplosionPalette": "effect",
+				"Explosions": "small_grey_explosion",
+				"ImpactSounds": "gexpifva.wav",
+				"ValidTargets": "Ground",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"ASWBombE": {
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"BoundToTerrainType": "Water",
+				"ContrailLength": "8",
+				"ContrailStartColor": "EA0000",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "32",
+				"Image": "DRAGON",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "11c512",
+				"Shadow": "true",
+				"Speed": "384",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "3c0",
+			"ReloadDelay": "3",
+			"Report": "vospatta.wav",
+			"ValidTargets": "Submergeable",
+			"Warhead@1Dam": {
+				"Damage": "80",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 0",
+				"Spread": "426",
+				"ValidTargets": "Submergeable",
+				"Versus": {
+					"Concrete": "60",
+					"Drone": "25",
+					"Flak": "25",
+					"Heavy": "100",
+					"Light": "75",
+					"Medium": "100",
+					"None": "25",
+					"Plate": "25",
+					"Rocket": "100",
+					"Steel": "85",
+					"Wood": "65"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"ExplosionPalette": "effect",
+				"Explosions": "small_grey_explosion",
+				"ImpactSounds": "gexpifva.wav",
+				"ValidTargets": "Ground",
 				"_value": "CreateEffect"
 			},
 			"Warhead@3EffWater": {
@@ -23594,6 +30264,132 @@
 				"ImpactSounds": "gexpwasa.wav",
 				"ValidTargets": "Water",
 				"_value": "CreateEffect"
+			}
+		},
+		"HornetBomb": {
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"ContrailLength": "8",
+				"ContrailStartColor": "D8D8FF",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "32",
+				"Image": "DRAGON",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "11c512",
+				"Shadow": "true",
+				"Speed": "384",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "3",
+			"Report": "vospatta.wav",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "80",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 0",
+				"Spread": "0c410",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "75",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "100",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "100",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_grey_explosion",
+				"ImpactSounds": "gexpifva.wav",
+				"ValidTargets": "Ground",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			},
+			"Warhead@4Smu": {
+				"SmudgeType": "SmallCrater",
+				"_value": "LeaveSmudge"
+			}
+		},
+		"HornetBombE": {
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"ContrailLength": "8",
+				"ContrailStartColor": "EA0000",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "32",
+				"Image": "DRAGON",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "11c512",
+				"Shadow": "true",
+				"Speed": "384",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "3",
+			"Report": "vospatta.wav",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "140",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 0",
+				"Spread": "0c512",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "75",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "100",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "100",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_grey_explosion",
+				"ImpactSounds": "gexpapoa.wav",
+				"ValidTargets": "Ground",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			},
+			"Warhead@4Smu": {
+				"SmudgeType": "MediumCrater, MediumScorch",
+				"_value": "LeaveSmudge"
 			}
 		},
 		"HornetLauncher": {

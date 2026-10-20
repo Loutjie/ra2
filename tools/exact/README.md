@@ -81,13 +81,21 @@ either constant and regenerating rescales every time, speed and turn rate in Exa
 Run from the repository root: `python3 -m pytest tools -q` (also part of `make unit-test`).
 
 - **Reimagined snapshot** (`tests/test_reimagined_unchanged.py`, `reimagined-snapshot.json`):
-  every buildable actor, the neutral tech buildings and every weapon they reference must
-  resolve exactly as they did before balance modes. Allowed differences only: the
-  `~balance.reimagined` prerequisite, `ReplaceOnPrerequisite@BALANCE`, twin names appended
-  after their base in repair/rearm host lists, and the tech buildings' `@EXACT` traits and
-  condition (a `X@REIMAGINED` trait must equal the original `X`). The snapshot is a fixed
-  record; regenerate it (`python3 -m exact.snapshot --write`) only for an intended change
-  to the Reimagined balance.
+  every buildable actor, the neutral tech buildings, the `World` and `Player` actors, every
+  other existing actor that `reimagined.yaml`, `globals.yaml` or `ai.yaml` changes (hornet,
+  asw, cdest, civilian vehicles, `amcv.colorpicker`, ...) and every weapon they reference
+  must resolve as they do without the generated Exact files. The snapshot is captured from
+  the mod resolved without those files (pure Reimagined). Allowed differences only: the
+  `~balance.reimagined` prerequisite and `ReplaceOnPrerequisite@BALANCE` on buildables; twin
+  names appended after their base in repair/rearm host lists; the tech buildings' `@EXACT`
+  traits and condition (a `X@REIMAGINED` trait must equal the original `X`); on the
+  `Player`, `BalanceProductionQueue` in place of `ClassicProductionQueue` (its Exact-only
+  fields ignored, the rest compared) and the AI twins (a twin beside its base in a list, a
+  `<name>.exact` key with its base's value, a support power decision copy differing only in
+  `OrderName`); on the `World`, the empty `ReplaceOnPrerequisiteAtLoad`. A test also fails
+  when an overlay starts changing an actor the snapshot does not hold. The snapshot is a
+  fixed record; regenerate it (`python3 -m exact.snapshot --write`, needs a built mod) only
+  for an intended change to the Reimagined balance or a new overlaid actor.
 - **Unit tests** (`tests/test_*.py`) use inline fictional data.
 - **Integration tests** (marked `integration`; need a built mod) read the committed files and
   the mod as the engine resolves it: `tests/test_integration.py` checks the twin count, that

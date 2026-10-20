@@ -1,10 +1,17 @@
-"""Snapshot of the Reimagined balance: every buildable actor and every weapon they reference.
+"""Snapshot of the Reimagined balance (the guard that it never changes).
 
-What is captured
+Reimagined snapshot (reimagined-snapshot.json, `--write`)
+  Captured from the mod resolved WITHOUT the generated Exact files (exact_mod_entries, via
+  ra2data.resolved.mods_without), so it records pure Reimagined.
+
   * Actors: every non-abstract top-level actor defined in the mod's rule files
     (mods/ra2/rules/*.yaml; names starting with '^', '-' or '@' are skipped) whose
     *resolved* rules contain a trait named `Buildable` or `Buildable@<x>`. The
     snapshot stores the whole resolved rule tree (all traits) of each actor.
+  * Neutral tech buildings (NEUTRAL_TECH_ACTORS), whole, under "neutral".
+  * Others: the World and Player actors and every other existing actor that the generated
+    overlays (OVERLAY_PATHS: reimagined.yaml, globals.yaml, ai.yaml) change, e.g. hornet,
+    asw, cdest, civilian vehicles, amcv.colorpicker; whole, under "others".
   * Weapons: every weapon named by a `Weapon`, `EmptyWeapon` or `MissileWeapon`
     field anywhere in a captured actor's tree (covers Armament*, Explodes*,
     FireWarheadsOnDeath-style traits, etc.). Comma-separated lists are split.
@@ -12,24 +19,25 @@ What is captured
     The whole resolved weapon definition is stored.
     References are matched case-insensitively (OpenRA lowercases weapon names) and
     stored under the defined key; capture raises if a referenced weapon is undefined.
+    The neutral buildings' weapons are collected once their Exact traits are stripped
+    (strip_neutral), so the twin weapons those traits name do not count.
   * SpawnActorOnDeath and similar actor references are not weapons and are not followed.
-  * Neutral tech buildings (NEUTRAL_TECH_ACTORS) are captured whole under "neutral",
-    and the weapons they reference (once their Exact traits are stripped, see strip_neutral)
-    are followed like those of the buildable actors.
 
-Comparison
-  * Buildable actors and weapons (`strip_ignored`) ignore only the `~balance.reimagined`
-    entry of `Buildable*.Prerequisites`, traits keyed `ReplaceOnPrerequisite@BALANCE`, and
-    twin names `<x>.exact` appended after `<x>` to the repair/rearm lists in HOST_FIELDS.
-  * Neutral tech buildings (`strip_neutral`) are not replaced but switch traits by
-    condition: `GrantConditionOnPrerequisite@BALANCE` (exactly NEUTRAL_GRANT) and every `*@EXACT` trait whose
-    RequiresCondition is exactly `balance-exact` are ignored, and a `X@REIMAGINED` trait must
-    equal the original `X` once its `RequiresCondition: !balance-exact` is removed (it may not
-    sit beside `X`). Their weapons are collected after that stripping, so the twin weapons
-    named by `*@EXACT` traits do not count as Reimagined weapons.
+  The test resolves the same names from the whole mod and compares, ignoring only:
+  * Buildable actors and weapons (`strip_ignored`): the `~balance.reimagined` entry of
+    `Buildable*.Prerequisites`, traits keyed `ReplaceOnPrerequisite@BALANCE`, and twin names
+    `<x>.exact` appended after `<x>` to the repair/rearm lists in HOST_FIELDS.
+  * Neutral tech buildings (`strip_neutral`): `GrantConditionOnPrerequisite@BALANCE` (exactly
+    NEUTRAL_GRANT) and every `*@EXACT` trait whose RequiresCondition is exactly `balance-exact`
+    are ignored, and a `X@REIMAGINED` trait must equal the original `X` once its
+    `RequiresCondition: !balance-exact` is removed (it may not sit beside `X`).
+  * Others (`strip_other`): the appended host twins as above; on the Player, the
+    BalanceProductionQueue rename and its Exact-only fields (strip_queues) and the AI twin
+    additions (strip_ai_twins); on the World, the empty ReplaceOnPrerequisiteAtLoad
+    (strip_world). Nothing else.
 
-CLI (run from the tools/ directory, or from anywhere with tools/ on PYTHONPATH):
-    python3 -m exact.snapshot --write     # regenerate exact/reimagined-snapshot.json
+CLI (run from the tools/ directory, or from anywhere with tools/ on PYTHONPATH; needs a built mod):
+    python3 -m exact.snapshot --write        # regenerate exact/reimagined-snapshot.json
 """
 from __future__ import annotations
 
@@ -42,12 +50,25 @@ import sys
 from collections.abc import Collection
 from pathlib import Path
 
-from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
+from ra2data.resolved import REPO_ROOT, config_value, resolve_actor, resolve_weapon
 
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "reimagined-snapshot.json"
 RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
 WEAPONS_DIR = REPO_ROOT / "mods" / "ra2" / "weapons"
 EXACT_ACTORS_PATH = RULES_DIR / "exact" / "actors.yaml"
+MOD_YAML = REPO_ROOT / "mods" / "ra2" / "mod.yaml"
+# Generated files that change existing (non-twin) actors; actors.yaml only defines twins.
+OVERLAY_PATHS = tuple(RULES_DIR / "exact" / f for f in ("reimagined.yaml", "globals.yaml", "ai.yaml"))
+SYSTEM_ACTORS = ("World", "Player")
+# The Player's production queues: the Balance queue is a ClassicProductionQueue plus these
+# Exact-only fields (BalanceProductionQueueInfo).
+BALANCE_QUEUE = "BalanceProductionQueue"
+CLASSIC_QUEUE = "ClassicProductionQueue"
+BALANCE_QUEUE_FIELDS = ("ExactPrerequisite", "MultipleFactory", "MinLowPowerProductionSpeed",
+    "MaxLowPowerProductionSpeed", "LowPowerPenaltyModifier")
+# The World trait that replaces map-load actors before the first tick (allowed only empty).
+WORLD_TRAIT = "ReplaceOnPrerequisiteAtLoad"
+SUPPORT_POWER_MODULE = "SupportPowerBotModule"
 REIMAGINED_TOKEN = "~balance.reimagined"
 IGNORED_TRAIT = "ReplaceOnPrerequisite@BALANCE"
 NEUTRAL_TECH_ACTORS = ("caairp", "cahosp", "caoild", "caoutp", "cathosp")
@@ -110,6 +131,14 @@ def strip_appended_twins(value: str, twins: Collection[str] | None = None) -> st
     return ", ".join(names)
 
 
+def _strip_hosts(tree: dict, twins: Collection[str] | None) -> None:
+    """Remove the appended twin names from the HOST_FIELDS lists of `tree`, in place."""
+    for key, trait in tree.items():
+        field = HOST_FIELDS.get(key.split("@")[0])
+        if field and isinstance(trait, dict) and isinstance(trait.get(field), str):
+            trait[field] = strip_appended_twins(trait[field], twins)
+
+
 def strip_ignored(tree: dict, twins: Collection[str] | None = None) -> dict:
     """Copy of a resolved actor/weapon tree without the allowed Reimagined additions.
 
@@ -117,10 +146,8 @@ def strip_ignored(tree: dict, twins: Collection[str] | None = None) -> dict:
     """
     out = copy.deepcopy(tree)
     out.pop(IGNORED_TRAIT, None)
+    _strip_hosts(out, twins)
     for key, trait in out.items():
-        field = HOST_FIELDS.get(key.split("@")[0])
-        if field and isinstance(trait, dict) and isinstance(trait.get(field), str):
-            trait[field] = strip_appended_twins(trait[field], twins)
         if not is_buildable_trait(key) or not isinstance(trait, dict):
             continue
         prereqs = trait.get("Prerequisites")
@@ -156,6 +183,122 @@ def strip_neutral(tree: dict) -> dict:
         del trait["RequiresCondition"]
         out[base] = trait
     return out
+
+
+def strip_beside_twins(value: str, twins: Collection[str] | None = None) -> str:
+    """An AI actor list without each `<name>.exact` that directly follows its `<name>`, where
+    `<name>` is a twinned actor (exact.ai writes each twin beside its base). Any other
+    `.exact` entry is kept so that the comparison fails."""
+    if twins is None:
+        twins = twinned_actors()
+    names = [p.strip() for p in value.split(",") if p.strip()]
+    kept = [n for i, n in enumerate(names) if not (n.endswith(EXACT_SUFFIX_NAME) and i > 0
+        and names[i - 1] == n[: -len(EXACT_SUFFIX_NAME)] and n[: -len(EXACT_SUFFIX_NAME)] in twins)]
+    return ", ".join(kept)
+
+
+def _is_bot_module(key: str) -> bool:
+    kind = key.split("@")[0]
+    return kind.endswith(("BotModule", "BotManager")) and kind != SUPPORT_POWER_MODULE
+
+
+def strip_ai_twins(tree: dict, twins: Collection[str] | None = None) -> dict:
+    """Copy of the Player tree without the AI twin additions of exact.ai:
+
+      * in a `*BotModule`/`*BotManager` trait, a twin listed directly after its twinned base in
+        a comma list, and a dictionary key `<name>.exact` of a twinned `<name>` that is also a
+        key, with the same value;
+      * in SupportPowerBotModule Decisions, a `<decision>.exact` that equals `<decision>` but
+        for another OrderName.
+    """
+    if twins is None:
+        twins = twinned_actors()
+    out = copy.deepcopy(tree)
+    for key, trait in out.items():
+        if not isinstance(trait, dict):
+            continue
+        if key.split("@")[0] == SUPPORT_POWER_MODULE and isinstance(trait.get("Decisions"), dict):
+            decisions = trait["Decisions"]
+            for name in [n for n in decisions if n.endswith(EXACT_SUFFIX_NAME)]:
+                base = decisions.get(name[: -len(EXACT_SUFFIX_NAME)])
+                copied = decisions[name]
+                if (isinstance(base, dict) and isinstance(copied, dict)
+                        and copied.get("OrderName") != base.get("OrderName")
+                        and {**copied, "OrderName": None} == {**base, "OrderName": None}):
+                    del decisions[name]
+            continue
+        if not _is_bot_module(key):
+            continue
+        for field, value in trait.items():
+            if isinstance(value, str):
+                trait[field] = strip_beside_twins(value, twins)
+            elif isinstance(value, dict) and "_value" not in value:
+                for name in [n for n in value if n.endswith(EXACT_SUFFIX_NAME)]:
+                    base = name[: -len(EXACT_SUFFIX_NAME)]
+                    if base in twins and base in value and value[base] == value[name]:
+                        del value[name]
+    return out
+
+
+def strip_queues(tree: dict) -> dict:
+    """Copy of the Player tree with each `BalanceProductionQueue[@x]` turned back into the
+    `ClassicProductionQueue[@x]` it extends: renamed, without BALANCE_QUEUE_FIELDS. A Balance
+    queue beside a Classic queue of the same key is left in place, so the comparison fails."""
+    out = copy.deepcopy(tree)
+    for key in [k for k in out if k.split("@")[0] == BALANCE_QUEUE]:
+        classic = CLASSIC_QUEUE + key[len(BALANCE_QUEUE):]
+        trait = out[key]
+        if classic in out or not isinstance(trait, dict):
+            continue
+        del out[key]
+        out[classic] = {f: v for f, v in trait.items() if f not in BALANCE_QUEUE_FIELDS}
+    return out
+
+
+def strip_world(tree: dict) -> dict:
+    """Copy of the World tree without the WORLD_TRAIT, which is allowed only empty (it has no fields)."""
+    out = copy.deepcopy(tree)
+    if out.get(WORLD_TRAIT) == {}:
+        del out[WORLD_TRAIT]
+    return out
+
+
+def strip_other(name: str, tree: dict, twins: Collection[str] | None = None) -> dict:
+    """Copy of a captured non-buildable actor (see capture's `others`) without the allowed additions.
+
+    Every actor: twin names appended to its HOST_FIELDS lists (as strip_ignored). The Player
+    also: the Balance production queues (strip_queues) and the AI twins (strip_ai_twins). The
+    World also: the empty WORLD_TRAIT (strip_world). Nothing else is ignored.
+    """
+    out = copy.deepcopy(tree)
+    _strip_hosts(out, twins)
+    if name == "Player":
+        out = strip_ai_twins(strip_queues(out), twins)
+    elif name == "World":
+        out = strip_world(out)
+    return out
+
+
+def _top_level_keys(path: Path) -> list[str]:
+    keys = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"([^\s#][^:]*):", line)
+        if m:
+            keys.append(m.group(1).strip())
+    return keys
+
+
+def overlay_actors(paths: Collection[Path] = OVERLAY_PATHS) -> set[str]:
+    """Existing actors that the generated overlay files change: their top-level keys other than twins."""
+    return {k for p in paths if p.is_file() for k in _top_level_keys(p) if not k.endswith(EXACT_SUFFIX_NAME)}
+
+
+def exact_mod_entries(mod_yaml: Path = MOD_YAML) -> tuple[str, ...]:
+    """The generated Exact files as mod.yaml lists them (relative to the mod, e.g.
+    "rules/exact/actors.yaml"), for resolving the mod without them (ra2data.resolved.mods_without)."""
+    found = re.findall(r"^\s*[^\s|#]+\|((?:rules|weapons)/exact/\S+\.yaml)\s*$",
+        mod_yaml.read_text(encoding="utf-8"), re.M)
+    return tuple(found)
 
 
 def _blocks(rules_dir: Path) -> dict[str, str]:
@@ -237,34 +380,47 @@ def _canonical(refs: set[str], defs: dict[str, str]) -> set[str]:
     return {defs[r.lower()] for r in refs}
 
 
-def _resolve(name: str) -> dict:
+def _resolve(name: str, without: tuple[str, ...] = ()) -> dict:
     try:
-        return resolve_actor(name)
+        return resolve_actor(name, without) if without else resolve_actor(name)
     except RuntimeError as e:
         raise RuntimeError(f"actor {name} no longer exists or cannot be resolved: {e}") from e
 
 
-def capture(names: list[str], neutral: list[str] | tuple[str, ...] = ()) -> dict:
-    """Resolve `names` (actors), keeping the buildable ones, and every `neutral` actor;
-    plus all weapons they reference."""
+def capture(names: list[str], neutral: list[str] | tuple[str, ...] = (), others: Collection[str] = (),
+        without: tuple[str, ...] = ()) -> dict:
+    """Resolve `names` (actors), keeping the buildable ones, every `neutral` actor and every one
+    of `others` that is neither (non-buildable actors the overlays change, World, Player); plus
+    all weapons they reference.
+
+    without: mod.yaml files to leave out of the resolution (exact_mod_entries for pure Reimagined).
+    """
     actors = {}
     for name in names:
-        tree = _resolve(name)
+        tree = _resolve(name, without)
         if has_buildable(tree):
             actors[name] = tree
-    neutral_trees = {name: _resolve(name) for name in neutral}
+    neutral_trees = {name: _resolve(name, without) for name in neutral}
+    other_trees = {name: _resolve(name, without) for name in sorted(set(others))
+        if name not in actors and name not in neutral_trees}
     defs = weapon_definitions()
     weapons: dict = {}
     # Weapons of the neutral buildings' Exact traits (twin weapons) are not Reimagined weapons.
-    trees = [*actors.values(), *(strip_neutral(t) for t in neutral_trees.values())]
+    trees = [*actors.values(), *(strip_neutral(t) for t in neutral_trees.values()), *other_trees.values()]
     pending = _canonical(set().union(*(referenced_weapons(t) for t in trees)), defs) if trees else set()
     while pending:
         name = pending.pop()
         if name in weapons:
             continue
-        weapons[name] = resolve_weapon(name)
+        weapons[name] = resolve_weapon(name, without) if without else resolve_weapon(name)
         pending |= _canonical(referenced_weapons(weapons[name]), defs) - weapons.keys()
-    return {"actors": actors, "neutral": neutral_trees, "weapons": weapons}
+    return {"actors": actors, "neutral": neutral_trees, "others": other_trees, "weapons": weapons}
+
+
+def capture_reimagined() -> dict:
+    """The Reimagined snapshot: the mod resolved without the generated Exact files."""
+    return capture(actor_names(), NEUTRAL_TECH_ACTORS, (*SYSTEM_ACTORS, *sorted(overlay_actors())),
+        without=exact_mod_entries())
 
 
 def dumps(data: dict) -> str:
@@ -277,10 +433,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if not args.write:
         parser.error("nothing to do; pass --write")
-    data = capture(actor_names(), NEUTRAL_TECH_ACTORS)
+    data = capture_reimagined()
     SNAPSHOT_PATH.write_text(dumps(data), encoding="utf-8")
     print(f"wrote {SNAPSHOT_PATH}: {len(data['actors'])} actors, {len(data['neutral'])} neutral actors,"
-        f" {len(data['weapons'])} weapons")
+        f" {len(data['others'])} other actors, {len(data['weapons'])} weapons")
     return 0
 
 

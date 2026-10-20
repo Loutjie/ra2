@@ -196,6 +196,6 @@ def resolve_actor(name: str, without: tuple[str, ...] = ()) -> dict[str, str | d
     return _resolve("--resolved-rules", "actors", name, without)
 
 
-def resolve_weapon(name: str) -> dict[str, str | dict]:
-    """Resolved weapon definition of `name`; same shape as resolve_actor."""
-    return _resolve("--resolved-weapons", "weapons", name)
+def resolve_weapon(name: str, without: tuple[str, ...] = ()) -> dict[str, str | dict]:
+    """Resolved weapon definition of `name`; same shape (and `without`) as resolve_actor."""
+    return _resolve("--resolved-weapons", "weapons", name, without)

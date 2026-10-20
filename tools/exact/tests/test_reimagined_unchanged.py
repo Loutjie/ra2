@@ -1,13 +1,16 @@
 """Guards that the Reimagined balance never changes (apart from two allowed additions)."""
 from __future__ import annotations
 
+import copy
 import json
+import re
 
 import pytest
 
 from exact import snapshot
-from exact.snapshot import (NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, _blocks, _canonical, capture, strip_appended_twins,
-    strip_ignored, strip_neutral, twinned_actors)
+from exact.snapshot import (NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, SYSTEM_ACTORS, _blocks, _canonical, capture,
+    exact_mod_entries, overlay_actors, strip_ai_twins, strip_appended_twins, strip_beside_twins, strip_ignored,
+    strip_neutral, strip_other, strip_queues, strip_world, twinned_actors)
 
 # --- unit tests of the ignore logic (fictional data) ---
 
@@ -147,8 +150,8 @@ def test_neutral_exact_trait_without_exact_condition_fails():
 
 
 def _fake_mod(monkeypatch, trees, weapons):
-    monkeypatch.setattr(snapshot, "_resolve", lambda name: trees[name])
-    monkeypatch.setattr(snapshot, "resolve_weapon", lambda name: weapons[name])
+    monkeypatch.setattr(snapshot, "_resolve", lambda name, without=(): trees[name])
+    monkeypatch.setattr(snapshot, "resolve_weapon", lambda name, without=(): weapons[name])
     monkeypatch.setattr(snapshot, "weapon_definitions", lambda: {n.lower(): n for n in weapons})
 
 
@@ -234,13 +237,31 @@ def test_blocks_skip_exact_twins(tmp_path):
 # --- integration test against the built mod ---
 
 
+def test_snapshot_is_pure_reimagined():
+    """Captured without the generated Exact files: no twin name anywhere (no game data needed)."""
+    text = SNAPSHOT_PATH.read_text(encoding="utf-8")
+    # The lobby option (player.yaml) names the balance.exact prerequisite and its label.
+    twin_names = set(re.findall(r"[\w.-]+\.exact\b", text)) - {"balance.exact", "dropdown-balance.exact"}
+    assert not twin_names
+    assert "~balance.reimagined" not in text and "ReplaceOnPrerequisite@BALANCE" not in text
+
+
+def test_snapshot_covers_every_overlaid_actor():
+    """Every existing actor the generated overlays change is captured (no game data needed)."""
+    data = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
+    assert set(SYSTEM_ACTORS) <= set(data["others"])
+    captured = set(data["actors"]) | set(data["neutral"]) | set(data["others"])
+    assert overlay_actors() - captured == set(), "regenerate with python3 -m exact.snapshot --write"
+
+
 @pytest.mark.integration
 def test_reimagined_unchanged():
     snapshot = json.loads(SNAPSHOT_PATH.read_text(encoding="utf-8"))
     assert snapshot["actors"] and snapshot["weapons"]
     assert sorted(snapshot["neutral"]) == sorted(NEUTRAL_TECH_ACTORS)
-    current = capture(sorted(snapshot["actors"]), sorted(snapshot["neutral"]))
+    current = capture(sorted(snapshot["actors"]), sorted(snapshot["neutral"]), sorted(snapshot["others"]))
     assert sorted(current["actors"]) == sorted(snapshot["actors"]), "buildable actor set changed"
+    assert sorted(current["others"]) == sorted(snapshot["others"]), "other actor set changed"
     assert sorted(current["weapons"]) == sorted(snapshot["weapons"]), "referenced weapon set changed"
     diffs = [("actor", n) for n in snapshot["actors"]
         if strip_ignored(current["actors"][n]) != strip_ignored(snapshot["actors"][n])]
@@ -248,4 +269,6 @@ def test_reimagined_unchanged():
         if strip_ignored(current["weapons"][n]) != strip_ignored(snapshot["weapons"][n])]
     diffs += [("neutral", n) for n in snapshot["neutral"]
         if strip_neutral(current["neutral"][n]) != strip_neutral(snapshot["neutral"][n])]
+    diffs += [("other", n) for n in snapshot["others"]
+        if strip_other(n, current["others"][n]) != strip_other(n, snapshot["others"][n])]
     assert not diffs, f"Reimagined balance changed for: {diffs}"
