@@ -32,9 +32,11 @@ from __future__ import annotations
 
 import argparse
 import copy
+import functools
 import json
 import re
 import sys
+from collections.abc import Collection
 from pathlib import Path
 
 from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
@@ -42,6 +44,7 @@ from ra2data.resolved import REPO_ROOT, resolve_actor, resolve_weapon
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "reimagined-snapshot.json"
 RULES_DIR = REPO_ROOT / "mods" / "ra2" / "rules"
 WEAPONS_DIR = REPO_ROOT / "mods" / "ra2" / "weapons"
+EXACT_ACTORS_PATH = RULES_DIR / "exact" / "actors.yaml"
 REIMAGINED_TOKEN = "~balance.reimagined"
 IGNORED_TRAIT = "ReplaceOnPrerequisite@BALANCE"
 NEUTRAL_TECH_ACTORS = ("caairp", "cahosp", "caoild", "caoutp", "cathosp")
@@ -65,26 +68,53 @@ def is_buildable_trait(key: str) -> bool:
     return key == "Buildable" or key.startswith("Buildable@")
 
 
-def strip_appended_twins(value: str) -> str:
-    """An actor list without the trailing `<name>.exact` entries whose `<name>` comes earlier.
+@functools.lru_cache(maxsize=4)
+def _twinned_actors_cached(path: Path, mtime_ns: int) -> frozenset[str]:
+    names = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"([^\s#][^:]*):", line)
+        if m and m.group(1).strip().endswith(EXACT_SUFFIX_NAME):
+            names.add(m.group(1).strip()[: -len(EXACT_SUFFIX_NAME)])
+    return frozenset(names)
 
-    Only such appended twin names are allowed; a `.exact` entry elsewhere, or one whose base
-    is not in the list, is kept so that the comparison fails.
+
+def twinned_actors(path: Path = EXACT_ACTORS_PATH) -> frozenset[str]:
+    """Base actors that have a twin: the top-level `<name>.exact` keys of the generated
+    actors file, without the suffix (no game data needed). Empty if the file is absent."""
+    if not path.is_file():
+        return frozenset()
+    return _twinned_actors_cached(path, path.stat().st_mtime_ns)
+
+
+def strip_appended_twins(value: str, twins: Collection[str] | None = None) -> str:
+    """An actor list without the trailing `<name>.exact` entries whose `<name>` comes earlier
+    and is a twinned actor (`twins`, default: twinned_actors()).
+
+    Only such appended twin names are allowed; a `.exact` entry elsewhere, one whose base is
+    not in the list, or one whose base has no twin is kept so that the comparison fails.
     """
+    if twins is None:
+        twins = twinned_actors()
     names = [p.strip() for p in value.split(",") if p.strip()]
-    while names and names[-1].endswith(EXACT_SUFFIX_NAME) and names[-1][: -len(EXACT_SUFFIX_NAME)] in names[:-1]:
+    while names and names[-1].endswith(EXACT_SUFFIX_NAME):
+        base = names[-1][: -len(EXACT_SUFFIX_NAME)]
+        if base not in twins or base not in names[:-1]:
+            break
         names.pop()
     return ", ".join(names)
 
 
-def strip_ignored(tree: dict) -> dict:
-    """Copy of a resolved actor/weapon tree without the allowed Reimagined additions."""
+def strip_ignored(tree: dict, twins: Collection[str] | None = None) -> dict:
+    """Copy of a resolved actor/weapon tree without the allowed Reimagined additions.
+
+    twins: the twinned actors whose appended twin names are ignored (default: twinned_actors()).
+    """
     out = copy.deepcopy(tree)
     out.pop(IGNORED_TRAIT, None)
     for key, trait in out.items():
         field = HOST_FIELDS.get(key.split("@")[0])
         if field and isinstance(trait, dict) and isinstance(trait.get(field), str):
-            trait[field] = strip_appended_twins(trait[field])
+            trait[field] = strip_appended_twins(trait[field], twins)
         if not is_buildable_trait(key) or not isinstance(trait, dict):
             continue
         prereqs = trait.get("Prerequisites")

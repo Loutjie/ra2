@@ -36,7 +36,8 @@ from pathlib import Path
 
 from exact import actors
 from exact.model import load_actor, load_actors
-from exact.snapshot import HOST_FIELDS, actor_names, has_buildable, strip_ignored, weapon_definitions
+from exact.snapshot import (HOST_FIELDS, actor_names, has_buildable, strip_ignored, twinned_actors,
+    weapon_definitions)
 from ra2data import ini
 from ra2data.resolved import REPO_ROOT, resolve_actor
 
@@ -74,10 +75,13 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
     weapons: lowercase weapon name -> defined weapon name.
     host_actors: other actors (not buildable) that have repair/rearm host lists -> resolved tree.
     """
-    bases = {name: strip_ignored(tree) for name, tree in base_actors.items()}
-    hosts = {name: strip_ignored(tree) for name, tree in (host_actors or {}).items() if name not in bases}
     ra2 = ra2_actors(rules)
-    twins = sorted(set(ra2) & set(bases))
+    twins = sorted(set(ra2) & set(base_actors))
+    # Strip names appended by this run's twins and by the previous run's (the committed file).
+    strip_twins = set(twins) | twinned_actors()
+    bases = {name: strip_ignored(tree, strip_twins) for name, tree in base_actors.items()}
+    hosts = {name: strip_ignored(tree, strip_twins) for name, tree in (host_actors or {}).items()
+        if name not in bases}
     children = actors.spawned_children(bases)
 
     notes: list[str] = []

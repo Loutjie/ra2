@@ -6,7 +6,7 @@ import json
 import pytest
 
 from exact.snapshot import (NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, _blocks, _canonical, capture, strip_appended_twins,
-    strip_ignored, strip_neutral)
+    strip_ignored, strip_neutral, twinned_actors)
 
 # --- unit tests of the ignore logic (fictional data) ---
 
@@ -128,19 +128,41 @@ def test_strip_neutral_does_not_mutate_input():
 # --- appended Exact twin names in repair/rearm host lists (fictional data) ---
 
 
+FAKE_TWINS = {"fakedepot", "fakepad"}
+
+
 def test_strip_removes_appended_twin_hosts():
     tree = {"Repairable": {"RepairActors": "fakedepot, fakeoutpost, fakedepot.exact", "Voice": "Move"},
         "Rearmable@x": {"RearmActors": "fakepad, fakepad.exact"}}
-    assert strip_ignored(tree) == {"Repairable": {"RepairActors": "fakedepot, fakeoutpost", "Voice": "Move"},
+    assert strip_ignored(tree, FAKE_TWINS) == {"Repairable": {"RepairActors": "fakedepot, fakeoutpost", "Voice": "Move"},
         "Rearmable@x": {"RearmActors": "fakepad"}}
 
 
 def test_strip_keeps_twin_name_without_base():
-    assert strip_appended_twins("fakedepot, other.exact") == "fakedepot, other.exact"
+    assert strip_appended_twins("fakedepot, fakepad.exact", FAKE_TWINS) == "fakedepot, fakepad.exact"
 
 
 def test_strip_keeps_twin_name_not_at_end():
-    assert strip_appended_twins("fakedepot, fakedepot.exact, fakepad") == "fakedepot, fakedepot.exact, fakepad"
+    value = "fakedepot, fakedepot.exact, fakepad"
+    assert strip_appended_twins(value, FAKE_TWINS) == value
+
+
+def test_strip_keeps_appended_name_of_untwinned_actor():
+    # otherdepot has no twin, so `otherdepot.exact` is not an allowed addition.
+    old = {"Repairable": {"RepairActors": "fakedepot, otherdepot"}}
+    new = {"Repairable": {"RepairActors": "fakedepot, otherdepot, otherdepot.exact"}}
+    assert strip_appended_twins(new["Repairable"]["RepairActors"], FAKE_TWINS) == "fakedepot, otherdepot, otherdepot.exact"
+    assert strip_ignored(old, FAKE_TWINS) != strip_ignored(new, FAKE_TWINS)
+    new["Repairable"]["RepairActors"] = "fakedepot, otherdepot, fakedepot.exact"
+    assert strip_ignored(old, FAKE_TWINS) == strip_ignored(new, FAKE_TWINS)
+
+
+def test_twinned_actors_read_from_generated_file(tmp_path):
+    path = tmp_path / "actors.yaml"
+    path.write_text("# fakedepot.exact: a comment\n\nfakedepot.exact:\n\tInherits: fakedepot\n"
+        "fakepad.exact:\n\tInherits: fakepad\n", encoding="utf-8")
+    assert twinned_actors(path) == {"fakedepot", "fakepad"}
+    assert twinned_actors(tmp_path / "missing.yaml") == frozenset()
 
 
 def test_strip_ignores_twin_names_only_in_host_fields():
@@ -151,7 +173,7 @@ def test_strip_ignores_twin_names_only_in_host_fields():
 def test_appended_host_change_plus_real_change_fails():
     old = {"Repairable": {"RepairActors": "fakedepot"}}
     new = {"Repairable": {"RepairActors": "fakedepot, otherdepot, fakedepot.exact"}}
-    assert strip_ignored(old) != strip_ignored(new)
+    assert strip_ignored(old, FAKE_TWINS) != strip_ignored(new, FAKE_TWINS)
 
 
 def test_blocks_skip_exact_twins(tmp_path):

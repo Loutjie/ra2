@@ -336,3 +336,15 @@ def test_generated_lists_match_resolved_mod():
                 expected = actors.appended_twins(trait[field], twinned)
                 if expected != ", ".join(actors.split_list(trait[field])):
                     assert overlay[name][key][field] == expected, name
+    # No stray overlay blocks: every untwinned entry is a resolved actor and holds only
+    # Reimagined-only prerequisites or the host lists checked above.
+    for name in set(overlay) - twinned:
+        assert name in untwinned, f"overlay block for unknown or no longer listed actor {name}"
+        for key, value in overlay[name].items():
+            if is_buildable_trait(key):
+                kept = actors.split_list(untwinned[name][key].get("Prerequisites", ""))
+                assert value == {"Prerequisites": ", ".join([*kept, "~balance.reimagined"])}, name
+            else:
+                field = HOST_FIELDS.get(actors.trait_type(key))
+                assert field and value == {field: actors.appended_twins(untwinned[name][key][field], twinned)}, \
+                    f"stray overlay entry {name}.{key}"
