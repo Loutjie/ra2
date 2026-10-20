@@ -14,16 +14,19 @@ What is captured
     stored under the defined key; capture raises if a referenced weapon is undefined.
   * SpawnActorOnDeath and similar actor references are not weapons and are not followed.
   * Neutral tech buildings (NEUTRAL_TECH_ACTORS) are captured whole under "neutral",
-    and the weapons they reference are followed like those of the buildable actors.
+    and the weapons they reference (once their Exact traits are stripped, see strip_neutral)
+    are followed like those of the buildable actors.
 
 Comparison
   * Buildable actors and weapons (`strip_ignored`) ignore only the `~balance.reimagined`
     entry of `Buildable*.Prerequisites`, traits keyed `ReplaceOnPrerequisite@BALANCE`, and
     twin names `<x>.exact` appended after `<x>` to the repair/rearm lists in HOST_FIELDS.
   * Neutral tech buildings (`strip_neutral`) are not replaced but switch traits by
-    condition: `GrantConditionOnPrerequisite@BALANCE` and every `*@EXACT` trait are
-    ignored, and a `X@REIMAGINED` trait must equal the original `X` once its
-    `RequiresCondition: !balance-exact` is removed (it may not sit beside `X`).
+    condition: `GrantConditionOnPrerequisite@BALANCE` and every `*@EXACT` trait whose
+    RequiresCondition is exactly `balance-exact` are ignored, and a `X@REIMAGINED` trait must
+    equal the original `X` once its `RequiresCondition: !balance-exact` is removed (it may not
+    sit beside `X`). Their weapons are collected after that stripping, so the twin weapons
+    named by `*@EXACT` traits do not count as Reimagined weapons.
 
 CLI (run from the tools/ directory, or from anywhere with tools/ on PYTHONPATH):
     python3 -m exact.snapshot --write     # regenerate exact/reimagined-snapshot.json
@@ -51,6 +54,7 @@ NEUTRAL_TECH_ACTORS = ("caairp", "cahosp", "caoild", "caoutp", "cathosp")
 NEUTRAL_IGNORED_TRAIT = "GrantConditionOnPrerequisite@BALANCE"
 EXACT_SUFFIX = "@EXACT"
 REIMAGINED_SUFFIX = "@REIMAGINED"
+EXACT_CONDITION = "balance-exact"
 REIMAGINED_CONDITION = "!balance-exact"
 WEAPON_KEYS = ("Weapon", "EmptyWeapon", "MissileWeapon")
 EXACT_SUFFIX_NAME = ".exact"
@@ -130,13 +134,15 @@ def strip_ignored(tree: dict, twins: Collection[str] | None = None) -> dict:
 def strip_neutral(tree: dict) -> dict:
     """Copy of a neutral tech building's tree with the Exact/Reimagined trait pairs folded back.
 
-    A `X@REIMAGINED` trait whose RequiresCondition is exactly `!balance-exact` becomes `X`
+    A `X@EXACT` trait whose RequiresCondition is exactly `balance-exact` is dropped, and a
+    `X@REIMAGINED` trait whose RequiresCondition is exactly `!balance-exact` becomes `X`
     without that condition. Anything else is left in place, so the comparison fails.
     """
     out = copy.deepcopy(tree)
     out.pop(NEUTRAL_IGNORED_TRAIT, None)
     for key in [k for k in out if k.endswith(EXACT_SUFFIX)]:
-        del out[key]
+        if isinstance(out[key], dict) and out[key].get("RequiresCondition") == EXACT_CONDITION:
+            del out[key]
     for key in [k for k in out if k.endswith(REIMAGINED_SUFFIX)]:
         trait = out[key]
         base = key[: -len(REIMAGINED_SUFFIX)]
@@ -245,7 +251,8 @@ def capture(names: list[str], neutral: list[str] | tuple[str, ...] = ()) -> dict
     neutral_trees = {name: _resolve(name) for name in neutral}
     defs = weapon_definitions()
     weapons: dict = {}
-    trees = [*actors.values(), *neutral_trees.values()]
+    # Weapons of the neutral buildings' Exact traits (twin weapons) are not Reimagined weapons.
+    trees = [*actors.values(), *(strip_neutral(t) for t in neutral_trees.values())]
     pending = _canonical(set().union(*(referenced_weapons(t) for t in trees)), defs) if trees else set()
     while pending:
         name = pending.pop()

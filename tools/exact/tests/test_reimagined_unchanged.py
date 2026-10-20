@@ -5,6 +5,7 @@ import json
 
 import pytest
 
+from exact import snapshot
 from exact.snapshot import (NEUTRAL_TECH_ACTORS, SNAPSHOT_PATH, _blocks, _canonical, capture, strip_appended_twins,
     strip_ignored, strip_neutral, twinned_actors)
 
@@ -123,6 +124,45 @@ def test_strip_neutral_does_not_mutate_input():
     before = json.dumps(current, sort_keys=True)
     strip_neutral(current)
     assert json.dumps(current, sort_keys=True) == before
+
+
+def test_neutral_exact_trait_without_exact_condition_fails():
+    for condition in (None, "!balance-exact", "balance-exact && foo", "foo"):
+        current = _neutral_with_pair({"Interval": "100", "Amount": "20", "RequiresCondition": "!balance-exact"})
+        exact = {"Interval": "150", "Amount": "40"}
+        if condition:
+            exact["RequiresCondition"] = condition
+        current["CashTrickler@EXACT"] = exact
+        assert strip_neutral(current) != strip_neutral(NEUTRAL_ORIGINAL), condition
+
+
+def _fake_mod(monkeypatch, trees, weapons):
+    monkeypatch.setattr(snapshot, "_resolve", lambda name: trees[name])
+    monkeypatch.setattr(snapshot, "resolve_weapon", lambda name: weapons[name])
+    monkeypatch.setattr(snapshot, "weapon_definitions", lambda: {n.lower(): n for n in weapons})
+
+
+def test_capture_ignores_weapons_of_exact_neutral_traits(monkeypatch):
+    original = {"Armament": {"Weapon": "FakeGun"}, "FireWarheadsOnDeath": {"Weapon": "FakeBoom"}}
+    paired = {
+        "GrantConditionOnPrerequisite@BALANCE": {"Condition": "balance-exact", "Prerequisites": "balance.exact"},
+        "Armament@EXACT": {"Weapon": "FakeGun.exact", "RequiresCondition": "balance-exact"},
+        "Armament@REIMAGINED": {"Weapon": "FakeGun", "RequiresCondition": "!balance-exact"},
+        "FireWarheadsOnDeath": {"Weapon": "FakeBoom"},
+        "FireWarheadsOnDeath@EXACT": {"Weapon": "FakeBoom.exact", "RequiresCondition": "balance-exact"},
+    }
+    weapons = {n: {"ReloadDelay": "1"} for n in ("FakeGun", "FakeBoom", "FakeGun.exact", "FakeBoom.exact")}
+    _fake_mod(monkeypatch, {"before": original, "after": paired}, weapons)
+    before = capture([], ["before"])
+    after = capture([], ["after"])
+    assert sorted(before["weapons"]) == sorted(after["weapons"]) == ["FakeBoom", "FakeGun"]
+
+
+def test_capture_keeps_weapons_of_unconditioned_exact_traits(monkeypatch):
+    tree = {"Armament@EXACT": {"Weapon": "FakeGun.exact"}}
+    weapons = {"FakeGun.exact": {"ReloadDelay": "1"}}
+    _fake_mod(monkeypatch, {"n": tree}, weapons)
+    assert sorted(capture([], ["n"])["weapons"]) == ["FakeGun.exact"]
 
 
 # --- appended Exact twin names in repair/rearm host lists (fictional data) ---
