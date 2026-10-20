@@ -51,7 +51,12 @@ namespace OpenRA.Mods.RA2.Traits
 	/// See https://modenc.renegadeprojects.com/GrowthPercentage ,
 	/// https://modenc.renegadeprojects.com/SpreadPercentage ,
 	/// https://modenc.renegadeprojects.com/Growth and https://modenc.renegadeprojects.com/Spread .
-	/// The frame intervals are the caller's scheduling concern; this class only applies the per-cell rolls.
+	/// The mod does not use the per-type Growth/Spread frame values (e.g. 2200 frames for [Riparius]): the
+	/// [General] GrowthRate (5 minutes = 7500 ticks) sets the interval of one pass over every ore cell
+	/// (ResourceGrowthInfo.Interval), and the per-type percentages are the per-pass chances applied here.
+	/// The per-type frame values are unused because the mod keeps one pass interval for all ore types, the
+	/// way the [General] GrowthRate setting does in RA2.
+	/// Scheduling is the caller's concern; this class only applies the per-cell rolls.
 	/// </para>
 	/// <para>
 	/// Per non-empty cell, two independent rolls: growth (only below max density) adds 1 density;
@@ -80,7 +85,8 @@ namespace OpenRA.Mods.RA2.Traits
 
 		static void Spread(IGrowthGrid grid, CPos cell, IGrowthRandom random)
 		{
-			// Two passes over the neighbours instead of collecting candidates: no allocation here.
+			// Two passes over the neighbours instead of collecting candidates, so the step itself allocates nothing
+			// (the grid's CanAdd/Neighbours implementations may).
 			var candidates = 0;
 			foreach (var n in grid.Neighbours(cell))
 				if (grid.CanAdd(n))

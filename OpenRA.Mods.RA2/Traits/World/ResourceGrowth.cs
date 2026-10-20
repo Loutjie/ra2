@@ -18,31 +18,9 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Traits
 {
-	public static class ResourceGrowthBatching
-	{
-		/// <summary>
-		/// Cells to process this tick so that, on average, every cell is visited once per <paramref name="interval"/> ticks
-		/// for any cell count: a fractional budget carries the remainder between ticks. Deterministic and allocation-free.
-		/// </summary>
-		public static int NextBatch(ref int budget, int cellCount, int interval)
-		{
-			if (cellCount <= 0)
-			{
-				budget = 0;
-				return 0;
-			}
-
-			interval = Math.Max(interval, 1);
-			budget += cellCount;
-			var size = budget / interval;
-			budget %= interval;
-			return size;
-		}
-	}
-
 	[TraitLocation(SystemActors.World)]
 	[Desc("Makes a resource type grow denser and spread to adjacent cells over time, as ore does in RA2. Attach to the world actor, once per resource type.")]
-	public class ResourceGrowthInfo : TraitInfo, Requires<IResourceLayerInfo>
+	public class ResourceGrowthInfo : TraitInfo, Requires<IResourceLayerInfo>, IRulesetLoaded
 	{
 		[FieldLoader.Require]
 		[Desc("Resource type (a key of the ResourceLayer's ResourceTypes) this instance grows.")]
@@ -57,6 +35,13 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Chance in 1/1000 per visit that a cell adds one density to a random adjacent cell that accepts it.")]
 		public readonly int SpreadChance = 0;
 
+		void IRulesetLoaded<ActorInfo>.RulesetLoaded(Ruleset rules, ActorInfo ai)
+		{
+			var layerInfo = ai.TraitInfo<IResourceLayerInfo>();
+			if (!layerInfo.TryGetResourceIndex(ResourceType, out _))
+				throw new YamlException($"ResourceGrowth: unknown resource type '{ResourceType}'; it must be a key of the ResourceLayer's ResourceTypes.");
+		}
+
 		public override object Create(ActorInitializer init) { return new ResourceGrowth(init.Self, this); }
 	}
 
@@ -70,8 +55,8 @@ namespace OpenRA.Mods.RA2.Traits
 		readonly Grid grid;
 		readonly IGrowthRandom random;
 
-		// Tracked cells in insertion order (swap-remove can make a cell be visited twice or skipped within one cycle: deterministic, harmless).
-		//  Removal swaps the last cell into the hole; CellChanged is raised
+		// Tracked cells in insertion order. Removal swaps the last cell into the hole, which can make a cell be
+		// visited twice or skipped within one cycle: deterministic and harmless. CellChanged is raised
 		// deterministically from synced simulation code, so the order stays identical on every client.
 		readonly List<CPos> cells = [];
 		readonly Dictionary<CPos, int> indexOf = [];
@@ -86,9 +71,6 @@ namespace OpenRA.Mods.RA2.Traits
 			this.info = info;
 			resourceType = info.ResourceType;
 			layer = self.Trait<IResourceLayer>();
-
-			if (layer.GetMaxDensity(resourceType) == 0)
-				throw new YamlException($"ResourceGrowth: unknown resource type '{resourceType}'.");
 
 			// Idle (no tracking, no scan, no tick work) when the instance can never do anything.
 			enabled = info.GrowthChance > 0 || info.SpreadChance > 0;
@@ -189,7 +171,8 @@ namespace OpenRA.Mods.RA2.Traits
 
 			public void Add(CPos c) => layer.AddResource(type, c);
 
-			// Allocation-free: this object is its own enumerable and enumerator. Enumerations never nest.
+			// This adapter does not allocate: the object is its own enumerable and enumerator (enumerations never nest).
+			// The engine's CanAddResource may allocate; that is outside this class's control.
 			public IEnumerable<CPos> Neighbours(CPos c)
 			{
 				center = c;
