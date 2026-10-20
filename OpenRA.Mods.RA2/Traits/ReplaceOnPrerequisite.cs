@@ -23,8 +23,9 @@ namespace OpenRA.Mods.RA2.Traits
 	public static class ReplaceDecision
 	{
 		/// <summary>
-		/// Non-combatant owners (Neutral) share the Player actor and therefore any lobby prerequisite,
-		/// but their actors must keep the base type.
+		/// Every player, including non-combatant owners such as Neutral, has a Player actor with the lobby dropdown
+		/// and so receives its prerequisite: this non-combatant guard is what keeps neutral actors (e.g. tech
+		/// buildings) at their base type.
 		/// </summary>
 		public static bool ShouldReplace(bool ownerIsNonCombatant, bool ownerHasPrerequisite)
 		{
@@ -41,6 +42,18 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			return currentTick == createdTick || (createdTick == 0 && currentTick == 1);
 		}
+
+		/// <summary>
+		/// A passenger can only be replaced inside its transport by another passenger.
+		/// Returns a description of the problem, or null when the replacement is valid.
+		/// </summary>
+		public static string ValidateIntoActor(string actor, string intoActor, bool baseIsPassenger, bool intoIsPassenger)
+		{
+			if (baseIsPassenger && !intoIsPassenger)
+				return $"'{actor}' has Passenger but its replacement '{intoActor}' does not, so it could not be replaced inside a transport.";
+
+			return null;
+		}
 	}
 
 	[Desc("Replaces this actor with another actor type when it is created for an owner that has the given prerequisite.",
@@ -49,7 +62,7 @@ namespace OpenRA.Mods.RA2.Traits
 		"The prerequisite is queried once per owner and cached, so it must not change during a game (e.g. LobbyPrerequisiteDropdown).",
 		"Do not add this to actors that their creator configures after creation (e.g. support power aircraft or spawner children).",
 		"Actors spawned while the map loads are replaced before the first tick when the world has ReplaceOnPrerequisiteAtLoad.")]
-	public class ReplaceOnPrerequisiteInfo : TraitInfo
+	public class ReplaceOnPrerequisiteInfo : TraitInfo, IRulesetLoaded
 	{
 		[FieldLoader.Require]
 		[Desc("Prerequisite the owner must have for the actor to be replaced.")]
@@ -73,6 +86,18 @@ namespace OpenRA.Mods.RA2.Traits
 			}
 
 			return result.Value;
+		}
+
+		void IRulesetLoaded<ActorInfo>.RulesetLoaded(Ruleset rules, ActorInfo info)
+		{
+			if (!rules.Actors.TryGetValue(IntoActor, out var intoInfo))
+				throw new YamlException($"{nameof(ReplaceOnPrerequisite)} on actor '{info.Name}': IntoActor '{IntoActor}' is not defined.");
+
+			var error = ReplaceDecision.ValidateIntoActor(info.Name, IntoActor,
+				info.HasTraitInfo<PassengerInfo>(), intoInfo.HasTraitInfo<PassengerInfo>());
+
+			if (error != null)
+				throw new YamlException($"{nameof(ReplaceOnPrerequisite)} on actor '{info.Name}': {error}");
 		}
 
 		public override object Create(ActorInitializer init) { return new ReplaceOnPrerequisite(init, this); }
@@ -211,6 +236,12 @@ namespace OpenRA.Mods.RA2.Traits
 
 			foreach (var modifier in self.TraitsImplementing<ITransformActorInitModifier>())
 				modifier.ModifyTransformActorInit(self, init);
+
+			// A FreeActor on this actor has already queued its free unit when it was created (and that unit is replaced
+			// in turn if needed): the replacement must not spawn a second one.
+			if (self.Info.HasTraitInfo<FreeActorInfo>())
+				foreach (var freeActor in self.World.Map.Rules.Actors[info.IntoActor].TraitInfos<FreeActorInfo>())
+					init.Add(new FreeActorInit(freeActor, false));
 
 			return init;
 		}

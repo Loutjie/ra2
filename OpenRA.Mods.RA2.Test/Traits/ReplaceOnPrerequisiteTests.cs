@@ -59,5 +59,20 @@ namespace OpenRA.Mods.RA2.Test
 			// any other actor only in the tick it was created.
 			return ReplaceDecision.InCreationWindow(createdTick, currentTick);
 		}
+
+		[Test]
+		public void ReplaceOnPrerequisite_PassengerReplacedByNonPassenger_IsInvalid()
+		{
+			Assert.That(ReplaceDecision.ValidateIntoActor("e1", "e1x", baseIsPassenger: true, intoIsPassenger: false),
+				Does.Contain("Passenger"));
+		}
+
+		[TestCase(true, true)]
+		[TestCase(false, false)]
+		[TestCase(false, true)]
+		public void ReplaceOnPrerequisite_CompatibleIntoActor_IsValid(bool baseIsPassenger, bool intoIsPassenger)
+		{
+			Assert.That(ReplaceDecision.ValidateIntoActor("e1", "e1x", baseIsPassenger, intoIsPassenger), Is.Null);
+		}
 	}
 }
