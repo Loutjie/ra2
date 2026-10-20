@@ -180,9 +180,9 @@ def test_report_is_deterministic():
 @pytest.mark.integration
 def test_report_is_generated_and_up_to_date(ra2ini):
     outputs = generate.build(ra2ini, generate.resolve_base_actors(), weapon_definitions(),
-        generate.resolve_host_actors())
+        generate.resolve_host_actors(), neutral_actors=generate.resolve_neutral_actors())
     assert outputs[exceptions.REPORT_FILE] == (REPO_ROOT / exceptions.REPORT_FILE).read_text(encoding="utf-8"), \
         "regenerate with `python3 -m exact.generate`"
     again = generate.build(ra2ini, generate.resolve_base_actors(), weapon_definitions(),
-        generate.resolve_host_actors())
+        generate.resolve_host_actors(), neutral_actors=generate.resolve_neutral_actors())
     assert again[exceptions.REPORT_FILE] == outputs[exceptions.REPORT_FILE]

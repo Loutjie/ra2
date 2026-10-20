@@ -63,6 +63,10 @@
 			"twin": "SuperComet.exact",
 			"reason": "prism-tank-beam (see EXCEPTIONS.md)",
 			"exception": "prism-tank-beam"
+		},
+		{
+			"twin": "demobomb.exact",
+			"reason": "4 damage warheads in the mod weapon"
 		}
 	],
 	"sources": [
@@ -103,12 +107,6 @@
 			"weapon": "DefuseKit"
 		},
 		{
-			"weapon": "Demobomb",
-			"mod_twins": [
-				"DemoTruckTargeting.exact"
-			]
-		},
-		{
 			"weapon": "FakeC4"
 		},
 		{
@@ -139,9 +137,6 @@
 			"weapon": "NeutronRifleE"
 		},
 		{
-			"weapon": "NukePayload"
-		},
-		{
 			"weapon": "PrismSupport"
 		},
 		{
@@ -164,12 +159,6 @@
 		},
 		{
 			"weapon": "SquidPunchE"
-		},
-		{
-			"weapon": "TerrorBomb",
-			"mod_twins": [
-				"DemoTruckTargeting.exact"
-			]
 		},
 		{
 			"weapon": "VirtualScanner"
@@ -262,6 +251,10 @@
 		},
 		{
 			"twin": "RepairBullet.exact",
+			"note": "Projectile Speed=100: RA2 projectile Invisible is Inviso (instant hit in RA2); base speed kept"
+		},
+		{
+			"twin": "TerrorBomb.exact",
 			"note": "Projectile Speed=100: RA2 projectile Invisible is Inviso (instant hit in RA2); base speed kept"
 		},
 		{

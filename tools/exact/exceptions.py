@@ -185,6 +185,13 @@ def _frame_rate(_facts: Mapping) -> list[str]:
         f"MINUTES_ARE_FRAMES = {conversions.MINUTES_ARE_FRAMES}"]
 
 
+def _globals(exc_id: str):
+    """The lines exact.globals noted under `exc_id`."""
+    def listed(facts: Mapping) -> list[str]:
+        return list(facts.get("globals", {}).get(exc_id, []))
+    return listed
+
+
 def _fact(key: str):
     def listed(facts: Mapping) -> list[str]:
         return list(facts.get(key, []))
@@ -221,8 +228,8 @@ EXCEPTIONS: list[ConversionException] = [
         "RA2's Terrorist and Demolition Truck fire TerrorBomb/Demobomb, suicide weapons whose "
         "damage is the explosion. The mod's actors fire DemoTruckTargeting, a no-damage "
         "targeting weapon that triggers KillsSelf, and the explosion is their "
-        "FireWarheadsOnDeath weapon (TerrorBomb, demobomb), which Exact does not twin. The "
-        "twin stays a stub: the explosions keep Reimagined values.",
+        "FireWarheadsOnDeath weapon (TerrorBomb, demobomb). The targeting twin stays a stub; "
+        "the explosions are twinned as RA2 death weapons (see death-weapons).",
         rule=_stub("DemoTruckTargeting")),
     ConversionException("attack-dog",
         "DogJaw.exact",
@@ -321,6 +328,88 @@ EXCEPTIONS: list[ConversionException] = [
         "Actors without a twin (e.g. hornet, civilian vehicles) can exist in Exact games, so "
         "the twins of their twinned repair/rearm hosts are appended to their host lists.",
         listed=_fact("exact_host_users")),
+    ConversionException("veterancy",
+        "GainsExperience Conditions and the rank multipliers of twins with GainsExperience "
+        "(globals.yaml)",
+        "RA2 promotes at VeteranRatio x the unit's cost of kills (x2 for elite) and grants each "
+        "rank's abilities as flags: an elite unit has its VeteranAbilities plus its "
+        "EliteAbilities, and an ability in both applies once. The mod's ^GainsExperience grows "
+        "every bonus at each rank. Exact sets the thresholds to VeteranRatio x100 and x200 % of "
+        "the value, each @VETERAN/@ELITE multiplier to VeteranCombat (FIREPOWER), "
+        "1 / VeteranArmor (STRONGER), VeteranROF (ROF) or VeteranSpeed (FASTER) when the rank "
+        "has that ability and 100 otherwise, InaccuracyMultiplier@ELITE to 100 (RA2 has no "
+        "accuracy bonus), and keeps the self-heal (ChangesHealth@ELITE, at the mod's rate: RA2 "
+        "states none) only with SELF_HEAL, from the first rank that has it.",
+        listed=_globals("veterancy")),
+    ConversionException("veterancy-abilities",
+        "RA2 veteran/elite abilities without a mod mechanic",
+        "SIGHT (VeteranSight=0.0, no sight change), SCATTER and other abilities have no rank "
+        "trait in the mod; they are not applied.",
+        listed=_globals("veterancy-abilities")),
+    ConversionException("survivors",
+        "SpawnSurvivors of twins (destroyed buildings)",
+        "RA2: a Crewed=yes building releases its sell value (Cost x RefundPercent) divided by "
+        "AlliedSurvivorDivisor or SovietSurvivorDivisor crew (AlliedCrew/SovietCrew), rounded "
+        "down. The mod's lists are fixed per building. Exact writes that count of the crew of "
+        "the side the mod's list uses (its other entries, e.g. the construction yards' "
+        "engineer, are kept) and removes the trait when nothing is left. Survivors of a sold "
+        "building (SpawnActorsOnSell) keep the mod's lists.",
+        listed=_globals("survivors")),
+    ConversionException("crew-escape",
+        "EjectOnDeath on twins of RA2 Crewed=yes vehicles and aircraft",
+        "RA2 lets the crew of a destroyed Crewed=yes vehicle escape with CrewEscape chance; the "
+        "mod has no crew. Exact adds EjectOnDeath with SuccessRate = CrewEscape and the crew of "
+        "the RA2 owners' side (AlliedCrew/SovietCrew; aircraft: Pilot). Crewed defaults to no "
+        "(ModEnc, \"Crewed\"), so only actors that set it get a crew.",
+        listed=_globals("crew-escape")),
+    ConversionException("superweapons",
+        "Support power ChargeInterval and durations of superweapon twins",
+        "RechargeTime minutes and [CombatDamage]/[General] frame durations converted by "
+        "exact.conversions; paratrooper drops are <ParaDropInf> x <ParaDropNum> of the twin "
+        "infantry.",
+        listed=_globals("superweapons")),
+    ConversionException("lightning-storm",
+        "Lightning Storm weapon twin and timing",
+        "RA2 has no weapon section for the storm: its damage is [General] LightningDamage with "
+        "the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's "
+        "storm weapon. LightningDeferment (delay before the storm starts), LightningCellSpread "
+        "and LightningSeparation have no field in WeatherControlSupportPower and are not "
+        "applied; the mod's strike delay and cloud spread are kept.",
+        listed=_globals("lightning-storm")),
+    ConversionException("iron-curtain-kills-infantry",
+        "ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins",
+        "The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins "
+        "accept the invulnerability condition and kill themselves while they have it.",
+        listed=_globals("iron-curtain-kills-infantry")),
+    ConversionException("death-weapons",
+        "FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)",
+        "They fire the twin of their death weapon, with RA2 values where the mod weapon takes "
+        "them (weapon-structure-stubs otherwise). Twins whose RA2 actor does not explode keep "
+        "the mod's death weapons, which are visual only (no damage warhead).",
+        listed=_globals("death-weapons")),
+    ConversionException("death-weapon-strength",
+        "Twins whose RA2 actor has Explodes=yes without a DeathWeapon",
+        "RA2 fires [CombatDamage] DeathWeapon (DefaultDeathWeapon), whose damage \"is based on\" "
+        "the unit's strength by a formula rules.ini does not give. Nothing is invented: the "
+        "mod's death weapon is kept.",
+        listed=_globals("death-weapon-strength")),
+    ConversionException("spy-satellite",
+        "RevealsMap of the Spy Satellite twin (#803)",
+        "RA2's SpySat reveals the map once; there is no fog of war, so it never hides again. The "
+        "mod's RevealsMap keeps every cell visible, which removes the fog of war. The twin "
+        "reveals only while its make animation runs (build-incomplete): the map is explored, "
+        "the fog of war stays. A map-placed or captured satellite does not reveal.",
+        listed=_globals("spy-satellite")),
+    ConversionException("neutral-tech-buildings",
+        "Exact/Reimagined trait pairs of caairp, cahosp, caoild, caoutp, cathosp (globals.yaml)",
+        "Tech buildings are not twinned: they are neutral when the map starts and change owner "
+        "when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the "
+        "owner has balance.exact, and each balance trait with an RA2 value becomes a "
+        "X@EXACT/X@REIMAGINED pair. Health (not conditional) keeps the mod's value (RA2's "
+        "Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): "
+        "powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost "
+        "(RA2 gives none for Hospital=yes).",
+        listed=_globals("neutral-tech-buildings")),
     ConversionException("frame-rate-fallback",
         "Every time, speed and turn rate conversion (exact.conversions)",
         "RA2's frame rate at the default skirmish speed is not settled (tools/exact/TIMING.md): "

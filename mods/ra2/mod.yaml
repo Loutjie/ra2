@@ -82,6 +82,7 @@ Rules:
 	ra2|rules/trees.yaml
 	ra2|rules/civilian-naval.yaml
 	ra2|rules/exact/actors.yaml
+	ra2|rules/exact/globals.yaml
 	ra2|rules/exact/reimagined.yaml
 
 Sequences:

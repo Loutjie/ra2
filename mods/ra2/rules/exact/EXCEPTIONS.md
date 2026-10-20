@@ -36,7 +36,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: DemoTruckTargeting.exact (Terrorist, Demolition Truck)
 - Applied by: rule `stub`
-- Reason: RA2's Terrorist and Demolition Truck fire TerrorBomb/Demobomb, suicide weapons whose damage is the explosion. The mod's actors fire DemoTruckTargeting, a no-damage targeting weapon that triggers KillsSelf, and the explosion is their FireWarheadsOnDeath weapon (TerrorBomb, demobomb), which Exact does not twin. The twin stays a stub: the explosions keep Reimagined values.
+- Reason: RA2's Terrorist and Demolition Truck fire TerrorBomb/Demobomb, suicide weapons whose damage is the explosion. The mod's actors fire DemoTruckTargeting, a no-damage targeting weapon that triggers KillsSelf, and the explosion is their FireWarheadsOnDeath weapon (TerrorBomb, demobomb). The targeting twin stays a stub; the explosions are twinned as RA2 death weapons (see death-weapons).
 - Affected:
   - DemoTruckTargeting.exact: Inherits stub
 
@@ -109,6 +109,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - AssaultBolt.exact: no damage warhead in the mod weapon
   - HornetLauncher.exact: no damage warhead in the mod weapon
   - SonicZap.exact: 2 damage warheads in the mod weapon
+  - demobomb.exact: 4 damage warheads in the mod weapon
 
 ## no-mod-counterpart
 
@@ -123,7 +124,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - CRNuke
   - CRTerrorBomb
   - DefuseKit
-  - Demobomb (stands in: DemoTruckTargeting.exact)
   - FakeC4
   - FlakTrackAAGunE
   - FlakTrackGunE
@@ -134,7 +134,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - MedusaE
   - MindControlE
   - NeutronRifleE
-  - NukePayload
   - PrismSupport
   - PsiWave
   - RadEruptionWeapon
@@ -143,7 +142,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - SquidGrab
   - SquidGrabE
   - SquidPunchE
-  - TerrorBomb (stands in: DemoTruckTargeting.exact)
   - VirtualScanner
 
 ## arcing-projectile-speed
@@ -183,6 +181,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - MirageGun.exact: Projectile Speed=100: RA2 projectile InvisibleLow is Inviso (instant hit in RA2); base speed kept
   - MirageGunE.exact: Projectile Speed=100: RA2 projectile InvisibleLow is Inviso (instant hit in RA2); base speed kept
   - RepairBullet.exact: Projectile Speed=100: RA2 projectile Invisible is Inviso (instant hit in RA2); base speed kept
+  - TerrorBomb.exact: Projectile Speed=100: RA2 projectile Invisible is Inviso (instant hit in RA2); base speed kept
   - awp.exact: Projectile Speed=100: RA2 projectile InvisibleLow is Inviso (instant hit in RA2); base speed kept
 
 ## cellspread-zero
@@ -301,6 +300,199 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - truckb
   - tug
   - wini
+
+## veterancy
+
+- Field: GainsExperience Conditions and the rank multipliers of twins with GainsExperience (globals.yaml)
+- Applied by: the generator
+- Reason: RA2 promotes at VeteranRatio x the unit's cost of kills (x2 for elite) and grants each rank's abilities as flags: an elite unit has its VeteranAbilities plus its EliteAbilities, and an ability in both applies once. The mod's ^GainsExperience grows every bonus at each rank. Exact sets the thresholds to VeteranRatio x100 and x200 % of the value, each @VETERAN/@ELITE multiplier to VeteranCombat (FIREPOWER), 1 / VeteranArmor (STRONGER), VeteranROF (ROF) or VeteranSpeed (FASTER) when the rank has that ability and 100 otherwise, InaccuracyMultiplier@ELITE to 100 (RA2 has no accuracy bonus), and keeps the self-heal (ChangesHealth@ELITE, at the mod's rate: RA2 states none) only with SELF_HEAL, from the first rank that has it.
+- Affected:
+  - dog.exact: no GainsExperience trait, RA2 abilities not applied
+  - 46 twins with GainsExperience
+
+## veterancy-abilities
+
+- Field: RA2 veteran/elite abilities without a mod mechanic
+- Applied by: the generator
+- Reason: SIGHT (VeteranSight=0.0, no sight change), SCATTER and other abilities have no rank trait in the mod; they are not applied.
+- Affected:
+  - aegis.exact: SIGHT
+  - apoc.exact: SIGHT
+  - beag.exact: SIGHT
+  - carrier.exact: SIGHT
+  - ccomand.exact: SIGHT
+  - civan.exact: SIGHT
+  - cleg.exact: SIGHT
+  - deso.exact: SIGHT
+  - dest.exact: SIGHT
+  - dlph.exact: SIGHT
+  - e1.exact: SIGHT
+  - e2.exact: SIGHT
+  - flakt.exact: SIGHT
+  - fv.exact: SIGHT
+  - harv.exact: SIGHT
+  - htk.exact: SIGHT
+  - htnk.exact: SIGHT
+  - hyd.exact: SIGHT
+  - ivan.exact: SIGHT
+  - jumpjet.exact: SIGHT
+  - lcrf.exact: SIGHT
+  - mgtk.exact: SIGHT
+  - mtnk.exact: SIGHT
+  - orca.exact: SIGHT
+  - ptroop.exact: SIGHT
+  - shad.exact: SIGHT
+  - shk.exact: SIGHT
+  - snipe.exact: SIGHT
+  - sqd.exact: SIGHT
+  - sref.exact: SIGHT
+  - sub.exact: SIGHT
+  - tany.exact: SCATTER, SIGHT
+  - tnkd.exact: SIGHT
+  - ttnk.exact: SIGHT
+  - yuri.exact: SIGHT
+  - yuripr.exact: SIGHT
+  - zep.exact: SIGHT
+
+## survivors
+
+- Field: SpawnSurvivors of twins (destroyed buildings)
+- Applied by: the generator
+- Reason: RA2: a Crewed=yes building releases its sell value (Cost x RefundPercent) divided by AlliedSurvivorDivisor or SovietSurvivorDivisor crew (AlliedCrew/SovietCrew), rounded down. The mod's lists are fixed per building. Exact writes that count of the crew of the side the mod's list uses (its other entries, e.g. the construction yards' engineer, are kept) and removes the trait when nothing is left. Survivors of a sold building (SpawnActorsOnSell) keep the mod's lists.
+- Affected:
+  - amradr.exact: 1 x e1.exact (mod: 2)
+  - gaairc.exact: 1 x e1.exact (mod: 2)
+  - gacnst.exact: 3 x e1.exact + engineer.exact (mod: 5)
+  - gacsph.exact: 2 x e1.exact (mod: 5)
+  - gadept.exact: 0 x e1.exact (mod: 2)
+  - gagap.exact: 0 x e1.exact (RA2 Crewed is not yes) (mod: 1)
+  - gaorep.exact: 2 x e1.exact (mod: 3)
+  - gapile.exact: 0 x e1.exact (mod: 2)
+  - gapowr.exact: 0 x e1.exact (mod: 3)
+  - garefn.exact: 2 x e1.exact (mod: 2)
+  - gaspysat.exact: 1 x e1.exact (mod: 2)
+  - gatech.exact: 2 x e1.exact (mod: 4)
+  - gaweap.exact: 2 x e1.exact (mod: 4)
+  - gaweat.exact: 5 x e1.exact (mod: 5)
+  - naclon.exact: 5 x e2.exact (mod: 4)
+  - nacnst.exact: 6 x e2.exact + engineer.exact (mod: 7)
+  - nadept.exact: 1 x e2.exact (mod: 3)
+  - nahand.exact: 1 x e2.exact (mod: 3)
+  - nairon.exact: 5 x e2.exact (mod: 7)
+  - namisl.exact: 10 x e2.exact (mod: 7)
+  - nanrct.exact: 2 x e2.exact (mod: 5)
+  - napowr.exact: 1 x e2.exact (mod: 3)
+  - napsis.exact: 2 x e2.exact (mod: 3)
+  - naradr.exact: 2 x e2.exact (mod: 4)
+  - narefn.exact: 4 x e2.exact (mod: 3)
+  - natech.exact: 4 x e2.exact (mod: 9)
+  - naweap.exact: 4 x e2.exact (mod: 6)
+
+## crew-escape
+
+- Field: EjectOnDeath on twins of RA2 Crewed=yes vehicles and aircraft
+- Applied by: the generator
+- Reason: RA2 lets the crew of a destroyed Crewed=yes vehicle escape with CrewEscape chance; the mod has no crew. Exact adds EjectOnDeath with SuccessRate = CrewEscape and the crew of the RA2 owners' side (AlliedCrew/SovietCrew; aircraft: Pilot). Crewed defaults to no (ModEnc, "Crewed"), so only actors that set it get a crew.
+- Affected:
+  - amcv.exact: e1.exact, 50%
+  - beag.exact: e1.exact, 50%
+  - orca.exact: e1.exact, 50%
+  - shad.exact: e1.exact, 50%
+  - smcv.exact: e2.exact, 50%
+
+## superweapons
+
+- Field: Support power ChargeInterval and durations of superweapon twins
+- Applied by: the generator
+- Reason: RechargeTime minutes and [CombatDamage]/[General] frame durations converted by exact.conversions; paratrooper drops are <ParaDropInf> x <ParaDropNum> of the twin infantry.
+- Affected:
+  - amradr.exact: ParatroopersPower@paratroopers ChargeInterval 6000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact (RA2 AmericanParaDropSpecial)
+  - gacsph.exact: ChronoshiftPower@chronoshift ChargeInterval 10500 (RA2 ChronoSphereSpecial)
+  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 15000, Duration 180, HitDelay 10, ScatterDelay 5, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
+  - nairon.exact: GrantExternalConditionPower@IRONCURTAIN ChargeInterval 7500, Duration 750 (RA2 IronCurtainSpecial)
+  - namisl.exact: NukePower ChargeInterval 15000 (RA2 MultiSpecial)
+
+## lightning-storm
+
+- Field: Lightning Storm weapon twin and timing
+- Applied by: the generator
+- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (delay before the storm starts), LightningCellSpread and LightningSeparation have no field in WeatherControlSupportPower and are not applied; the mod's strike delay and cloud spread are kept.
+- Affected:
+  - LightningStorm.exact: from [General] LightningDamage, LightningWarhead
+
+## iron-curtain-kills-infantry
+
+- Field: ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins
+- Applied by: the generator
+- Reason: The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins accept the invulnerability condition and kill themselves while they have it.
+- Affected:
+  - ccomand.exact
+  - civan.exact
+  - cleg.exact
+  - deso.exact
+  - dog.exact
+  - e1.exact
+  - e2.exact
+  - engineer.exact
+  - flakt.exact
+  - ivan.exact
+  - jumpjet.exact
+  - ptroop.exact
+  - shk.exact
+  - snipe.exact
+  - spy.exact
+  - tany.exact
+  - terror.exact
+  - yuri.exact
+  - yuripr.exact
+
+## death-weapons
+
+- Field: FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)
+- Applied by: the generator
+- Reason: They fire the twin of their death weapon, with RA2 values where the mod weapon takes them (weapon-structure-stubs otherwise). Twins whose RA2 actor does not explode keep the mod's death weapons, which are visual only (no damage warhead).
+- Affected:
+  - dtruck.exact: FireWarheadsOnDeath demobomb.exact (RA2 Demobomb)
+  - nanrct.exact: FireWarheadsOnDeath NukePayload.exact (RA2 NukePayload)
+  - terror.exact: FireWarheadsOnDeath TerrorBomb.exact (RA2 TerrorBomb)
+
+## death-weapon-strength
+
+- Field: Twins whose RA2 actor has Explodes=yes without a DeathWeapon
+- Applied by: the generator
+- Reason: RA2 fires [CombatDamage] DeathWeapon (DefaultDeathWeapon), whose damage "is based on" the unit's strength by a formula rules.ini does not give. Nothing is invented: the mod's death weapon is kept.
+- Affected:
+  - apoc.exact: RA2 Explodes=yes without DeathWeapon; mod death weapon kept
+  - gayard.exact: RA2 Explodes=yes without DeathWeapon; mod death weapon kept
+  - ivan.exact: RA2 Explodes=yes without DeathWeapon; mod death weapon kept
+  - nayard.exact: RA2 Explodes=yes without DeathWeapon; mod death weapon kept
+
+## spy-satellite
+
+- Field: RevealsMap of the Spy Satellite twin (#803)
+- Applied by: the generator
+- Reason: RA2's SpySat reveals the map once; there is no fog of war, so it never hides again. The mod's RevealsMap keeps every cell visible, which removes the fog of war. The twin reveals only while its make animation runs (build-incomplete): the map is explored, the fog of war stays. A map-placed or captured satellite does not reveal.
+- Affected:
+  - gaspysat.exact: RevealsMap while build-incomplete
+
+## neutral-tech-buildings
+
+- Field: Exact/Reimagined trait pairs of caairp, cahosp, caoild, caoutp, cathosp (globals.yaml)
+- Applied by: the generator
+- Reason: Tech buildings are not twinned: they are neutral when the map starts and change owner when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the owner has balance.exact, and each balance trait with an RA2 value becomes a X@EXACT/X@REIMAGINED pair. Health (not conditional) keeps the mod's value (RA2's Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost (RA2 gives none for Hospital=yes).
+- Affected:
+  - caairp: Armor Type Concrete
+  - caairp: ParatroopersPower@Allies ChargeInterval 6000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact, OrderName AlliedParatroopersExact
+  - caairp: ParatroopersPower@Soviets ChargeInterval 6000, DropItems e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact, OrderName SovietParatroopersExact
+  - cahosp: Armor Type Concrete
+  - cahosp: RepairsUnits Interval 2, HpPerStep 20
+  - caoild: Armor Type Steel
+  - caoild: CashTrickler Interval 100, Amount 20
+  - caoild: GivesCashOnCapture Amount 1000
+  - caoild: RevealsShroud Range 4c0
+  - caoutp: Armament Weapon HoverMissile.exact
+  - caoutp: Armor Type Concrete
+  - caoutp: RepairsUnits ValuePercentage 15, Interval 24, HpPerStep 8
 
 ## frame-rate-fallback
 

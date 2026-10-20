@@ -296,7 +296,8 @@ def test_generator_is_deterministic(outputs):
 @pytest.mark.integration
 def test_generated_files_up_to_date(ra2ini):
     outputs = generate.build(ra2ini, generate.resolve_base_actors(), weapon_definitions(),
-        generate.resolve_host_actors())
+        generate.resolve_host_actors(),
+        neutral_actors=generate.resolve_neutral_actors())
     stale = [rel for rel, text in outputs.items()
         if not (REPO_ROOT / rel).is_file() or (REPO_ROOT / rel).read_text(encoding="utf-8") != text]
     assert not stale, f"regenerate with `python3 -m exact.generate`: {stale}"
