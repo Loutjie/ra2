@@ -76,13 +76,22 @@ the twins, and every such case is listed with its reason and the values it affec
 `mods/ra2/rules/exact/EXCEPTIONS.md`. Read that file to see where Exact is not a literal copy
 of `rules.ini`.
 
-### Pending: RA2's frame rate
+### RA2's frame rate
 
-`RA2_FRAMES_PER_SECOND` in `conversions.py` is not settled. Until an in-game measurement
-(`TIMING.md`) decides it, it falls back to 25, one RA2 frame per OpenRA tick, which is what
-the mod does today; the best-supported value is 30. `MINUTES_ARE_FRAMES` (currently `False`:
-a `rules.ini` minute is a wall-clock minute, 1500 ticks) is the related open decision. Changing
-either constant and regenerating rescales every time, speed and turn rate in Exact.
+`RA2_FRAMES_PER_SECOND = 20` and `MINUTES_ARE_FRAMES = True` in `conversions.py` come from an
+in-game measurement (`TIMING.md` section 4): in original RA2 at speed slider position 3 an Ore
+Refinery (1.4 `rules.ini` minutes) builds in about 60 s, which fits 900 frames per minute at
+roughly 20 fps and rules out wall-clock minutes (84 s). One RA2 frame is therefore 1.25 OpenRA
+ticks and a `rules.ini` minute is 1125 ticks. Changing either constant and regenerating
+rescales every time, speed and turn rate in Exact.
+
+### Map scripts and replaced actors
+
+Exact replaces base actors with their twins (`ReplaceOnPrerequisite`, and
+`ReplaceOnPrerequisiteAtLoad` for actors spawned while the map loads). A map Lua script that
+caches map-actor references in `WorldLoaded` holds the base actors, and those are replaced
+after the script has run, so the cached references go stale in Exact. Scripts that need such
+actors later must not rely on references taken in `WorldLoaded`.
 
 ## Tests
 
@@ -129,12 +138,12 @@ pushing a change that a twin inherits from.
 
 ## Play-test checklist
 
-> **All Exact timers are provisional** until RA2's frame rate is measured in game
-> (`TIMING.md` section 4). Frame-based `rules.ini` values use 1 RA2 frame = 1 OpenRA tick
-> (`RA2_FRAMES_PER_SECOND = 25`), and minute-based values (build times, superweapon
-> recharges, repair rates) use real minutes (`MINUTES_ARE_FRAMES = False`). Build,
-> superweapon and repair pacing in Exact may therefore be off by up to ~1.7x; check
-> relative behaviour, not stopwatch times, until the measurement is done.
+> **Timer basis.** Exact timers use the measured RA2 rate of 20 frames per second
+> (`RA2_FRAMES_PER_SECOND = 20`, `MINUTES_ARE_FRAMES = True`; `TIMING.md` section 4): one
+> RA2 frame is 1.25 OpenRA ticks and a `rules.ini` minute is 45 s of OpenRA Normal speed.
+> The measurement was one Ore Refinery build (about 60 s observed, 63 s predicted), so
+> stopwatch times may still differ by a few seconds; the speed and turn-rate scaling is
+> not separately measured.
 
 Twins share their base's tooltip, name and icon, so the sidebar and tooltips cannot tell
 the modes apart: compare health (e.g. how many hits a unit survives) or damage dealt
@@ -150,13 +159,13 @@ against the same target in each mode.
      match RA2 (compare against the same target in each mode, as above);
    - the starting units are the twins: they take and deal Exact damage (e.g. a starting
      unit survives a different number of hits than in Reimagined);
-   - the Chronosphere recharges in 7 minutes **at the default game speed only** (other
-     speeds scale every timer), and subject to the provisional-timer note above;
+   - the Chronosphere recharges in 7 `rules.ini` minutes (315 s at Normal speed; other
+     speeds scale every timer);
    - the Iron Curtain kills infantry;
    - an AI opponent builds and fights normally.
 4. **Capture a tech building in each mode** whose balance differs between them, e.g. the
-   Tech Airport: its paradrop recharges faster in Exact (4 minutes at the default speed,
-   against 6 in Reimagined) and drops Exact infantry. (The Oil Derrick cannot tell the
+   Tech Airport: its paradrop recharges faster in Exact (4 `rules.ini` minutes = 3 real
+   minutes at Normal speed, against 6 in Reimagined) and drops Exact infantry. (The Oil Derrick cannot tell the
    modes apart: its income is the same in both.)
 5. **Save and load a game in each mode:** it resumes in the same mode.
 

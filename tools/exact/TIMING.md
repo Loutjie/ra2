@@ -10,14 +10,14 @@ Researched 2026-10-20. Quotes are kept short; follow the links for context.
 | Constant | Value | Status |
 |---|---|---|
 | `OPENRA_TICKS_PER_SECOND` | 25 | Settled: `mods/ra2/mod.yaml`, `GameSpeeds` default `Timestep: 40` (ms). |
-| `RA2_FRAMES_PER_SECOND` | 25 (fallback) | **Not settled.** Best-supported value is **30** at the default skirmish speed, but sources disagree (30 vs 45). The brief's fallback (one RA2 frame = one OpenRA tick, the mod's current behaviour) is used until the in-game measurement below is done. |
+| `RA2_FRAMES_PER_SECOND` | **20** | **Measured** (section 4): OpenRA Normal speed corresponds to RA2 speed slider position 3, 60 / 3 = 20 fps. One RA2 frame = 1.25 OpenRA ticks. The earlier candidates (30, 45, and the 25 fallback) are superseded. |
 | RA2 frames per rules.ini minute | 900 | Settled (engine constant, see below). |
-| `minutes_to_ticks` | wall-clock: 1 min = 1500 ticks (`MINUTES_ARE_FRAMES = False`) | Matches the mod today. Only consistent with the engine's 900 frames per minute if RA2 runs at 15 fps. **Open decision**, see "Minutes". |
-| Speed | x15 | Kept (mod convention), scaled by `RA2_FRAMES_PER_SECOND / 25` (hypothesis, see section 6). |
-| ROT | x4 | Kept (mod convention), scaled the same way (hypothesis). |
+| `minutes_to_ticks` | engine frames: 1 min = 900 frames = 1125 ticks (`MINUTES_ARE_FRAMES = True`) | **Measured** (section 4, section 5): wall-clock minutes (84 s for the refinery) are ruled out. |
+| Speed | x15 | Kept (mod convention), scaled by `RA2_FRAMES_PER_SECOND / 25` = 0.8, i.e. x12 per RA2 speed unit (hypothesis, not separately measured, see section 6). |
+| ROT | x4 | Kept (mod convention), scaled the same way: x3.2 (hypothesis). |
 | `GameSpeedBias=1.6` | not applied separately | See "GameSpeedBias". |
 | Distance | 1 cell = 256 leptons = 1024 WDist | Settled. |
-| Projectile speed | leptons per frame x 4, scaled by `RA2_FRAMES_PER_SECOND / 25` | Unit settled (leptons per frame); follows the frame rate. Mod's existing projectile speeds are not derived from it (section 7). |
+| Projectile speed | leptons per frame x 4, scaled by `RA2_FRAMES_PER_SECOND / 25` | Unit settled (leptons per frame); follows the frame rate (x0.8). Mod's existing projectile speeds are not derived from it (section 7). |
 
 ## 1. Frames are game-logic steps, and their real length depends on the speed setting
 
@@ -69,58 +69,59 @@ real minute only when the game runs at 15 frames per second.
 | CnCNet ts-patches, `src/gamespeed.asm` (<https://github.com/CnCNet/ts-patches/blob/master/src/gamespeed.asm>) | A *patch* for Tiberian Sun remapping single-player speeds, "speed 2 (Fast) = 45 FPS" | patched TS, not stock RA2 |
 | Search-engine summary of a 2016 CnCNet post (SiRaLeX), not opened | measured caps "Game Speed 6 <= 59 FPS ... 3 <= 29 FPS" (10 FPS steps) | unverified, possibly 40 or 50 |
 
-Reading: the stock single-player/skirmish table appears to be 60 / GameSpeed
-(MAX, 60, 30, 20, 15, 12, 10), the default skirmish setting appears to be
-"Fast" = GameSpeed 2, which gives **30 frames per second**. But one forum
-statement puts the same notch at 45, the unverified 2016 measurement suggests
-10 FPS steps, the multiplayer table differs from the skirmish one, and the
-CnCNet client (which many players use) can change the default. No source
-measures stock RA2 skirmish directly. Per the brief, the rate is therefore not
-taken as established: `RA2_FRAMES_PER_SECOND = OPENRA_TICKS_PER_SECOND` (25),
-the mod's current 1:1 behaviour.
+Reading (before the measurement): the stock single-player/skirmish table
+appeared to be 60 / GameSpeed (MAX, 60, 30, 20, 15, 12, 10), but the sources
+disagreed on which notch the default is (30 vs 45 fps), the multiplayer table
+differs from the skirmish one, and no source measured stock RA2 skirmish. The
+user's measurement in section 4 settles it: slider position 3 is 20 fps.
 
-## 4. Measurement that would settle it (owner of the game)
+## 4. Measurement (done, 2026-10-20)
 
-Stock RA2 (not via the CnCNet client), Skirmish, leave the speed slider at its
-default and note its position (count notches from the left, 1 to 7). Time
-with a real stopwatch or phone, not the in-game countdown (that counts game
-minutes of 900 frames, not real time).
+**Setup:** original RA2, Skirmish, speed slider at position 3 (user).
+**Observation:** an Ore Refinery (`Cost=2000`) took **60 s** to build.
 
-1. **Iron Curtain duration** (`IronCurtainDuration=750` frames). Fire the Iron
-   Curtain on your own tanks; time from the effect starting to it ending.
-   fps = 750 / seconds. Expected: 25 s at 30 fps, 16.7 s at 45, 30 s at 25,
-   50 s at 15.
-2. **Iron Curtain recharge** (`[IronCurtainSpecial] RechargeTime=5` minutes =
-   4500 frames if minutes are 900 frames). Time from the device finishing
-   (or from firing) until it is ready again. Expected 150 s at 30 fps, 100 s
-   at 45, 300 s at 15. This test decides the `MINUTES_ARE_FRAMES` switch in
-   `conversions.py`: if it takes 4500 / measured-fps seconds (150 s at 30 fps),
-   rules minutes are 900 frames and the switch should become `True` (subject
-   to the balance decision in section 5); if it takes 300 s whatever the
-   rate, minutes are wall-clock and the switch stays `False`.
-3. Optional cross-check: Ivan's time bomb (`IvanTimedDelay=450` frames):
-   15 s at 30 fps, 10 s at 45.
-4. Optional: repeat test 1 one notch faster ("Faster") to tell 60 / GameSpeed
-   (expect 12.5 s at 60 fps) from the 45-FPS table.
+**Reasoning.** `[General] BuildSpeed=.7` is minutes per 1000 credits, so the
+refinery costs 2000 x .7 / 1000 = **1.4 rules.ini minutes**.
 
-Once measured, set `RA2_FRAMES_PER_SECOND` in `conversions.py` and update the
-literal expectations in `tests/test_conversions.py` (`test_speed_and_rot`).
+- If a rules minute were a real minute, the refinery would take 1.4 x 60 =
+  **84 s**. Observed 60 s: rejected. (This also drops the wall-clock reading
+  that the mod used until now, `MINUTES_ARE_FRAMES = False`.)
+- If a rules minute is the engine's 900 frames, the refinery takes 1.4 x 900 =
+  **1260 frames**. 1260 frames in about 60 s is about **21 fps**. This matches
+  RA2's speed setting 3 at 60 / 3 = **20 fps** (RA1-style frame delay,
+  section 1), which would give 63 s.
+- The observed ~21 fps against the predicted 20 is a 5 % gap. The build-up
+  animation (`BuildupTime=.06` minutes, 54 frames, 2.7 s at 20 fps) may account
+  for part of it, as may the stopwatch.
 
-## 5. Minutes (open decision)
+**Ruling (controller):** `RA2_FRAMES_PER_SECOND = 20` (OpenRA Normal speed, 25
+ticks per second, corresponds to RA2 slider position 3) and
+`MINUTES_ARE_FRAMES = True`. In Exact, a rules minute is 900 / 20 = 45 s =
+1125 ticks and one RA2 frame is 1.25 ticks.
 
-The brief fixes `minutes_to_ticks(7) == 10500`, i.e. a rules minute is a
-wall-clock minute at OpenRA's 25 ticks per second. That is also what the mod
-does today (Iron Curtain `RechargeTime=5` -> `ChargeInterval: 7500`; Lightning
-Storm 10 -> 15000). The module implements exactly that.
+**Remaining optional confirmation:** fire an Iron Curtain on your own tanks at
+slider position 3 and time the effect. `IronCurtainDuration=750` frames should
+last **37.5 s** at 20 fps (938 ticks in Exact). 50 s would mean 15 fps; 25 s
+30 fps. Optional cross-checks: Ivan's time bomb (`IvanTimedDelay=450` frames,
+22.5 s at 20 fps); the Iron Curtain recharge (`RechargeTime=5` minutes = 4500
+frames = 225 s).
 
-The engine, however, converts a rules minute to 900 frames (section 2). If RA2
-runs at 30 frames per second, a "5-minute" recharge lasts 150 real seconds in
-RA2 but 300 seconds in the mod. The engine-consistent formula is
-`frames_to_ticks(minutes * 900)`, which equals the wall-clock formula only at
-15 fps. `conversions.MINUTES_ARE_FRAMES` selects it (default `False`, the
-brief's and the mod's behaviour); tests cover both settings. Changing it halves every minute-based timer (superweapons, repair and
-reload rates, build time) at 30 fps, so it is a balance decision for the
-user, not something to guess here.
+Sanity values after regeneration: `htnk.exact` BuildDuration 709 ticks (0.63
+min = 567 frames = 28.35 s), `garefn.exact` 1575 ticks (63 s), Iron Curtain
+ChargeInterval 5625 and Duration 938, Chronosphere ChargeInterval 7875,
+`120mm.exact` ReloadDelay 81 (ROF 65 frames).
+
+## 5. Minutes (decided)
+
+The engine converts a rules minute to 900 frames (section 2). The measurement
+in section 4 shows RA2 behaves that way (60 s refinery, not 84 s), so
+`conversions.MINUTES_ARE_FRAMES = True` and `minutes_to_ticks(m) =
+frames_to_ticks(m * 900)`: 1 minute = 1125 ticks at 20 fps. The old
+wall-clock formula (1 minute = 1500 ticks, the mod's earlier superweapon
+timers) is kept behind `MINUTES_ARE_FRAMES = False` for tests only. Every
+minute-based timer in Exact (superweapons, repair and reload rates, build
+time) is therefore 25 % shorter than the old wall-clock value (1125 / 1500).
+Reimagined is untouched.
 
 ## 6. Speed, ROT and GameSpeedBias
 
@@ -129,13 +130,14 @@ user, not something to guess here.
   ModEnc gives Speed's internal value as `min((min(Speed,100)*256/100),255)`
   (<https://modenc.renegadeprojects.com/Speed>) and no unit for ROT
   (<https://modenc.renegadeprojects.com/ROT>).
-- **Hypothesis, to confirm with the frame-rate measurement:** Speed and ROT
-  are per-frame quantities, like ROF. The module scales them by
-  `RA2_FRAMES_PER_SECOND / 25`, so with the fallback they stay x15 / x4, and
-  when the rate is set every per-frame quantity moves together (at 30 fps:
-  Speed x18, ROT x4.8, ROF x25/30). Nothing shows x15 / x4 were calibrated
-  against a 1:1 frame mapping; after measuring the rate, time one unit over a
-  known distance in RA2 before relying on the scaling.
+- **Hypothesis (frame rate now measured, scaling still unmeasured):** Speed
+  and ROT are per-frame quantities, like ROF. The module scales the mod's
+  x15 / x4 factors by `RA2_FRAMES_PER_SECOND / 25` = 0.8, so at 20 fps every
+  per-frame quantity moves together: Speed x12, ROT x3.2, ROF x1.25 ticks per
+  frame (a Speed=6 tank: 90 -> 72 WDist per tick; `htnk.exact` TurnSpeed 16).
+  Nothing shows x15 / x4 were calibrated against a 1:1 frame mapping, so this
+  is reasoned, not measured. To confirm, time one unit over a known distance
+  in RA2 at slider position 3.
 - `GameSpeedBias=1.6` (`rules.ini` line 56, "multiplier to overall game object
   movement speed"). ModEnc: "a global multiplier to the speed of all units"
   and "does not affect the speed of projectiles or animations"; ModEnc also
@@ -164,8 +166,8 @@ user, not something to guess here.
 - Projectile speed: a weapon's `Speed=` is in leptons per frame, so
   `projectile_speed_to_openra` converts it as leptons x 4 (WDist per lepton)
   x `RA2_FRAMES_PER_SECOND / 25` (frames per tick), with the same frame-rate
-  constant as ROF and unit Speed. At the 1:1 fallback, `Speed=40` (120mm)
-  -> 160 WDist per tick; at 30 fps it would be 192. GameSpeedBias does not
+  constant as ROF and unit Speed. At 20 fps, `Speed=40` (120mm)
+  -> 128 WDist per tick (160 at one frame per tick). GameSpeedBias does not
   apply (ModEnc: it "does not affect the speed of projectiles"). The mod's
   existing projectile speeds are not derived from this rule (many weapons use
   a hand-set `682`, against 160 for `Speed=40`); Exact values must come from

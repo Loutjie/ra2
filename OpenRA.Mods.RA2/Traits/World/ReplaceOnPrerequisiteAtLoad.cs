@@ -22,7 +22,9 @@ namespace OpenRA.Mods.RA2.Traits
 	[Desc("Replaces the actors with " + nameof(ReplaceOnPrerequisite) + " that are spawned while the map loads (map actors, starting units)",
 		"as soon as they are all spawned, before the first tick, instead of at the end of the first tick.",
 		"This lets first-tick orders, such as the AI deploying its starting MCV, reach the replacement.",
-		"Runs after the map script's WorldLoaded, so the actors that the script creates there are replaced the same way.")]
+		"Runs after the map script's WorldLoaded, so the actors that the script creates there are replaced the same way.",
+		"A map Lua script that caches references to map actors in WorldLoaded holds the base actors, which are replaced afterwards:",
+		"such references go stale, so the script must not keep using them past the replacement.")]
 	public class ReplaceOnPrerequisiteAtLoadInfo : TraitInfo, NotBefore<SpawnMapActorsInfo>, NotBefore<SpawnStartingUnitsInfo>,
 		NotBefore<LuaScriptInfo>
 	{
