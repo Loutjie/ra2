@@ -912,8 +912,9 @@ namisl:
 		Description: actor-namisl.nukepower-description
 		EndChargeSound: snukread.wav
 		EndChargeSpeechNotification: AtomBombReady
-		LaunchSound: snuklaun.wav
+		LaunchSound: snuksire.wav
 		LaunchSpeechNotification: AtomBombLaunchDetected
+		IncomingSound: snuksire.wav
 		MissileWeapon: atomic
 		MissilePalette: player
 		MissileDelay: 35
