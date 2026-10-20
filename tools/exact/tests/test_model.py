@@ -133,3 +133,11 @@ def test_real_prerequisite_aliases_resolve(ra2ini):
     for actor in model.load_actors(ra2ini):
         for alts in model.resolve_prerequisite_aliases(ra2ini, actor.prerequisites):
             assert all(a in ra2ini for a in alts), (actor.id, alts)
+
+
+def test_load_actor_ignores_buildability(sample):
+    # GHOST is registered but TechLevel -1: load_actors skips it, load_actor does not.
+    ghost = model.load_actor(sample, "GHOST")
+    assert ghost is not None and ghost.id == "GHOST"
+    assert model.load_actor(sample, "UNLISTED") is None
+    assert model.load_actor(sample, "NOSUCH") is None

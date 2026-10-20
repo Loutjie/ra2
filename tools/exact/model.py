@@ -203,39 +203,54 @@ def _is_buildable(section: dict) -> bool:
 
 def load_actors(rules: dict) -> list[ExactActor]:
     """Player-buildable actors, in registration-list order."""
-    build_speed = _flt(rules.get("General", {}), "BuildSpeed", 0.0)
     actors = []
     for actor_id, kind in _registered(rules).items():
         section = rules.get(actor_id)
         if section is None or not _is_buildable(section):
             continue
-        cost = _int(section, "Cost", 0)
-        multiplier = _flt(section, "BuildTimeMultiplier", 1.0)
-        actors.append(ExactActor(
-            id=actor_id,
-            kind=kind,
-            cost=cost,
-            strength=_int(section, "Strength", 0),
-            armor=section.get("Armor", "none").strip().lower() or "none",
-            speed=_int(section, "Speed", 0),
-            rot=_int(section, "ROT", 0),
-            sight=_int(section, "Sight", 1),
-            power=_int(section, "Power", 0),
-            build_minutes=cost / 1000 * build_speed * multiplier,
-            prerequisites=parse_list(section.get("Prerequisite")),
-            primary=_opt(section, "Primary"),
-            secondary=_opt(section, "Secondary"),
-            elite_primary=_opt(section, "ElitePrimary"),
-            elite_secondary=_opt(section, "EliteSecondary"),
-            veteran_abilities=parse_list(section.get("VeteranAbilities")),
-            elite_abilities=parse_list(section.get("EliteAbilities")),
-            death_weapon=_opt(section, "DeathWeapon"),
-            superweapon=_opt(section, "SuperWeapon"),
-            weapons=_numbered_weapons(rules, section, "Weapon"),
-            elite_weapons=_numbered_weapons(rules, section, "EliteWeapon"),
-            raw=dict(section),
-        ))
+        actors.append(_make_actor(rules, actor_id, kind, section))
     return actors
+
+
+def load_actor(rules: dict, actor_id: str) -> ExactActor | None:
+    """One registered actor, buildable or not (e.g. a construction yard that
+    is only reached by deploying an MCV). None if `actor_id` is unregistered
+    or has no section."""
+    kind = _registered(rules).get(actor_id)
+    section = rules.get(actor_id)
+    if kind is None or section is None:
+        return None
+    return _make_actor(rules, actor_id, kind, section)
+
+
+def _make_actor(rules: dict, actor_id: str, kind: str, section: dict) -> ExactActor:
+    build_speed = _flt(rules.get("General", {}), "BuildSpeed", 0.0)
+    cost = _int(section, "Cost", 0)
+    multiplier = _flt(section, "BuildTimeMultiplier", 1.0)
+    return ExactActor(
+        id=actor_id,
+        kind=kind,
+        cost=cost,
+        strength=_int(section, "Strength", 0),
+        armor=section.get("Armor", "none").strip().lower() or "none",
+        speed=_int(section, "Speed", 0),
+        rot=_int(section, "ROT", 0),
+        sight=_int(section, "Sight", 1),
+        power=_int(section, "Power", 0),
+        build_minutes=cost / 1000 * build_speed * multiplier,
+        prerequisites=parse_list(section.get("Prerequisite")),
+        primary=_opt(section, "Primary"),
+        secondary=_opt(section, "Secondary"),
+        elite_primary=_opt(section, "ElitePrimary"),
+        elite_secondary=_opt(section, "EliteSecondary"),
+        veteran_abilities=parse_list(section.get("VeteranAbilities")),
+        elite_abilities=parse_list(section.get("EliteAbilities")),
+        death_weapon=_opt(section, "DeathWeapon"),
+        superweapon=_opt(section, "SuperWeapon"),
+        weapons=_numbered_weapons(rules, section, "Weapon"),
+        elite_weapons=_numbered_weapons(rules, section, "EliteWeapon"),
+        raw=dict(section),
+    )
 
 
 def _verses(warhead: dict) -> list[int]:
