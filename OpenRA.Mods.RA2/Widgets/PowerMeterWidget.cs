@@ -10,6 +10,7 @@
 #endregion
 
 using System;
+using System.Globalization;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.Common.Widgets;
 using OpenRA.Widgets;
@@ -25,7 +26,11 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 		int warningFlash;
 		int lastTotalPowerDisplay;
 
+		const string PowerUsage = "label-power-usage";
+		const string Infinite = "label-infinite-power";
+
 		protected readonly World World;
+		readonly Lazy<TooltipContainerWidget> tooltipContainer;
 
 		[Desc("The name of the Container Widget to tie the Y axis to")]
 		[FieldLoader.Require]
@@ -71,10 +76,44 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 		[FieldLoader.Require]
 		public readonly string ImageCollection = "";
 
+		[Desc("Tooltip container shown while hovering the meter (power usage/capacity).")]
+		public readonly string TooltipContainer = null;
+
+		public readonly string TooltipTemplate = "SIMPLE_TOOLTIP";
+
 		[ObjectCreator.UseCtor]
 		public PowerMeterWidget(World world)
 		{
 			World = world;
+			tooltipContainer = Exts.Lazy(() => Ui.Root.Get<TooltipContainerWidget>(TooltipContainer));
+		}
+
+		// Same text as the power counter label: "Power Usage: drained/provided".
+		string GetTooltipText()
+		{
+			var player = World.LocalPlayer.PlayerActor;
+			var powerManager = player.Trait<PowerManager>();
+			var capacity = player.Trait<DeveloperMode>().UnlimitedPower
+				? FluentProvider.GetMessage(Infinite)
+				: powerManager.PowerProvided.ToString(NumberFormatInfo.CurrentInfo);
+
+			return FluentProvider.GetMessage(PowerUsage,
+				"usage", powerManager.PowerDrained.ToString(NumberFormatInfo.CurrentInfo),
+				"capacity", capacity);
+		}
+
+		public override void MouseEntered()
+		{
+			if (TooltipContainer == null || World.LocalPlayer == null)
+				return;
+
+			tooltipContainer.Value.SetTooltip(TooltipTemplate, new WidgetArgs() { { "getText", (Func<string>)GetTooltipText } });
+		}
+
+		public override void MouseExited()
+		{
+			if (TooltipContainer != null && tooltipContainer.IsValueCreated)
+				tooltipContainer.Value.RemoveTooltip();
 		}
 
 		public void CalculateMeterBarDimensions()
@@ -122,7 +161,10 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 				var newPower = new ImageWidget
 				{
 					ImageCollection = ImageCollection,
-					ImageName = NoPowerImage
+					ImageName = NoPowerImage,
+
+					// Let hover fall through to the meter, which owns the tooltip.
+					IgnoreMouseOver = true
 				};
 
 				// AddFactionSuffixLogic could be added here
