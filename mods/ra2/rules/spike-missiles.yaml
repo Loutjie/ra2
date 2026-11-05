@@ -62,6 +62,7 @@ dmisl:
 
 v3:
 	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -87,11 +88,12 @@ v3:
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
+	# RA2 [V3] GuardRange=9 (the weapon reaches 18, so the default scan radius would be the weapon range).
+	AutoTarget:
+		ScanRadius: 9
 	RenderSprites:
 	Selectable:
 		Bounds: 1544, 2509, 0, -289
-	RenderVoxels:
-		NormalsPalette: ts-normals
 	WithVoxelBody:
 	Voiced:
 		VoiceSet: SovietVehicleVoice
@@ -99,6 +101,7 @@ v3:
 
 dred:
 	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Valued:
 		Cost: 2000
 	Tooltip:
@@ -123,6 +126,9 @@ dred:
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 128
+	# RA2 [DRED] GuardRange=10.
+	AutoTarget:
+		ScanRadius: 10
 	RenderSprites:
 	Selectable:
 		Bounds: 2412, 2412, 0, -289
