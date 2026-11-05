@@ -100,6 +100,34 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(flight.Phase, Is.EqualTo(MissileFlightPhase.Fly));
 		}
 
+		// Play-test 2026-11-05: the V3 rocket wobbled up and down on the horizontal leg because
+		// dipping below cruise altitude re-entered the climb. Once it starts descending it must not climb again.
+		[TestCase(12)]
+		[TestCase(18)]
+		public void Ballistic_DoesNotClimbAgainAfterDescending(int cells)
+		{
+			var target = new WPos(cells * 1024, 0, 0);
+			var flight = new MissileFlight(V3(), WPos.Zero, (target - WPos.Zero).Yaw);
+			var lastZ = 0;
+			var descending = false;
+			var reclimbs = 0;
+			while (!flight.Tick(target, WDist.Zero))
+			{
+				var z = flight.Position.Z;
+				if (z < lastZ)
+					descending = true;
+				else if (descending && z > lastZ)
+				{
+					reclimbs++;
+					descending = false;
+				}
+
+				lastZ = z;
+			}
+
+			Assert.That(reclimbs, Is.Zero);
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{

@@ -65,6 +65,9 @@ namespace OpenRA.Mods.RA2.Traits
 		public int Ticks { get; private set; }
 		public MissileFlightPhase Phase { get; private set; }
 
+		// Set once cruise altitude is first reached, so dipping below it later does not restart the climb.
+		bool climbed;
+
 		public MissileFlight(MissileFlightParameters parameters, WPos launch, WAngle yaw)
 		{
 			p = parameters;
@@ -123,6 +126,8 @@ namespace OpenRA.Mods.RA2.Traits
 
 			var toTarget = WAngle.ArcTan(delta.Z, horizontal);
 			var altitude = Position.Z - terrainHeightAtPosition.Length;
+			if (altitude >= p.CruiseAltitude.Length)
+				climbed = true;
 
 			// Terminal guidance: in the last few ticks aim straight at the target with a tighter turn,
 			// otherwise a lazy pitch rate overshoots short shots and undershoots long ones.
@@ -130,7 +135,7 @@ namespace OpenRA.Mods.RA2.Traits
 			WAngle desiredPitch;
 			if (terminal)
 				desiredPitch = toTarget;
-			else if (altitude < p.CruiseAltitude.Length && !Diving(toTarget))
+			else if (!climbed && !Diving(toTarget))
 				desiredPitch = p.PitchFinal;
 			else if (p.Profile == MissileFlightProfile.LazyCurve || Diving(toTarget))
 				desiredPitch = toTarget;
