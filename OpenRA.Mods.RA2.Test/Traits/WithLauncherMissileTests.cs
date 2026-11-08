@@ -69,8 +69,8 @@ namespace OpenRA.Mods.RA2.Test
 
 			void Tick(bool reloading)
 			{
-				first.Tick(reloading);
-				second.Tick(reloading);
+				first.Tick(reloading, 2, 2);
+				second.Tick(reloading, 2, 2);
 			}
 
 			first.Fired();
