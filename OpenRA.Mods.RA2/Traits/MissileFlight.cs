@@ -22,7 +22,10 @@ namespace OpenRA.Mods.RA2.Traits
 		LazyCurve,
 
 		// Climb to cruise altitude, fly level, then dive onto the target (Dreadnought: DMislLazyCurve=no).
-		Cruise
+		Cruise,
+
+		// Smooth arc: pitch falls steadily from PitchFinal at launch to -PitchFinal over the target.
+		Arc
 	}
 
 	/// <summary>Parameters of a RA2 'rocket locomotor' flight, in OpenRA units.</summary>
@@ -67,6 +70,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// Set once cruise altitude is first reached, so dipping below it later does not restart the climb.
 		bool climbed;
+
+		// Arc profile: horizontal launch-to-target distance, fixed on the first flying tick.
+		int arcDistance;
 
 		public MissileFlight(MissileFlightParameters parameters, WPos launch, WAngle yaw)
 		{
@@ -134,7 +140,15 @@ namespace OpenRA.Mods.RA2.Traits
 			var terminal = delta.Length <= Speed * p.TerminalTicks;
 			WAngle desiredPitch;
 			if (terminal)
-				desiredPitch = toTarget;
+				desiredPitch = p.Profile == MissileFlightProfile.Arc && Signed(toTarget) > Signed(Pitch) ? Pitch : toTarget;
+			else if (p.Profile == MissileFlightProfile.Arc)
+			{
+				if (arcDistance == 0)
+					arcDistance = Math.Max(horizontal, 1);
+
+				// +PitchFinal at launch, zero halfway, -PitchFinal over the target.
+				desiredPitch = new WAngle(p.PitchFinal.Angle * (2 * Math.Min(horizontal, arcDistance) - arcDistance) / arcDistance);
+			}
 			else if (!climbed && !Diving(toTarget))
 				desiredPitch = p.PitchFinal;
 			else if (p.Profile == MissileFlightProfile.LazyCurve || Diving(toTarget))
@@ -162,6 +176,12 @@ namespace OpenRA.Mods.RA2.Traits
 		bool Diving(WAngle toTarget)
 		{
 			return toTarget.Angle > 512 && 1024 - toTarget.Angle >= p.DiveAngle.Angle;
+		}
+
+		// Nose-up positive, nose-down negative. Lets an arc refuse to lift its nose near the target.
+		static int Signed(WAngle angle)
+		{
+			return angle.Angle > 512 ? angle.Angle - 1024 : angle.Angle;
 		}
 
 		bool Arrive()

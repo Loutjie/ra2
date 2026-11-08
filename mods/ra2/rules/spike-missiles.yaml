@@ -44,7 +44,7 @@ v3rocket:
 		Acceleration: 8
 		MaxSpeed: 200
 		CruiseAltitude: 3072
-		Profile: Cruise
+		Profile: Arc
 
 dmisl:
 	Inherits: ^SpikeMissile

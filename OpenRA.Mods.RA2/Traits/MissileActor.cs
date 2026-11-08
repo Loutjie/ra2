@@ -50,7 +50,7 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Altitude at which the missile stops climbing (RA2 V3RocketAltitude / DMislAltitude, leptons * 4).")]
 		public readonly WDist CruiseAltitude = new(3072);
 
-		[Desc("LazyCurve (V3) or Cruise (Dreadnought).")]
+		[Desc("LazyCurve, Cruise (Dreadnought) or Arc (V3).")]
 		public readonly MissileFlightProfile Profile = MissileFlightProfile.LazyCurve;
 
 		[Desc("Cruise profile: dive once the target is this far below the horizon.")]

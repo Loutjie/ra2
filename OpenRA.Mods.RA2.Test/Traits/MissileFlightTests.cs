@@ -157,6 +157,43 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(target.X - firstDescentX, Is.LessThanOrEqualTo(5 * 1024), "starts descending only close to the target");
 		}
 
+		// Play-test 2026-11-08: the V3 path should look like an arc: one smooth rise and fall, peaking mid-route.
+		[TestCase(5)]
+		[TestCase(12)]
+		[TestCase(18)]
+		public void V3Arc_RisesAndFallsSmoothly(int cells)
+		{
+			var p = V3();
+			p.Profile = MissileFlightProfile.Arc;
+			var target = new WPos(cells * 1024, 0, 0);
+			var flight = new MissileFlight(p, WPos.Zero, (target - WPos.Zero).Yaw);
+			var lastSigned = int.MaxValue;
+			var peakZ = 0;
+			var peakX = 0;
+			var pitchRises = 0;
+			while (!flight.Tick(target, WDist.Zero))
+			{
+				if (flight.Phase != MissileFlightPhase.Fly || flight.Speed == 0)
+					continue;
+
+				var signed = flight.Pitch.Angle > 512 ? flight.Pitch.Angle - 1024 : flight.Pitch.Angle;
+				if (signed > lastSigned)
+					pitchRises++;
+
+				lastSigned = signed;
+				if (flight.Position.Z > peakZ)
+				{
+					peakZ = flight.Position.Z;
+					peakX = flight.Position.X;
+				}
+			}
+
+			Assert.That((flight.Position - target).Length, Is.LessThan(256), $"landed at {flight.Position}");
+			Assert.That(pitchRises, Is.Zero, "nose only ever moves downwards");
+			Assert.That(peakX, Is.InRange(target.X * 35 / 100, target.X * 65 / 100), "peaks near the middle");
+			Assert.That(peakZ, Is.InRange(target.X * 15 / 100, target.X * 30 / 100), "peak height scales with range");
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{
