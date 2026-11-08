@@ -259,8 +259,16 @@ fv:
 		Weapon: HoverMissile
 		LocalOffset: 128,-128,1024, 128,128,1024
 		RequiresCondition: !rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono
+	Armament@primary-air:
+		Weapon: HoverMissileAir
+		LocalOffset: 128,-128,1024, 128,128,1024
+		RequiresCondition: !rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono
 	Armament@elite:
 		Weapon: HoverMissileE
+		LocalOffset: 128,-128,1024, 128,128,1024
+		RequiresCondition: rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono
+	Armament@elite-air:
+		Weapon: HoverMissileEAir
 		LocalOffset: 128,-128,1024, 128,128,1024
 		RequiresCondition: rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono
 	Armament@mg:
