@@ -1,6 +1,8 @@
 RedEye2:
 	Inherits: ^AAMissile
 	Projectile: Missile
+		# RA2 Speed=100 is leptons per frame, which converts to 480 (the inherited 100 is far too slow).
+		Speed: 480
 		TrailImage: smokey2
 		LockOnProbability: 80
 
