@@ -100,6 +100,10 @@ namespace OpenRA.Mods.RA2.Traits
 		MissileFlight flight;
 		WPos target;
 		int flyingToken = Actor.InvalidConditionToken;
+		Actor launcher;
+		IFacing launcherFacing;
+		WAngle launchFacing;
+		WVec launcherOffset;
 
 		[VerifySync]
 		public WPos CenterPosition { get; private set; }
@@ -123,12 +127,23 @@ namespace OpenRA.Mods.RA2.Traits
 			target = args.GuidedTarget.IsValidFor(args.SourceActor) ? args.GuidedTarget.CenterPosition : args.PassiveTarget;
 			Facing = (target - CenterPosition).Yaw;
 			flight = new MissileFlight(info.FlightParameters, CenterPosition, Facing);
+
+			launcher = args.SourceActor;
+			launcherFacing = launcher.TraitOrDefault<IFacing>();
+			launchFacing = launcherFacing?.Facing ?? WAngle.Zero;
+			launcherOffset = CenterPosition - launcher.CenterPosition;
 		}
 
 		void ITick.Tick(Actor self)
 		{
 			if (flight == null || self.IsDead || self.WillDispose)
 				return;
+
+			if (launcher is { IsInWorld: true, IsDead: false })
+			{
+				var turned = (launcherFacing?.Facing ?? WAngle.Zero) - launchFacing;
+				flight.FollowLauncher(launcher.CenterPosition + launcherOffset.Rotate(WRot.FromYaw(turned)));
+			}
 
 			var map = self.World.Map;
 			var ground = new WDist(CenterPosition.Z - map.DistanceAboveTerrain(CenterPosition).Length);

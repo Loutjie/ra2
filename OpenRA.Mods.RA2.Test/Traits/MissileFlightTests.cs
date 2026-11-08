@@ -200,6 +200,24 @@ namespace OpenRA.Mods.RA2.Test
 		}
 
 		[Test]
+		public void FollowLauncher_MovesOnlyBeforeIgnition()
+		{
+			var flight = new MissileFlight(Dmisl(), WPos.Zero, WAngle.Zero);
+			var target = new WPos(0, -20480, 0);
+			var moved = new WPos(100, 0, 0);
+			flight.FollowLauncher(moved);
+			Assert.That(flight.Position, Is.EqualTo(moved));
+
+			while (flight.Phase != MissileFlightPhase.Fly)
+				flight.Tick(target, WDist.Zero);
+
+			flight.Tick(target, WDist.Zero);
+			var flying = flight.Position;
+			flight.FollowLauncher(WPos.Zero);
+			Assert.That(flight.Position, Is.EqualTo(flying));
+		}
+
+		[Test]
 		public void Flight_IsDeterministic()
 		{
 			var target = new WPos(15000, 4000, 0);

@@ -61,8 +61,9 @@ dmisl:
 		Scale: 12.7
 	MissileActor:
 		FlyingCondition: flying
-		PauseTicks: 17
-		TiltTicks: 45
+		# The lift must clear the slot within the 62-tick reload.
+		PauseTicks: 12
+		TiltTicks: 35
 		PitchInitial: 0
 		PitchFinal: 128
 		PitchTurnRate: 20

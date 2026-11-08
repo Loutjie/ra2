@@ -87,6 +87,13 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public WRot Orientation => new(WAngle.Zero, Pitch, Yaw);
 
+		/// <summary>Keep a missile that has not ignited yet attached to its moving launcher.</summary>
+		public void FollowLauncher(WPos position)
+		{
+			if (Phase == MissileFlightPhase.Pause || Phase == MissileFlightPhase.Tilt)
+				Position = position;
+		}
+
 		/// <summary>Advance one tick. Returns true when the missile has arrived (or must detonate).</summary>
 		public bool Tick(WPos target, WDist terrainHeightAtPosition)
 		{
