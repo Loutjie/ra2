@@ -59,6 +59,10 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
+		[GrantedConditionReference]
+		[Desc("Condition granted once the missile has left the launcher (after the pause and tilt).")]
+		public readonly string FlyingCondition = null;
+
 		public MissileFlightParameters FlightParameters => new()
 		{
 			PauseTicks = PauseTicks,
@@ -89,6 +93,7 @@ namespace OpenRA.Mods.RA2.Traits
 		ProjectileArgs launchArgs;
 		MissileFlight flight;
 		WPos target;
+		int flyingToken = Actor.InvalidConditionToken;
 
 		[VerifySync]
 		public WPos CenterPosition { get; private set; }
@@ -125,6 +130,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 			SetCenterPosition(self, flight.Position);
 			Facing = flight.Yaw;
+
+			if (flight.Phase == MissileFlightPhase.Fly && flyingToken == Actor.InvalidConditionToken && !string.IsNullOrEmpty(info.FlyingCondition))
+				flyingToken = self.GrantCondition(info.FlyingCondition);
 
 			if (arrived)
 				Detonate(self);

@@ -13,8 +13,10 @@
 		Type: Rocket
 	# 'Missile' lets bots ignore missiles when picking squad targets (IgnoredEnemyTargetTypes)
 	# while AA AutoTarget (ValidTargets: Air) still engages them.
+	# Only while flying: a missile still on its launcher cannot be shot off it.
 	Targetable:
 		TargetTypes: Air, Missile
+		RequiresCondition: flying
 	HitShape:
 	BodyOrientation:
 		QuantizedFacings: 0
@@ -40,6 +42,7 @@
 v3rocket:
 	Inherits: ^SpikeMissile
 	MissileActor:
+		FlyingCondition: flying
 		PauseTicks: 0
 		TiltTicks: 60
 		PitchInitial: 54
@@ -54,6 +57,7 @@ v3rocket:
 dmisl:
 	Inherits: ^SpikeMissile
 	MissileActor:
+		FlyingCondition: flying
 		PauseTicks: 20
 		TiltTicks: 60
 		PitchInitial: 0
