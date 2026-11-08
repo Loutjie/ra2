@@ -62,7 +62,8 @@ dmisl:
 		YawTurnRate: 24
 		Acceleration: 16
 		MaxSpeed: 250
-		CruiseAltitude: 3072
+		# Above RA2's 768 leptons (3072): world height draws at 58% on screen, and it must clear buildings.
+		CruiseAltitude: 5120
 		Profile: Cruise
 
 v3:
