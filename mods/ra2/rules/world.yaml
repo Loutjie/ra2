@@ -1,4 +1,5 @@
 ^BaseWorld:
+	ReopenSoundAfterSleep:
 	Inherits: ^Palettes
 	MusicPlaylist:
 		VictoryMusic: score
