@@ -36,21 +36,17 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 			{
 				if (child is ProductionTypeButtonWidget button && button.GetOrNull<ImageWidget>("ICON") is ImageWidget icon)
 				{
-					var inner = icon.GetImageName;
-					icon.GetImageName = () => Blink(inner(), Game.RunTime);
+					icon.IsVisible = () => IsShown(icon.GetImageName(), Game.RunTime);
 				}
 
 				Wrap(child);
 			}
 		}
 
-		// The off phase uses the disabled image: the alert image alone can look like the normal one.
-		public static string Blink(string name, long runTimeMs)
+		// Hide the icon on the off phase rather than swap its image: some alert images look like the normal ones.
+		public static bool IsShown(string imageName, long runTimeMs)
 		{
-			if (!name.EndsWith(Alert, StringComparison.Ordinal) || runTimeMs / HalfPeriodMs % 2 == 0)
-				return name;
-
-			return name[..^Alert.Length] + "-disabled";
+			return !imageName.EndsWith(Alert, StringComparison.Ordinal) || runTimeMs / HalfPeriodMs % 2 == 0;
 		}
 	}
 }
