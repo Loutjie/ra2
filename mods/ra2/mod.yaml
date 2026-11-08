@@ -326,6 +326,6 @@ GameSpeeds:
 			Timestep: 20
 			OrderLatency: 6
 
-# RA2 tiles are 2.5x wider than classic ones, so Far needs a taller view to show as much of the map.
+# RA2 tiles are 2.5x wider than classic ones. The engine's views bottom out at 1:1 pixels, so shrink them all.
 WorldViewportSizes:
-	FarWindowHeights: 1300, 2000
+	DefaultScale: 0.7
