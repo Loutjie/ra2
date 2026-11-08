@@ -30,9 +30,10 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public void Fired() { IsLoaded = false; }
 
-		public void Tick(bool armamentReloading)
+		/// <summary>A burst in progress counts as reloading: IsReloading drops to false between its shots.</summary>
+		public void Tick(bool armamentReloading, int burstRemaining, int weaponBurst)
 		{
-			if (!armamentReloading)
+			if (!armamentReloading && burstRemaining == weaponBurst)
 				IsLoaded = true;
 		}
 	}
@@ -127,7 +128,7 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void ITick.Tick(Actor self)
 		{
-			slot.Tick(armament.IsReloading);
+			slot.Tick(armament.IsReloading, armament.Burst, armament.Weapon.Burst);
 		}
 	}
 }

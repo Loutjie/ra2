@@ -29,20 +29,33 @@ namespace OpenRA.Mods.RA2.Test
 
 			for (var i = 0; i < 150; i++)
 			{
-				slot.Tick(armamentReloading: true);
+				slot.Tick(armamentReloading: true, burstRemaining: 1, weaponBurst: 1);
 				Assert.That(slot.IsLoaded, Is.False, $"still reloading, tick {i}");
 			}
 
-			slot.Tick(armamentReloading: false);
+			slot.Tick(armamentReloading: false, burstRemaining: 1, weaponBurst: 1);
 			Assert.That(slot.IsLoaded, Is.True, "the missile reappears once the reload finishes");
+		}
+
+		[Test]
+		public void LauncherMissile_StaysEmptyBetweenTheShotsOfABurst()
+		{
+			// Dreadnought: Burst 2. IsReloading is false for a moment before the second shot.
+			var first = new LauncherSlot();
+			first.Fired();
+			first.Tick(armamentReloading: false, burstRemaining: 1, weaponBurst: 2);
+			Assert.That(first.IsLoaded, Is.False);
+
+			first.Tick(armamentReloading: false, burstRemaining: 2, weaponBurst: 2);
+			Assert.That(first.IsLoaded, Is.True);
 		}
 
 		[Test]
 		public void LauncherMissile_NotReloading_StaysLoaded()
 		{
 			var slot = new LauncherSlot();
-			slot.Tick(armamentReloading: false);
-			slot.Tick(armamentReloading: true);
+			slot.Tick(armamentReloading: false, burstRemaining: 1, weaponBurst: 1);
+			slot.Tick(armamentReloading: true, burstRemaining: 1, weaponBurst: 1);
 			Assert.That(slot.IsLoaded, Is.True, "reloading alone does not empty a slot that has not fired");
 		}
 
