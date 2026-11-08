@@ -62,7 +62,7 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
-		[Desc("Added to the draw order while flying, so missiles are not drawn behind buildings they pass.")]
+		[Desc("Added to the draw order once the missile lifts off its launcher, so it is not drawn behind nearby buildings.")]
 		public readonly int FlyingZOffset = 8192;
 
 		[GrantedConditionReference]
@@ -184,7 +184,7 @@ namespace OpenRA.Mods.RA2.Traits
 
 		IEnumerable<IRenderable> IRenderModifier.ModifyRender(Actor self, WorldRenderer wr, IEnumerable<IRenderable> r)
 		{
-			return Phase == MissileFlightPhase.Fly ? r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset)) : r;
+			return Phase != MissileFlightPhase.Pause ? r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset)) : r;
 		}
 
 		IEnumerable<Rectangle> IRenderModifier.ModifyScreenBounds(Actor self, WorldRenderer wr, IEnumerable<Rectangle> bounds) { return bounds; }
