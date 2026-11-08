@@ -145,7 +145,8 @@ def render(garrisonables) -> str:
             f"\t\tPortCones: {', '.join([str(PORT_CONE)] * len(offsets))}\n"
             "\tWithCargoPipsDecoration@GARRISON:\n"
             "\t\tPosition: BottomLeft\n"
-            "\t\tRequiresSelection: true\n"
+            # Always shown while occupied: civilian buildings use the terrain palette and do not take the owner's colour.
+            "\t\tRequiresCondition: garrisoned\n"
             "\t\tPalette: pips\n"
             "\t\tCustomPipSequences:\n"
             "\t\t\tblue: pip-blue\n"

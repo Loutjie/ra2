@@ -14,7 +14,7 @@ caarmy01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -44,7 +44,7 @@ caarmy02:
 		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -74,7 +74,7 @@ caarmy03:
 		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -104,7 +104,7 @@ caarmy04:
 		PortCones: 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -134,7 +134,7 @@ cabarn02:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -164,7 +164,7 @@ cabunk01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -194,7 +194,7 @@ cabunk02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -224,7 +224,7 @@ cachig01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -254,7 +254,7 @@ cachig02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -284,7 +284,7 @@ cachig03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -314,7 +314,7 @@ cachig04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -344,7 +344,7 @@ cachig05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -374,7 +374,7 @@ cacity01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -404,7 +404,7 @@ cacity02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -434,7 +434,7 @@ cacity03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -464,7 +464,7 @@ cacity04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -494,7 +494,7 @@ caeur04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -524,7 +524,7 @@ caeur1:
 		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -554,7 +554,7 @@ caeur2:
 		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -584,7 +584,7 @@ cafarm01:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -614,7 +614,7 @@ cafarm06:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -644,7 +644,7 @@ cafrma:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -674,7 +674,7 @@ cafrmb:
 		PortCones: 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -704,7 +704,7 @@ cagas01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -734,7 +734,7 @@ cahse01:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -764,7 +764,7 @@ cahse02:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -794,7 +794,7 @@ cahse03:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -824,7 +824,7 @@ cahse04:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -854,7 +854,7 @@ cahse05:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -884,7 +884,7 @@ cahse06:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -914,7 +914,7 @@ cahse07:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -944,7 +944,7 @@ caind01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -974,7 +974,7 @@ calab:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1004,7 +1004,7 @@ camex02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1034,7 +1034,7 @@ camiam01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1064,7 +1064,7 @@ camiam02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1094,7 +1094,7 @@ camiam03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1124,7 +1124,7 @@ camiam04:
 		PortCones: 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1154,7 +1154,7 @@ camiam05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1184,7 +1184,7 @@ camiam06:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1214,7 +1214,7 @@ camiam07:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1244,7 +1244,7 @@ camov02:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1274,7 +1274,7 @@ camsc07:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1304,7 +1304,7 @@ camsc08:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1334,7 +1334,7 @@ camsc09:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1364,7 +1364,7 @@ camsc10:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1394,7 +1394,7 @@ canewy01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1424,7 +1424,7 @@ canewy05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1454,7 +1454,7 @@ canewy06:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1484,7 +1484,7 @@ canewy07:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1514,7 +1514,7 @@ canewy08:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1544,7 +1544,7 @@ canewy10:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1574,7 +1574,7 @@ canewy11:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1604,7 +1604,7 @@ canewy12:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1634,7 +1634,7 @@ canewy13:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1664,7 +1664,7 @@ canewy14:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1694,7 +1694,7 @@ canewy15:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1724,7 +1724,7 @@ canewy16:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1754,7 +1754,7 @@ canewy17:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1784,7 +1784,7 @@ canewy18:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1814,7 +1814,7 @@ canewy20:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1844,7 +1844,7 @@ canewy21:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1874,7 +1874,7 @@ canwy05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1904,7 +1904,7 @@ canwy09:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1934,7 +1934,7 @@ canwy22:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1964,7 +1964,7 @@ canwy23:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -1994,7 +1994,7 @@ canwy24:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2024,7 +2024,7 @@ canwy25:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2054,7 +2054,7 @@ canwy26:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2084,7 +2084,7 @@ capars02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2114,7 +2114,7 @@ capars04:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2144,7 +2144,7 @@ capars05:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2174,7 +2174,7 @@ capars06:
 		PortCones: 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2204,7 +2204,7 @@ capars08:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2234,7 +2234,7 @@ capars09:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2264,7 +2264,7 @@ capars10:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2294,7 +2294,7 @@ capars12:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2324,7 +2324,7 @@ capars13:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2354,7 +2354,7 @@ capars14:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2384,7 +2384,7 @@ caprs03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2414,7 +2414,7 @@ carus01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2444,7 +2444,7 @@ carus02g:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2474,7 +2474,7 @@ carus03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2504,7 +2504,7 @@ carus04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2534,7 +2534,7 @@ carus05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2564,7 +2564,7 @@ carus06:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2594,7 +2594,7 @@ carus07:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2624,7 +2624,7 @@ carus08:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2654,7 +2654,7 @@ carus09:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2684,7 +2684,7 @@ carus10:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2714,7 +2714,7 @@ carus11:
 		PortCones: 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2744,7 +2744,7 @@ castl01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2774,7 +2774,7 @@ castl02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2804,7 +2804,7 @@ castl03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2834,7 +2834,7 @@ castl04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2864,7 +2864,7 @@ caswst01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2894,7 +2894,7 @@ catech01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2924,7 +2924,7 @@ catexs01:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2954,7 +2954,7 @@ catexs02:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -2984,7 +2984,7 @@ catexs03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3014,7 +3014,7 @@ catexs04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3044,7 +3044,7 @@ catexs05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3074,7 +3074,7 @@ catexs06:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3104,7 +3104,7 @@ catexs07:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3134,7 +3134,7 @@ catexs08:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3164,7 +3164,7 @@ cawa2a:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3194,7 +3194,7 @@ cawa2b:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3224,7 +3224,7 @@ cawa2c:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3254,7 +3254,7 @@ cawa2d:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3284,7 +3284,7 @@ cawash03:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3314,7 +3314,7 @@ cawash04:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3344,7 +3344,7 @@ cawash05:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3374,7 +3374,7 @@ cawash06:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3404,7 +3404,7 @@ cawash07:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3434,7 +3434,7 @@ cawash08:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3464,7 +3464,7 @@ cawash09:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3494,7 +3494,7 @@ cawash10:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3524,7 +3524,7 @@ cawash11:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3554,7 +3554,7 @@ cawash13:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
@@ -3584,7 +3584,7 @@ cawash17:
 		PortCones: 512, 512, 512, 512, 512, 512, 512, 512, 512, 512
 	WithCargoPipsDecoration@GARRISON:
 		Position: BottomLeft
-		RequiresSelection: true
+		RequiresCondition: garrisoned
 		Palette: pips
 		CustomPipSequences:
 			blue: pip-blue
