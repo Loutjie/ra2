@@ -76,6 +76,8 @@ Medusa:
 	Burst: 3
 	BurstDelays: 13
 	Projectile: Missile
+		# RA2 Speed=120 leptons per frame.
+		Speed: 576
 		ContrailLength: 35
 		LockOnProbability: 85
 		RangeLimit: 15c409
