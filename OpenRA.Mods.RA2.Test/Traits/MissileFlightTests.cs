@@ -128,6 +128,35 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(reclimbs, Is.Zero);
 		}
 
+		// Play-test 2026-11-08: the V3 should climb, fly level, and only come down near the target.
+		[TestCase(5, 0)]
+		[TestCase(12, 3)]
+		[TestCase(18, 9)]
+		public void V3Cruise_FliesLevelThenDivesNearTarget(int cells, int minimumLevelCells)
+		{
+			var p = V3();
+			p.Profile = MissileFlightProfile.Cruise;
+			var target = new WPos(cells * 1024, 0, 0);
+			var flight = new MissileFlight(p, WPos.Zero, (target - WPos.Zero).Yaw);
+			var levelDistance = 0;
+			var last = WPos.Zero;
+			var firstDescentX = -1;
+			while (!flight.Tick(target, WDist.Zero))
+			{
+				var step = flight.Position - last;
+				if (step.Z == 0 && step.HorizontalLength > 0)
+					levelDistance += step.HorizontalLength;
+				else if (step.Z < 0 && firstDescentX < 0)
+					firstDescentX = flight.Position.X;
+
+				last = flight.Position;
+			}
+
+			Assert.That((flight.Position - target).Length, Is.LessThan(256), $"landed at {flight.Position}");
+			Assert.That(levelDistance, Is.GreaterThanOrEqualTo(minimumLevelCells * 1024));
+			Assert.That(target.X - firstDescentX, Is.LessThanOrEqualTo(5 * 1024), "starts descending only close to the target");
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{
