@@ -24,6 +24,9 @@ namespace OpenRA.Mods.RA2.Traits
 		public const int RetryIntervalMs = 1000;
 		public const int MaxRetries = 10;
 
+		// A newly selected output (especially Bluetooth) is not usable the instant it is announced.
+		public const int OutputChangeSettleMs = 500;
+
 		long lastFrameMs = -1;
 		long lastClockNs = -1;
 		long clockChangedMs;
@@ -75,6 +78,12 @@ namespace OpenRA.Mods.RA2.Traits
 			retriesLeft--;
 			nextAttemptMs = nowMs + RetryIntervalMs;
 			return true;
+		}
+
+		public void NotifyOutputChanged(long nowMs)
+		{
+			LastReason = "default output changed";
+			Arm(nowMs + OutputChangeSettleMs);
 		}
 
 		void Arm(long nowMs)

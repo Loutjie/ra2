@@ -88,6 +88,17 @@ namespace OpenRA.Mods.RA2.Test
 		}
 
 		[Test]
+		public void OutputChange_ReopensAfterSettling()
+		{
+			var w = new SoundDeviceWatchdog();
+			w.ShouldReopen(1000, true, 1);
+			w.NotifyOutputChanged(1000);
+			Assert.That(w.ShouldReopen(1016, true, 2), Is.False, "still settling");
+			Assert.That(w.ShouldReopen(1000 + SoundDeviceWatchdog.OutputChangeSettleMs, true, 3), Is.True);
+			Assert.That(w.LastReason, Does.Contain("output"));
+		}
+
+		[Test]
 		public void Success_StopsRetrying()
 		{
 			var w = new SoundDeviceWatchdog();

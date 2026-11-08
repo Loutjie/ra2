@@ -17,7 +17,7 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.RA2.Traits
 {
 	[TraitLocation(SystemActors.World | SystemActors.EditorWorld)]
-	[Desc("Restores audio after the computer sleeps, by reopening the OpenAL device in place. Unsynced.")]
+	[Desc("Restores audio after the computer sleeps or the default output changes, by reopening the OpenAL device in place. Unsynced.")]
 	public class ReopenSoundAfterSleepInfo : TraitInfo<ReopenSoundAfterSleep> { }
 
 	public class ReopenSoundAfterSleep : ITickRender
@@ -48,6 +48,11 @@ namespace OpenRA.Mods.RA2.Traits
 		GetInteger64 getInteger64;
 		bool unavailable;
 
+		public ReopenSoundAfterSleep()
+		{
+			DefaultOutputMonitor.Start();
+		}
+
 		void ITickRender.TickRender(WorldRenderer wr, Actor self)
 		{
 			if (unavailable)
@@ -71,6 +76,9 @@ namespace OpenRA.Mods.RA2.Traits
 				// Without the clock extension report a constant, and rely on the other signals only.
 				var clock = 0L;
 				getInteger64?.Invoke(device, AlcDeviceClock, 1, out clock);
+
+				if (DefaultOutputMonitor.TakeChanged())
+					watchdog.NotifyOutputChanged(now);
 
 				if (watchdog.ShouldReopen(now, connected != 0, getInteger64 == null ? now : clock))
 				{
