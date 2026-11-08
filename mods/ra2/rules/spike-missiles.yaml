@@ -56,10 +56,13 @@ v3rocket:
 
 dmisl:
 	Inherits: ^SpikeMissile
+	# Matches the length of the missiles modelled on the Dreadnought deck.
+	RenderVoxels:
+		Scale: 12.7
 	MissileActor:
 		FlyingCondition: flying
-		PauseTicks: 20
-		TiltTicks: 60
+		PauseTicks: 17
+		TiltTicks: 45
 		PitchInitial: 0
 		PitchFinal: 128
 		PitchTurnRate: 20
