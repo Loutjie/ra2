@@ -274,7 +274,8 @@ LightningStorm:
 			Heavy: 100
 			Wood: 100
 			Steel: 100
-			Concrete: 3
+			# RA2's 3% made the storm almost harmless to concrete buildings.
+			Concrete: 20
 			Drone: 100
 			Rocket: 100
 		DamageTypes: Prone100Percent
