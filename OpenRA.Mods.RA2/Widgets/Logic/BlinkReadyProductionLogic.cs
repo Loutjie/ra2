@@ -18,7 +18,7 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 {
 	/// <summary>
 	/// Blinks a production tab while it has a finished item, such as a building ready to place: an unselected tab
-	/// alternates between its normal and highlighted art, the selected tab alternates between highlighted and red.
+	/// alternates between its normal and highlighted art, the selected tab alternates between highlighted and white, so the two stay distinguishable.
 	/// Must be listed after ClassicProductionLogic, which sets the button and icon state this reads.
 	/// The tab art is baked into the button backgrounds, because the mod's icon glyphs are deliberately empty.
 	/// </summary>
@@ -26,7 +26,7 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 	{
 		const string Alert = "-alert";
 		const int HalfPeriodMs = 400;
-		static readonly Color Red = Color.FromArgb(150, 255, 0, 0);
+		static readonly Color SelectedFlash = Color.FromArgb(170, 255, 255, 255);
 
 		[ObjectCreator.UseCtor]
 		public BlinkReadyProductionLogic(Widget widget)
@@ -55,7 +55,7 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 
 			var overlay = new ClickThroughColorBlock(Game.ModData)
 			{
-				Color = Red,
+				Color = SelectedFlash,
 				IsVisible = () => selected() && Ready() && !OnPhase(),
 				IgnoreMouseOver = true,
 				Bounds = new WidgetBounds(0, 0, button.Bounds.Width, button.Bounds.Height),
