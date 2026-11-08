@@ -2,7 +2,8 @@
 # The warheads below are carried by the missile actor and only applied if it arrives.
 
 V3Launcher:
-	ReloadDelay: 150
+	# RA2 limits this by SpawnRegenRate=400 frames on the unit, not the weapon's ROF.
+	ReloadDelay: 333
 	Range: 18c0
 	MinRange: 5c0
 	Projectile: LaunchMissileActor
@@ -31,7 +32,8 @@ V3Launcher:
 		ValidTargets: Ground, Air, Water
 
 DredLauncher:
-	ReloadDelay: 50
+	# RA2 SpawnRegenRate=80 frames; with the 5-tick burst gap a volley cycles in 67 ticks.
+	ReloadDelay: 62
 	Burst: 2
 	Range: 25c0
 	MinRange: 8c0
