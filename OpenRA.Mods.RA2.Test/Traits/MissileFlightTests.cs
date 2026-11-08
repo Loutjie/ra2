@@ -171,14 +171,18 @@ namespace OpenRA.Mods.RA2.Test
 			var peakZ = 0;
 			var peakX = 0;
 			var pitchRises = 0;
+			var maxPitchStep = 0;
 			while (!flight.Tick(target, WDist.Zero))
 			{
 				if (flight.Phase != MissileFlightPhase.Fly || flight.Speed == 0)
 					continue;
 
 				var signed = flight.Pitch.Angle > 512 ? flight.Pitch.Angle - 1024 : flight.Pitch.Angle;
-				if (signed > lastSigned)
+				if (signed > lastSigned && lastSigned != int.MaxValue)
 					pitchRises++;
+
+				if (lastSigned != int.MaxValue)
+					maxPitchStep = Math.Max(maxPitchStep, Math.Abs(signed - lastSigned));
 
 				lastSigned = signed;
 				if (flight.Position.Z > peakZ)
@@ -192,6 +196,7 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(pitchRises, Is.Zero, "nose only ever moves downwards");
 			Assert.That(peakX, Is.InRange(target.X * 35 / 100, target.X * 65 / 100), "peaks near the middle");
 			Assert.That(peakZ, Is.InRange(target.X * 15 / 100, target.X * 30 / 100), "peak height scales with range");
+			Assert.That(maxPitchStep, Is.LessThanOrEqualTo(4 + 2048 / cells / 40), "no sudden nose movement, including just before impact");
 		}
 
 		[Test]

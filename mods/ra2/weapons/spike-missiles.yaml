@@ -8,7 +8,9 @@ V3Launcher:
 	Projectile: LaunchMissileActor
 		Actor: v3rocket
 	Warhead@1Dam: SpreadDamage
-		Spread: 256
+		# RA2 V3WH: CellSpread=1, PercentAtMax=.25.
+		Spread: 1c0
+		Falloff: 100, 25
 		Damage: 200
 		Versus:
 			None: 100
@@ -22,7 +24,7 @@ V3Launcher:
 			Concrete: 50
 			Drone: 80
 			Rocket: 0
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_twlt
 		ImpactSounds: expnew09.wav
@@ -36,7 +38,9 @@ DredLauncher:
 	Projectile: LaunchMissileActor
 		Actor: dmisl
 	Warhead@1Dam: SpreadDamage
-		Spread: 384
+		# RA2 DMISLWH: CellSpread=1.5, PercentAtMax=.25.
+		Spread: 1c512
+		Falloff: 100, 25
 		Damage: 300
 		Versus:
 			None: 100
@@ -50,7 +54,7 @@ DredLauncher:
 			Concrete: 28
 			Drone: 80
 			Rocket: 0
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: large_twlt
 		ImpactSounds: expnew09.wav

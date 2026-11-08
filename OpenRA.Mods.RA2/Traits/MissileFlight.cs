@@ -24,7 +24,7 @@ namespace OpenRA.Mods.RA2.Traits
 		// Climb to cruise altitude, fly level, then dive onto the target (Dreadnought: DMislLazyCurve=no).
 		Cruise,
 
-		// Smooth arc: pitch falls steadily from PitchFinal at launch to -PitchFinal over the target.
+		// A parabola from launcher to target, leaving at PitchFinal.
 		Arc
 	}
 
@@ -71,8 +71,10 @@ namespace OpenRA.Mods.RA2.Traits
 		// Set once cruise altitude is first reached, so dipping below it later does not restart the climb.
 		bool climbed;
 
-		// Arc profile: horizontal launch-to-target distance, fixed on the first flying tick.
-		int arcDistance;
+		// Arc profile: the launch point, horizontal length of the route and distance flown along it.
+		WPos arcStart;
+		int arcDistance = -1;
+		int arcTravelled;
 
 		public MissileFlight(MissileFlightParameters parameters, WPos launch, WAngle yaw)
 		{
@@ -118,6 +120,9 @@ namespace OpenRA.Mods.RA2.Traits
 			// Fly
 			Speed = Math.Min(Speed + p.Acceleration, p.MaxSpeed);
 
+			if (p.Profile == MissileFlightProfile.Arc)
+				return TickArc(target, terrainHeightAtPosition);
+
 			var delta = target - Position;
 			var horizontal = delta.HorizontalLength;
 
@@ -140,15 +145,7 @@ namespace OpenRA.Mods.RA2.Traits
 			var terminal = delta.Length <= Speed * p.TerminalTicks;
 			WAngle desiredPitch;
 			if (terminal)
-				desiredPitch = p.Profile == MissileFlightProfile.Arc && Signed(toTarget) > Signed(Pitch) ? Pitch : toTarget;
-			else if (p.Profile == MissileFlightProfile.Arc)
-			{
-				if (arcDistance == 0)
-					arcDistance = Math.Max(horizontal, 1);
-
-				// +PitchFinal at launch, zero halfway, -PitchFinal over the target.
-				desiredPitch = new WAngle(p.PitchFinal.Angle * (2 * Math.Min(horizontal, arcDistance) - arcDistance) / arcDistance);
-			}
+				desiredPitch = toTarget;
 			else if (!climbed && !Diving(toTarget))
 				desiredPitch = p.PitchFinal;
 			else if (p.Profile == MissileFlightProfile.LazyCurve || Diving(toTarget))
@@ -178,10 +175,38 @@ namespace OpenRA.Mods.RA2.Traits
 			return toTarget.Angle > 512 && 1024 - toTarget.Angle >= p.DiveAngle.Angle;
 		}
 
-		// Nose-up positive, nose-down negative. Lets an arc refuse to lift its nose near the target.
-		static int Signed(WAngle angle)
+		// A parabola from the launch point to the target, so it needs no steering correction at the end.
+		// Height above the launch-to-target line is tan(PitchFinal) * t * (d - t) / d, and the nose follows its slope.
+		bool TickArc(WPos target, WDist terrainHeightAtPosition)
 		{
-			return angle.Angle > 512 ? angle.Angle - 1024 : angle.Angle;
+			if (arcDistance < 0)
+			{
+				arcStart = Position;
+				arcDistance = (target - Position).HorizontalLength;
+			}
+
+			var route = target - arcStart;
+			arcTravelled += Math.Max(Speed * Pitch.Cos() / 1024, 1);
+			if (arcTravelled >= arcDistance)
+			{
+				Position = target;
+				return Arrive();
+			}
+
+			long t = arcTravelled;
+			long d = arcDistance;
+			long tan = p.PitchFinal.Tan();
+			var rise = tan * t * (d - t) / d / 1024;
+
+			Position = new WPos(
+				arcStart.X + (int)(route.X * t / d),
+				arcStart.Y + (int)(route.Y * t / d),
+				arcStart.Z + (int)(route.Z * t / d + rise));
+
+			Yaw = route.Yaw;
+			Pitch = WAngle.ArcTan((int)((route.Z * 1024 + tan * (d - 2 * t)) / 1024), arcDistance);
+
+			return Position.Z <= terrainHeightAtPosition.Length ? Arrive() : false;
 		}
 
 		bool Arrive()
