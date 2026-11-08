@@ -10,8 +10,11 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Linq;
 using OpenRA.GameRules;
+using OpenRA.Graphics;
 using OpenRA.Mods.Common;
+using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Traits
@@ -59,6 +62,9 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
+		[Desc("Added to the draw order while flying, so missiles are not drawn behind buildings they pass.")]
+		public readonly int FlyingZOffset = 8192;
+
 		[GrantedConditionReference]
 		[Desc("Condition granted once the missile has left the launcher (after the pause and tilt).")]
 		public readonly string FlyingCondition = null;
@@ -87,7 +93,7 @@ namespace OpenRA.Mods.RA2.Traits
 		WAngle IFacingInfo.GetInitialFacing() { return WAngle.Zero; }
 	}
 
-	public class MissileActor : IOccupySpace, IFacing, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld
+	public class MissileActor : IOccupySpace, IFacing, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld, IRenderModifier
 	{
 		readonly MissileActorInfo info;
 		ProjectileArgs launchArgs;
@@ -160,6 +166,13 @@ namespace OpenRA.Mods.RA2.Traits
 			TopLeft = self.World.Map.CellContaining(pos);
 			self.World.UpdateMaps(self, this);
 		}
+
+		IEnumerable<IRenderable> IRenderModifier.ModifyRender(Actor self, WorldRenderer wr, IEnumerable<IRenderable> r)
+		{
+			return Phase == MissileFlightPhase.Fly ? r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset)) : r;
+		}
+
+		IEnumerable<Rectangle> IRenderModifier.ModifyScreenBounds(Actor self, WorldRenderer wr, IEnumerable<Rectangle> bounds) { return bounds; }
 
 		public (CPos Cell, SubCell SubCell)[] OccupiedCells() { return []; }
 

@@ -368,6 +368,7 @@ v3trail:
 	idle:
 		Filename: v3trail.shp
 		Length: *
+		ZOffset: 8192
 
 smokey2:
 	idle:
