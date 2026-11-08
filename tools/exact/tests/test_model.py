@@ -157,3 +157,16 @@ def test_rocket_launcher_takes_damage_and_warhead_from_the_globals():
     }
     weapon = model.load_weapon(rules, "V3Launcher")
     assert (weapon.damage, weapon.warhead, weapon.cell_spread, weapon.percent_at_max) == (200, "V3WH", 1.0, 25)
+
+
+@pytest.mark.parametrize("burst, expected", [("1", 400), ("2", 394)])
+def test_rocket_launcher_fire_rate_comes_from_the_regeneration_timer(burst, expected):
+    rules = {
+        "V3Launcher": {"Damage": "1", "ROF": "150", "Burst": burst, "Warhead": "Special"},
+        "Special": {},
+        "General": {"V3RocketDamage": "200"},
+        "CombatDamage": {"V3Warhead": "V3WH"},
+        "V3WH": {},
+        "V3": {"SpawnRegenRate": "400"},
+    }
+    assert model.load_weapon(rules, "V3Launcher").rof == expected

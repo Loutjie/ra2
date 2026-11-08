@@ -264,9 +264,12 @@ def _verses(warhead: dict) -> list[int]:
 # Launcher weapons that only spawn a rocket (Spawner=yes, Damage=1, Warhead=Special). The real
 # damage and warhead are global: [General] and [CombatDamage].
 ROCKET_LAUNCHERS = {
-    "v3launcher": ("V3RocketDamage", "V3Warhead"),
-    "dredlauncher": ("DMislDamage", "DMislWarhead"),
+    "v3launcher": ("V3RocketDamage", "V3Warhead", "V3"),
+    "dredlauncher": ("DMislDamage", "DMislWarhead", "DRED"),
 }
+
+# Frames between the shots of a burst (OpenRA BurstDelays 5 ticks), already part of the volley cycle.
+BURST_GAP_FRAMES = 6
 
 
 def load_weapon(rules: dict, weapon_id: str) -> ExactWeapon | None:
@@ -279,17 +282,23 @@ def load_weapon(rules: dict, weapon_id: str) -> ExactWeapon | None:
     w = rules[wid]
     warhead_id = w.get("Warhead", "").strip()
     damage = _int(w, "Damage", 0)
+    rof = _int(w, "ROF", 0)
     rocket = ROCKET_LAUNCHERS.get(wid.lower())
     if rocket and "General" in rules and "CombatDamage" in rules:
         damage = _int(rules["General"], rocket[0], damage)
         warhead_id = rules["CombatDamage"].get(rocket[1], warhead_id).split(";")[0].strip()
+
+        # The rocket regeneration timer, not the weapon's ROF, limits how often these fire.
+        regen = _int(rules.get(rocket[2], {}), "SpawnRegenRate", 0)
+        if regen:
+            rof = regen - (BURST_GAP_FRAMES if _int(w, "Burst", 1) > 1 else 0)
     warhead = rules.get(warhead_id, {})
     spread = warhead.get("CellSpread", "").strip()
     at_max = warhead.get("PercentAtMax", "").strip()
     return ExactWeapon(
         id=wid,
         damage=damage,
-        rof=_int(w, "ROF", 0),
+        rof=rof,
         range=_flt(w, "Range", 0.0),
         burst=_int(w, "Burst", 1),
         projectile=w.get("Projectile", "").strip(),
