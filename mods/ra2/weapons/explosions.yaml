@@ -183,7 +183,7 @@ NukePayload:
 		Spread: 1c0
 		Damage: 600
 		# Halving every cell made the blast feel small; RA2's reaches 10 cells.
-		Falloff: 1024, 768, 512, 384, 256, 192, 128, 64, 32, 8
+		Falloff: 1024, 640, 384, 256, 160, 96, 64, 32, 16, 4
 		ValidTargets: Ground, Water, Air
 		Versus:
 			None: 100
