@@ -444,7 +444,7 @@ Container@PLAYER_WIDGETS:
 							ImageCollection: power-icons
 							ImageName: power-normal
 		Container@SIDEBAR_PRODUCTION:
-			Logic: ClassicProductionLogic
+			Logic: ClassicProductionLogic, BlinkReadyProductionLogic
 			X: WINDOW_WIDTH - 234
 			Y: 275
 			Width: 234
