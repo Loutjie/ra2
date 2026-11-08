@@ -145,3 +145,15 @@ def test_load_actor_ignores_buildability(sample):
 
 def test_load_actor_is_case_insensitive(sample):
     assert model.load_actor(sample, "ghost").id == "GHOST"
+
+
+def test_rocket_launcher_takes_damage_and_warhead_from_the_globals():
+    rules = {
+        "V3Launcher": {"Damage": "1", "ROF": "150", "Range": "18", "Warhead": "Special"},
+        "Special": {},
+        "General": {"V3RocketDamage": "200"},
+        "CombatDamage": {"V3Warhead": "V3WH"},
+        "V3WH": {"CellSpread": "1", "PercentAtMax": ".25"},
+    }
+    weapon = model.load_weapon(rules, "V3Launcher")
+    assert (weapon.damage, weapon.warhead, weapon.cell_spread, weapon.percent_at_max) == (200, "V3WH", 1.0, 25)

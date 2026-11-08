@@ -261,6 +261,14 @@ def _verses(warhead: dict) -> list[int]:
     return values + [100] * (len(ARMOR_ORDER) - len(values))
 
 
+# Launcher weapons that only spawn a rocket (Spawner=yes, Damage=1, Warhead=Special). The real
+# damage and warhead are global: [General] and [CombatDamage].
+ROCKET_LAUNCHERS = {
+    "v3launcher": ("V3RocketDamage", "V3Warhead"),
+    "dredlauncher": ("DMislDamage", "DMislWarhead"),
+}
+
+
 def load_weapon(rules: dict, weapon_id: str) -> ExactWeapon | None:
     """One weapon section, looked up case-insensitively (OpenRA weapon names are
     case-insensitive). None if rules.ini has no such section."""
@@ -270,12 +278,17 @@ def load_weapon(rules: dict, weapon_id: str) -> ExactWeapon | None:
         return None
     w = rules[wid]
     warhead_id = w.get("Warhead", "").strip()
+    damage = _int(w, "Damage", 0)
+    rocket = ROCKET_LAUNCHERS.get(wid.lower())
+    if rocket and "General" in rules and "CombatDamage" in rules:
+        damage = _int(rules["General"], rocket[0], damage)
+        warhead_id = rules["CombatDamage"].get(rocket[1], warhead_id).split(";")[0].strip()
     warhead = rules.get(warhead_id, {})
     spread = warhead.get("CellSpread", "").strip()
     at_max = warhead.get("PercentAtMax", "").strip()
     return ExactWeapon(
         id=wid,
-        damage=_int(w, "Damage", 0),
+        damage=damage,
         rof=_int(w, "ROF", 0),
         range=_flt(w, "Range", 0.0),
         burst=_int(w, "Burst", 1),
