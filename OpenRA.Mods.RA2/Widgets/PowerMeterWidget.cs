@@ -81,6 +81,9 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 
 		public readonly string TooltipTemplate = "SIMPLE_TOOLTIP";
 
+		[Desc("Width in pixels of the hoverable area of each meter bar.")]
+		public readonly int BarWidth = 12;
+
 		[ObjectCreator.UseCtor]
 		public PowerMeterWidget(World world)
 		{
@@ -170,6 +173,10 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 				// AddFactionSuffixLogic could be added here
 				newPower.Bounds.Y = -(i * meterDistance) + barHeight + Bounds.Y;
 				newPower.Bounds.X = Bounds.X;
+
+				// ImageWidget draws at its sprite size regardless of Bounds, but hover needs a real area.
+				newPower.Bounds.Width = BarWidth;
+				newPower.Bounds.Height = meterDistance;
 				newPower.GetImageName = () => newPower.ImageName;
 				Children.Add(newPower);
 			}
