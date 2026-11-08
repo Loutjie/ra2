@@ -11,18 +11,22 @@
 
 using System;
 using OpenRA.Mods.Common.Widgets;
+using OpenRA.Primitives;
 using OpenRA.Widgets;
 
 namespace OpenRA.Mods.RA2.Widgets.Logic
 {
 	/// <summary>
-	/// Makes a production tab icon blink while that tab has a finished item, such as a building ready to place.
-	/// Must be listed after ClassicProductionLogic, which sets the icon's image name this wraps.
+	/// Blinks a production tab while it has a finished item, such as a building ready to place: an unselected tab
+	/// alternates between its normal and highlighted art, the selected tab alternates between highlighted and red.
+	/// Must be listed after ClassicProductionLogic, which sets the button and icon state this reads.
+	/// The tab art is baked into the button backgrounds, because the mod's icon glyphs are deliberately empty.
 	/// </summary>
 	public class BlinkReadyProductionLogic : ChromeLogic
 	{
 		const string Alert = "-alert";
 		const int HalfPeriodMs = 400;
+		static readonly Color Red = Color.FromArgb(150, 255, 0, 0);
 
 		[ObjectCreator.UseCtor]
 		public BlinkReadyProductionLogic(Widget widget)
@@ -32,21 +36,38 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 
 		static void Wrap(Widget widget)
 		{
-			foreach (var child in widget.Children)
+			foreach (var child in widget.Children.ToArray())
 			{
 				if (child is ProductionTypeButtonWidget button && button.GetOrNull<ImageWidget>("ICON") is ImageWidget icon)
-				{
-					icon.IsVisible = () => IsShown(icon.GetImageName(), Game.RunTime);
-				}
+					Blink(button, icon);
 
 				Wrap(child);
 			}
 		}
 
-		// Hide the icon on the off phase rather than swap its image: some alert images look like the normal ones.
-		public static bool IsShown(string imageName, long runTimeMs)
+		static void Blink(ProductionTypeButtonWidget button, ImageWidget icon)
 		{
-			return !imageName.EndsWith(Alert, StringComparison.Ordinal) || runTimeMs / HalfPeriodMs % 2 == 0;
+			var selected = button.IsHighlighted;
+			bool Ready() => icon.GetImageName().EndsWith(Alert, StringComparison.Ordinal);
+			static bool OnPhase() => Game.RunTime / HalfPeriodMs % 2 == 0;
+
+			button.IsHighlighted = () => selected() || (Ready() && OnPhase());
+
+			var overlay = new ClickThroughColorBlock(Game.ModData)
+			{
+				Color = Red,
+				IsVisible = () => selected() && Ready() && !OnPhase(),
+				IgnoreMouseOver = true,
+				Bounds = new WidgetBounds(0, 0, button.Bounds.Width, button.Bounds.Height),
+			};
+
+			button.AddChild(overlay);
+		}
+
+		// A tab must stay clickable while it flashes.
+		sealed class ClickThroughColorBlock(ModData modData) : ColorBlockWidget(modData)
+		{
+			public override bool HandleMouseInput(MouseInput mi) { return false; }
 		}
 	}
 }
