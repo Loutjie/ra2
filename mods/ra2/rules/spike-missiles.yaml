@@ -27,6 +27,11 @@
 		LightAmbientColor: -0.5,-0.5,-0.5
 		LightDiffuseColor: 1.4,1.4,1.4
 	WithVoxelBody:
+	# The exhaust plume RA2 uses for its rockets. It spawns only while the missile moves.
+	LeavesTrails:
+		Image: v3trail
+		Type: CenterPosition
+		MovingInterval: 1
 	# Shot down: effects only, so the target takes no damage.
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
