@@ -325,3 +325,7 @@ GameSpeeds:
 			Name: options-game-speed.fastest
 			Timestep: 20
 			OrderLatency: 6
+
+# RA2 tiles are 2.5x wider than classic ones, so Far needs a taller view to show as much of the map.
+WorldViewportSizes:
+	FarWindowHeights: 1300, 2000
