@@ -23,10 +23,14 @@ namespace OpenRA.Mods.RA2.Traits
 	public class ReopenSoundAfterSleep : ITickRender
 	{
 		const int AlcConnected = 0x313;
+		const int AlcDeviceClock = 0x1600;
 		const string Library = "soft_oal";
 
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		delegate byte ReopenDevice(IntPtr device, [MarshalAs(UnmanagedType.LPUTF8Str)] string name, IntPtr attributes);
+
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		delegate void GetInteger64(IntPtr device, int parameter, int size, out long value);
 
 		[DllImport(Library, CallingConvention = CallingConvention.Cdecl)]
 		static extern IntPtr alcGetCurrentContext();
@@ -41,6 +45,7 @@ namespace OpenRA.Mods.RA2.Traits
 		static extern IntPtr alcGetProcAddress(IntPtr device, [MarshalAs(UnmanagedType.LPUTF8Str)] string name);
 
 		readonly SoundDeviceWatchdog watchdog = new();
+		GetInteger64 getInteger64;
 		bool unavailable;
 
 		void ITickRender.TickRender(WorldRenderer wr, Actor self)
@@ -59,8 +64,20 @@ namespace OpenRA.Mods.RA2.Traits
 
 				// Wall clock on purpose: it keeps counting while the machine is asleep.
 				var now = DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond;
-				if (watchdog.ShouldReopen(now, connected != 0) && Reopen(device))
-					watchdog.ReportReopened();
+				var address = getInteger64 == null ? alcGetProcAddress(device, "alcGetInteger64vSOFT") : IntPtr.Zero;
+				if (address != IntPtr.Zero)
+					getInteger64 = Marshal.GetDelegateForFunctionPointer<GetInteger64>(address);
+
+				// Without the clock extension report a constant, and rely on the other signals only.
+				var clock = 0L;
+				getInteger64?.Invoke(device, AlcDeviceClock, 1, out clock);
+
+				if (watchdog.ShouldReopen(now, connected != 0, getInteger64 == null ? now : clock))
+				{
+					Log.Write("sound", $"Reopening the audio device: {watchdog.LastReason}.");
+					if (Reopen(device))
+						watchdog.ReportReopened();
+				}
 			}
 			catch (Exception e) when (e is DllNotFoundException or EntryPointNotFoundException)
 			{
@@ -75,6 +92,7 @@ namespace OpenRA.Mods.RA2.Traits
 			var address = alcGetProcAddress(device, "alcReopenDeviceSOFT");
 			if (address == IntPtr.Zero)
 			{
+				Log.Write("sound", "alcReopenDeviceSOFT is not available.");
 				unavailable = true;
 				return false;
 			}

@@ -22,37 +22,67 @@ namespace OpenRA.Mods.RA2.Test
 		{
 			var w = new SoundDeviceWatchdog();
 			for (var t = 0; t < 60000; t += 16)
-				Assert.That(w.ShouldReopen(t, true), Is.False);
+				Assert.That(w.ShouldReopen(t, true, t * 1000000L), Is.False);
 		}
 
 		[Test]
 		public void LongGap_ReopensEvenWhenReportedConnected()
 		{
 			var w = new SoundDeviceWatchdog();
-			w.ShouldReopen(1000, true);
-			Assert.That(w.ShouldReopen(1000 + SoundDeviceWatchdog.SleepGapMs, true), Is.True);
+			w.ShouldReopen(1000, true, 1);
+			Assert.That(w.ShouldReopen(1000 + SoundDeviceWatchdog.SleepGapMs, true, 2), Is.True);
 		}
 
 		[Test]
 		public void Disconnected_Reopens()
 		{
 			var w = new SoundDeviceWatchdog();
-			Assert.That(w.ShouldReopen(1000, false), Is.True);
+			Assert.That(w.ShouldReopen(1000, false, 1), Is.True);
 		}
 
 		[Test]
 		public void Failure_RetriesAtIntervalThenStops()
 		{
 			var w = new SoundDeviceWatchdog();
-			w.ShouldReopen(0, true);
+			w.ShouldReopen(0, true, 0);
 			var t = (long)SoundDeviceWatchdog.SleepGapMs;
-			Assert.That(w.ShouldReopen(t, true), Is.True);
-			Assert.That(w.ShouldReopen(t + 16, true), Is.False, "throttled");
+			Assert.That(w.ShouldReopen(t, true, t * 1000000L), Is.True);
+			Assert.That(w.ShouldReopen(t + 16, true, 2), Is.False, "throttled");
 
 			var attempts = 1;
 			for (var i = 1; i <= 20; i++)
-				if (w.ShouldReopen(t + i * SoundDeviceWatchdog.RetryIntervalMs, true))
+				if (w.ShouldReopen(t + i * SoundDeviceWatchdog.RetryIntervalMs, true, i + 2))
 					attempts++;
+
+			Assert.That(attempts, Is.EqualTo(SoundDeviceWatchdog.MaxRetries));
+		}
+
+		[Test]
+		public void ClockStall_ReopensWhileFramesKeepRunning()
+		{
+			// Lid closed but no real sleep: frames continue and the device says it is connected.
+			var w = new SoundDeviceWatchdog();
+			var reopened = false;
+			for (var t = 0; t <= SoundDeviceWatchdog.ClockStallMs + 32; t += 16)
+				reopened |= w.ShouldReopen(t, true, 5);
+
+			Assert.That(reopened, Is.True);
+			Assert.That(w.LastReason, Does.Contain("clock"));
+		}
+
+		[Test]
+		public void PermanentlyStalledClock_GivesUp()
+		{
+			var w = new SoundDeviceWatchdog();
+			var attempts = 0;
+			for (var t = 0; t < 600000; t += 16)
+			{
+				if (w.ShouldReopen(t, true, 5))
+				{
+					attempts++;
+					w.ReportReopened();
+				}
+			}
 
 			Assert.That(attempts, Is.EqualTo(SoundDeviceWatchdog.MaxRetries));
 		}
@@ -61,10 +91,10 @@ namespace OpenRA.Mods.RA2.Test
 		public void Success_StopsRetrying()
 		{
 			var w = new SoundDeviceWatchdog();
-			w.ShouldReopen(0, true);
-			Assert.That(w.ShouldReopen(SoundDeviceWatchdog.SleepGapMs, true), Is.True);
+			w.ShouldReopen(0, true, 0);
+			Assert.That(w.ShouldReopen(SoundDeviceWatchdog.SleepGapMs, true, 1), Is.True);
 			w.ReportReopened();
-			Assert.That(w.ShouldReopen(SoundDeviceWatchdog.SleepGapMs + SoundDeviceWatchdog.RetryIntervalMs, true), Is.False);
+			Assert.That(w.ShouldReopen(SoundDeviceWatchdog.SleepGapMs + SoundDeviceWatchdog.RetryIntervalMs, true, 2), Is.False);
 		}
 	}
 }
