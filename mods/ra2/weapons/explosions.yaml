@@ -193,7 +193,8 @@ NukePayload:
 			Heavy: 100
 			Wood: 60
 			Steel: 100
-			Concrete: 8
+			# RA2's 8% left concrete buildings standing at the epicentre.
+			Concrete: 30
 			Drone: 100
 			Rocket: 100
 		AffectsParent: true
