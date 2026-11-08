@@ -96,7 +96,8 @@ HoverMissile:
 		Speed: 213
 		Arm: 2
 		Inaccuracy: 128
-		HorizontalRateOfTurn: 32
+		# RA2 AAHeatSeeker2 ROT=60 (the Patriot's ROT=80 is 220 here). 32 could not catch a turning rocket.
+		HorizontalRateOfTurn: 165
 		RangeLimit: 14c512
 		ContrailStartColor: D8D8FF
 	Warhead@1Dam: SpreadDamage
