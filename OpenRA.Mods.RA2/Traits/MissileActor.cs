@@ -90,6 +90,11 @@ namespace OpenRA.Mods.RA2.Traits
 			"Also moves its shadow down the screen by about half this distance.")]
 		public readonly WDist FlyingDepthOffset = WDist.Zero;
 
+		[Desc("Also add the missile's height above the ground to the depth offset, so a flying missile is never hidden",
+			"by a building it is drawn over: building images take their depth from where they stand on the ground.",
+			"The voxel shadow would be misplaced by the same amount, so hide it while flying.")]
+		public readonly bool DepthFromAltitude = false;
+
 		[GrantedConditionReference]
 		[Desc("Condition granted once the missile has left the launcher (after the pause and tilt).")]
 		public readonly string FlyingCondition = null;
@@ -244,6 +249,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 			// Moving south and up by the same amount leaves the screen position alone and brings it closer in depth.
 			var depth = info.FlyingDepthOffset.Length;
+			if (info.DepthFromAltitude)
+				depth += self.World.Map.DistanceAboveTerrain(CenterPosition).Length;
+
 			var toCamera = new WVec(0, depth, depth);
 			return r.Select(a => (depth != 0 && Phase == MissileFlightPhase.Fly ? a.OffsetBy(toCamera) : a).WithZOffset(a.ZOffset + info.FlyingZOffset));
 		}
