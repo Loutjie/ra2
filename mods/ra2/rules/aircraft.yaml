@@ -242,6 +242,8 @@ beag:
 		Image: beag
 	RenderVoxels:
 		Image: beag
+		# beag.vxl uses Tiberian Sun normals (VXL normals mode 2); RA2 normals render it near-black.
+		NormalsPalette: ts-normals
 	HitShape:
 
 beaghusk:
@@ -253,6 +255,8 @@ beaghusk:
 		Speed: 210
 	RenderVoxels:
 		Image: beag
+		# beag.vxl uses Tiberian Sun normals (VXL normals mode 2); RA2 normals render it near-black.
+		NormalsPalette: ts-normals
 
 pdplane:
 	Inherits: ^NeutralAircraft
