@@ -501,7 +501,7 @@ Container@PLAYER_WIDGETS:
 					Width: 180
 					Height: 32
 					Children:
-						ProductionTypeButton@BUILDING:
+						RA2ProductionTypeButton@BUILDING:
 							Logic: AddFactionSuffixLogic
 							Width: 30
 							Height: 32
@@ -517,7 +517,7 @@ Container@PLAYER_WIDGETS:
 									X: 6
 									Y: 4
 									ImageCollection: production-icons
-						ProductionTypeButton@SUPPORT:
+						RA2ProductionTypeButton@SUPPORT:
 							Logic: AddFactionSuffixLogic
 							X: 30
 							Width: 30
@@ -534,7 +534,7 @@ Container@PLAYER_WIDGETS:
 									X: 5
 									Y: 7
 									ImageCollection: production-icons
-						ProductionTypeButton@INFANTRY:
+						RA2ProductionTypeButton@INFANTRY:
 							Logic: AddFactionSuffixLogic
 							X: 60
 							Width: 30
@@ -551,7 +551,7 @@ Container@PLAYER_WIDGETS:
 									X: 5
 									Y: 6
 									ImageCollection: production-icons
-						ProductionTypeButton@VEHICLE:
+						RA2ProductionTypeButton@VEHICLE:
 							Logic: AddFactionSuffixLogic
 							X: 90
 							Width: 30
@@ -568,7 +568,7 @@ Container@PLAYER_WIDGETS:
 									X: 5
 									Y: 6
 									ImageCollection: production-icons
-						ProductionTypeButton@AIRCRAFT:
+						RA2ProductionTypeButton@AIRCRAFT:
 							Logic: AddFactionSuffixLogic
 							X: 120
 							Width: 30
@@ -585,7 +585,7 @@ Container@PLAYER_WIDGETS:
 									X: 5
 									Y: 7
 									ImageCollection: production-icons
-						ProductionTypeButton@NAVAL:
+						RA2ProductionTypeButton@NAVAL:
 							Logic: AddFactionSuffixLogic
 							X: 150
 							Width: 30
