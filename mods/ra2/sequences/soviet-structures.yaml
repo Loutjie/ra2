@@ -736,6 +736,7 @@ nalasr:
 		TilesetFilenames:
 			SNOW: nalasr.shp
 		Offset: 0, -20, 20
+		ZOffset: -512
 	idle:
 		Filename: nglasr.shp
 		TilesetFilenames:
@@ -757,6 +758,10 @@ nalasr:
 			URBAN: nulasrmk.shp
 		Length: 12
 		ShadowStart: 12
+		ZOffset: 0
+	muzzle:
+		# Do not inherit the base sprite's alignment offset or its negative ZOffset.
+		Offset: 0,0
 		ZOffset: 0
 	icon:
 		Filename: plticon.shp
