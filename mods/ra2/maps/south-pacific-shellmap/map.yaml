@@ -1182,6 +1182,12 @@ Actors:
 		Owner: Soviets
 		SubCell: 3
 		Facing: 384
+	AlliedRampFoot: waypoint
+		Location: 96,32
+		Owner: Neutral
+	SovietRampFoot: waypoint
+		Location: 135,3
+		Owner: Neutral
 	StripCenter: waypoint
 		Location: 114,0
 		Owner: Neutral

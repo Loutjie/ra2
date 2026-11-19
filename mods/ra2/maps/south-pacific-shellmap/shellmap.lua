@@ -234,6 +234,26 @@ WeatherStorm = function()
 	WeatherDevice.ActivateWeatherControl(StrikeTarget())
 end
 
+-- Raids: a small party charges up a base's ramp so its defences fire while the camera is there.
+AlliedRaid = { "mtnk", "mtnk", "sref", "sref" }
+SovietRaid = { "htnk", "htnk", "apoc", "ttnk" }
+
+Raid = function(player, types, foot, base)
+	local raiders = Reinforcements.Reinforce(player, types, { foot }, 10)
+	Utils.Do(raiders, function(unit)
+		unit.AttackMove(base.Location)
+		Trigger.OnIdle(unit, function(u) u.AttackMove(base.Location) end)
+	end)
+end
+
+RaidSovietBase = function()
+	Trigger.AfterDelay(DateTime.Seconds(10), function() Raid(Allies, AlliedRaid, SovietRampFoot.Location, SovietConyard) end)
+end
+
+RaidAlliedBase = function()
+	Trigger.AfterDelay(DateTime.Seconds(18), function() Raid(Soviets, SovietRaid, AlliedRampFoot.Location, AlliedConyard) end)
+end
+
 -- Alternates a superweapon strike with a Chronosphere jump or Iron Curtain, one per pass over the strip.
 -- With the camera loop below, a superweapon lands about every two minutes.
 EventCycle = { Chronoshift, Nuke, IronCurtain, WeatherStorm }
@@ -247,11 +267,11 @@ CameraHold = 0
 
 BuildCameraRoute = function()
 	CameraRoute = {
-		{ position = AlliedConyard.CenterPosition, hold = 0 },
+		{ position = AlliedConyard.CenterPosition, hold = DateTime.Seconds(10) },
 		{ position = StripCenter.CenterPosition, hold = DateTime.Seconds(12), event = true },
-		{ position = SeaBattle.CenterPosition, hold = 0 },
-		{ position = SovietConyard.CenterPosition, hold = 0 },
-		{ position = StripCenter.CenterPosition, hold = DateTime.Seconds(14), event = true },
+		{ position = SeaBattle.CenterPosition, hold = 0, arrive = RaidSovietBase },
+		{ position = SovietConyard.CenterPosition, hold = DateTime.Seconds(10) },
+		{ position = StripCenter.CenterPosition, hold = DateTime.Seconds(14), event = true, arrive = RaidAlliedBase },
 	}
 	CameraAt = AlliedConyard.CenterPosition
 end
@@ -272,6 +292,10 @@ MoveCamera = function()
 	if distance <= step then
 		CameraAt = stop.position
 		CameraHold = stop.hold
+		if stop.arrive then
+			stop.arrive()
+		end
+
 		if stop.event then
 			EventCycle[NextEvent]()
 			NextEvent = NextEvent % #EventCycle + 1
