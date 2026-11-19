@@ -20,6 +20,7 @@ AssaultBolt:
 	Report: iteschaa.wav
 	ValidTargets: TeslaBoost
 	Projectile: ElectricBolt
+		Width: 34
 		Colors: FFFF54, FFFF54, FFFFFF
 		ZOffset: 2047
 	Warhead@charge: GrantExternalCondition
