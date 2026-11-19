@@ -18,7 +18,7 @@ pytestmark = pytest.mark.integration
 
 # 83 RA2 buildables with a mod counterpart, plus both construction yards (RA2 does not list
 # them as buildable; they are twinned because the MCVs deploy into them).
-EXPECTED_TWINS = 85
+EXPECTED_TWINS = 87  # 85 + the V3 and Dreadnought from the missile branches
 
 # Mod buildables without a twin, with the reason (they are Reimagined only).
 NOT_TWINNED = {

@@ -169,7 +169,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -367,6 +368,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -443,6 +451,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -451,9 +463,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -462,6 +482,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -527,6 +551,9 @@
 			"WithVoxelBody": {}
 		},
 		"amradr.exact": {
+			"AircraftPads": {
+				"Count": "4"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -562,19 +589,19 @@
 			"Demolishable": {},
 			"Exit@1": {
 				"Facing": "896",
-				"SpawnOffset": "-370,370,0"
+				"SpawnOffset": "362,-362,0"
 			},
 			"Exit@2": {
 				"Facing": "896",
-				"SpawnOffset": "370,-370,0"
+				"SpawnOffset": "-362,362,0"
 			},
 			"Exit@3": {
 				"Facing": "896",
-				"SpawnOffset": "1000,370,0"
+				"SpawnOffset": "1086,362,0"
 			},
 			"Exit@4": {
 				"Facing": "896",
-				"SpawnOffset": "350,1000,0"
+				"SpawnOffset": "362,1086,0"
 			},
 			"ExternalCondition@INVULNERABILITY": {
 				"Condition": "invulnerability"
@@ -939,6 +966,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -1015,6 +1049,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -1023,9 +1061,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -1034,6 +1080,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1408,6 +1458,7 @@
 				"Action": "Kill",
 				"DeathTypes": "BulletDeath"
 			},
+			"PadBound": {},
 			"Rearmable": {
 				"RearmActors": "gaairc, gaairc.exact, amradr, amradr.exact"
 			},
@@ -1690,7 +1741,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -1859,11 +1911,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -1941,6 +1996,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -2016,6 +2077,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -2031,9 +2096,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -2162,11 +2238,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -2241,6 +2320,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -2313,6 +2398,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -2328,9 +2417,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -2457,11 +2557,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -2535,6 +2638,12 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
@@ -2611,6 +2720,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -2618,9 +2731,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -2721,14 +2845,6 @@
 				"Modifier": "50",
 				"RequiresCondition": "crate-damage"
 			},
-			"DamageMultiplier@ELITE": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-elite"
-			},
-			"DamageMultiplier@VETERAN": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-veteran && !rank-elite"
-			},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
 				"RequiresCondition": "invulnerability"
@@ -2763,22 +2879,6 @@
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
 			},
-			"FirepowerMultiplier@ELITE": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-elite"
-			},
-			"FirepowerMultiplier@VETERAN": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-veteran && !rank-elite"
-			},
-			"GainsExperience": {
-				"Conditions": {
-					"300": "rank-veteran",
-					"600": "rank-elite"
-				},
-				"LevelUpImage": "crate-effects",
-				"LevelUpNotification": "LevelUp"
-			},
 			"GivesExperience": {},
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
@@ -2804,9 +2904,12 @@
 			"HiddenUnderFog": {},
 			"HitShape": {},
 			"Huntable": {},
-			"InaccuracyMultiplier@ELITE": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-elite"
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"Mobile": {
 				"Locomotor": "tracked",
@@ -2838,14 +2941,6 @@
 			"ProximityCaptor": {
 				"Types": "Vehicle"
 			},
-			"ReloadDelayMultiplier@ELITE": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-elite"
-			},
-			"ReloadDelayMultiplier@VETERAN": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-veteran && !rank-elite"
-			},
 			"RenderDebugState": {},
 			"RenderSprites": {
 				"Image": "cmin"
@@ -2875,13 +2970,9 @@
 				"Modifier": "170",
 				"RequiresCondition": "crate-speed"
 			},
-			"SpeedMultiplier@ELITE": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-elite"
-			},
-			"SpeedMultiplier@VETERAN": {
-				"Modifier": "100",
-				"RequiresCondition": "rank-veteran && !rank-elite"
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
 			},
 			"StoresResources": {
 				"Capacity": "20",
@@ -2890,6 +2981,14 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -2901,6 +3000,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -2924,20 +3027,6 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
-			},
-			"WithDecoration@ELITE": {
-				"Image": "rank",
-				"Palette": "pips",
-				"Position": "BottomRight",
-				"RequiresCondition": "rank-elite",
-				"Sequence": "elite"
-			},
-			"WithDecoration@VETERAN": {
-				"Image": "rank",
-				"Palette": "pips",
-				"Position": "BottomRight",
-				"RequiresCondition": "rank-veteran && !rank-elite",
-				"Sequence": "veteran"
 			},
 			"WithHarvestOverlay": {
 				"LocalOffset": "121,0,0",
@@ -3040,11 +3129,14 @@
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -3101,6 +3193,7 @@
 				"CanDeployOnRamps": "true",
 				"DeployedCondition": "deployed",
 				"Facing": "368",
+				"SmartDeploy": "true",
 				"UndeployOnMove": "true",
 				"UndeployedCondition": "undeployed",
 				"Voice": "Deploy"
@@ -3126,6 +3219,12 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
@@ -3198,6 +3297,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -3213,12 +3316,23 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
 			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@RadiationImmunity": {
 				"TargetTypes": "ImmuneToRadiation"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -3509,7 +3623,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -3877,11 +3992,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -3940,6 +4058,12 @@
 			},
 			"Huntable": {},
 			"IgnoresDisguise": {},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -3992,8 +4116,23 @@
 				"Modifier": "170",
 				"RequiresCondition": "crate-speed"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -4027,25 +4166,287 @@
 			},
 			"WithTextControlGroupDecoration": {}
 		},
+		"dred.exact": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armament@primary": {
+				"LocalOffset": "49,172,728, 49,-181,728",
+				"Weapon": "DredLauncher.exact"
+			},
+			"Armor": {
+				"Type": "Heavy"
+			},
+			"AttackFrontal": {
+				"FacingTolerance": "128",
+				"Voice": "Attack"
+			},
+			"AttackMove": {
+				"AssaultMoveCondition": "assault-move",
+				"Voice": "Attack"
+			},
+			"AutoTarget": {
+				"AttackAnythingCondition": "stance-attackanything",
+				"ScanRadius": "10"
+			},
+			"AutoTargetPriority@ATTACKANYTHING": {
+				"InvalidTargets": "NoAutoTarget",
+				"RequiresCondition": "stance-attackanything || assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Structure, Defense"
+			},
+			"AutoTargetPriority@DEFAULT": {
+				"InvalidTargets": "NoAutoTarget, WaterStructure",
+				"RequiresCondition": "!stance-attackanything && !assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Defense"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Buildable": {
+				"BuildDuration": "1050",
+				"BuildDurationModifier": "100",
+				"BuildPaletteOrder": "900",
+				"Description": "actor-dred.description",
+				"Prerequisites": "~nayard, ~balance.exact",
+				"Queue": "Ship"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "67",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "67",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplode",
+				"Weapon": "UnitExplode"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"300": "rank-veteran",
+					"600": "rank-elite"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "800"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "100",
+				"RequiresCondition": "rank-elite"
+			},
+			"LeavesTrails": {
+				"Image": "wake",
+				"MovingInterval": "6",
+				"Palette": "effect50alpha",
+				"StationaryInterval": "18",
+				"TerrainTypes": "Water"
+			},
+			"Mobile": {
+				"Locomotor": "naval",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "72",
+				"TurnSpeed": "5",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"ProximityCaptor": {
+				"Types": "Ship"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "60",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "60",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {
+				"Image": "dred"
+			},
+			"RenderVoxels": {
+				"Image": "dred",
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"RepairableNear": {
+				"CloseEnough": "1c512",
+				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "7c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "2412, 2412, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"GenericName": "meta-ship-generic-name",
+				"Name": "actor-dred.name"
+			},
+			"UpdatesPlayerStatistics": {
+				"OverrideActor": "dred"
+			},
+			"Valued": {
+				"Cost": "2000"
+			},
+			"Voiced": {
+				"VoiceSet": "SovietNavalVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithLauncherMissile@first": {
+				"Barrel": "0",
+				"Image": "dmisl"
+			},
+			"WithLauncherMissile@second": {
+				"Barrel": "1",
+				"Image": "dmisl"
+			},
+			"WithVoxelBody": {}
+		},
 		"dron.exact": {
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
 			"Armament": {
-				"ReloadingCondition": "attack-cooldown",
 				"Weapon": "DroneJump.exact"
 			},
 			"Armor": {
 				"Type": "Drone"
 			},
-			"AttackLeap": {
-				"PauseOnCondition": "attacking || attack-cooldown",
+			"AttackInfect": {
+				"Damage": "25",
+				"DamageInterval": "20",
+				"DamageTypes": "DefaultDeath, BulletDeath, DroneSurvive",
+				"JumpRange": "1c768",
+				"SurviveHostDamageTypes": "DroneSurvive",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
 				"InitialStance": "AttackAnything"
 			},
 			"AutoTargetPriority@DEFAULT": {
-				"ValidTargets": "Infantry"
+				"ValidTargets": "DroneParasiteable"
 			},
 			"BodyOrientation": {
 				"CameraPitch": "85",
@@ -4149,6 +4550,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"Mobile": {
 				"Locomotor": "wheeled",
 				"PauseOnCondition": "chronodisable",
@@ -4211,6 +4619,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4218,6 +4630,14 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -4229,6 +4649,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -4267,8 +4691,13 @@
 				"RequiresCondition": "rank-veteran && !rank-elite",
 				"Sequence": "veteran"
 			},
+			"WithFacingSpriteBody": {
+				"RequiresCondition": "jumping",
+				"Sequence": "shoot"
+			},
 			"WithInfantryBody": {
-				"DefaultAttackSequence": "shoot",
+				"DefaultAttackSequence": "jump",
+				"RequiresCondition": "!jumping",
 				"StandSequences": "stand"
 			},
 			"WithParachute": {
@@ -4385,6 +4814,7 @@
 			"GrantConditionOnDeploy": {
 				"DeployedCondition": "triggered",
 				"PauseOnCondition": "chronodisable",
+				"SmartDeploy": "true",
 				"Voice": "Attack"
 			},
 			"Guard": {
@@ -4403,6 +4833,13 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
@@ -4480,6 +4917,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4488,9 +4929,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -4499,6 +4948,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -4562,6 +5015,10 @@
 		"e1.exact": {
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
+			"Armament@GARRISON": {
+				"Name": "garrison",
+				"Weapon": "AlliedOccupyW.exact"
+			},
 			"Armament@deployed": {
 				"Name": "deployed",
 				"RequiresCondition": "deployed && !rank-elite",
@@ -4657,11 +5114,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -4678,6 +5138,9 @@
 			},
 			"DrawLineToTarget": {},
 			"EdibleByLeap": {},
+			"EntersGarrisons": {
+				"Voice": "Move"
+			},
 			"ExternalCondition@CHRONODISABLE": {
 				"Condition": "chronodisable"
 			},
@@ -4726,6 +5189,7 @@
 				"DeployedCondition": "deployed",
 				"Facing": "512",
 				"RequiresCondition": "!parachute",
+				"SmartDeploy": "true",
 				"UndeploySounds": "igidepa.wav, igidepb.wav",
 				"UndeployedCondition": "undeployed",
 				"Voice": "Move"
@@ -4751,6 +5215,12 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
@@ -4779,7 +5249,7 @@
 				"WaterCorpseSequence": {}
 			},
 			"Passenger": {
-				"CargoType": "Infantry",
+				"CargoType": "Garrisoner",
 				"CustomPipType": "green",
 				"Voice": "Move"
 			},
@@ -4832,6 +5302,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4849,13 +5323,25 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
 			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -4961,6 +5447,10 @@
 		"e2.exact": {
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
+			"Armament@GARRISON": {
+				"Name": "garrison",
+				"Weapon": "SovietOccupyW.exact"
+			},
 			"Armament@elite": {
 				"RequiresCondition": "rank-elite",
 				"Weapon": "M1CarbineE.exact"
@@ -5040,11 +5530,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -5061,6 +5554,9 @@
 			},
 			"DrawLineToTarget": {},
 			"EdibleByLeap": {},
+			"EntersGarrisons": {
+				"Voice": "Move"
+			},
 			"ExternalCondition@CHRONODISABLE": {
 				"Condition": "chronodisable"
 			},
@@ -5122,6 +5618,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5149,7 +5651,7 @@
 				"WaterCorpseSequence": {}
 			},
 			"Passenger": {
-				"CargoType": "Infantry",
+				"CargoType": "Garrisoner",
 				"CustomPipType": "green",
 				"Voice": "Move"
 			},
@@ -5198,6 +5700,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -5214,13 +5720,25 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
 			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -5352,11 +5870,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -5431,6 +5952,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"InstantlyRepairs": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
@@ -5499,6 +6026,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -5514,9 +6045,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -5678,11 +6220,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -5760,6 +6305,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5836,6 +6387,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -5852,13 +6407,25 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
 			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -5954,6 +6521,11 @@
 				"RequiresCondition": "rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono",
 				"Weapon": "HoverMissileE.exact"
 			},
+			"Armament@elite-air": {
+				"LocalOffset": "128,-128,1024, 128,128,1024",
+				"RequiresCondition": "rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono",
+				"Weapon": "HoverMissileEAir.exact"
+			},
 			"Armament@flak": {
 				"RequiresCondition": "ifv-flak",
 				"Weapon": "CRFlakGuyGun.exact"
@@ -5972,6 +6544,11 @@
 				"LocalOffset": "128,-128,1024, 128,128,1024",
 				"RequiresCondition": "!rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono",
 				"Weapon": "HoverMissile.exact"
+			},
+			"Armament@primary-air": {
+				"LocalOffset": "128,-128,1024, 128,128,1024",
+				"RequiresCondition": "!rank-elite && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-demo && !ifv-hero && !ifv-chrono",
+				"Weapon": "HoverMissileAir.exact"
 			},
 			"Armament@repair": {
 				"Cursor": "goldwrench",
@@ -6029,6 +6606,10 @@
 				"RequiresCondition": "ifv-sniper || ifv-hero",
 				"ValidTargets": "Infantry"
 			},
+			"AutoTargetPriority@MISSILES": {
+				"Priority": "10",
+				"ValidTargets": "Missile"
+			},
 			"AutoTargetPriority@NOBUILDING": {
 				"InvalidTargets": "NoAutoTarget",
 				"RequiresCondition": "ifv-deso",
@@ -6071,7 +6652,7 @@
 					"tany": "ifv-hero",
 					"terror": "ifv-demo"
 				},
-				"Types": "Infantry",
+				"Types": "Infantry, Garrisoner",
 				"UnloadVoice": "Move"
 			},
 			"ChangesHealth@ELITE": {
@@ -6176,6 +6757,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -6252,6 +6840,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -6260,9 +6852,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -6271,6 +6871,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -6283,6 +6887,7 @@
 				"Name": "actor-fv.name"
 			},
 			"Turreted": {
+				"RealignDelay": "-1",
 				"TurnSpeed": "20"
 			},
 			"UpdatesPlayerStatistics": {
@@ -6359,6 +6964,9 @@
 			}
 		},
 		"gaairc.exact": {
+			"AircraftPads": {
+				"Count": "4"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -6394,19 +7002,19 @@
 			"Demolishable": {},
 			"Exit@1": {
 				"Facing": "896",
-				"SpawnOffset": "-370,370,0"
+				"SpawnOffset": "362,-362,0"
 			},
 			"Exit@2": {
 				"Facing": "896",
-				"SpawnOffset": "370,-370,0"
+				"SpawnOffset": "-362,362,0"
 			},
 			"Exit@3": {
 				"Facing": "896",
-				"SpawnOffset": "1000,370,0"
+				"SpawnOffset": "1086,362,0"
 			},
 			"Exit@4": {
 				"Facing": "896",
-				"SpawnOffset": "350,1000,0"
+				"SpawnOffset": "362,1086,0"
 			},
 			"ExternalCondition@INVULNERABILITY": {
 				"Condition": "invulnerability"
@@ -6821,9 +7429,12 @@
 				"RequiresCondition": "invulnerability"
 			},
 			"WithIdleOverlay@fans": {
-				"PauseOnCondition": "lowpower",
-				"RequiresCondition": "!build-incomplete",
+				"RequiresCondition": "!build-incomplete && !lowpower",
 				"Sequence": "idle-fans"
+			},
+			"WithIdleOverlay@fans@LOWPOWER": {
+				"RequiresCondition": "!build-incomplete && lowpower",
+				"Sequence": "idle-fans-low-power"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -7147,6 +7758,7 @@
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
 				"Interval": "12",
+				"RepairDamageTypes": "KillTerrorDrone",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -7788,7 +8400,7 @@
 		"gapill.exact": {
 			"AppearsOnRadar": {},
 			"Armament": {
-				"LocalOffset": "416,0,416",
+				"LocalOffset": "360,0,160",
 				"MuzzleSequence": "muzzle",
 				"Weapon": "vulcan2.exact"
 			},
@@ -9892,6 +10504,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "chronodisable",
@@ -9963,6 +10582,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -9975,6 +10598,14 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
@@ -9985,6 +10616,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10106,7 +10741,7 @@
 				"LoadingCondition": "notmobile",
 				"MaxWeight": "5",
 				"PassengerFacing": "0",
-				"Types": "Infantry",
+				"Types": "Infantry, Garrisoner",
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
@@ -10206,6 +10841,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -10282,6 +10924,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -10290,9 +10936,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -10301,6 +10955,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10522,6 +11180,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -10599,6 +11264,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -10607,9 +11276,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -10618,6 +11295,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10869,7 +11550,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -11022,11 +11704,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -11105,6 +11790,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -11169,6 +11860,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -11184,9 +11879,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -11341,11 +12047,14 @@
 				"RequiresCondition": "!airborne"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -11417,6 +12126,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -11474,13 +12189,28 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "airborne",
 				"TargetTypes": "Air, Disguise"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"Targetable@ground": {
 				"RequiresCondition": "!airborne",
@@ -11514,9 +12244,16 @@
 				"Sequence": "veteran"
 			},
 			"WithInfantryBody": {
+				"DefaultAttackSequence": "shoot",
+				"IdleSequences": "idle1,idle2",
+				"RequiresCondition": "!airborne",
+				"StandSequences": "stand"
+			},
+			"WithInfantryBody@Air": {
 				"DefaultAttackSequence": "shoot-air",
 				"IdleSequences": "idle-air",
 				"MoveSequence": "fly",
+				"RequiresCondition": "airborne",
 				"StandSequences": "fly"
 			},
 			"WithSpriteBody@shadow": {
@@ -11549,7 +12286,7 @@
 				"LoadingCondition": "notmobile",
 				"MaxWeight": "12",
 				"PassengerFacing": "384",
-				"Types": "Infantry, Vehicle",
+				"Types": "Infantry, Garrisoner, Vehicle",
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
@@ -11691,7 +12428,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -11935,6 +12673,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -12024,6 +12769,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -12032,9 +12781,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -12043,6 +12800,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12254,6 +13015,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -12330,6 +13098,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -12338,9 +13110,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -12349,6 +13129,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12977,6 +13761,7 @@
 				"FinishRepairingNotification": "UnitRepaired",
 				"HpPerStep": "8",
 				"Interval": "12",
+				"RepairDamageTypes": "KillTerrorDrone",
 				"StartRepairingNotification": "Repairing",
 				"ValuePercentage": "15"
 			},
@@ -14003,8 +14788,9 @@
 				"EndChargeSpeechNotification": "AtomBombReady",
 				"FlightDelay": "200",
 				"Icon": "abomb",
+				"IncomingSound": "snuksire.wav",
 				"IsPlayerPalette": "true",
-				"LaunchSound": "snuklaun.wav",
+				"LaunchSound": "snuksire.wav",
 				"LaunchSpeechNotification": "AtomBombLaunchDetected",
 				"MissileDelay": "35",
 				"MissileImage": "atomic",
@@ -16149,6 +16935,7 @@
 				"Action": "Kill",
 				"DeathTypes": "BulletDeath"
 			},
+			"PadBound": {},
 			"Rearmable": {
 				"RearmActors": "gaairc, gaairc.exact, amradr, amradr.exact"
 			},
@@ -16311,11 +17098,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -16393,6 +17183,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -16464,6 +17260,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -16479,9 +17279,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -16573,7 +17384,7 @@
 				"LoadingCondition": "notmobile",
 				"MaxWeight": "12",
 				"PassengerFacing": "384",
-				"Types": "Infantry, Vehicle",
+				"Types": "Infantry, Garrisoner, Vehicle",
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
@@ -16708,7 +17519,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -16864,7 +17676,7 @@
 			},
 			"Cargo": {
 				"MaxWeight": "5",
-				"Types": "Infantry",
+				"Types": "Infantry, Garrisoner",
 				"UnloadVoice": "Move"
 			},
 			"ChangesHealth@ELITE": {
@@ -17143,11 +17955,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -17224,6 +18039,12 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
@@ -17308,6 +18129,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -17324,13 +18149,25 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
 			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -17523,6 +18360,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -17599,6 +18443,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -17607,9 +18455,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -17618,6 +18474,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -17765,11 +18625,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -17844,6 +18707,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -17911,6 +18780,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -17926,9 +18799,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -18042,11 +18926,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -18128,6 +19015,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"Infiltrates": {
 				"Notification": "BuildingInfiltrated",
 				"Types": "SpyInfiltrate"
@@ -18193,6 +19086,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -18207,6 +19104,17 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -18616,6 +19524,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -18692,6 +19607,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -18700,9 +19619,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -18711,6 +19638,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -18987,7 +19918,8 @@
 				"LightYaw": "800",
 				"Scale": "11.7"
 			},
-			"Repairable": {
+			"RepairableNear": {
+				"CloseEnough": "1c512",
 				"RepairActors": "gayard, gayard.exact, nayard, nayard.exact",
 				"Voice": "Move"
 			},
@@ -19164,11 +20096,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -19250,6 +20185,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -19314,6 +20255,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -19321,9 +20266,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@WaterBorne": {
 				"RequiresCondition": "swimming",
 				"TargetTypes": "Underwater"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -19457,11 +20413,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -19524,6 +20483,7 @@
 			"GrantConditionOnDeploy": {
 				"DeployedCondition": "triggered",
 				"PauseOnCondition": "chronodisable",
+				"SmartDeploy": "true",
 				"Voice": "Attack"
 			},
 			"Guard": {
@@ -19547,6 +20507,12 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
@@ -19615,6 +20581,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -19622,9 +20592,20 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@byTerrorDrone": {
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -20041,6 +21022,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -20118,6 +21106,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -20126,9 +21118,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -20137,6 +21137,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -20340,6 +21344,13 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -20416,6 +21427,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -20424,9 +21439,17 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -20435,6 +21458,10 @@
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -20495,6 +21522,306 @@
 			"WithTextControlGroupDecoration": {},
 			"WithVoxelBody": {},
 			"WithVoxelTurret": {}
+		},
+		"v3.exact": {
+			"ActorLostNotification": {},
+			"AppearsOnRadar": {},
+			"Armament@primary": {
+				"LocalOffset": "-677,0,658",
+				"Weapon": "V3Launcher.exact"
+			},
+			"Armor": {
+				"Type": "Light"
+			},
+			"AttackFrontal": {
+				"FacingTolerance": "0",
+				"Voice": "Attack"
+			},
+			"AttackMove": {
+				"AssaultMoveCondition": "assault-move",
+				"Voice": "Attack"
+			},
+			"AutoTarget": {
+				"AttackAnythingCondition": "stance-attackanything",
+				"ScanRadius": "9"
+			},
+			"AutoTargetPriority@ATTACKANYTHING": {
+				"InvalidTargets": "NoAutoTarget",
+				"RequiresCondition": "stance-attackanything || assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Structure, Defense"
+			},
+			"AutoTargetPriority@DEFAULT": {
+				"InvalidTargets": "NoAutoTarget, WaterStructure",
+				"RequiresCondition": "!stance-attackanything && !assault-move",
+				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Defense"
+			},
+			"BodyOrientation": {
+				"CameraPitch": "85",
+				"QuantizedFacings": "0",
+				"UseClassicPerspectiveFudge": "false"
+			},
+			"Buildable": {
+				"BuildDuration": "420",
+				"BuildDurationModifier": "100",
+				"BuildPaletteOrder": "900",
+				"Description": "actor-v3.description",
+				"Prerequisites": "~naweap, ~balance.exact",
+				"Queue": "Vehicle"
+			},
+			"ChangesHealth@ELITE": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"RequiresCondition": "rank-elite",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
+			"ChronoshiftableWithSpriteEffect": {
+				"ChronoshiftSound": "schrmov.wav",
+				"Image": "chrono",
+				"ReturnToOrigin": "false",
+				"WarpInSequence": "warpin",
+				"WarpOutSequence": "warpout"
+			},
+			"CombatDebugOverlay": {},
+			"DamageMultiplier@CRATES": {
+				"Modifier": "50",
+				"RequiresCondition": "crate-damage"
+			},
+			"DamageMultiplier@ELITE": {
+				"Modifier": "67",
+				"RequiresCondition": "rank-elite"
+			},
+			"DamageMultiplier@VETERAN": {
+				"Modifier": "67",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"DamageMultiplier@ironcurtain": {
+				"Modifier": "0",
+				"RequiresCondition": "invulnerability"
+			},
+			"DrawLineToTarget": {},
+			"ExternalCondition@CHRONODISABLE": {
+				"Condition": "chronodisable"
+			},
+			"ExternalCondition@CRATE-DAMAGE": {
+				"Condition": "crate-damage"
+			},
+			"ExternalCondition@CRATE-FIREPOWER": {
+				"Condition": "crate-firepower"
+			},
+			"ExternalCondition@CRATE-SPEED": {
+				"Condition": "crate-speed"
+			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
+			"ExternalCondition@PARACHUTE": {
+				"Condition": "parachute"
+			},
+			"FireWarheadsOnDeath": {
+				"EmptyWeapon": "UnitExplodeSmall",
+				"Weapon": "UnitExplodeSmall"
+			},
+			"FirepowerMultiplier@CRATES": {
+				"Modifier": "200",
+				"RequiresCondition": "crate-firepower"
+			},
+			"FirepowerMultiplier@ELITE": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-elite"
+			},
+			"FirepowerMultiplier@VETERAN": {
+				"Modifier": "110",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"GainsExperience": {
+				"Conditions": {
+					"300": "rank-veteran",
+					"600": "rank-elite"
+				},
+				"LevelUpImage": "crate-effects",
+				"LevelUpNotification": "LevelUp"
+			},
+			"GivesExperience": {},
+			"GrantConditionOnDamageState@DAMAGED": {
+				"Condition": "damaged",
+				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"Guard": {
+				"Voice": "Attack"
+			},
+			"Guardable": {},
+			"HandicapDamageMultiplier": {},
+			"HandicapFirepowerMultiplier": {},
+			"HandicapProductionTimeMultiplier": {},
+			"Health": {
+				"HP": "150"
+			},
+			"HiddenUnderFog": {},
+			"HitShape": {},
+			"Huntable": {},
+			"InaccuracyMultiplier@ELITE": {
+				"Modifier": "100",
+				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorCondition": "invulnerability",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"Mobile": {
+				"Locomotor": "heavytracked",
+				"PauseOnCondition": "chronodisable",
+				"Speed": "72",
+				"TerrainOrientationAdjustmentMargin": "256",
+				"TurnSpeed": "24",
+				"Voice": "Move"
+			},
+			"MustBeDestroyed": {},
+			"OwnerLostAction": {
+				"Action": "Kill",
+				"DeathTypes": "BulletDeath"
+			},
+			"Parachutable": {
+				"FallRate": "26",
+				"GroundCorpsePalette": {},
+				"GroundCorpseSequence": {},
+				"KilledOnImpassableTerrain": "true",
+				"ParachutingCondition": "parachute",
+				"WaterCorpsePalette": {},
+				"WaterCorpseSequence": {}
+			},
+			"Passenger": {
+				"CargoType": "Vehicle",
+				"Voice": "Move",
+				"Weight": "3"
+			},
+			"ProximityCaptor": {
+				"Types": "Vehicle"
+			},
+			"ReloadDelayMultiplier@ELITE": {
+				"Modifier": "60",
+				"RequiresCondition": "rank-elite"
+			},
+			"ReloadDelayMultiplier@VETERAN": {
+				"Modifier": "60",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"RenderDebugState": {},
+			"RenderSprites": {
+				"Image": "v3"
+			},
+			"RenderVoxels": {
+				"Image": "v3",
+				"LightAmbientColor": "-0.5,-0.5,-0.5",
+				"LightDiffuseColor": "1.4,1.4,1.4",
+				"LightPitch": "150",
+				"LightYaw": "800",
+				"Scale": "11.7"
+			},
+			"Repairable": {
+				"RepairActors": "gadept, gadept.exact, nadept, nadept.exact, caoutp",
+				"Voice": "Move"
+			},
+			"RevealsShroud": {
+				"Range": "7c0"
+			},
+			"ScriptTriggers": {},
+			"Selectable": {
+				"Bounds": "1544, 2509, 0, -289"
+			},
+			"SelectionDecorations": {},
+			"SpeedMultiplier@CRATES": {
+				"Modifier": "170",
+				"RequiresCondition": "crate-speed"
+			},
+			"SpeedMultiplier@ELITE": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-elite"
+			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
+			"SpeedMultiplier@VETERAN": {
+				"Modifier": "120",
+				"RequiresCondition": "rank-veteran && !rank-elite"
+			},
+			"Targetable": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
+			"Targetable@REPAIR": {
+				"RequiresCondition": "damaged",
+				"TargetTypes": "Repair"
+			},
+			"Targetable@airborne": {
+				"RequiresCondition": "parachute",
+				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
+			},
+			"TimedConditionBar": {
+				"Condition": "invulnerability"
+			},
+			"TimedConditionBar@ChronoDisable": {
+				"Color": "FFFFFF",
+				"Condition": "chronodisable"
+			},
+			"Tooltip": {
+				"Name": "actor-v3.name"
+			},
+			"UpdatesPlayerStatistics": {
+				"OverrideActor": "v3"
+			},
+			"Valued": {
+				"Cost": "800"
+			},
+			"Voiced": {
+				"VoiceSet": "SovietVehicleVoice"
+			},
+			"WithColoredOverlay@ironcurtain": {
+				"RequiresCondition": "invulnerability"
+			},
+			"WithDecoration@ELITE": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-elite",
+				"Sequence": "elite"
+			},
+			"WithDecoration@VETERAN": {
+				"Image": "rank",
+				"Palette": "pips",
+				"Position": "BottomRight",
+				"RequiresCondition": "rank-veteran && !rank-elite",
+				"Sequence": "veteran"
+			},
+			"WithLauncherMissile": {
+				"Image": "v3rocket",
+				"Pitch": "46"
+			},
+			"WithParachute": {
+				"ClosingSequence": "close",
+				"Image": "parach",
+				"OpeningSequence": "open",
+				"RequiresCondition": "parachute",
+				"Sequence": "idle"
+			},
+			"WithTextControlGroupDecoration": {},
+			"WithVoxelBody": {}
 		},
 		"yuri.exact": {
 			"ActorLostNotification": {},
@@ -20565,11 +21892,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -20658,6 +21988,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -20737,6 +22073,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -20753,9 +22093,21 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -20905,11 +22257,14 @@
 				"DamageTypes": "RadiationDeath, DefaultDeath"
 			},
 			"DeathSounds@burned": {
-				"DeathTypes": "FlameDeath",
-				"Voice": "Burned"
+				"DeathTypes": "FlameDeath"
 			},
 			"DeathSounds@normal": {
 				"DeathTypes": "ExplosionDeath, BulletDeath"
+			},
+			"DeathSounds@psycrush": {
+				"DeathTypes": "PsychicDeath",
+				"Voice": "PsyCrush"
 			},
 			"DeathSounds@radiation": {
 				"DeathTypes": "RadiationDeath",
@@ -20998,6 +22353,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-infected",
+				"InfectedCondition": "infected",
+				"KillInfectorDamageTypes": "KillTerrorDrone",
+				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -21077,6 +22438,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@Infected": {
+				"Modifier": "0",
+				"RequiresCondition": "being-infected"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -21093,9 +22458,21 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
 			},
+			"Targetable@InfectedByTerrorDrone": {
+				"RequiresCondition": "!parachute && infected",
+				"TargetTypes": "TerrorDroned"
+			},
+			"Targetable@Parasiteable": {
+				"RequiresCondition": "!parachute && !infected",
+				"TargetTypes": "DroneParasiteable"
+			},
 			"Targetable@airborne": {
 				"RequiresCondition": "parachute",
 				"TargetTypes": "Air"
+			},
+			"Targetable@byTerrorDrone": {
+				"RequiresCondition": "!parachute",
+				"TargetTypes": "ValidForTerrorDrone"
 			},
 			"TimedConditionBar@ChronoDisable": {
 				"Color": "FFFFFF",
@@ -21979,9 +23356,43 @@
 				"_value": "CreateEffect"
 			}
 		},
+		"AlliedOccupyW.exact": {
+			"Projectile": {
+				"Blockable": "true",
+				"_value": "InstantHit"
+			},
+			"Range": "7c0",
+			"ReloadDelay": "15",
+			"Report": "igiat2a.wav, igiat2b.wav, igiat2c.wav, igiat2d.wav",
+			"Warhead@1Dam": {
+				"Damage": "30",
+				"DamageTypes": "Prone50Percent, TriggerProne, BulletDeath",
+				"Spread": "64",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "100",
+					"Flak": "80",
+					"Heavy": "25",
+					"Light": "50",
+					"Medium": "25",
+					"None": "100",
+					"Plate": "70",
+					"Rocket": "100",
+					"Steel": "30",
+					"Wood": "75"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "piffpiff",
+				"ValidTargets": "Ground, Water",
+				"_value": "CreateEffect"
+			}
+		},
 		"AssaultBolt.exact": {
 			"Projectile": {
 				"Colors": "FFFF54, FFFF54, FFFFFF",
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -22035,7 +23446,6 @@
 		},
 		"BlimpBomb.exact": {
 			"Burst": "1",
-			"MinRange": "0c001",
 			"Projectile": {
 				"Acceleration": "0, 0, -10",
 				"Image": "zbomb",
@@ -22087,7 +23497,6 @@
 		},
 		"BlimpBombE.exact": {
 			"Burst": "1",
-			"MinRange": "0c001",
 			"Projectile": {
 				"Acceleration": "0, 0, -10",
 				"Image": "zbomb",
@@ -22140,6 +23549,7 @@
 		"CRElectricBolt.exact": {
 			"Burst": "1",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -22351,6 +23761,7 @@
 		"CoilBolt.exact": {
 			"Burst": "1",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -22537,17 +23948,54 @@
 				"_value": "CreateEffect"
 			}
 		},
+		"DredLauncher.exact": {
+			"Burst": "2",
+			"MinRange": "8c0",
+			"Projectile": {
+				"Actor": "dmisl",
+				"_value": "LaunchMissileActor"
+			},
+			"Range": "25c0",
+			"ReloadDelay": "62",
+			"Warhead@1Dam": {
+				"Damage": "300",
+				"DamageTypes": "Prone70Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 25",
+				"Spread": "1c512",
+				"Versus": {
+					"Concrete": "28",
+					"Drone": "80",
+					"Flak": "90",
+					"Heavy": "80",
+					"Light": "100",
+					"Medium": "80",
+					"None": "100",
+					"Plate": "80",
+					"Rocket": "0",
+					"Steel": "65",
+					"Wood": "85"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "large_twlt",
+				"ImpactSounds": "gexpifva.wav, gexpifvb.wav, gexpifvc.wav",
+				"ValidTargets": "Ground, Air, Water",
+				"_value": "CreateEffect"
+			}
+		},
 		"DroneJump.exact": {
 			"Projectile": "InstantHit",
 			"Range": "3c0",
 			"ReloadDelay": "10",
 			"Report": "vteratta.wav",
-			"TargetActorCenter": "true",
-			"ValidTargets": "Infantry",
+			"ValidTargets": "DroneParasiteable",
 			"Warhead@1Dam": {
-				"Damage": "200",
-				"DamageTypes": "BulletDeath",
-				"ValidTargets": "Infantry",
+				"Damage": "10000",
+				"DamageTypes": "AltBulletDeath, DefaultDeath, DroneSurvive",
+				"Falloff": "100, 0",
+				"Spread": "64",
+				"ValidTargets": "ValidForTerrorDrone",
 				"Versus": {
 					"Concrete": "0",
 					"Drone": "0",
@@ -22561,12 +24009,13 @@
 					"Steel": "0",
 					"Wood": "0"
 				},
-				"_value": "TargetDamage"
+				"_value": "SpreadDamage"
 			}
 		},
 		"ElectricBolt.exact": {
 			"Burst": "1",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -22602,6 +24051,7 @@
 		"ElectricBoltE.exact": {
 			"Burst": "1",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -23016,7 +24466,7 @@
 				"ContrailStartColor": "D8D8FF",
 				"ContrailStartWidth": "24",
 				"CruiseAltitude": "4352",
-				"HorizontalRateOfTurn": "32",
+				"HorizontalRateOfTurn": "165",
 				"Image": "DRAGON",
 				"Inaccuracy": "128",
 				"MaximumLaunchAngle": "255",
@@ -23032,12 +24482,76 @@
 			"Range": "6c0",
 			"ReloadDelay": "42",
 			"Report": "vifvatta.wav",
-			"ValidTargets": "Ground, Air",
+			"ValidTargets": "Ground",
 			"Warhead@1Dam": {
 				"Damage": "25",
 				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
 				"Falloff": "100, 50",
 				"Spread": "0c512",
+				"ValidTargets": "Ground, Air",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "80",
+					"Flak": "90",
+					"Heavy": "35",
+					"Light": "70",
+					"Medium": "35",
+					"None": "100",
+					"Plate": "80",
+					"Rocket": "100",
+					"Steel": "40",
+					"Wood": "75"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_grey_explosion",
+				"ImpactSounds": "gexpifva.wav",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			},
+			"Warhead@4Smu": {
+				"SmudgeType": "SmallCrater",
+				"_value": "LeaveSmudge"
+			}
+		},
+		"HoverMissileAir.exact": {
+			"Burst": "2",
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"ContrailLength": "8",
+				"ContrailStartColor": "D8D8FF",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "165",
+				"Image": "DRAGON",
+				"Inaccuracy": "128",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "14c512",
+				"Shadow": "true",
+				"Speed": "213",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "10c0",
+			"ReloadDelay": "50",
+			"Report": "vifvatta.wav",
+			"ValidTargets": "Air",
+			"Warhead@1Dam": {
+				"Damage": "25",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Spread": "128",
 				"ValidTargets": "Ground, Air",
 				"Versus": {
 					"Concrete": "20",
@@ -23081,7 +24595,7 @@
 				"ContrailStartColor": "D8D8FF",
 				"ContrailStartWidth": "24",
 				"CruiseAltitude": "4352",
-				"HorizontalRateOfTurn": "32",
+				"HorizontalRateOfTurn": "165",
 				"Image": "DRAGON",
 				"Inaccuracy": "128",
 				"MaximumLaunchAngle": "255",
@@ -23097,12 +24611,76 @@
 			"Range": "6c0",
 			"ReloadDelay": "42",
 			"Report": "vifvatta.wav",
-			"ValidTargets": "Ground, Air",
+			"ValidTargets": "Ground",
 			"Warhead@1Dam": {
 				"Damage": "80",
 				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
 				"Falloff": "100, 50",
 				"Spread": "0c512",
+				"ValidTargets": "Ground, Air",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "80",
+					"Flak": "90",
+					"Heavy": "35",
+					"Light": "70",
+					"Medium": "35",
+					"None": "100",
+					"Plate": "80",
+					"Rocket": "100",
+					"Steel": "40",
+					"Wood": "75"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "medium_grey_explosion",
+				"ImpactSounds": "gexp15a.wav",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			},
+			"Warhead@4Smu": {
+				"SmudgeType": "SmallCrater",
+				"_value": "LeaveSmudge"
+			}
+		},
+		"HoverMissileEAir.exact": {
+			"Burst": "4",
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Arm": "2",
+				"Blockable": "false",
+				"ContrailLength": "8",
+				"ContrailStartColor": "D8D8FF",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "165",
+				"Image": "DRAGON",
+				"Inaccuracy": "128",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "14c512",
+				"Shadow": "true",
+				"Speed": "213",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "10c0",
+			"ReloadDelay": "50",
+			"Report": "vifvatta.wav",
+			"ValidTargets": "Air",
+			"Warhead@1Dam": {
+				"Damage": "80",
+				"DamageTypes": "Prone50Percent, TriggerProne, ExplosionDeath",
+				"Spread": "128",
 				"ValidTargets": "Ground, Air",
 				"Versus": {
 					"Concrete": "20",
@@ -23905,6 +25483,7 @@
 			"Burst": "1",
 			"Projectile": {
 				"Colors": "FFFF54, FFFF54, FFFFFF",
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -24109,6 +25688,7 @@
 			"ValidTargets": "Repair",
 			"Warhead@1Dam": {
 				"Damage": "-50",
+				"DamageTypes": "KillTerrorDrone",
 				"Falloff": "100, 100",
 				"Spread": "0c1",
 				"ValidTargets": "Repair",
@@ -24173,6 +25753,39 @@
 					"Heavy": "80"
 				},
 				"_value": "SpreadDamage"
+			}
+		},
+		"SovietOccupyW.exact": {
+			"Projectile": {
+				"Blockable": "true",
+				"_value": "InstantHit"
+			},
+			"Range": "7c0",
+			"ReloadDelay": "20",
+			"Report": "iconatta.wav, iconattb.wav, iconattc.wav, iconattd.wav, iconatte.wav",
+			"Warhead@1Dam": {
+				"Damage": "20",
+				"DamageTypes": "Prone50Percent, TriggerProne, BulletDeath",
+				"Spread": "64",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "100",
+					"Flak": "80",
+					"Heavy": "25",
+					"Light": "50",
+					"Medium": "25",
+					"None": "100",
+					"Plate": "70",
+					"Rocket": "100",
+					"Steel": "30",
+					"Wood": "75"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "piffpiff",
+				"ValidTargets": "Ground, Water",
+				"_value": "CreateEffect"
 			}
 		},
 		"SquidPunch.exact": {
@@ -24377,6 +25990,7 @@
 			"Burst": "1",
 			"BurstDelays": "75",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -24413,6 +26027,7 @@
 			"Burst": "1",
 			"BurstDelays": "60",
 			"Projectile": {
+				"Width": "34",
 				"ZOffset": "2047",
 				"_value": "ElectricBolt"
 			},
@@ -24478,6 +26093,42 @@
 			"Warhead@2Eff": {
 				"Explosions": "terrorist_explosion",
 				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			}
+		},
+		"V3Launcher.exact": {
+			"Burst": "1",
+			"MinRange": "5c0",
+			"Projectile": {
+				"Actor": "v3rocket",
+				"_value": "LaunchMissileActor"
+			},
+			"Range": "18c0",
+			"ReloadDelay": "333",
+			"Warhead@1Dam": {
+				"Damage": "200",
+				"DamageTypes": "Prone70Percent, TriggerProne, ExplosionDeath",
+				"Falloff": "100, 25",
+				"Spread": "1c0",
+				"Versus": {
+					"Concrete": "50",
+					"Drone": "80",
+					"Flak": "90",
+					"Heavy": "70",
+					"Light": "90",
+					"Medium": "70",
+					"None": "100",
+					"Plate": "80",
+					"Rocket": "0",
+					"Steel": "100",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "large_twlt",
+				"ImpactSounds": "gexpifva.wav, gexpifvb.wav, gexpifvc.wav",
+				"ValidTargets": "Ground, Air, Water",
 				"_value": "CreateEffect"
 			}
 		},

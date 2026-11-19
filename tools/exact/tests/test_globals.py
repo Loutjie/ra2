@@ -360,7 +360,9 @@ QUEUE_GENERAL_KEYS = ("MultipleFactory", "MinLowPowerProductionSpeed", "MaxLowPo
 
 def test_player_queues_match_rules_ini(ra2ini):
     player = parse_miniyaml((REPO_ROOT / "mods/ra2/rules/player.yaml").read_text(encoding="utf-8"))["Player"]
-    queues = {k: v for k, v in player.items() if k.split("@")[0] == "BalanceProductionQueue"}
+    # PadLimitedProductionQueue (the aircraft queue) is a BalanceProductionQueue that limits pad-bound aircraft.
+    balance_queues = ("BalanceProductionQueue", "PadLimitedProductionQueue")
+    queues = {k: v for k, v in player.items() if k.split("@")[0] in balance_queues}
     assert len(queues) == 6
     expected = {key: str(conversions.percent(ra2ini["General"][key])) for key in QUEUE_GENERAL_KEYS}
     assert expected == {"MultipleFactory": "80", "MinLowPowerProductionSpeed": "50",

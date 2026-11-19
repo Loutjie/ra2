@@ -83,7 +83,8 @@ def test_cash_tick_volume_lowered():
     for name in ("CashTickUp", "CashTickDown"):
         volume = float(sounds[name][1]["VolumeModifier"][0])
         assert 0 < volume < 1.0, name
-    assert float(sounds["CashTickUp"][1]["VolumeModifier"][0]) == 0.6
+    # Play-tested 2026-11-08: 0.6, then 0.35, was still as loud as the rest of the effects.
+    assert float(sounds["CashTickUp"][1]["VolumeModifier"][0]) == 0.15
 
 
 def _descendants(root):

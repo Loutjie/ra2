@@ -20,8 +20,11 @@ POWER_OWNERS = {
     "Iron Curtain": ("nairon", "GrantExternalConditionPower"),
     "Nuke": ("namisl", "NukePower"),
     "American paradrop": ("amradr", "ParatroopersPower"),
-    "Allied paradrop": ("caairp", "ParatroopersPower@Allies"),
-    "Soviet paradrop": ("caairp", "ParatroopersPower@Soviets"),
+    # The Exact layer splits the airport's paradrops into a variant per balance mode, each with its own order.
+    "Allied paradrop (Reimagined)": ("caairp", "ParatroopersPower@Allies@REIMAGINED"),
+    "Allied paradrop (Exact)": ("caairp", "ParatroopersPower@Allies@EXACT"),
+    "Soviet paradrop (Reimagined)": ("caairp", "ParatroopersPower@Soviets@REIMAGINED"),
+    "Soviet paradrop (Exact)": ("caairp", "ParatroopersPower@Soviets@EXACT"),
 }
 
 
@@ -89,5 +92,6 @@ def test_ai_replaces_harvesters():
     module = _module("HarvesterBotModule")
     types = {t.strip() for t in module.get("HarvesterTypes", "").split(",") if t.strip()}
     refineries = {t.strip() for t in module.get("RefineryTypes", "").split(",") if t.strip()}
-    assert types == {"harv", "cmin"}
-    assert refineries == {"garefn", "narefn"}
+    # Each harvester has an Exact-mode twin, which the AI must replace too.
+    assert types == {"harv", "cmin", "harv.exact", "cmin.exact"}
+    assert refineries == {"garefn", "narefn", "garefn.exact", "narefn.exact"}
