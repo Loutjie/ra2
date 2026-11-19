@@ -95,16 +95,22 @@ SovietWaves = function()
 	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(30, 46)), SovietWaves)
 end
 
--- Flies in from the map edge, attacks, then leaves the way it came.
-Sortie = function(player, type, edge, target)
-	local aircraft = Reinforcements.Reinforce(player, { type }, { edge, target })[1]
-	aircraft.AttackMove(target)
+-- Flies in from the map edge, attacks one Soviet unit on the strip, then leaves the way it came.
+-- A specific target keeps the run straight: an attack-move makes aircraft circle around looking for targets.
+Sortie = function(player, type, edge)
+	local targets = UnitsInBattleZone(function(a) return a.Owner == Soviets end)
+	if #targets == 0 then
+		return
+	end
+
+	local aircraft = Reinforcements.Reinforce(player, { type }, { edge })[1]
+	aircraft.Attack(Utils.Random(targets))
 	aircraft.Move(edge)
 	aircraft.Destroy()
 end
 
 AlliedAir = function()
-	Sortie(Allies, Utils.Random({ "orca", "beag" }), AlliedAirEdge, StripCenter.Location)
+	Sortie(Allies, Utils.Random({ "orca", "beag" }), AlliedAirEdge)
 	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(60, 91)), AlliedAir)
 end
 

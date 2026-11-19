@@ -110,3 +110,7 @@ nayard:
 		PercentageStep: -4
 		Delay: 25
 		StartIfBelow: 101
+
+# Sorties leave the map after their run instead of flying back to rearm.
+orca:
+	-Rearmable:
