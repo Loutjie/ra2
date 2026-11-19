@@ -222,8 +222,11 @@ namespace OpenRA.Mods.RA2.Traits
 			self.World.UpdateMaps(self, this);
 		}
 
-		/// <summary>True while the launcher draws this missile as part of its own model (before it flies).</summary>
-		public bool IsDrawnByLauncher => drawnByLauncher && Phase != MissileFlightPhase.Fly && Phase != MissileFlightPhase.Arrived
+		/// <summary>
+		/// True while the launcher draws this missile as part of its own model: through the lift and the straight run
+		/// after ignition. Drawn separately, a missile right against the launcher's hull is hidden by it.
+		/// </summary>
+		public bool IsDrawnByLauncher => drawnByLauncher && flight != null && !flight.ClearOfLauncher
 			&& launcher is { IsInWorld: true, IsDead: false };
 
 		IEnumerable<IRenderable> IRenderModifier.ModifyRender(Actor self, WorldRenderer wr, IEnumerable<IRenderable> r)
