@@ -310,6 +310,7 @@ namespace OpenRA.Mods.RA2.Test
 			while ((flight.Position - start).HorizontalLength < 512)
 			{
 				flight.Tick(target, WDist.Zero);
+				Assert.That(flight.ClearOfLauncher, Is.EqualTo((flight.Position - start).HorizontalLength >= 512));
 				var turned = flight.Yaw.Angle > 512 ? 1024 - flight.Yaw.Angle : flight.Yaw.Angle;
 				Assert.That(turned, Is.Zero, $"turned {turned} within {(flight.Position - start).HorizontalLength} of the launcher");
 			}

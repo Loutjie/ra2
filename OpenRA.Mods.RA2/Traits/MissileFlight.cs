@@ -103,6 +103,10 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public WRot Orientation => new(WAngle.Zero, Pitch, Yaw);
 
+		/// <summary>True once the missile has flown its straight run after ignition and is clear of its launcher.</summary>
+		public bool ClearOfLauncher => Phase == MissileFlightPhase.Arrived
+			|| (Phase == MissileFlightPhase.Fly && (Position - ignition).HorizontalLength >= p.StraightAfterIgnition.Length);
+
 		/// <summary>
 		/// Keep a missile that has not ignited yet attached to its moving launcher: at the launcher's slot,
 		/// pointing the way the launcher points. It turns towards its target only once it flies.
@@ -185,8 +189,7 @@ namespace OpenRA.Mods.RA2.Traits
 			}
 
 			// Leave the launcher in a straight line, then turn no faster than the missile moves, so it turns in the air.
-			var clear = (Position - ignition).HorizontalLength >= p.StraightAfterIgnition.Length;
-			if (clear)
+			if (ClearOfLauncher)
 				Yaw = Util.TickFacing(Yaw, delta.Yaw, SpeedScaled(p.YawTurnRate));
 
 			var toTarget = WAngle.ArcTan(delta.Z, horizontal);
