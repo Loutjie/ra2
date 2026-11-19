@@ -73,6 +73,9 @@ namespace OpenRA.Mods.RA2.Traits
 			"0 tilts it around its centre.")]
 		public readonly WDist TiltPivot = WDist.Zero;
 
+		[Desc("Pitch to climb at after ignition, until cruise altitude. Defaults to PitchFinal, the end of the lift.")]
+		public readonly WAngle? ClimbPitch = null;
+
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
@@ -98,6 +101,7 @@ namespace OpenRA.Mods.RA2.Traits
 			DiveAngle = DiveAngle,
 			MaxTicks = MaxTicks,
 			TiltPivot = TiltPivot,
+			ClimbPitch = ClimbPitch,
 		};
 
 		public override object Create(ActorInitializer init) { return new MissileActor(init, this); }

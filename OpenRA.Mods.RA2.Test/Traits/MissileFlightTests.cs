@@ -268,6 +268,30 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(turned, Is.InRange(1, p.YawTurnRate.Angle), "turns towards the target at the yaw turn rate");
 		}
 
+		// Play-test 2026-11-18: with a shallow lift the Dreadnought missile crossed the shipyard next to it at deck height.
+		// After ignition it climbs at ClimbPitch, steeper than the lift.
+		[Test]
+		public void Cruise_ClimbsAtClimbPitchAfterIgnition()
+		{
+			var p = Dmisl();
+			p.PitchFinal = new WAngle(96);
+			p.ClimbPitch = new WAngle(160);
+			var flight = new MissileFlight(p, WPos.Zero, WAngle.Zero);
+			var target = new WPos(0, -20480, 0);
+			while (flight.Phase != MissileFlightPhase.Fly)
+				flight.Tick(target, WDist.Zero);
+
+			Assert.That(flight.Pitch, Is.EqualTo(new WAngle(96)), "the lift ends at PitchFinal");
+			var maxPitch = 0;
+			for (var i = 0; i < 10; i++)
+			{
+				flight.Tick(target, WDist.Zero);
+				maxPitch = Math.Max(maxPitch, flight.Pitch.Angle);
+			}
+
+			Assert.That(maxPitch, Is.EqualTo(160));
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{
