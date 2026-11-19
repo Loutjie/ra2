@@ -107,6 +107,10 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Condition granted while the tower is offline after supporting. Pause the attack on it.")]
 		public readonly string SupportingCondition = null;
 
+		[Desc("Ticks after firing during which the tower recharges and cannot support.",
+			"Negative reads the ReloadDelay of the actor's attack trait (AttackTesla).")]
+		public readonly int RechargeDelay = -1;
+
 		[Desc("Draw links to towers in support range while placing this building.")]
 		public readonly bool ShowPlacementLinks = true;
 
@@ -115,6 +119,8 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public WeaponInfo SupportWeaponInfo { get; private set; }
 
+		public int ResolvedRechargeDelay { get; private set; }
+
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
 			var weaponToLower = SupportWeapon.ToLowerInvariant();
@@ -122,7 +128,18 @@ namespace OpenRA.Mods.RA2.Traits
 				throw new YamlException($"Weapons Ruleset does not contain an entry '{weaponToLower}'");
 
 			SupportWeaponInfo = weapon;
+			ResolvedRechargeDelay = RechargeDelay >= 0 ? RechargeDelay : AttackReloadDelay(ai);
 			base.RulesetLoaded(rules, ai);
+		}
+
+		// AttackTesla is internal to OpenRA.Mods.Cnc, so its public ReloadDelay field is read by name.
+		static int AttackReloadDelay(ActorInfo ai)
+		{
+			foreach (var attack in ai.TraitInfos<AttackBaseInfo>())
+				if (attack.GetType().GetField("ReloadDelay")?.GetValue(attack) is int delay)
+					return delay;
+
+			return 0;
 		}
 
 		IEnumerable<IRenderable> IPlaceBuildingDecorationInfo.RenderAnnotations(WorldRenderer wr, World w, ActorInfo ai, WPos centerPosition)
@@ -158,6 +175,9 @@ namespace OpenRA.Mods.RA2.Traits
 		[VerifySync]
 		int offlineTicks;
 
+		[VerifySync]
+		int rechargeTicks;
+
 		int supportingToken = Actor.InvalidConditionToken;
 
 		public PrismTower(Actor self, PrismTowerInfo info)
@@ -173,9 +193,9 @@ namespace OpenRA.Mods.RA2.Traits
 			base.Created(self);
 		}
 
-		/// <summary>Idle, powered, and not offline from an earlier support beam.</summary>
+		/// <summary>Idle, powered, recharged, and not offline from an earlier support beam.</summary>
 		bool CanSupport =>
-			!IsTraitDisabled && !IsTraitPaused && offlineTicks <= 0 && self.IsInWorld && !self.IsDead && self.IsIdle
+			!IsTraitDisabled && !IsTraitPaused && offlineTicks <= 0 && rechargeTicks <= 0 && self.IsInWorld && !self.IsDead && self.IsIdle
 			&& attacks.Any(a => !a.IsTraitDisabled && !a.IsTraitPaused)
 			&& !armaments.Any(a => !a.IsTraitDisabled && a.IsReloading);
 
@@ -190,6 +210,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void ITick.Tick(Actor self)
 		{
+			if (rechargeTicks > 0)
+				rechargeTicks--;
+
 			if (offlineTicks > 0 && --offlineTicks == 0 && supportingToken != Actor.InvalidConditionToken)
 				supportingToken = self.RevokeCondition(supportingToken);
 		}
@@ -221,7 +244,7 @@ namespace OpenRA.Mods.RA2.Traits
 		void Support(PrismTower receiver)
 		{
 			offlineTicks = Info.SupportDelay;
-			if (supportingToken == Actor.InvalidConditionToken && !string.IsNullOrEmpty(Info.SupportingCondition))
+			if (offlineTicks > 0 && supportingToken == Actor.InvalidConditionToken && !string.IsNullOrEmpty(Info.SupportingCondition))
 				supportingToken = self.GrantCondition(Info.SupportingCondition);
 
 			var weapon = Info.SupportWeaponInfo;
@@ -259,6 +282,7 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			// The firepower modifiers were read when the shot was prepared, so the support is spent now.
 			supportBeams = 0;
+			rechargeTicks = Info.ResolvedRechargeDelay;
 		}
 
 		int IFirepowerModifier.GetFirepowerModifier()
