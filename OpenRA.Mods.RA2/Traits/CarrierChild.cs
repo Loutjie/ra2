@@ -20,6 +20,10 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Move this close to the spawner, before entering it.")]
 		public readonly WDist LandingDistance = new(5 * 1024);
 
+		[Desc("Abort a landing and fly a circle when the spawner is still moving and has moved",
+			"further than this from where it was when the landing began.")]
+		public readonly WDist LandingAbortDistance = new(512);
+
 		public override object Create(ActorInitializer init) { return new CarrierChild(this); }
 	}
 
@@ -45,7 +49,17 @@ namespace OpenRA.Mods.RA2.Traits
 				return;
 
 			// Cancel whatever else self was doing and return.
-			self.QueueActivity(false, new EnterCarrierParent(self, Parent, spawnerParent));
+			self.QueueActivity(false, new EnterCarrierParent(self, Parent, spawnerParent, Info.LandingAbortDistance));
+		}
+
+		/// <summary>
+		/// Decides whether the landing position is stale: the spawner is still moving (parentMoved)
+		/// and has drifted further than the threshold from where the landing began.
+		/// Landing on a stale position would miss the spawner, so the child should circle and retry instead.
+		/// </summary>
+		public static bool ShouldCircle(bool parentMoved, WDist parentDrift, WDist threshold)
+		{
+			return parentMoved && parentDrift > threshold;
 		}
 
 		public override void LinkParent(Actor self, Actor parent, BaseSpawnerParent spawnerParent)
