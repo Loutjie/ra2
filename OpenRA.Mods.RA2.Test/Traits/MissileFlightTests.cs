@@ -319,6 +319,36 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That((landed.Position - target).Length, Is.LessThan(256), "still reaches a target behind it");
 		}
 
+		// Play-test 2026-11-18: a Dreadnought facing the camera fired missiles that steepened straight away and pointed
+		// end-on at the camera, so they all but vanished. Hold the lift angle through the straight run.
+		[Test]
+		public void StraightRun_HoldsTheLiftAngle()
+		{
+			var p = Dmisl();
+			p.PitchFinal = new WAngle(64);
+			p.ClimbPitch = new WAngle(160);
+			p.StraightAfterIgnition = new WDist(1024);
+			var flight = new MissileFlight(p, WPos.Zero, WAngle.Zero);
+			var target = new WPos(-20480, 0, 0);
+			while (flight.Phase != MissileFlightPhase.Fly)
+				flight.Tick(target, WDist.Zero);
+
+			while (!flight.ClearOfLauncher)
+			{
+				Assert.That(flight.Pitch, Is.EqualTo(new WAngle(64)));
+				flight.Tick(target, WDist.Zero);
+			}
+
+			var steepest = 0;
+			for (var i = 0; i < 30; i++)
+			{
+				flight.Tick(target, WDist.Zero);
+				steepest = Math.Max(steepest, flight.Pitch.Angle < 512 ? flight.Pitch.Angle : 0);
+			}
+
+			Assert.That(steepest, Is.GreaterThan(64), "steepens once clear");
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{

@@ -204,7 +204,7 @@ namespace OpenRA.Mods.RA2.Traits
 			if (terminal)
 				desiredPitch = toTarget;
 			else if (!climbed && !Diving(toTarget))
-				desiredPitch = p.ClimbPitch ?? p.PitchFinal;
+				desiredPitch = ClearOfLauncher ? p.ClimbPitch ?? p.PitchFinal : p.PitchFinal;
 			else if (p.Profile == MissileFlightProfile.LazyCurve || Diving(toTarget))
 				desiredPitch = toTarget;
 			else
