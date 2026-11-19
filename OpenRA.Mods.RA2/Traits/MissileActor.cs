@@ -85,6 +85,11 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Added to the draw order once the missile lifts off its launcher, so it is not drawn behind nearby buildings.")]
 		public readonly int FlyingZOffset = 8192;
 
+		[Desc("Once flying, draw the missile this much closer to the camera in depth, without moving it on screen.",
+			"Voxel depth is approximate, so a missile just ahead of a launcher facing the camera can be hidden by the launcher's hull.",
+			"Also moves its shadow down the screen by about half this distance.")]
+		public readonly WDist FlyingDepthOffset = WDist.Zero;
+
 		[GrantedConditionReference]
 		[Desc("Condition granted once the missile has left the launcher (after the pause and tilt).")]
 		public readonly string FlyingCondition = null;
@@ -234,7 +239,13 @@ namespace OpenRA.Mods.RA2.Traits
 			if (IsDrawnByLauncher)
 				return [];
 
-			return Phase != MissileFlightPhase.Pause ? r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset)) : r;
+			if (Phase == MissileFlightPhase.Pause)
+				return r;
+
+			// Moving south and up by the same amount leaves the screen position alone and brings it closer in depth.
+			var depth = info.FlyingDepthOffset.Length;
+			var toCamera = new WVec(0, depth, depth);
+			return r.Select(a => (depth != 0 && Phase == MissileFlightPhase.Fly ? a.OffsetBy(toCamera) : a).WithZOffset(a.ZOffset + info.FlyingZOffset));
 		}
 
 		IEnumerable<Rectangle> IRenderModifier.ModifyScreenBounds(Actor self, WorldRenderer wr, IEnumerable<Rectangle> bounds) { return bounds; }
