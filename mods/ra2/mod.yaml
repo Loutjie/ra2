@@ -333,3 +333,7 @@ GameSpeeds:
 			Name: options-game-speed.fastest
 			Timestep: 20
 			OrderLatency: 6
+
+# RA2 tiles are 2.5x wider than classic ones. The engine's views bottom out at 1:1 pixels, so shrink them all.
+WorldViewportSizes:
+	DefaultScale: 0.7
