@@ -582,10 +582,13 @@ jumpjet:
 		VTOL: true
 		CanSlide: True
 	WithInfantryBody:
+		RequiresCondition: !airborne
+	WithInfantryBody@Air:
 		StandSequences: fly
 		MoveSequence: fly
 		DefaultAttackSequence: shoot-air
 		IdleSequences: idle-air
+		RequiresCondition: airborne
 	Hovers:
 		BobDistance: -45
 	-Crushable:
