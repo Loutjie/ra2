@@ -22,3 +22,80 @@ World:
 
 ^Palettes:
 	-MenuPostProcessEffect:
+
+# Bases can be hit but never fall (as in the stock RA shellmap).
+gacnst:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaweap:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gapile:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaairc:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaweat:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gacsph:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gapowr:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+atesla:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gayard:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nacnst:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+naweap:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nahand:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+namisl:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nairon:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+napowr:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+tesla:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nayard:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+^Wall:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+^LowBridge:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0

@@ -8,15 +8,6 @@
 ]]
 
 WorldLoaded = function()
-	-- TEMPORARY terrain dump for planning the base layout (Task 3 removes it).
-	for x = -20, 220 do
-		for y = -130, 130 do
-			local ok, t = pcall(function() return Map.TerrainType(CPos.New(x, y)) end)
-			if ok and t ~= nil then
-				print("TERRAIN " .. x .. "," .. y .. "," .. t)
-			end
-		end
-	end
 end
 
 Tick = function()
