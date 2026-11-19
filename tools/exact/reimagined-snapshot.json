@@ -855,10 +855,9 @@
 				"Prerequisites": "~naweap, natech",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -2773,6 +2772,12 @@
 				"Prerequisites": "~gaweap, refinery",
 				"Queue": "Vehicle"
 			},
+			"ChangesHealth@SELFHEAL": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
 			"ChronoResourceDelivery": {
 				"WarpInSequence": "warpout",
 				"WarpInSound": "vchrtele.wav",
@@ -3043,10 +3048,9 @@
 				"Prerequisites": "naradr, ~infantry.iraq",
 				"Queue": "Infantry"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -10482,10 +10486,9 @@
 				"Prerequisites": "~naweap, refinery",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -19046,15 +19049,9 @@
 				"Prerequisites": "natech, ~nayard",
 				"Queue": "Ship"
 			},
-			"ChangesHealth": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"Step": "2"
-			},
-			"ChangesHealth@ELITE": {
-				"DamageCooldown": "125",
-				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},

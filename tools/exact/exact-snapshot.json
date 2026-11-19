@@ -870,10 +870,9 @@
 				"Prerequisites": "~naweap, natech, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -2827,6 +2826,12 @@
 				"Prerequisites": "~gaweap, refinery, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChangesHealth@SELFHEAL": {
+				"DamageCooldown": "125",
+				"Delay": "100",
+				"StartIfBelow": "100",
+				"Step": "2"
+			},
 			"ChronoResourceDelivery": {
 				"Image": "cmin",
 				"WarpInSequence": "warpout",
@@ -3101,10 +3106,9 @@
 				"Prerequisites": "naradr, ~infantry.iraq, ~balance.exact",
 				"Queue": "Infantry"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -10398,10 +10402,9 @@
 				"Prerequisites": "~naweap, refinery, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@ELITE": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
@@ -19213,9 +19216,10 @@
 				"Prerequisites": "natech, ~nayard, ~balance.exact",
 				"Queue": "Ship"
 			},
-			"ChangesHealth": {
+			"ChangesHealth@SELFHEAL": {
 				"DamageCooldown": "125",
 				"Delay": "100",
+				"StartIfBelow": "100",
 				"Step": "2"
 			},
 			"Chronoshiftable": {
