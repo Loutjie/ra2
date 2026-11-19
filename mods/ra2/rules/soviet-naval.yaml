@@ -185,10 +185,13 @@ sqd:
 		Type: Light
 	Health:
 		HP: 200
-	ChangesHealth:
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
 		Step: 2
 		Delay: 100
+		StartIfBelow: 100
 		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	Mobile:
 		TurnSpeed: 24
 		Speed: 120

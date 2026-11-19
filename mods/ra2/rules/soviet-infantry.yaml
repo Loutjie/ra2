@@ -256,6 +256,13 @@ deso:
 		Bounds: 482, 1448, 0, -530
 	Health:
 		HP: 150
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
+		Step: 2
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	RevealsShroud:
 		Range: 6c0
 	Armor:

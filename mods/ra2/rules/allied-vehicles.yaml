@@ -68,6 +68,12 @@ cmin:
 		WarpOutSound: vchrtele.wav
 	Health:
 		HP: 1000
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
+		Step: 2
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
 	Armor:
 		Type: Medium
 	Targetable@RadiationImmunity:

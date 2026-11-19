@@ -141,6 +141,20 @@ def test_self_heal_only_with_ability(tree):
     assert "-ChangesHealth@ELITE" in tree["tank.exact"]
 
 
+def test_self_healing_units_need_no_elite_trait():
+    # RA2 SelfHealing=yes heals at every rank (the base actor's ChangesHealth), so SELF_HEAL
+    # without ChangesHealth@ELITE is not reported as unmapped.
+    rules = {**RULES, "VehicleTypes": {**RULES["VehicleTypes"], "4": "MEND"},
+        "MEND": {"TechLevel": "2", "Owner": "Reds", "Cost": "900", "SelfHealing": "yes",
+            "EliteAbilities": "SELF_HEAL"}}
+    ranks = {k: v for k, v in RANKS.items() if k != "ChangesHealth@ELITE"}
+    bases = {**BASES, "mend": {**ranks, "ChangesHealth@SELFHEAL": {"Step": "2"}}}
+    g = exact_globals.build_globals(rules, actors_of(rules, bases), bases, set(bases), NEUTRAL,
+        {"lightningstorm": "LightningStorm", "kaboom": "Kaboom"})
+    assert not any("mend" in line for line in g.notes.get("veterancy", []))
+    assert "ChangesHealth@ELITE" not in g.blocks.get("mend.exact", {})
+
+
 def test_superweapon_charge_converted(tree):
     assert tree["sphere.exact"]["ChronoshiftPower@chronoshift"]["ChargeInterval"] == str(conversions.minutes_to_ticks(7))
     curtain = tree["curtain.exact"]["GrantExternalConditionPower@IRONCURTAIN"]
