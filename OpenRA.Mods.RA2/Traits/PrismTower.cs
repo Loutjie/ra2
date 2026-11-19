@@ -58,15 +58,15 @@ namespace OpenRA.Mods.RA2.Traits
 					.OrderBy(c => c.DistanceSquared)
 					.ThenBy(c => c.Index);
 
-				foreach (var c in inRange)
+				foreach (var (index, _) in inRange)
 				{
 					if (links.Count >= max)
 						break;
 
-					used[c.Index] = true;
-					links.Add(new PrismSupportLink(c.Index, receiver));
+					used[index] = true;
+					links.Add(new PrismSupportLink(index, receiver));
 					if (chain)
-						receivers.Enqueue(c.Index);
+						receivers.Enqueue(index);
 				}
 			}
 
