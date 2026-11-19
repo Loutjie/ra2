@@ -16,7 +16,7 @@ using OpenRA.Primitives;
 namespace OpenRA.Mods.RA2.Widgets
 {
 	/// <summary>
-	/// A production tab that keeps the RA2 art for selected and unselected tabs and draws a line along its bottom edge
+	/// A production tab that keeps the RA2 art for selected and unselected tabs and draws a blinking line along its bottom edge
 	/// while the tab has a finished item, such as a building ready to place.
 	/// The tab art has the icon baked in, so the stock OpenRA icon colour change cannot be used.
 	/// </summary>
@@ -39,6 +39,9 @@ namespace OpenRA.Mods.RA2.Widgets
 		[Desc("Distance in pixels from the left and right sides of the tab to the ready line.")]
 		public readonly int ReadyLineInset = 5;
 
+		[Desc("The ready line blinks on and off every this many milliseconds. 0 keeps it steady.")]
+		public readonly int ReadyLineBlinkMs = 400;
+
 		ImageWidget icon;
 
 		[ObjectCreator.UseCtor]
@@ -53,6 +56,7 @@ namespace OpenRA.Mods.RA2.Widgets
 			ReadyLineHeight = other.ReadyLineHeight;
 			ReadyLineBottom = other.ReadyLineBottom;
 			ReadyLineInset = other.ReadyLineInset;
+			ReadyLineBlinkMs = other.ReadyLineBlinkMs;
 		}
 
 		public override WorldButtonWidget Clone() { return new RA2ProductionTypeButtonWidget(this); }
@@ -69,6 +73,9 @@ namespace OpenRA.Mods.RA2.Widgets
 		{
 			base.Draw();
 			if (IsDisabled() || !IsReady())
+				return;
+
+			if (ReadyLineBlinkMs > 0 && Game.RunTime / ReadyLineBlinkMs % 2 == 1)
 				return;
 
 			var rb = RenderBounds;
