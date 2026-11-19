@@ -56,6 +56,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// Pitch to climb at after ignition, until cruise altitude. Defaults to PitchFinal, the end of the lift.
 		public WAngle? ClimbPitch;
+
+		// Fly straight for this far (horizontally) after ignition before turning towards the target, to clear the launcher.
+		public WDist StraightAfterIgnition;
 	}
 
 	/// <summary>
@@ -76,6 +79,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// The launcher slot the missile sits in until it flies; the tilt moves it relative to this.
 		WPos anchor;
+
+		// Where the missile ignited, for the straight run before it turns.
+		WPos ignition;
 
 		// Set once cruise altitude is first reached, so dipping below it later does not restart the climb.
 		bool climbed;
@@ -123,6 +129,12 @@ namespace OpenRA.Mods.RA2.Traits
 			return new WVec(0, -forward, 0).Rotate(WRot.FromYaw(Yaw)) + new WVec(0, 0, up);
 		}
 
+		/// <summary>A turn rate scaled by speed: the full rate at top speed, at least one step while moving.</summary>
+		WAngle SpeedScaled(WAngle rate)
+		{
+			return p.MaxSpeed <= 0 ? rate : new WAngle(Math.Max(1, rate.Angle * Speed / p.MaxSpeed));
+		}
+
 		/// <summary>Advance one tick. Returns true when the missile has arrived (or must detonate).</summary>
 		public bool Tick(WPos target, WDist terrainHeightAtPosition)
 		{
@@ -146,6 +158,7 @@ namespace OpenRA.Mods.RA2.Traits
 					{
 						Pitch = p.PitchFinal;
 						Position = anchor + TiltOffset();
+						ignition = Position;
 						Phase = MissileFlightPhase.Fly;
 						return false;
 					}
@@ -171,7 +184,10 @@ namespace OpenRA.Mods.RA2.Traits
 				return Arrive();
 			}
 
-			Yaw = Util.TickFacing(Yaw, delta.Yaw, p.YawTurnRate);
+			// Leave the launcher in a straight line, then turn no faster than the missile moves, so it turns in the air.
+			var clear = (Position - ignition).HorizontalLength >= p.StraightAfterIgnition.Length;
+			if (clear)
+				Yaw = Util.TickFacing(Yaw, delta.Yaw, SpeedScaled(p.YawTurnRate));
 
 			var toTarget = WAngle.ArcTan(delta.Z, horizontal);
 			var altitude = Position.Z - terrainHeightAtPosition.Length;
@@ -191,7 +207,7 @@ namespace OpenRA.Mods.RA2.Traits
 			else
 				desiredPitch = WAngle.Zero;
 
-			Pitch = Util.TickFacing(Pitch, desiredPitch, terminal ? new WAngle(p.PitchTurnRate.Angle * 4) : p.PitchTurnRate);
+			Pitch = Util.TickFacing(Pitch, desiredPitch, terminal ? new WAngle(p.PitchTurnRate.Angle * 4) : SpeedScaled(p.PitchTurnRate));
 			if (terminal)
 				Yaw = delta.Yaw;
 

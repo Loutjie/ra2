@@ -70,6 +70,8 @@ dmisl:
 		PitchFinal: 96
 		# Climb more steeply than the lift after ignition, so it clears a shipyard or other tall building next to the ship.
 		ClimbPitch: 160
+		# Leave the ship in a straight line along its heading, then turn towards the target in the air.
+		StraightAfterIgnition: 1c0
 		# About half the missile's length: it tilts around its tail, which stays in the deck slot.
 		TiltPivot: 600
 		PitchTurnRate: 20

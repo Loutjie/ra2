@@ -76,6 +76,9 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Pitch to climb at after ignition, until cruise altitude. Defaults to PitchFinal, the end of the lift.")]
 		public readonly WAngle? ClimbPitch = null;
 
+		[Desc("Fly straight for this far (horizontally) after ignition before turning towards the target, to clear the launcher.")]
+		public readonly WDist StraightAfterIgnition = WDist.Zero;
+
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
@@ -102,6 +105,7 @@ namespace OpenRA.Mods.RA2.Traits
 			MaxTicks = MaxTicks,
 			TiltPivot = TiltPivot,
 			ClimbPitch = ClimbPitch,
+			StraightAfterIgnition = StraightAfterIgnition,
 		};
 
 		public override object Create(ActorInitializer init) { return new MissileActor(init, this); }
