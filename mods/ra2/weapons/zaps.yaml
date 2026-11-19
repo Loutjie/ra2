@@ -155,14 +155,15 @@ Comet:
 	ReloadDelay: 100
 	Range: 10c0
 	Report: vpriatta.wav
-	Projectile: LaserZap
-		Width: 128
+	Projectile: GlowLaserZap
+		Width: 160
 		Duration: 15
 		Color: FFFFFF
 		ZOffset: 2047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 176
+		SecondaryBeamWidth: 196
 		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamAlpha: 144
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 800
@@ -206,14 +207,15 @@ CometFragment:
 	InvalidTargets: Structure, Wall
 	ReloadDelay: 100
 	Range: 3c0
-	Projectile: LaserZap
-		Width: 96
+	Projectile: GlowLaserZap
+		Width: 112
 		Duration: 20
 		Color: FFFFFF
 		ZOffset: 2047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 136
+		SecondaryBeamWidth: 140
 		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamAlpha: 144
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
