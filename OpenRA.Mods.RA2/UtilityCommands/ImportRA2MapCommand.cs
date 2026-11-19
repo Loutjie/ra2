@@ -339,7 +339,9 @@ namespace OpenRA.Mods.RA2.UtilityCommands
 		static readonly string[] LampActors =
 		{
 			"GALITE", "INGALITE", "NEGLAMP", "REDLAMP", "NEGRED", "GRENLAMP", "BLUELAMP", "YELWLAMP",
-			"INYELWLAMP", "PURPLAMP", "INPURPLAMP", "INORANLAMP", "INGRNLMP", "INREDLMP", "INBLULMP"
+			"INYELWLAMP", "PURPLAMP", "INPURPLAMP", "INORANLAMP", "INGRNLMP", "INREDLMP", "INBLULMP",
+			"TEMMORLAMP", "TEMDAYLAMP", "TEMDUSLAMP", "TEMNITLAMP",
+			"SNOMORLAMP", "SNODAYLAMP", "SNODUSLAMP", "SNONITLAMP"
 		};
 
 		static readonly Dictionary<string, string> ReplaceActors = new()

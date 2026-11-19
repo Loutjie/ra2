@@ -1630,6 +1630,12 @@ galite:
 		Amount: 0
 	RenderSprites:
 		Image: galite
+	TerrainLightSource:
+		Range: 19c544
+		Intensity: 0.2
+		RedTint: 0.05
+		GreenTint: 0.05
+		BlueTint: 0.01
 	WithSpriteBody:
 	BodyOrientation:
 		UseClassicPerspectiveFudge: False
