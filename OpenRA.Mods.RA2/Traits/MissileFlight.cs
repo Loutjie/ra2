@@ -50,6 +50,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// Safety net: arrive after this many ticks regardless of position.
 		public int MaxTicks = 1500;
+
+		// The tilt turns the missile around a point this far behind its centre (its tail), which stays put.
+		public WDist TiltPivot;
 	}
 
 	/// <summary>
@@ -68,6 +71,9 @@ namespace OpenRA.Mods.RA2.Traits
 		public int Ticks { get; private set; }
 		public MissileFlightPhase Phase { get; private set; }
 
+		// The launcher slot the missile sits in until it flies; the tilt moves it relative to this.
+		WPos anchor;
+
 		// Set once cruise altitude is first reached, so dipping below it later does not restart the climb.
 		bool climbed;
 
@@ -79,6 +85,7 @@ namespace OpenRA.Mods.RA2.Traits
 		public MissileFlight(MissileFlightParameters parameters, WPos launch, WAngle yaw)
 		{
 			p = parameters;
+			anchor = launch;
 			Position = launch;
 			Yaw = yaw;
 			Pitch = p.PitchInitial;
@@ -87,11 +94,30 @@ namespace OpenRA.Mods.RA2.Traits
 
 		public WRot Orientation => new(WAngle.Zero, Pitch, Yaw);
 
-		/// <summary>Keep a missile that has not ignited yet attached to its moving launcher.</summary>
-		public void FollowLauncher(WPos position)
+		/// <summary>
+		/// Keep a missile that has not ignited yet attached to its moving launcher: at the launcher's slot,
+		/// pointing the way the launcher points. It turns towards its target only once it flies.
+		/// </summary>
+		public void FollowLauncher(WPos position, WAngle yaw)
 		{
-			if (Phase == MissileFlightPhase.Pause || Phase == MissileFlightPhase.Tilt)
-				Position = position;
+			if (Phase != MissileFlightPhase.Pause && Phase != MissileFlightPhase.Tilt)
+				return;
+
+			anchor = position;
+			Yaw = yaw;
+			Position = anchor + TiltOffset();
+		}
+
+		/// <summary>How far the centre has moved from the slot because the missile tilted around its tail.</summary>
+		WVec TiltOffset()
+		{
+			var length = p.TiltPivot.Length;
+			if (length == 0)
+				return WVec.Zero;
+
+			var forward = length * (Pitch.Cos() - p.PitchInitial.Cos()) / 1024;
+			var up = length * (Pitch.Sin() - p.PitchInitial.Sin()) / 1024;
+			return new WVec(0, -forward, 0).Rotate(WRot.FromYaw(Yaw)) + new WVec(0, 0, up);
 		}
 
 		/// <summary>Advance one tick. Returns true when the missile has arrived (or must detonate).</summary>
@@ -116,11 +142,13 @@ namespace OpenRA.Mods.RA2.Traits
 					if (p.TiltTicks <= 0 || tiltTick >= p.TiltTicks)
 					{
 						Pitch = p.PitchFinal;
+						Position = anchor + TiltOffset();
 						Phase = MissileFlightPhase.Fly;
 						return false;
 					}
 
 					Pitch = new WAngle(p.PitchInitial.Angle + (p.PitchFinal.Angle - p.PitchInitial.Angle) * tiltTick / p.TiltTicks);
+					Position = anchor + TiltOffset();
 					return false;
 			}
 
@@ -213,7 +241,7 @@ namespace OpenRA.Mods.RA2.Traits
 			Yaw = route.Yaw;
 			Pitch = WAngle.ArcTan((int)((route.Z * 1024 + tan * (d - 2 * t)) / 1024), arcDistance);
 
-			return Position.Z <= terrainHeightAtPosition.Length ? Arrive() : false;
+			return Position.Z <= terrainHeightAtPosition.Length && Arrive();
 		}
 
 		bool Arrive()

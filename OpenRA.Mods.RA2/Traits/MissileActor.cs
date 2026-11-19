@@ -59,6 +59,10 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Cruise profile: dive once the target is this far below the horizon.")]
 		public readonly WAngle DiveAngle = new(128);
 
+		[Desc("The tilt turns the missile around a point this far behind its centre (its tail), which stays in the launcher.",
+			"0 tilts it around its centre.")]
+		public readonly WDist TiltPivot = WDist.Zero;
+
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
 
@@ -83,6 +87,7 @@ namespace OpenRA.Mods.RA2.Traits
 			Profile = Profile,
 			DiveAngle = DiveAngle,
 			MaxTicks = MaxTicks,
+			TiltPivot = TiltPivot,
 		};
 
 		public override object Create(ActorInitializer init) { return new MissileActor(init, this); }
@@ -104,6 +109,7 @@ namespace OpenRA.Mods.RA2.Traits
 		IFacing launcherFacing;
 		WAngle launchFacing;
 		WVec launcherOffset;
+		WAngle launchYaw;
 
 		[VerifySync]
 		public WPos CenterPosition { get; private set; }
@@ -125,13 +131,16 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			launchArgs = args;
 			target = args.GuidedTarget.IsValidFor(args.SourceActor) ? args.GuidedTarget.CenterPosition : args.PassiveTarget;
-			Facing = (target - CenterPosition).Yaw;
-			flight = new MissileFlight(info.FlightParameters, CenterPosition, Facing);
 
 			launcher = args.SourceActor;
 			launcherFacing = launcher.TraitOrDefault<IFacing>();
 			launchFacing = launcherFacing?.Facing ?? WAngle.Zero;
 			launcherOffset = CenterPosition - launcher.CenterPosition;
+
+			// Lift in line with the launcher, like the missile drawn in its slot; the flight turns to the target.
+			launchYaw = launcherFacing?.Facing ?? (target - CenterPosition).Yaw;
+			Facing = launchYaw;
+			flight = new MissileFlight(info.FlightParameters, CenterPosition, Facing);
 		}
 
 		void ITick.Tick(Actor self)
@@ -142,7 +151,7 @@ namespace OpenRA.Mods.RA2.Traits
 			if (launcher is { IsInWorld: true, IsDead: false })
 			{
 				var turned = (launcherFacing?.Facing ?? WAngle.Zero) - launchFacing;
-				flight.FollowLauncher(launcher.CenterPosition + launcherOffset.Rotate(WRot.FromYaw(turned)));
+				flight.FollowLauncher(launcher.CenterPosition + launcherOffset.Rotate(WRot.FromYaw(turned)), launchYaw + turned);
 			}
 
 			var map = self.World.Map;

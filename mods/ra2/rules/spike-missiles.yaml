@@ -56,9 +56,9 @@ v3rocket:
 
 dmisl:
 	Inherits: ^SpikeMissile
-	# Matches the length of the missiles modelled on the Dreadnought deck.
+	# The Dreadnought's scale, so the flying missile matches the one WithLauncherMissile draws on its deck.
 	RenderVoxels:
-		Scale: 12.7
+		Scale: 11.7
 	MissileActor:
 		FlyingCondition: flying
 		# RA2's 20 and 60 frames at 30 fps. The lift must clear the slot within the reload.
@@ -66,6 +66,8 @@ dmisl:
 		TiltTicks: 50
 		PitchInitial: 0
 		PitchFinal: 128
+		# About half the missile's length: it tilts around its tail, which stays in the deck slot.
+		TiltPivot: 600
 		PitchTurnRate: 20
 		YawTurnRate: 24
 		Acceleration: 16
