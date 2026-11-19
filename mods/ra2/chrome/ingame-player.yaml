@@ -480,6 +480,7 @@ Container@PLAYER_WIDGETS:
 					UsedPowerImage: power-meter-danger
 					OverUsedPowerImage: power-meter-disabled
 					FlashPowerImage: power-meter-used
+					TooltipContainer: TOOLTIP_CONTAINER
 				LogicTicker@PRODUCTION_TICKER:
 				ProductionPalette@PRODUCTION_PALETTE:
 					X: 24
