@@ -53,6 +53,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		// The tilt turns the missile around a point this far behind its centre (its tail), which stays put.
 		public WDist TiltPivot;
+
+		// Pitch to climb at after ignition, until cruise altitude. Defaults to PitchFinal, the end of the lift.
+		public WAngle? ClimbPitch;
 	}
 
 	/// <summary>
@@ -182,7 +185,7 @@ namespace OpenRA.Mods.RA2.Traits
 			if (terminal)
 				desiredPitch = toTarget;
 			else if (!climbed && !Diving(toTarget))
-				desiredPitch = p.PitchFinal;
+				desiredPitch = p.ClimbPitch ?? p.PitchFinal;
 			else if (p.Profile == MissileFlightProfile.LazyCurve || Diving(toTarget))
 				desiredPitch = toTarget;
 			else

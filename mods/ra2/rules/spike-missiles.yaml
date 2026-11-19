@@ -68,6 +68,8 @@ dmisl:
 		# RA2's DMislPitchFinal=.5 is 45 degrees (128). Play-tested as lifting too high, and the climb after
 		# ignition looked flatter than the nose because height draws at 58% on screen.
 		PitchFinal: 96
+		# Climb more steeply than the lift after ignition, so it clears a shipyard or other tall building next to the ship.
+		ClimbPitch: 160
 		# About half the missile's length: it tilts around its tail, which stays in the deck slot.
 		TiltPivot: 600
 		PitchTurnRate: 20
