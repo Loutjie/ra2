@@ -1257,27 +1257,6 @@ Actors:
 	Actor371: waypoint
 		Location: 59,0
 		Owner: Neutral
-	Actor372: cafncp
-		Location: 27,-27
-		Owner: Neutral
-	Actor373: cafncp
-		Location: 27,-26
-		Owner: Neutral
-	Actor374: cafncp
-		Location: 35,-34
-		Owner: Neutral
-	Actor375: cafncp
-		Location: 27,-25
-		Owner: Neutral
-	Actor376: cafncp
-		Location: 35,-33
-		Owner: Neutral
-	Actor377: cafncp
-		Location: 27,-24
-		Owner: Neutral
-	Actor378: cafncp
-		Location: 35,-32
-		Owner: Neutral
 	Actor379: cafncp
 		Location: 27,-23
 		Owner: Neutral
@@ -1499,45 +1478,6 @@ Actors:
 		Owner: Neutral
 	Actor452: cafncp
 		Location: 110,1
-		Owner: Neutral
-	Actor453: cafncp
-		Location: 93,19
-		Owner: Neutral
-	Actor454: cafncp
-		Location: 102,10
-		Owner: Neutral
-	Actor455: cafncp
-		Location: 111,1
-		Owner: Neutral
-	Actor456: cafncp
-		Location: 93,20
-		Owner: Neutral
-	Actor457: cafncp
-		Location: 112,1
-		Owner: Neutral
-	Actor458: cafncp
-		Location: 93,21
-		Owner: Neutral
-	Actor459: cafncp
-		Location: 113,1
-		Owner: Neutral
-	Actor460: cafncp
-		Location: 93,22
-		Owner: Neutral
-	Actor461: cafncp
-		Location: 114,1
-		Owner: Neutral
-	Actor462: cafncp
-		Location: 93,23
-		Owner: Neutral
-	Actor463: cafncp
-		Location: 115,1
-		Owner: Neutral
-	Actor464: cafncp
-		Location: 93,24
-		Owner: Neutral
-	Actor465: cafncp
-		Location: 116,1
 		Owner: Neutral
 
 Rules:
