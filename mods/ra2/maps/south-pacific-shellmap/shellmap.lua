@@ -271,6 +271,9 @@ NextEvent = 1
 
 -- The camera loops over these stops; at a stop with an event it pauses while the event plays out.
 CameraSpeed = 72
+-- Speed change per tick: about two seconds from a standstill to full speed, and the same to brake.
+CameraAcceleration = 1.5
+CameraVelocity = 0
 CameraRoute = { }
 CameraLeg = 1
 CameraHold = 0
@@ -297,9 +300,18 @@ MoveCamera = function()
 	local dy = stop.position.Y - CameraAt.Y
 	local distance = math.sqrt(dx * dx + dy * dy)
 
-	-- Slow down over the last few cells so stops do not jerk.
-	local step = math.min(CameraSpeed, distance / 12 + 8)
+	-- Ease in from a standstill and brake to a standstill: the speed never exceeds what can still stop
+	-- in the remaining distance (v^2 = 2ad).
+	local target = math.min(CameraSpeed, math.sqrt(2 * CameraAcceleration * distance))
+	if CameraVelocity < target then
+		CameraVelocity = math.min(target, CameraVelocity + CameraAcceleration)
+	else
+		CameraVelocity = target
+	end
+
+	local step = math.max(CameraVelocity, 1)
 	if distance <= step then
+		CameraVelocity = 0
 		CameraAt = stop.position
 		CameraHold = stop.hold
 		if stop.arrive then
