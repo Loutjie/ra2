@@ -1,0 +1,174 @@
+# SPIKE (plan E Task 6 Step 1, branch spike/voxel-missile): shootable voxel missiles.
+# Throwaway prototype; values are first approximations, see docs/spikes/voxel-missiles.md.
+
+^SpikeMissile:
+	Interactable:
+	AppearsOnRadar:
+		UseLocation: true
+	HiddenUnderFog:
+		Type: CenterPosition
+	Health:
+		HP: 50
+	Armor:
+		Type: Rocket
+	# 'Missile' lets bots ignore missiles when picking squad targets (IgnoredEnemyTargetTypes)
+	# while AA AutoTarget (ValidTargets: Air) still engages them.
+	# Only while flying: a missile still on its launcher cannot be shot off it.
+	Targetable:
+		TargetTypes: Air, Missile
+		RequiresCondition: flying
+	HitShape:
+	BodyOrientation:
+		QuantizedFacings: 0
+		CameraPitch: 85
+		UseClassicPerspectiveFudge: false
+	RenderVoxels:
+		Scale: 11.7
+		LightYaw: 800
+		LightPitch: 150
+		LightAmbientColor: -0.5,-0.5,-0.5
+		LightDiffuseColor: 1.4,1.4,1.4
+	# No shadow in flight: the depth offset that keeps flying missiles in front of buildings would misplace it.
+	WithVoxelBody:
+		RequiresCondition: !flying
+	WithVoxelBody@FLYING:
+		ShowShadow: false
+		RequiresCondition: flying
+	# The exhaust plume RA2 uses for its rockets. It spawns only while the missile moves.
+	# Not LeavesTrails: its puffs would be hidden by buildings the missile flies over.
+	LeavesMissilePlume:
+		Image: v3trail
+		MovingInterval: 1
+	# Shot down: effects only, so the target takes no damage.
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+v3rocket:
+	Inherits: ^SpikeMissile
+	MissileActor:
+		# Not hidden by buildings it flies over.
+		DepthFromAltitude: true
+		FlyingCondition: flying
+		PauseTicks: 0
+		TiltTicks: 60
+		PitchInitial: 54
+		PitchFinal: 128
+		PitchTurnRate: 13
+		YawTurnRate: 16
+		Acceleration: 8
+		MaxSpeed: 200
+		CruiseAltitude: 3072
+		Profile: Arc
+
+dmisl:
+	Inherits: ^SpikeMissile
+	# The Dreadnought's scale, so the flying missile matches the one WithLauncherMissile draws on its deck.
+	RenderVoxels:
+		Scale: 11.7
+	# Its puffs right next to its own Dreadnought need the same extra depth as the missile.
+	LeavesMissilePlume:
+		DepthOffset: 1c512
+	MissileActor:
+		# Not hidden by its own Dreadnought when the ship faces the camera, or by buildings it flies over (play-test 2026-11-18).
+		FlyingDepthOffset: 1c512
+		DepthFromAltitude: true
+		FlyingCondition: flying
+		# RA2's 20 and 60 frames at 30 fps. The lift must clear the slot within the reload.
+		PauseTicks: 17
+		TiltTicks: 50
+		PitchInitial: 0
+		# RA2's DMislPitchFinal=.5 is 45 degrees (128). Play-tested as lifting too high at 45 and at 34 degrees;
+		# ClimbPitch takes over after ignition.
+		PitchFinal: 64
+		# Climb more steeply than the lift after ignition, so it clears a shipyard or other tall building next to the ship.
+		ClimbPitch: 160
+		# Leave the ship in a straight line along its heading, then turn towards the target in the air.
+		StraightAfterIgnition: 1c0
+		# About half the missile's length: it tilts around its tail, which stays in the deck slot.
+		TiltPivot: 600
+		PitchTurnRate: 20
+		YawTurnRate: 24
+		Acceleration: 16
+		MaxSpeed: 250
+		# Above RA2's 768 leptons (3072): world height draws at 58% on screen, and it must clear buildings.
+		CruiseAltitude: 5120
+		Profile: Cruise
+
+v3:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: actor-v3.name
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 900
+		Prerequisites: ~naweap
+		Description: actor-v3.description
+	Mobile:
+		Speed: 72
+		TurnSpeed: 20
+		Locomotor: heavytracked
+	Health:
+		HP: 150
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 7c0
+	Armament@primary:
+		Weapon: V3Launcher
+		LocalOffset: -640,0,300
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+	# RA2 [V3] GuardRange=9 (the weapon reaches 18, so the default scan radius would be the weapon range).
+	AutoTarget:
+		ScanRadius: 9
+	RenderSprites:
+	Selectable:
+		Bounds: 1544, 2509, 0, -289
+	WithVoxelBody:
+	Voiced:
+		VoiceSet: SovietVehicleVoice
+	HitShape:
+
+dred:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: actor-dred.name
+	Buildable:
+		Queue: Ship
+		BuildPaletteOrder: 900
+		Prerequisites: ~nayard
+		Description: actor-dred.description
+	Mobile:
+		TurnSpeed: 8
+		Speed: 72
+	Health:
+		HP: 800
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Armament@primary:
+		Weapon: DredLauncher
+		LocalOffset: 120,172,368, 120,-172,368
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 128
+	# RA2 [DRED] GuardRange=10.
+	AutoTarget:
+		ScanRadius: 10
+	RenderSprites:
+	Selectable:
+		Bounds: 2412, 2412, 0, -289
+	WithVoxelBody:
+	FireWarheadsOnDeath:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	HitShape:

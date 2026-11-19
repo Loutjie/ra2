@@ -920,3 +920,12 @@ faction-russia =
     .description =
         Russia
         Special Vehicle: Tesla Tank
+
+## SPIKE: voxel missiles
+actor-v3 =
+    .name = V3 Launcher
+    .description = Long-range rocket artillery. Its rocket can be shot down.
+
+actor-dred =
+    .name = Dreadnought
+    .description = Long-range missile ship. Its missiles can be shot down.

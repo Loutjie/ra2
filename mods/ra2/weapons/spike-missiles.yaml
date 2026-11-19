@@ -1,0 +1,63 @@
+# SPIKE (plan E Task 6 Step 1, branch spike/voxel-missile): launch weapons for shootable voxel missiles.
+# The warheads below are carried by the missile actor and only applied if it arrives.
+
+V3Launcher:
+	# RA2's SpawnRegenRate=400 frames would be 333 ticks; play-tested as too slow (Exact keeps 333).
+	ReloadDelay: 250
+	Range: 18c0
+	MinRange: 5c0
+	Projectile: LaunchMissileActor
+		Actor: v3rocket
+	Warhead@1Dam: SpreadDamage
+		# RA2 V3WH: CellSpread=1, PercentAtMax=.25.
+		Spread: 1c0
+		Falloff: 100, 25
+		Damage: 200
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 90
+			Medium: 70
+			Heavy: 70
+			Wood: 100
+			Steel: 100
+			Concrete: 50
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: gexpifva.wav, gexpifvb.wav, gexpifvc.wav
+		ValidTargets: Ground, Air, Water
+
+DredLauncher:
+	# RA2's SpawnRegenRate=80 frames would cycle in 67 ticks; play-tested as too fast (Exact keeps it).
+	ReloadDelay: 95
+	Burst: 2
+	Range: 25c0
+	MinRange: 8c0
+	Projectile: LaunchMissileActor
+		Actor: dmisl
+	Warhead@1Dam: SpreadDamage
+		# RA2 DMISLWH: CellSpread=1.5, PercentAtMax=.25.
+		Spread: 1c512
+		Falloff: 100, 25
+		Damage: 300
+		Versus:
+			None: 100
+			Flak: 90
+			Plate: 80
+			Light: 100
+			Medium: 80
+			Heavy: 80
+			Wood: 85
+			Steel: 65
+			Concrete: 28
+			Drone: 80
+			Rocket: 0
+		DamageTypes: Prone70Percent, TriggerProne, ExplosionDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: large_twlt
+		ImpactSounds: gexpifva.wav, gexpifvb.wav, gexpifvc.wav
+		ValidTargets: Ground, Air, Water
