@@ -122,7 +122,9 @@ namespace OpenRA.Mods.RA2.Traits
 				() => 0, info.ShowShadow));
 		}
 
-		bool Lifting => liftingMissile != null && liftingMissile.IsDrawnByLauncher && lifting.IsInWorld && !lifting.IsDead;
+		// Not IsInWorld: the launched missile is only added to the world at the end of the tick it was fired in,
+		// and this slot must keep drawing it in the meantime.
+		bool Lifting => liftingMissile != null && liftingMissile.IsDrawnByLauncher && !lifting.IsDead;
 
 		bool ILauncherMissileSlot.TryTake(Actor launcher, MissileActor missile)
 		{
