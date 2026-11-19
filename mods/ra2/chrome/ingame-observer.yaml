@@ -73,7 +73,9 @@ Container@OBSERVER_WIDGETS:
 							Height: 23
 							X: 4
 							Y: 2
-						Label@LABEL:
+						LabelWithTooltip@LABEL:
+							TooltipContainer: TOOLTIP_CONTAINER
+							TooltipTemplate: SIMPLE_TOOLTIP
 							X: 34
 							Width: PARENT_WIDTH
 							Height: 25
@@ -631,7 +633,9 @@ Container@OBSERVER_WIDGETS:
 									Y: 2
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -716,7 +720,9 @@ Container@OBSERVER_WIDGETS:
 									Y: 2
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -787,7 +793,9 @@ Container@OBSERVER_WIDGETS:
 									Y: 2
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -822,7 +830,9 @@ Container@OBSERVER_WIDGETS:
 									Y: 2
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -859,7 +869,9 @@ Container@OBSERVER_WIDGETS:
 									Height: PARENT_HEIGHT - 4
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -894,7 +906,9 @@ Container@OBSERVER_WIDGETS:
 									Y: 2
 									ImageName: random
 									ImageCollection: flags
-								Label@PLAYER:
+								LabelWithTooltip@PLAYER:
+									TooltipContainer: TOOLTIP_CONTAINER
+									TooltipTemplate: SIMPLE_TOOLTIP
 									X: 35
 									Y: 0
 									Width: 120
@@ -970,7 +984,7 @@ Container@OBSERVER_WIDGETS:
 							Width: PARENT_WIDTH
 							Height: PARENT_HEIGHT
 							Color: 00000090
-						LineGraph@INCOME_GRAPH:
+						ScrollableLineGraph@INCOME_GRAPH:
 							X: 0
 							Y: 0
 							Width: PARENT_WIDTH - 5
@@ -996,7 +1010,7 @@ Container@OBSERVER_WIDGETS:
 							Width: PARENT_WIDTH
 							Height: PARENT_HEIGHT
 							Color: 00000090
-						LineGraph@ARMY_VALUE_GRAPH:
+						ScrollableLineGraph@ARMY_VALUE_GRAPH:
 							X: 0
 							Y: 0
 							Width: PARENT_WIDTH - 5
