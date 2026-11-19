@@ -19,6 +19,16 @@ using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Traits
 {
+	/// <summary>
+	/// A launcher slot that can keep drawing a missile it launched until the missile flies, as part of the launcher's
+	/// own model, so the missile is hidden behind the launcher's hull and superstructure correctly while it lifts.
+	/// </summary>
+	public interface ILauncherMissileSlot
+	{
+		/// <summary>Take over drawing the missile if it was launched from this slot.</summary>
+		bool TryTake(Actor launcher, MissileActor missile);
+	}
+
 	[Desc("SPIKE: a flying, shootable missile actor (RA2 rocket locomotor).",
 		"Spawned by the LaunchMissileActor projectile, which hands over the launching weapon's ProjectileArgs.",
 		"On arrival the launching weapon's warheads are applied, attributed to the launcher.",
@@ -128,15 +138,19 @@ namespace OpenRA.Mods.RA2.Traits
 		WAngle launchFacing;
 		WVec launcherOffset;
 		WAngle launchYaw;
+		bool drawnByLauncher;
 
 		[VerifySync]
 		public WPos CenterPosition { get; private set; }
 
 		public CPos TopLeft { get; private set; }
 
+		public Actor Self { get; }
+
 		public MissileActor(ActorInitializer init, MissileActorInfo info)
 		{
 			this.info = info;
+			Self = init.Self;
 			CenterPosition = init.GetValue<CenterPositionInit, WPos>(WPos.Zero);
 			TopLeft = init.World.Map.CellContaining(CenterPosition);
 			Facing = init.GetValue<FacingInit, WAngle>(WAngle.Zero);
@@ -159,6 +173,15 @@ namespace OpenRA.Mods.RA2.Traits
 			launchYaw = launcherFacing?.Facing ?? (target - CenterPosition).Yaw;
 			Facing = launchYaw;
 			flight = new MissileFlight(info.FlightParameters, CenterPosition, Facing);
+
+			foreach (var slot in launcher.TraitsImplementing<ILauncherMissileSlot>())
+			{
+				if (slot.TryTake(launcher, this))
+				{
+					drawnByLauncher = true;
+					break;
+				}
+			}
 		}
 
 		void ITick.Tick(Actor self)
@@ -209,8 +232,18 @@ namespace OpenRA.Mods.RA2.Traits
 			self.World.UpdateMaps(self, this);
 		}
 
+		/// <summary>
+		/// True while the launcher draws this missile as part of its own model: through the lift and the straight run
+		/// after ignition. Drawn separately, a missile right against the launcher's hull is hidden by it.
+		/// </summary>
+		public bool IsDrawnByLauncher => drawnByLauncher && flight != null && !flight.ClearOfLauncher
+			&& launcher is { IsInWorld: true, IsDead: false };
+
 		IEnumerable<IRenderable> IRenderModifier.ModifyRender(Actor self, WorldRenderer wr, IEnumerable<IRenderable> r)
 		{
+			if (IsDrawnByLauncher)
+				return [];
+
 			if (Phase == MissileFlightPhase.Pause)
 				return r;
 

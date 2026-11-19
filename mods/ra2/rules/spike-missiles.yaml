@@ -119,7 +119,7 @@ v3:
 		Range: 7c0
 	Armament@primary:
 		Weapon: V3Launcher
-		LocalOffset: -640,0,300
+		LocalOffset: -677,0,658
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
@@ -130,6 +130,10 @@ v3:
 	Selectable:
 		Bounds: 1544, 2509, 0, -289
 	WithVoxelBody:
+	# Pitch 46 is the rocket's measured 16 degrees in v3.vxl, so it fills the slot masked out of the hull.
+	WithLauncherMissile:
+		Image: v3rocket
+		Pitch: 46
 	Voiced:
 		VoiceSet: SovietVehicleVoice
 	HitShape:
@@ -157,7 +161,7 @@ dred:
 		Range: 7c0
 	Armament@primary:
 		Weapon: DredLauncher
-		LocalOffset: 120,172,368, 120,-172,368
+		LocalOffset: 49,172,728, 49,-181,728
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 128
@@ -168,6 +172,12 @@ dred:
 	Selectable:
 		Bounds: 2412, 2412, 0, -289
 	WithVoxelBody:
+	WithLauncherMissile@first:
+		Image: dmisl
+		Barrel: 0
+	WithLauncherMissile@second:
+		Image: dmisl
+		Barrel: 1
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
 		EmptyWeapon: UnitExplode

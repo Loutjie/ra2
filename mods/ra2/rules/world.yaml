@@ -6,7 +6,83 @@
 		DefeatMusic: score
 	ActorMap:
 	ScreenMap:
-	VoxelCache:
+	# Takes the baked-in missiles out of the launcher hulls, in memory; WithLauncherMissile draws them instead.
+	# Numbers are voxel-grid coordinates measured from the player's own files (plan E, Task 8).
+	MaskedVoxelCache:
+		Masks:
+			dred:
+				Body@first:
+					Origin: 68, 11.5, 18.7
+					End: 37
+					Radius: 4.6
+				Fins@first:
+					Origin: 68, 11.5, 18.7
+					End: 12
+					Radius: 8.6
+					MinSide: -7.5
+					MaxSide: 7.5
+					MinUp: -5.7
+				Body@second:
+					Origin: 68, 26.5, 18.7
+					End: 37
+					Radius: 4.6
+				Fins@second:
+					Origin: 68, 26.5, 18.7
+					End: 12
+					Radius: 8.6
+					MinSide: -7.5
+					MaxSide: 7.5
+					MinUp: -5.7
+			v3:
+				Body:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: -0.5
+					End: 66.5
+					Radius: 5
+					MinUp: -2.25
+				Nose:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: 50
+					End: 66.5
+					Radius: 5
+				TailFinUpright:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: 4.5
+					End: 17.5
+					MinSide: -1.5
+					MaxSide: 1.5
+					MinUp: -2.25
+					MaxUp: 11.5
+				TailFinFlat:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: 4.5
+					End: 17.5
+					MinSide: -9.5
+					MaxSide: 9.5
+					MinUp: -1.5
+					MaxUp: 1.5
+				MidFinUpright:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: 28.5
+					End: 42.5
+					MinSide: -1.5
+					MaxSide: 1.5
+					MinUp: -2.25
+					MaxUp: 8.5
+				MidFinFlat:
+					Origin: 0.5, 9.25, 16
+					Pitch: 16
+					Start: 28.5
+					End: 42.5
+					MinSide: -8.5
+					MaxSide: 8.5
+					MinUp: -1.5
+					MaxUp: 1.5
 	ModelRenderer:
 	TerrainGeometryOverlay:
 	TerrainRenderer:
