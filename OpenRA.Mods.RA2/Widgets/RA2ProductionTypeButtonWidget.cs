@@ -23,12 +23,14 @@ namespace OpenRA.Mods.RA2.Widgets
 	/// A production tab that keeps the RA2 art for selected and unselected tabs and, while the tab has a finished item
 	/// such as a building ready to place, draws a blinking glow that hugs the outline of the tab's button face.
 	/// The tab art has the icon baked in, so the stock OpenRA icon colour change cannot be used.
-	/// The glow colour comes from the chrome metric "ProductionTabGlow-&lt;faction suffix&gt;".
+	/// The glow colour comes from the chrome metric "ProductionTabGlow-&lt;faction suffix&gt;",
+	/// or "ProductionTabGlowSelected-&lt;faction suffix&gt;" for the selected tab when that is set.
 	/// </summary>
 	public class RA2ProductionTypeButtonWidget : ProductionTypeButtonWidget
 	{
 		const string ReadySuffix = "-alert";
 		const string GlowMetric = "ProductionTabGlow-";
+		const string SelectedGlowMetric = "ProductionTabGlowSelected-";
 		const string FaceBrightnessMetric = "ProductionTabGlowFaceBrightness-";
 
 		[Desc("Glow colour, including its strength as alpha, when the faction has no ProductionTabGlow metric.")]
@@ -73,8 +75,12 @@ namespace OpenRA.Mods.RA2.Widgets
 		// AddFactionSuffixLogic appends "-<faction>" to the Background.
 		string FactionSuffix => Background[(Background.LastIndexOf('-') + 1)..];
 
-		Color GlowColor()
+		// A selected tab can use its own colour, for art where the selected tab is as bright as the glow.
+		Color GlowColor(bool selected)
 		{
+			if (selected && ChromeMetrics.TryGet(SelectedGlowMetric + FactionSuffix, out Color selectedColor))
+				return selectedColor;
+
 			return ChromeMetrics.TryGet(GlowMetric + FactionSuffix, out Color color) ? color : ReadyGlowColor;
 		}
 
@@ -89,7 +95,8 @@ namespace OpenRA.Mods.RA2.Widgets
 			if (IsDisabled() || !IsReady() || (ReadyGlowBlinkMs > 0 && Game.RunTime / ReadyGlowBlinkMs % 2 == 1))
 				return;
 
-			var glow = Glow(IsHighlighted() ? Background + "-highlighted" : Background, GlowColor());
+			var selected = IsHighlighted();
+			var glow = Glow(selected ? Background + "-highlighted" : Background, GlowColor(selected));
 			if (glow == null)
 				return;
 
