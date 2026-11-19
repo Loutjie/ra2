@@ -1180,6 +1180,12 @@ Actors:
 	AlliedPower6: gapowr
 		Location: 72,30
 		Owner: Allies
+	AlliedPower7: gapowr
+		Location: 66,21
+		Owner: Allies
+	AlliedPower8: gapowr
+		Location: 68,24
+		Owner: Allies
 	SovietReactor: nanrct
 		Location: 155,-14
 		Owner: Soviets
