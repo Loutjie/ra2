@@ -106,11 +106,40 @@ Sortie = function(player, type, edge)
 
 	local target = Utils.Random(targets)
 	local aim = target.Location
-	local exit = Map.ClosestEdgeCell(aim + (aim - edge))
 	local aircraft = Reinforcements.Reinforce(player, { type }, { edge, aim })[1]
 	aircraft.Attack(target)
-	aircraft.Move(exit)
-	aircraft.Destroy()
+
+	-- Out over the Soviet side of the map, roughly straight on from the west edge where it came in.
+	-- (Extending the entry line ran off the map, and an off-map cell's closest edge is the top-left corner.)
+	-- A plane that reaches the edge circles there instead of finishing its move, so the removal queued after
+	-- it never runs: remove it as soon as it is within a few cells of the exit. A run that drags on (out of
+	-- ammunition with no rearming) is sent out after 15 seconds.
+	aircraft.Move(SovietAirEdge)
+	Trigger.AfterDelay(DateTime.Seconds(15), function()
+		if not aircraft.IsDead then
+			aircraft.Stop()
+			aircraft.Move(SovietAirEdge)
+		end
+	end)
+
+	local exit = Map.CenterOfCell(SovietAirEdge)
+	local watch
+	watch = function()
+		if aircraft.IsDead then
+			return
+		end
+
+		local dx = aircraft.CenterPosition.X - exit.X
+		local dy = aircraft.CenterPosition.Y - exit.Y
+		if dx * dx + dy * dy < 3072 * 3072 then
+			aircraft.Stop()
+			aircraft.Destroy()
+		else
+			Trigger.AfterDelay(DateTime.Seconds(1), watch)
+		end
+	end
+
+	watch()
 end
 
 AlliedAir = function()
@@ -154,14 +183,23 @@ AttackSea = function(ships)
 end
 
 -- Each Tesla Trooper keeps zapping its Tesla Coil, which keeps the coil charged.
+-- Each Tesla Coil keeps a Tesla Trooper zapping it; a trooper killed by a raid is replaced where it stood.
+TeslaTroopers = { }
 ChargeTeslaCoils = function()
 	for i = 0, 4 do
-		local trooper = Map.NamedActor("TeslaTrooper" .. i)
-		local coil = Map.NamedActor("SovietTesla" .. i)
-		if trooper and coil and not trooper.IsDead then
-			trooper.Attack(coil, false, true)
+		local slot = TeslaTroopers[i]
+		if slot == nil then
+			local trooper = Map.NamedActor("TeslaTrooper" .. i)
+			slot = { trooper = trooper, cell = trooper.Location, coil = Map.NamedActor("SovietTesla" .. i) }
+			TeslaTroopers[i] = slot
+			trooper.Attack(slot.coil, false, true)
+		elseif slot.trooper.IsDead then
+			slot.trooper = Actor.Create("shk", true, { Owner = Soviets, Location = slot.cell })
+			slot.trooper.Attack(slot.coil, false, true)
 		end
 	end
+
+	Trigger.AfterDelay(DateTime.Seconds(20), ChargeTeslaCoils)
 end
 
 -- Superweapons and the camera --------------------------------------------------------------------
@@ -169,13 +207,34 @@ end
 SovietTanks = { "htnk", "apoc", "ttnk" }
 
 -- Mobile units of either side inside the battle zone (the land strip between the islands).
+Aircraft = { zep = true, orca = true, beag = true }
+
+-- Ground and naval units of either side inside the battle zone: the cell rectangle between the two waypoints,
+-- the same rectangle units spread over. On this isometric map that rectangle is a diamond on screen, so the
+-- search box must cover all four corner cells before filtering by cell.
 UnitsInBattleZone = function(filter)
-	local tl = BattleZoneTopLeft.CenterPosition
-	local br = BattleZoneBottomRight.CenterPosition
-	local minimum = WPos.New(math.min(tl.X, br.X), math.min(tl.Y, br.Y), 0)
-	local maximum = WPos.New(math.max(tl.X, br.X), math.max(tl.Y, br.Y), 10240)
-	return Map.ActorsInBox(minimum, maximum, function(a)
-		return not a.IsDead and a.HasProperty("Move") and (a.Owner == Allies or a.Owner == Soviets) and (filter == nil or filter(a))
+	local tl = BattleZoneTopLeft.Location
+	local br = BattleZoneBottomRight.Location
+	local corners = {
+		Map.CenterOfCell(tl), Map.CenterOfCell(br),
+		Map.CenterOfCell(CPos.New(tl.X, br.Y)), Map.CenterOfCell(CPos.New(br.X, tl.Y)),
+	}
+	local minX, minY, maxX, maxY = corners[1].X, corners[1].Y, corners[1].X, corners[1].Y
+	for _, c in ipairs(corners) do
+		minX = math.min(minX, c.X)
+		minY = math.min(minY, c.Y)
+		maxX = math.max(maxX, c.X)
+		maxY = math.max(maxY, c.Y)
+	end
+
+	return Map.ActorsInBox(WPos.New(minX, minY, 0), WPos.New(maxX, maxY, 10240), function(a)
+		if a.IsDead or not a.HasProperty("Move") or Aircraft[a.Type] or (a.Owner ~= Allies and a.Owner ~= Soviets) then
+			return false
+		end
+
+		local cell = a.Location
+		local inside = cell.X >= tl.X and cell.X <= br.X and cell.Y >= tl.Y and cell.Y <= br.Y
+		return inside and (filter == nil or filter(a))
 	end)
 end
 
@@ -185,7 +244,7 @@ StrikeTarget = function()
 	local best = nil
 	local bestCount = 0
 	Utils.Do(UnitsInBattleZone(), function(unit)
-		local count = #Map.ActorsInCircle(unit.CenterPosition, WDist.FromCells(3), function(a) return a.HasProperty("Move") end)
+		local count = #Map.ActorsInCircle(unit.CenterPosition, WDist.FromCells(3), function(a) return a.HasProperty("Move") and not Aircraft[a.Type] end)
 		if count > bestCount then
 			best = unit.Location
 			bestCount = count
@@ -248,11 +307,12 @@ end
 AlliedRaid = { "mtnk", "mtnk", "sref", "sref" }
 SovietRaid = { "htnk", "htnk", "apoc", "ttnk" }
 
+-- Raiders that survive the defences join the battle on the strip, so they never park in a base and pile up.
 Raid = function(player, types, foot, base)
 	local raiders = Reinforcements.Reinforce(player, types, { foot }, 10)
 	Utils.Do(raiders, function(unit)
 		unit.AttackMove(base.Location)
-		Trigger.OnIdle(unit, function(u) u.AttackMove(base.Location) end)
+		Trigger.OnIdle(unit, function(u) u.AttackMove(RandomStripCell()) end)
 	end)
 end
 
