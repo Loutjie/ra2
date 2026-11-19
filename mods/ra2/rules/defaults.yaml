@@ -570,7 +570,7 @@
 		TrailWhileStationary: true
 		StationaryInterval: 12
 		MovingInterval: 6
-		Offsets: 0,0,128
+		Offsets: 0,0,512
 		SpawnAtLastPosition: false
 
 ^DamagedByRadiation:

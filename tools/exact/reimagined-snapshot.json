@@ -136,7 +136,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -394,7 +394,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -1013,7 +1013,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -1507,7 +1507,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -1772,7 +1772,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -2967,7 +2967,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -3643,7 +3643,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -4370,7 +4370,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -4634,7 +4634,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -4941,7 +4941,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -6844,7 +6844,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -11073,7 +11073,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -11422,7 +11422,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -11773,7 +11773,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -12110,7 +12110,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -12983,7 +12983,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -13285,7 +13285,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -13640,7 +13640,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -17593,7 +17593,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -18159,7 +18159,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -18431,7 +18431,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -19056,7 +19056,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -20223,7 +20223,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -20584,7 +20584,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -21735,7 +21735,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -22069,7 +22069,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -22401,7 +22401,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -23404,7 +23404,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -25744,7 +25744,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -26046,7 +26046,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -26273,7 +26273,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -26577,7 +26577,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -26925,7 +26925,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -27185,7 +27185,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -27478,7 +27478,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -27767,7 +27767,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -28013,7 +28013,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -28310,7 +28310,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -28535,7 +28535,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -28839,7 +28839,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -29131,7 +29131,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -29423,7 +29423,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -29715,7 +29715,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -30008,7 +30008,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -30300,7 +30300,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -30592,7 +30592,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -30885,7 +30885,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -31177,7 +31177,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -31466,7 +31466,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
@@ -31713,7 +31713,7 @@
 			"LeavesTrails@DAMAGESMOKE": {
 				"Image": "smallsmoke",
 				"MovingInterval": "6",
-				"Offsets": "0,0,128",
+				"Offsets": "0,0,512",
 				"Palette": "effect",
 				"RequiresCondition": "heavy-damage",
 				"SpawnAtLastPosition": "false",
