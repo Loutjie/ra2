@@ -19,15 +19,15 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 {
 	public class PowerMeterWidget : Widget
 	{
+		const string PowerUsage = "label-power-usage";
+		const string Infinite = "label-infinite-power";
+
 		Widget sidebarProduction;
 		int lastMeterCheck;
 		int barHeight;
 		bool bypassAnimation;
 		int warningFlash;
 		int lastTotalPowerDisplay;
-
-		const string PowerUsage = "label-power-usage";
-		const string Infinite = "label-infinite-power";
 
 		protected readonly World World;
 		readonly Lazy<TooltipContainerWidget> tooltipContainer;
