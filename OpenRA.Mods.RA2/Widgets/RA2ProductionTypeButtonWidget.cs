@@ -29,9 +29,14 @@ namespace OpenRA.Mods.RA2.Widgets
 	{
 		const string ReadySuffix = "-alert";
 		const string GlowMetric = "ProductionTabGlow-";
+		const string FaceBrightnessMetric = "ProductionTabGlowFaceBrightness-";
 
 		[Desc("Glow colour, including its strength as alpha, when the faction has no ProductionTabGlow metric.")]
 		public readonly Color ReadyGlowColor = Color.FromArgb(200, 255, 240, 40);
+
+		[Desc("Pixels at least this bright (0-255) count as the button face the glow outlines,",
+			"when the faction has no ProductionTabGlowFaceBrightness metric.")]
+		public readonly int ReadyGlowFaceBrightness = 60;
 
 		[Desc("How far in pixels the glow reaches past the edge of the button face.")]
 		public readonly int ReadyGlowRadius = 3;
@@ -39,7 +44,7 @@ namespace OpenRA.Mods.RA2.Widgets
 		[Desc("The glow blinks on and off every this many milliseconds. 0 keeps it steady.")]
 		public readonly int ReadyGlowBlinkMs = 400;
 
-		readonly Dictionary<(string Background, Color Color), (Sheet Sheet, Sprite Sprite)> glows = [];
+		readonly Dictionary<(string Art, Color Color), (Sheet Sheet, Sprite Sprite)> glows = [];
 		ImageWidget icon;
 
 		[ObjectCreator.UseCtor]
@@ -50,6 +55,7 @@ namespace OpenRA.Mods.RA2.Widgets
 			: base(other)
 		{
 			ReadyGlowColor = other.ReadyGlowColor;
+			ReadyGlowFaceBrightness = other.ReadyGlowFaceBrightness;
 			ReadyGlowRadius = other.ReadyGlowRadius;
 			ReadyGlowBlinkMs = other.ReadyGlowBlinkMs;
 		}
@@ -65,10 +71,16 @@ namespace OpenRA.Mods.RA2.Widgets
 		}
 
 		// AddFactionSuffixLogic appends "-<faction>" to the Background.
+		string FactionSuffix => Background[(Background.LastIndexOf('-') + 1)..];
+
 		Color GlowColor()
 		{
-			var suffix = Background[(Background.LastIndexOf('-') + 1)..];
-			return ChromeMetrics.TryGet(GlowMetric + suffix, out Color color) ? color : ReadyGlowColor;
+			return ChromeMetrics.TryGet(GlowMetric + FactionSuffix, out Color color) ? color : ReadyGlowColor;
+		}
+
+		int FaceBrightness()
+		{
+			return ChromeMetrics.TryGet(FaceBrightnessMetric + FactionSuffix, out int brightness) ? brightness : ReadyGlowFaceBrightness;
 		}
 
 		public override void Draw()
@@ -77,7 +89,7 @@ namespace OpenRA.Mods.RA2.Widgets
 			if (IsDisabled() || !IsReady() || (ReadyGlowBlinkMs > 0 && Game.RunTime / ReadyGlowBlinkMs % 2 == 1))
 				return;
 
-			var glow = Glow(Background, GlowColor());
+			var glow = Glow(IsHighlighted() ? Background + "-highlighted" : Background, GlowColor());
 			if (glow == null)
 				return;
 
@@ -91,21 +103,30 @@ namespace OpenRA.Mods.RA2.Widgets
 				new Vector2(glow.Bounds.Width * sx, glow.Bounds.Height * sy));
 		}
 
-		Sprite Glow(string background, Color color)
+		Sprite Glow(string artName, Color color)
 		{
-			if (glows.TryGetValue((background, color), out var cached))
+			if (glows.TryGetValue((artName, color), out var cached))
 				return cached.Sprite;
 
-			var art = ChromeProvider.TryGetPanelImages(background)?[4];
-			if (art == null)
+			// The outline comes from the selected art, where the whole icon is bright and so part of the face;
+			// a dark icon touching the edge of the face would otherwise cut a notch into it.
+			var art = ChromeProvider.TryGetPanelImages(artName)?[4];
+			var shape = ChromeProvider.TryGetPanelImages(Background + "-highlighted")?[4] ?? art;
+			if (art == null || shape.Bounds.Size != art.Bounds.Size)
 			{
-				glows[(background, color)] = (null, null);
+				glows[(artName, color)] = (null, null);
 				return null;
 			}
 
 			var w = art.Bounds.Width;
 			var h = art.Bounds.Height;
-			var face = FaceMask(Pixels(art), w, h);
+			var face = FaceMask(Pixels(shape), w, h, FaceBrightness());
+
+			// Keep the face within the drawn art, in case the selected art is slightly larger.
+			var drawn = Pixels(art);
+			for (var i = 0; i < face.Length; i++)
+				face[i] &= drawn[i * 4 + 3] > 128;
+
 			var pixels = GlowPixels(face, w, h, ReadyGlowRadius, color);
 			var gw = w + 2 * ReadyGlowRadius;
 			var gh = h + 2 * ReadyGlowRadius;
@@ -118,7 +139,7 @@ namespace OpenRA.Mods.RA2.Widgets
 
 			sheet.CommitBufferedData();
 			var sprite = new Sprite(sheet, new Rectangle(0, 0, gw, gh), TextureChannel.RGBA);
-			glows[(background, color)] = (sheet, sprite);
+			glows[(artName, color)] = (sheet, sprite);
 			return sprite;
 		}
 
@@ -136,17 +157,27 @@ namespace OpenRA.Mods.RA2.Widgets
 		}
 
 		/// <summary>
-		/// The button face: the largest connected area of opaque, not-dark pixels, with its holes (the icon) filled.
-		/// Dark frame pixels around the face, as in the Soviet art, are left out so the glow can show over them.
+		/// The button face: the largest connected area of opaque pixels at least <paramref name="brightness"/> bright,
+		/// with its holes (the icon) filled. Dark frame pixels around the face, as in the Soviet art, are left out
+		/// so the glow can show over them, and so are thin bright specks on the frame (highlights), which are cut
+		/// loose by shrinking the bright area by a pixel before picking the largest part and growing it back after.
 		/// </summary>
-		public static bool[] FaceMask(byte[] bgra, int width, int height)
+		public static bool[] FaceMask(byte[] bgra, int width, int height, int brightness)
 		{
-			var lit = new bool[width * height];
-			for (var i = 0; i < lit.Length; i++)
+			var bright = new bool[width * height];
+			for (var i = 0; i < bright.Length; i++)
 			{
 				var p = i * 4;
 				var luma = (11 * bgra[p] + 59 * bgra[p + 1] + 30 * bgra[p + 2]) / 100;
-				lit[i] = bgra[p + 3] > 128 && luma > 60;
+				bright[i] = bgra[p + 3] > 128 && luma > brightness;
+			}
+
+			var lit = new bool[bright.Length];
+			for (var i = 0; i < lit.Length; i++)
+			{
+				lit[i] = bright[i];
+				foreach (var n in Neighbours(i, width, height))
+					lit[i] &= bright[n];
 			}
 
 			// Keep the largest connected area.
@@ -182,6 +213,18 @@ namespace OpenRA.Mods.RA2.Widgets
 				next++;
 			}
 
+			// Grow the kept area back by the pixel it lost, within the bright pixels.
+			var kept = new bool[lit.Length];
+			for (var i = 0; i < kept.Length; i++)
+			{
+				if (bestLabel == 0 || !bright[i])
+					continue;
+
+				kept[i] = label[i] == bestLabel;
+				foreach (var n in Neighbours(i, width, height))
+					kept[i] |= label[n] == bestLabel;
+			}
+
 			// Everything not reachable from the border without crossing the face is inside it.
 			var outside = new bool[lit.Length];
 			for (var x = 0; x < width; x++)
@@ -199,7 +242,7 @@ namespace OpenRA.Mods.RA2.Widgets
 			while (stack.Count > 0)
 			{
 				var i = stack.Pop();
-				if (outside[i] || (bestLabel != 0 && label[i] == bestLabel))
+				if (outside[i] || kept[i])
 					continue;
 
 				outside[i] = true;
