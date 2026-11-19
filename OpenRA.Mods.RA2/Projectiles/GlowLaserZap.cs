@@ -12,7 +12,6 @@
 using System.Collections.Generic;
 using OpenRA.GameRules;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.Effects;
 using OpenRA.Mods.Common.Graphics;
 using OpenRA.Mods.Common.Projectiles;
