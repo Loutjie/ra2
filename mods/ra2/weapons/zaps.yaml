@@ -130,6 +130,15 @@ PrismShot:
 			Rocket: 100
 		DamageTypes: ElectroDeath
 
+PrismSupport:
+	ReloadDelay: 50
+	Range: 8c0
+	Projectile: LaserZap
+		Width: 40
+		Duration: 13
+		UsePlayerColor: true
+		ZOffset: 2047
+
 Comet:
 	ValidTargets: Ground, Water
 	ReloadDelay: 100
