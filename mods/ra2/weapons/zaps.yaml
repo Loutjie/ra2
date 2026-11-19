@@ -166,6 +166,7 @@ Comet:
 		SecondaryBeamWidth: 196
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 800
@@ -218,6 +219,7 @@ CometFragment:
 		SecondaryBeamWidth: 140
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
