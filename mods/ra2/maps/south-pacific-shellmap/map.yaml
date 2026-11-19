@@ -1151,6 +1151,24 @@ Actors:
 	AlliedPower4: gapowr
 		Location: 79,8
 		Owner: Allies
+	AlliedPrism5: atesla
+		Location: 80,12
+		Owner: Allies
+	AlliedPrism6: atesla
+		Location: 86,17
+		Owner: Allies
+	AlliedPrism7: atesla
+		Location: 87,18
+		Owner: Allies
+	AlliedPrism8: atesla
+		Location: 93,22
+		Owner: Allies
+	AlliedPower5: gapowr
+		Location: 67,18
+		Owner: Allies
+	AlliedPower6: gapowr
+		Location: 72,30
+		Owner: Allies
 	SovietReactor: nanrct
 		Location: 155,-14
 		Owner: Soviets
@@ -1158,7 +1176,7 @@ Actors:
 		Location: 73,9
 		Owner: Allies
 	AlliedPrism4: atesla
-		Location: 66,4
+		Location: 68,4
 		Owner: Allies
 	SovietTesla3: tesla
 		Location: 145,-15
