@@ -779,7 +779,7 @@ nasam:
 	Armor:
 		Type: Steel
 	RevealsShroud:
-		Range: 7c0
+		Range: 10c0
 	IsometricSelectable:
 		Height: 45
 	Turreted:

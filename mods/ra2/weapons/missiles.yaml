@@ -1,6 +1,8 @@
 RedEye2:
 	Inherits: ^AAMissile
 	Projectile: Missile
+		# RA2 Speed=100 is leptons per frame, which converts to 480 (the inherited 100 is far too slow).
+		Speed: 480
 		TrailImage: smokey2
 		LockOnProbability: 80
 
@@ -74,6 +76,8 @@ Medusa:
 	Burst: 3
 	BurstDelays: 13
 	Projectile: Missile
+		# RA2 Speed=120 leptons per frame.
+		Speed: 576
 		ContrailLength: 35
 		LockOnProbability: 85
 		RangeLimit: 15c409
@@ -92,7 +96,8 @@ HoverMissile:
 		Speed: 213
 		Arm: 2
 		Inaccuracy: 128
-		HorizontalRateOfTurn: 32
+		# RA2 AAHeatSeeker2 ROT=60 (the Patriot's ROT=80 is 220 here). 32 could not catch a turning rocket.
+		HorizontalRateOfTurn: 165
 		RangeLimit: 14c512
 		ContrailStartColor: D8D8FF
 	Warhead@1Dam: SpreadDamage
