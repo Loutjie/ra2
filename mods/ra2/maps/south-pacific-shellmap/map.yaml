@@ -1098,13 +1098,13 @@ Actors:
 		Location: 77,11
 		Owner: Allies
 	AlliedPrism0: atesla
-		Location: 88,15
+		Location: 84,30
 		Owner: Allies
 	AlliedPrism1: atesla
-		Location: 90,19
+		Location: 91,28
 		Owner: Allies
 	AlliedPrism2: atesla
-		Location: 92,23
+		Location: 82,32
 		Owner: Allies
 	AlliedYard: gayard
 		Location: 67,44
@@ -1134,13 +1134,13 @@ Actors:
 		Location: 151,-12
 		Owner: Soviets
 	SovietTesla0: tesla
-		Location: 140,-5
+		Location: 147,2
 		Owner: Soviets
 	SovietTesla1: tesla
 		Location: 144,1
 		Owner: Soviets
 	SovietTesla2: tesla
-		Location: 140,8
+		Location: 149,4
 		Owner: Soviets
 	SovietYard: nayard
 		Location: 158,16
