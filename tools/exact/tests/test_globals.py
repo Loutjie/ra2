@@ -194,6 +194,14 @@ def test_iron_curtain_kills_infantry(tree):
     assert "KillsSelf@IRONCURTAIN" not in tree["tank.exact"]
 
 
+def test_iron_curtain_skips_infantry_that_already_die():
+    bases = {**BASES, "troop": {**BASES["troop"], "KillsSelf@IRONCURTAIN": {"RequiresCondition": "invulnerability"}}}
+    g = exact_globals.build_globals(RULES, actors_of(RULES, bases), bases, set(bases), NEUTRAL,
+        {"lightningstorm": "LightningStorm", "kaboom": "Kaboom"})
+    assert "KillsSelf@IRONCURTAIN" not in g.blocks.get("troop.exact", {})
+    assert not any("troop" in line for line in g.notes.get("iron-curtain-kills-infantry", []))
+
+
 def test_death_weapon_twin(g, tree):
     assert tree["boom.exact"]["FireWarheadsOnDeath"] == {"Weapon": "Kaboom.exact", "EmptyWeapon": "Kaboom.exact"}
     assert "FireWarheadsOnDeath" not in tree["tank.exact"]  # RA2 TANK does not explode

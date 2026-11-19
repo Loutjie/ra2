@@ -379,8 +379,8 @@ EXCEPTIONS: list[ConversionException] = [
         listed=_globals("lightning-storm")),
     ConversionException("iron-curtain-kills-infantry",
         "ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins",
-        "The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins "
-        "accept the invulnerability condition and kill themselves while they have it.",
+        "The Iron Curtain kills infantry in RA2. The base mod's ^Infantry already does this, so "
+        "only infantry twins whose base lacks KillsSelf@IRONCURTAIN get the condition and KillsSelf.",
         listed=_globals("iron-curtain-kills-infantry")),
     ConversionException("death-weapons",
         "FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)",

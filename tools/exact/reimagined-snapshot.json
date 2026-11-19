@@ -1919,6 +1919,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -1967,6 +1970,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -2236,6 +2242,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -2284,6 +2293,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -2547,6 +2559,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -2595,6 +2610,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -3106,6 +3124,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -3163,6 +3184,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -3955,6 +3979,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -3984,6 +4011,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -5075,6 +5105,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -5140,6 +5173,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -5482,6 +5518,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -5533,6 +5572,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -5817,6 +5859,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -5867,6 +5912,9 @@
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
 			"InstantlyRepairs": {},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
+			},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -6158,6 +6206,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -6209,6 +6260,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -10000,6 +10054,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -10052,6 +10109,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -11811,6 +11871,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FireWarheadsOnDeath": {
 				"EmptyWeapon": "IvanDeath",
 				"Weapon": "IvanDeath"
@@ -11863,6 +11926,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -12138,6 +12204,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -12191,6 +12260,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -17002,6 +17074,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -17050,6 +17125,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -17844,6 +17922,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -17895,6 +17976,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -18504,6 +18588,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -18552,6 +18639,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -18810,6 +18900,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -18862,6 +18955,9 @@
 			"Infiltrates": {
 				"Notification": "BuildingInfiltrated",
 				"Types": "SpyInfiltrate"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -19963,6 +20059,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FirepowerMultiplier@CRATES": {
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
@@ -20015,6 +20114,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -20275,6 +20377,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"FireWarheadsOnDeath": {
 				"EmptyWeapon": "TerrorBomb",
 				"Weapon": "TerrorBomb"
@@ -20339,6 +20444,9 @@
 			},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -21725,6 +21833,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -21787,6 +21898,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"
@@ -22081,6 +22195,9 @@
 			"ExternalCondition@CRATE-SPEED": {
 				"Condition": "crate-speed"
 			},
+			"ExternalCondition@INVULNERABILITY": {
+				"Condition": "invulnerability"
+			},
 			"ExternalCondition@PARACHUTE": {
 				"Condition": "parachute"
 			},
@@ -22143,6 +22260,9 @@
 				"InfectedCondition": "infected",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
+			},
+			"KillsSelf@IRONCURTAIN": {
+				"RequiresCondition": "invulnerability"
 			},
 			"MapEditorData": {
 				"Categories": "Infantry"

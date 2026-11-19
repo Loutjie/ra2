@@ -428,27 +428,9 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins
 - Applied by: the generator
-- Reason: The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins accept the invulnerability condition and kill themselves while they have it.
+- Reason: The Iron Curtain kills infantry in RA2. The base mod's ^Infantry already does this, so only infantry twins whose base lacks KillsSelf@IRONCURTAIN get the condition and KillsSelf.
 - Affected:
-  - ccomand.exact
-  - civan.exact
-  - cleg.exact
-  - deso.exact
-  - dog.exact
-  - e1.exact
-  - e2.exact
-  - engineer.exact
-  - flakt.exact
-  - ivan.exact
-  - jumpjet.exact
-  - ptroop.exact
-  - shk.exact
-  - snipe.exact
-  - spy.exact
-  - tany.exact
-  - terror.exact
-  - yuri.exact
-  - yuripr.exact
+  - (nothing in this run)
 
 ## death-weapons
 

@@ -35,7 +35,7 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
     Storm Duration/HitDelay/ScatterDelay from LightningStormDuration/HitDelay/ScatterDelay and
     its weapon twin from LightningDamage and LightningWarhead (weather_weapon).
   Iron Curtain kills infantry: infantry twins accept the `invulnerability` external condition
-    and KillsSelf while they have it.
+    and KillsSelf while they have it, unless the base actor already does (^Infantry).
   #514 death weapons: an RA2 actor with Explodes=yes and a DeathWeapon fires that weapon's
     twin from its FireWarheadsOnDeath (DEATH_WEAPON_TRAIT). Explodes=yes without a
     DeathWeapon (RA2's DefaultDeathWeapon, whose damage "is based on" the unit's strength by
@@ -322,8 +322,8 @@ def superweapon(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin:
 
 
 def iron_curtain(g: Globals, actor: ExactActor, base: Mapping, twin: str) -> None:
-    if actor.kind != "infantry":
-        return
+    if actor.kind != "infantry" or "KillsSelf@IRONCURTAIN" in base:
+        return  # the base mod's ^Infantry already dies under the Iron Curtain
     if not any(trait_type(k) == "ExternalCondition" and isinstance(t, Mapping)
             and t.get("Condition") == INVULNERABILITY for k, t in base.items()):
         g.put(twin, "ExternalCondition@INVULNERABILITY", {"Condition": INVULNERABILITY})
