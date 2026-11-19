@@ -99,6 +99,7 @@ namespace OpenRA.Mods.RA2.Widgets
 			}
 
 			var size = source.Bounds.Size;
+
 			// Textures must have power-of-two sides, so the tab sits in the corner of a larger sheet.
 			var sheet = new Sheet(SheetType.BGRA, size.NextPowerOf2());
 			var data = sheet.GetData();
