@@ -292,6 +292,32 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(maxPitch, Is.EqualTo(160));
 		}
 
+		// Play-test 2026-11-18: right after ignition the Dreadnought missile swung round to its target while still over the ship.
+		// It should leave the launcher in a straight line and turn in the air: it turns no faster than it moves.
+		[Test]
+		public void Ignition_LeavesStraightThenTurnsInTheAir()
+		{
+			var p = Dmisl();
+			p.StraightAfterIgnition = new WDist(512);
+			var flight = new MissileFlight(p, WPos.Zero, WAngle.Zero);
+
+			// Target behind the launcher.
+			var target = new WPos(0, 20480, 0);
+			while (flight.Phase != MissileFlightPhase.Fly)
+				flight.Tick(target, WDist.Zero);
+
+			var start = flight.Position;
+			while ((flight.Position - start).HorizontalLength < 512)
+			{
+				flight.Tick(target, WDist.Zero);
+				var turned = flight.Yaw.Angle > 512 ? 1024 - flight.Yaw.Angle : flight.Yaw.Angle;
+				Assert.That(turned, Is.Zero, $"turned {turned} within {(flight.Position - start).HorizontalLength} of the launcher");
+			}
+
+			var (landed, _) = Fly(p, target);
+			Assert.That((landed.Position - target).Length, Is.LessThan(256), "still reaches a target behind it");
+		}
+
 		[Test]
 		public void Flight_IsDeterministic()
 		{
