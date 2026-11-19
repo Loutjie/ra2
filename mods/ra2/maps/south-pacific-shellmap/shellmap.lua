@@ -95,17 +95,21 @@ SovietWaves = function()
 	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(30, 46)), SovietWaves)
 end
 
--- Flies in from the map edge, attacks one Soviet unit on the strip, then leaves the way it came.
--- A specific target keeps the run straight: an attack-move makes aircraft circle around looking for targets.
+-- Flies in from the map edge, attacks one Soviet unit on the strip, then carries on out of the far edge
+-- along the same line, so a fixed-wing jet never has to reverse or loop back.
+-- Entering on a path towards the target spawns it already facing the strip.
 Sortie = function(player, type, edge)
 	local targets = UnitsInBattleZone(function(a) return a.Owner == Soviets end)
 	if #targets == 0 then
 		return
 	end
 
-	local aircraft = Reinforcements.Reinforce(player, { type }, { edge })[1]
-	aircraft.Attack(Utils.Random(targets))
-	aircraft.Move(edge)
+	local target = Utils.Random(targets)
+	local aim = target.Location
+	local exit = Map.ClosestEdgeCell(aim + (aim - edge))
+	local aircraft = Reinforcements.Reinforce(player, { type }, { edge, aim })[1]
+	aircraft.Attack(target)
+	aircraft.Move(exit)
 	aircraft.Destroy()
 end
 
