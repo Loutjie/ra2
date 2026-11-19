@@ -300,10 +300,11 @@ BuildCameraRoute = function()
 	CameraAt = CameraRoute[1].position
 end
 
--- Half the visible world at the widest zoom (DefaultScale 0.7) in a 1710x1073 window. A tile is 60x30 pixels
+-- Half the visible world at the widest zoom in a 1710x1073 window, with about 25% to spare: 0.7 alone still
+-- showed the bottom edge in play-testing. A tile is 60x30 pixels
 -- for 1448 world units, so a pixel is 1448/60 world units across and 1448/30 down.
-CameraHalfWidth = 29500
-CameraHalfHeight = 37000
+CameraHalfWidth = 37000
+CameraHalfHeight = 46000
 
 -- Keeps the view's centre far enough inside the map that the screen never shows past the map's edge.
 ClampToMap = function(position)
