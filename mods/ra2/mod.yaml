@@ -82,11 +82,11 @@ Rules:
 	ra2|rules/trees.yaml
 	ra2|rules/civilian-naval.yaml
 	ra2|rules/spike-missiles.yaml
-	ra2|rules/garrison.yaml
 	ra2|rules/exact/actors.yaml
 	ra2|rules/exact/globals.yaml
 	ra2|rules/exact/reimagined.yaml
 	ra2|rules/exact/ai.yaml
+	ra2|rules/garrison.yaml
 
 Sequences:
 	ra2|sequences/aircraft.yaml

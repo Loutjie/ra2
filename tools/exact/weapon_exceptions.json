@@ -6,6 +6,10 @@
 			"reason": "no damage warhead in the mod weapon"
 		},
 		{
+			"twin": "AlliedOccupyW.exact",
+			"reason": "rules.ini section not fired by the twinned RA2 actor"
+		},
+		{
 			"twin": "AssaultBolt.exact",
 			"reason": "no damage warhead in the mod weapon"
 		},
@@ -41,6 +45,14 @@
 			"reason": "no damage warhead in the mod weapon"
 		},
 		{
+			"twin": "HoverMissileAir.exact",
+			"reason": "no rules.ini section of that name"
+		},
+		{
+			"twin": "HoverMissileEAir.exact",
+			"reason": "no rules.ini section of that name"
+		},
+		{
 			"twin": "IvanBomber.exact",
 			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
 			"exception": "crazy-ivan-bomb"
@@ -58,6 +70,10 @@
 		{
 			"twin": "SonicZap.exact",
 			"reason": "2 damage warheads in the mod weapon"
+		},
+		{
+			"twin": "SovietOccupyW.exact",
+			"reason": "rules.ini section not fired by the twinned RA2 actor"
 		},
 		{
 			"twin": "SuperComet.exact",

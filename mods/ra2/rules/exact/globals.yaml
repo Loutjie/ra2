@@ -141,15 +141,8 @@ beag.exact:
 		Modifier: 120
 
 caairp:
-	-Armor:
 	-ParatroopersPower@Allies:
 	-ParatroopersPower@Soviets:
-	Armor@EXACT:
-		Type: Concrete
-		RequiresCondition: balance-exact
-	Armor@REIMAGINED:
-		Type: concrete
-		RequiresCondition: !balance-exact
 	GrantConditionOnPrerequisite@BALANCE:
 		Condition: balance-exact
 		Prerequisites: balance.exact
@@ -250,12 +243,14 @@ caoutp:
 		Prerequisites: balance.exact
 	RepairsUnits@EXACT:
 		Interval: 12
+		RepairDamageTypes: KillTerrorDrone
 		FinishRepairingNotification: UnitRepaired
 		ValuePercentage: 15
 		HpPerStep: 8
 		RequiresCondition: balance-exact
 	RepairsUnits@REIMAGINED:
 		Interval: 50
+		RepairDamageTypes: KillTerrorDrone
 		FinishRepairingNotification: UnitRepaired
 		RequiresCondition: !balance-exact
 
@@ -383,33 +378,6 @@ cleg.exact:
 	SpeedMultiplier@VETERAN:
 		Modifier: 120
 
-cmin.exact:
-	-ChangesHealth@ELITE:
-	DamageMultiplier@ELITE:
-		Modifier: 100
-	DamageMultiplier@VETERAN:
-		Modifier: 100
-	FirepowerMultiplier@ELITE:
-		Modifier: 100
-	FirepowerMultiplier@VETERAN:
-		Modifier: 100
-	GainsExperience:
-		Conditions:
-			-500:
-			-1000:
-			300: rank-veteran
-			600: rank-elite
-	InaccuracyMultiplier@ELITE:
-		Modifier: 100
-	ReloadDelayMultiplier@ELITE:
-		Modifier: 100
-	ReloadDelayMultiplier@VETERAN:
-		Modifier: 100
-	SpeedMultiplier@ELITE:
-		Modifier: 100
-	SpeedMultiplier@VETERAN:
-		Modifier: 100
-
 deso.exact:
 	ChangesHealth@ELITE:
 		RequiresCondition: rank-elite
@@ -503,6 +471,34 @@ dog.exact:
 		Condition: invulnerability
 	KillsSelf@IRONCURTAIN:
 		RequiresCondition: invulnerability
+
+dred.exact:
+	ChangesHealth@ELITE:
+		RequiresCondition: rank-elite
+	DamageMultiplier@ELITE:
+		Modifier: 67
+	DamageMultiplier@VETERAN:
+		Modifier: 67
+	FirepowerMultiplier@ELITE:
+		Modifier: 110
+	FirepowerMultiplier@VETERAN:
+		Modifier: 110
+	GainsExperience:
+		Conditions:
+			-500:
+			-1000:
+			300: rank-veteran
+			600: rank-elite
+	InaccuracyMultiplier@ELITE:
+		Modifier: 100
+	ReloadDelayMultiplier@ELITE:
+		Modifier: 60
+	ReloadDelayMultiplier@VETERAN:
+		Modifier: 60
+	SpeedMultiplier@ELITE:
+		Modifier: 120
+	SpeedMultiplier@VETERAN:
+		Modifier: 120
 
 dron.exact:
 	-ChangesHealth@ELITE:
@@ -1788,6 +1784,34 @@ ttnk.exact:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
 		Modifier: 100
+	SpeedMultiplier@ELITE:
+		Modifier: 120
+	SpeedMultiplier@VETERAN:
+		Modifier: 120
+
+v3.exact:
+	ChangesHealth@ELITE:
+		RequiresCondition: rank-elite
+	DamageMultiplier@ELITE:
+		Modifier: 67
+	DamageMultiplier@VETERAN:
+		Modifier: 67
+	FirepowerMultiplier@ELITE:
+		Modifier: 110
+	FirepowerMultiplier@VETERAN:
+		Modifier: 110
+	GainsExperience:
+		Conditions:
+			-500:
+			-1000:
+			300: rank-veteran
+			600: rank-elite
+	InaccuracyMultiplier@ELITE:
+		Modifier: 100
+	ReloadDelayMultiplier@ELITE:
+		Modifier: 60
+	ReloadDelayMultiplier@VETERAN:
+		Modifier: 60
 	SpeedMultiplier@ELITE:
 		Modifier: 120
 	SpeedMultiplier@VETERAN:

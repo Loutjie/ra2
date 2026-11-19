@@ -75,7 +75,7 @@ ccomand:
 
 cdest:
 	-ReplaceOnPrerequisite@BALANCE:
-	Repairable:
+	RepairableNear:
 		RepairActors: gayard, nayard, gayard.exact, nayard.exact
 
 civan:
@@ -108,7 +108,7 @@ cop:
 		RepairActors: gadept, nadept, caoutp, gadept.exact, nadept.exact
 
 cruise:
-	Repairable:
+	RepairableNear:
 		RepairActors: gayard, nayard, gayard.exact, nayard.exact
 
 deso:
@@ -138,6 +138,13 @@ dog:
 	ReplaceOnPrerequisite@BALANCE:
 		Prerequisite: balance.exact
 		IntoActor: dog.exact
+
+dred:
+	Buildable:
+		Prerequisites: ~nayard, ~balance.reimagined
+	ReplaceOnPrerequisite@BALANCE:
+		Prerequisite: balance.exact
+		IntoActor: dred.exact
 
 dron:
 	Buildable:
@@ -661,8 +668,15 @@ ttnk:
 		IntoActor: ttnk.exact
 
 tug:
-	Repairable:
+	RepairableNear:
 		RepairActors: gayard, nayard, gayard.exact, nayard.exact
+
+v3:
+	Buildable:
+		Prerequisites: ~naweap, ~balance.reimagined
+	ReplaceOnPrerequisite@BALANCE:
+		Prerequisite: balance.exact
+		IntoActor: v3.exact
 
 wini:
 	Repairable:

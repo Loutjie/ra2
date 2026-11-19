@@ -17,15 +17,15 @@ using OpenRA.Traits;
 namespace OpenRA.Mods.RA2.Traits
 {
 	[TraitLocation(SystemActors.Player)]
-	[Desc("A `" + nameof(ClassicProductionQueue) + "` that limits `" + nameof(PadBound) + "` actors to the number of",
+	[Desc("A `" + nameof(BalanceProductionQueue) + "` that limits `" + nameof(PadBound) + "` actors to the number of",
 		"`" + nameof(AircraftPads) + "` pads the player owns: they can only be queued while the pads outnumber",
 		"the owned and queued ones, and a finished one waits until one of the owned ones frees its pad.")]
-	public class PadLimitedProductionQueueInfo : ClassicProductionQueueInfo
+	public class PadLimitedProductionQueueInfo : BalanceProductionQueueInfo
 	{
 		public override object Create(ActorInitializer init) { return new PadLimitedProductionQueue(init, this); }
 	}
 
-	public class PadLimitedProductionQueue : ClassicProductionQueue
+	public class PadLimitedProductionQueue : BalanceProductionQueue
 	{
 		readonly Actor self;
 

@@ -106,9 +106,13 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Reason: No RA2 section of that name, a section no twinned RA2 actor fires, or a mod weapon whose damage warheads do not take RA2's values (none, several, not SpreadDamage, or explicit Range steps). Nothing is invented: the stub keeps Reimagined values.
 - Affected:
   - ASWLauncher.exact: no damage warhead in the mod weapon
+  - AlliedOccupyW.exact: rules.ini section not fired by the twinned RA2 actor
   - AssaultBolt.exact: no damage warhead in the mod weapon
   - HornetLauncher.exact: no damage warhead in the mod weapon
+  - HoverMissileAir.exact: no rules.ini section of that name
+  - HoverMissileEAir.exact: no rules.ini section of that name
   - SonicZap.exact: 2 damage warheads in the mod weapon
+  - SovietOccupyW.exact: rules.ini section not fired by the twinned RA2 actor
   - demobomb.exact: 4 damage warheads in the mod weapon
 
 ## no-mod-counterpart
@@ -268,9 +272,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Reason: Nothing to twin; they are not generated.
 - Affected:
   - ADOG
-  - DRED
   - SENGINEER
-  - V3
 
 ## untwinned-actors-use-exact-hosts
 
@@ -308,7 +310,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Reason: RA2 promotes at VeteranRatio x the unit's cost of kills (x2 for elite) and grants each rank's abilities as flags: an elite unit has its VeteranAbilities plus its EliteAbilities, and an ability in both applies once. The mod's ^GainsExperience grows every bonus at each rank. Exact sets the thresholds to VeteranRatio x100 and x200 % of the value, each @VETERAN/@ELITE multiplier to VeteranCombat (FIREPOWER), 1 / VeteranArmor (STRONGER), VeteranROF (ROF) or VeteranSpeed (FASTER) when the rank has that ability and 100 otherwise, InaccuracyMultiplier@ELITE to 100 (RA2 has no accuracy bonus), and keeps the self-heal (ChangesHealth@ELITE, at the mod's rate: RA2 states none) only with SELF_HEAL, from the first rank that has it.
 - Affected:
   - dog.exact: no GainsExperience trait, RA2 abilities not applied
-  - 46 twins with GainsExperience
+  - 47 twins with GainsExperience
 
 ## veterancy-abilities
 
@@ -326,6 +328,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - deso.exact: SIGHT
   - dest.exact: SIGHT
   - dlph.exact: SIGHT
+  - dred.exact: SIGHT
   - e1.exact: SIGHT
   - e2.exact: SIGHT
   - flakt.exact: SIGHT
@@ -350,6 +353,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - tany.exact: SCATTER, SIGHT
   - tnkd.exact: SIGHT
   - ttnk.exact: SIGHT
+  - v3.exact: SIGHT
   - yuri.exact: SIGHT
   - yuripr.exact: SIGHT
   - zep.exact: SIGHT
@@ -483,7 +487,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Applied by: the generator
 - Reason: Tech buildings are not twinned: they are neutral when the map starts and change owner when captured. GrantConditionOnPrerequisite@BALANCE grants balance-exact while the owner has balance.exact, and each balance trait whose RA2 value differs from the mod's becomes a X@EXACT/X@REIMAGINED pair (the Reimagined side is copied from the mod's rule files without globals.yaml). Health (not conditional) keeps the mod's value (RA2's Strength is the same). The Exact paratroopers have their own OrderName (`...Exact`): powers sharing an OrderName share one timer. The hospitals keep the mod's repair cost (RA2 gives none for Hospital=yes).
 - Affected:
-  - caairp: Armor Type Concrete
   - caairp: ParatroopersPower@Allies ChargeInterval 3000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact, OrderName AlliedParatroopersExact
   - caairp: ParatroopersPower@Soviets ChargeInterval 3000, DropItems e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact,e2.exact, OrderName SovietParatroopersExact
   - cahosp: RepairsUnits Interval 1, HpPerStep 20
