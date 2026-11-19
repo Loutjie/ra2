@@ -234,8 +234,9 @@ fv:
 		Type: Light
 	RevealsShroud:
 		Range: 8c0
+	# Play-tested: 20 took too long to swing round to incoming missiles.
 	Turreted:
-		TurnSpeed: 20
+		TurnSpeed: 40
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
@@ -255,6 +256,10 @@ fv:
 			snipe: ifv-sniper
 			spy: ifv-mg
 			cleg: ifv-chrono
+	# Engage incoming V3 and Dreadnought missiles before anything else in range.
+	AutoTargetPriority@MISSILES:
+		ValidTargets: Missile
+		Priority: 10
 	Armament@primary:
 		Weapon: HoverMissile
 		LocalOffset: 128,-128,1024, 128,128,1024
