@@ -49,7 +49,7 @@ shad:
 		RequiresCondition: cruising
 		BobDistance: -45
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Garrisoner
 		MaxWeight: 5
 		UnloadVoice: Move
 	SpawnActorOnDeath:
@@ -205,6 +205,7 @@ orca:
 	HitShape:
 	Rearmable:
 		RearmActors: gaairc, amradr
+	PadBound:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true
@@ -327,6 +328,10 @@ hornet:
 		TakeoffSounds: vhortaka.wav, vhortakb.wav
 		LandingSounds: vhorlana.wav, vhorlanb.wav
 	RenderSprites:
+	Voiced:
+		VoiceSet: HornetVoice
+	DeathSounds:
+		VolumeMultiplier: 0.6
 	AttackAircraft:
 		FacingTolerance: 80
 		Voice: Attack
@@ -399,6 +404,10 @@ asw:
 		Ammo: 5
 		AmmoCondition: ammo
 	RejectsOrders:
+	Voiced:
+		VoiceSet: OspreyVoice
+	DeathSounds:
+		VolumeMultiplier: 0.5
 	SpawnActorOnDeath:
 		Actor: aswhusk
 	-Selectable:

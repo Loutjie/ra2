@@ -122,8 +122,19 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void INotifyOwnerChanged.OnOwnerChanged(Actor self, Player oldOwner, Player newOwner)
 		{
-			if (!controlChanging)
+			if (LosesControlOnOwnerChange(controlChanging, oldOwner, newOwner))
 				UnlinkMaster(self, Master);
+		}
+
+		/// <summary>
+		/// Whether an owner change frees the slave from its master. A same-owner "change" is not one: an
+		/// empty garrison building that flips to its first occupant's owner re-owns every passenger to the
+		/// owner it already has (Cargo.OnOwnerChanged), which must not release the mind controller's slot.
+		/// </summary>
+		public static bool LosesControlOnOwnerChange<T>(bool controlChanging, T oldOwner, T newOwner)
+			where T : class
+		{
+			return !controlChanging && oldOwner != newOwner;
 		}
 
 		protected override void TraitDisabled(Actor self)

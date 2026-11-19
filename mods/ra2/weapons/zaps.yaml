@@ -20,6 +20,7 @@ AssaultBolt:
 	Report: iteschaa.wav
 	ValidTargets: TeslaBoost
 	Projectile: ElectricBolt
+		Width: 34
 		Colors: FFFF54, FFFF54, FFFFFF
 		ZOffset: 2047
 	Warhead@charge: GrantExternalCondition
@@ -274,7 +275,8 @@ LightningStorm:
 			Heavy: 100
 			Wood: 100
 			Steel: 100
-			Concrete: 3
+			# RA2's 3% made the storm almost harmless to concrete buildings.
+			Concrete: 20
 			Drone: 100
 			Rocket: 100
 		DamageTypes: Prone100Percent

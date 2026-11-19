@@ -1,6 +1,8 @@
 RedEye2:
 	Inherits: ^AAMissile
 	Projectile: Missile
+		# RA2 Speed=100 is leptons per frame, which converts to 480 (the inherited 100 is far too slow).
+		Speed: 480
 		TrailImage: smokey2
 		LockOnProbability: 80
 
@@ -74,6 +76,8 @@ Medusa:
 	Burst: 3
 	BurstDelays: 13
 	Projectile: Missile
+		# RA2 Speed=120 leptons per frame.
+		Speed: 576
 		ContrailLength: 35
 		LockOnProbability: 85
 		RangeLimit: 15c409
@@ -87,12 +91,13 @@ HoverMissile:
 	Burst: 2
 	Range: 6c0
 	Report: vifvatta.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Speed: 213
 		Arm: 2
 		Inaccuracy: 128
-		HorizontalRateOfTurn: 32
+		# RA2 AAHeatSeeker2 ROT=60 (the Patriot's ROT=80 is 220 here). 32 could not catch a turning rocket.
+		HorizontalRateOfTurn: 165
 		RangeLimit: 14c512
 		ContrailStartColor: D8D8FF
 	Warhead@1Dam: SpreadDamage
@@ -127,13 +132,25 @@ HoverMissileE:
 	Inherits: HoverMissile
 	Burst: 4
 	Report: vifvatta.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Warhead@1Dam: SpreadDamage
 		Damage: 80
 	Warhead@2Eff: CreateEffect
 		Explosions: medium_grey_explosion
 		ImpactSounds: gexp15a.wav
 		ValidTargets: Ground, Air
+
+# RA2 [FV] AirRangeBonus=4: the IFV reaches 4 cells further against aircraft. Separate weapons, so each target
+# type uses one armament and a volley only ever goes at the one target the IFV is attacking.
+HoverMissileAir:
+	Inherits: HoverMissile
+	Range: 10c0
+	ValidTargets: Air
+
+HoverMissileEAir:
+	Inherits: HoverMissileE
+	Range: 10c0
+	ValidTargets: Air
 
 SubTorpedo:
 	ReloadDelay: 75

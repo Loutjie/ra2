@@ -38,6 +38,67 @@ Player:
 					Attractiveness: -10
 					TargetMetric: Value
 					CheckRadius: 7c0
+			# alliedparadrop and sovietparadrop (tech airport) match airborne except for OrderName.
+			alliedparadrop:
+				OrderName: AlliedParatroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			sovietparadrop:
+				OrderName: SovietParatroopers
+				MinimumAttractiveness: 5
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 8c0
+				Consideration@2:
+					Against: Enemy
+					Types: Water
+					Attractiveness: -5
+					TargetMetric: None
+					CheckRadius: 8c0
+			lightningstorm:
+				OrderName: WeatherControlDevice
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Enemy
+					Types: Structure
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 5c0
+				Consideration@2:
+					Against: Ally
+					Types: Air, Ground, Water
+					Attractiveness: -10
+					TargetMetric: Value
+					CheckRadius: 7c0
+			ironcurtain:
+				OrderName: GrantExternalConditionPowerInfoOrder
+				MinimumAttractiveness: 3000
+				Consideration@1:
+					Against: Ally
+					Types: Vehicle
+					Attractiveness: 1
+					TargetMetric: Value
+					CheckRadius: 2c0
+				Consideration@2:
+					Against: Enemy
+					Types: Vehicle
+					Attractiveness: -1
+					TargetMetric: Value
+					CheckRadius: 2c0
 	BaseBuilderBotModule@test:
 		RequiresCondition: enable-test-ai
 		DefenseQueues: Support
@@ -96,6 +157,8 @@ Player:
 			gtgcan: 1
 			gagap: 1
 			namisl: 1
+			nairon: 1
+			gaweat: 1
 		DefenseTypes: gapill, nasam, gtgcan, atesla, naflak, tesla, nalasr
 	SquadManagerBotModule@test:
 		RequiresCondition: enable-test-ai
@@ -150,5 +213,8 @@ Player:
 		McvFactoryTypes: gaweap, naweap
 	HarvesterBotModule:
 		RequiresCondition: enable-test-ai
+		HarvesterTypes: harv, cmin
+		InitialHarvesters: 2
+		RefineryTypes: garefn, narefn
 	BuildingRepairBotModule:
 		RequiresCondition: enable-test-ai

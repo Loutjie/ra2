@@ -95,10 +95,10 @@ def _collapse(node: dict) -> None:
             _collapse(child)
 
 
-def utility_command(flag: str, name: str, dotnet: str = "dotnet"):
+def utility_command(flag: str, name: str, dotnet: str = "dotnet", mods_dir: Path | None = None):
     """Build (argv, env_overrides, cwd) to run the Utility directly, as utility.sh
     and make.ps1 do: from the engine directory, with ENGINE_DIR=".." and
-    MOD_SEARCH_PATHS covering the mod's own mods folder."""
+    MOD_SEARCH_PATHS covering the mod's own mods folder (or `mods_dir` in its place)."""
     mod_id = config_value("MOD_ID")
     if not mod_id:
         raise RuntimeError("MOD_ID is not set in mod.config/user.config")
@@ -107,7 +107,7 @@ def utility_command(flag: str, name: str, dotnet: str = "dotnet"):
     if not dll.is_file():
         raise RuntimeError(f"{dll} not found; run `make` (or make.ps1 all) to build the engine first")
     argv = [dotnet, str(dll), mod_id, flag, name]
-    env = {"MOD_SEARCH_PATHS": f"{REPO_ROOT / 'mods'},./mods", "ENGINE_DIR": ".."}
+    env = {"MOD_SEARCH_PATHS": f"{mods_dir or REPO_ROOT / 'mods'},./mods", "ENGINE_DIR": ".."}
     return argv, env, engine_dir
 
 
@@ -118,8 +118,43 @@ def cache_file(cache: Path, name: str) -> Path:
     return cache / f"{safe}-{digest}.yaml"
 
 
-def _resolve(flag: str, kind: str, name: str) -> dict:
+def mods_without(rules_files: tuple[str, ...]) -> Path:
+    """A mods folder mirroring the repository's (by symlinks) whose mod.yaml lacks the given
+    `Rules:` entries (paths relative to the mod, e.g. "rules/exact/globals.yaml"); for reading
+    the rules as they resolve without some files. Built once per content hash, in the temp dir."""
+    mod_id = config_value("MOD_ID")
+    excluded = "|".join(sorted(rules_files))
+    digest = hashlib.sha1(f"{mods_hash()}|{excluded}".encode()).hexdigest()
+    target = Path(tempfile.gettempdir()) / f"ra2-mods-without-{digest}"
+    if target.is_dir():
+        return target
+    staging = Path(tempfile.mkdtemp(prefix="ra2-mods-staging-"))
+    for entry in (REPO_ROOT / "mods").iterdir():
+        if entry.name != mod_id:
+            (staging / entry.name).symlink_to(entry)
+            continue
+        mod = staging / entry.name
+        mod.mkdir()
+        for child in entry.iterdir():
+            if child.name != "mod.yaml":
+                (mod / child.name).symlink_to(child)
+        drop = {f"{mod_id}|{f}" for f in rules_files}
+        lines = (entry / "mod.yaml").read_text(encoding="utf-8").splitlines(keepends=True)
+        kept = [line for line in lines if line.strip() not in drop]
+        if len(lines) - len(kept) != len(drop):
+            raise RuntimeError(f"mod.yaml does not list every one of {sorted(drop)}")
+        (mod / "mod.yaml").write_text("".join(kept), encoding="utf-8")
+    try:
+        os.replace(staging, target)
+    except OSError:
+        shutil.rmtree(staging, ignore_errors=True)  # another process built it first
+    return target
+
+
+def _resolve(flag: str, kind: str, name: str, without: tuple[str, ...] = ()) -> dict:
     cache = cache_dir() / kind
+    if without:
+        cache = cache_dir() / f"{kind}-without-{hashlib.sha1('|'.join(sorted(without)).encode()).hexdigest()[:12]}"
     cached = cache_file(cache, name)
     if cached.is_file():
         tree = parse_miniyaml(cached.read_text(encoding="utf-8"))
@@ -128,7 +163,10 @@ def _resolve(flag: str, kind: str, name: str) -> dict:
     dotnet = shutil.which("dotnet")
     if not dotnet:
         raise RuntimeError("dotnet was not found on PATH")
-    argv, env, cwd = utility_command(flag, name, dotnet)
+    if without:
+        argv, env, cwd = utility_command(flag, name, dotnet, mods_without(without))
+    else:
+        argv, env, cwd = utility_command(flag, name, dotnet)
     result = subprocess.run(argv, cwd=cwd, env={**os.environ, **env},
                             capture_output=True, text=True, encoding="utf-8", check=False)
     if result.returncode != 0:
@@ -145,7 +183,7 @@ def _resolve(flag: str, kind: str, name: str) -> dict:
     return tree
 
 
-def resolve_actor(name: str) -> dict[str, str | dict]:
+def resolve_actor(name: str, without: tuple[str, ...] = ()) -> dict[str, str | dict]:
     """Resolved rules of actor `name`.
 
     Returns a nested dict keyed by trait/field names (suffixes such as '@PRIMARY'
@@ -153,10 +191,11 @@ def resolve_actor(name: str) -> dict[str, str | dict]:
     (node with neither value nor children) or a dict. A node that has both a
     value and children stores its own value under the key "_value".
     Raises RuntimeError if the utility fails or yields nothing.
+    without: mod.yaml `Rules:` files to leave out (see mods_without).
     """
-    return _resolve("--resolved-rules", "actors", name)
+    return _resolve("--resolved-rules", "actors", name, without)
 
 
-def resolve_weapon(name: str) -> dict[str, str | dict]:
-    """Resolved weapon definition of `name`; same shape as resolve_actor."""
-    return _resolve("--resolved-weapons", "weapons", name)
+def resolve_weapon(name: str, without: tuple[str, ...] = ()) -> dict[str, str | dict]:
+    """Resolved weapon definition of `name`; same shape (and `without`) as resolve_actor."""
+    return _resolve("--resolved-weapons", "weapons", name, without)

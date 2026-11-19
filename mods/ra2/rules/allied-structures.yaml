@@ -57,10 +57,12 @@ gacnst:
 	GrantConditionOnPowerState@LOWPOWER:
 		Condition: lowpower
 		ValidPowerStates: Low, Critical
+	WithIdleOverlay@fans@LOWPOWER:
+		Sequence: idle-fans-low-power
+		RequiresCondition: !build-incomplete && lowpower
 	WithIdleOverlay@fans:
 		Sequence: idle-fans
-		PauseOnCondition: lowpower
-		RequiresCondition: !build-incomplete
+		RequiresCondition: !build-incomplete && !lowpower
 	WithBuildingPlacedOverlay:
 	ProvidesPrerequisite:
 		Prerequisite: structures.allies
@@ -326,17 +328,19 @@ gaairc:
 	Power:
 		Amount: -50
 	Reservable:
+	AircraftPads:
+		Count: 4
 	Exit@1:
-		SpawnOffset: -370,370,0
+		SpawnOffset: 362,-362,0
 		Facing: 896
 	Exit@2:
-		SpawnOffset: 370,-370,0
+		SpawnOffset: -362,362,0
 		Facing: 896
 	Exit@3:
-		SpawnOffset: 1000,370,0
+		SpawnOffset: 1086,362,0
 		Facing: 896
 	Exit@4:
-		SpawnOffset: 350,1000,0
+		SpawnOffset: 362,1086,0
 		Facing: 896
 	Production:
 		Produces: Aircraft
@@ -643,6 +647,7 @@ gadept:
 		DisableStop: false
 	RepairsUnits:
 		Interval: 50
+		RepairDamageTypes: KillTerrorDrone
 		StartRepairingNotification: Repairing
 		FinishRepairingNotification: UnitRepaired
 	WithIdleOverlay@side:
@@ -737,7 +742,7 @@ gapill:
 		Height: 15
 	Armament:
 		Weapon: vulcan2
-		LocalOffset: 416,0,416
+		LocalOffset: 360,0,160
 		MuzzleSequence: muzzle
 	AttackTurreted:
 		Voice: Attack
@@ -774,7 +779,7 @@ nasam:
 	Armor:
 		Type: Steel
 	RevealsShroud:
-		Range: 7c0
+		Range: 10c0
 	IsometricSelectable:
 		Height: 45
 	Turreted:

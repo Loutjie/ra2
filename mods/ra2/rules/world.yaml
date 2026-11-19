@@ -1,4 +1,5 @@
 ^BaseWorld:
+	ReopenSoundAfterSleep:
 	Inherits: ^Palettes
 	MusicPlaylist:
 		VictoryMusic: score
@@ -326,6 +327,16 @@ World:
 				TerrainType: Gems
 				AllowedTerrainTypes: Clear, Rough, Road
 				MaxDensity: 12
+	ResourceGrowth@ore:
+		ResourceType: Ore
+		Interval: 7500
+		GrowthChance: 60
+		SpreadChance: 60
+	ResourceGrowth@gems:
+		ResourceType: Gems
+		Interval: 7500
+		GrowthChance: 0
+		SpreadChance: 0
 	ResourceClaimLayer:
 	BridgeLayer:
 	WarheadDebugOverlay:
@@ -425,6 +436,7 @@ World:
 		SeparateTeamSpawnsCheckboxDisplayOrder: 6
 	SpawnStartingUnits:
 		DropdownDisplayOrder: 2
+	ReplaceOnPrerequisiteAtLoad:
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:

@@ -4890,9 +4890,6 @@ Actors:
 	Actor1580: trock02
 		Location: 200,78
 		Owner: Neutral
-	Actor1581: cafncp
-		Location: 142,137
-		Owner: Neutral
 	Actor1582: cafncp
 		Location: 149,130
 		Owner: Neutral
@@ -4971,17 +4968,8 @@ Actors:
 	Actor1607: srock02
 		Location: 169,115
 		Owner: Neutral
-	Actor1608: cafncp
-		Location: 148,137
-		Owner: Neutral
-	Actor1609: cafncp
-		Location: 149,136
-		Owner: Neutral
 	Actor1610: trock02
 		Location: 163,122
-		Owner: Neutral
-	Actor1611: cafncp
-		Location: 149,137
 		Owner: Neutral
 	Actor1612: trock03
 		Location: 152,134

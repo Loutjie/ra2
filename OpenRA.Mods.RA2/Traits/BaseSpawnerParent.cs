@@ -34,7 +34,10 @@ namespace OpenRA.Mods.RA2.Traits
 		public bool IsValid => Actor != null && !Actor.IsDead;
 	}
 
-	[Desc("This actor can spawn actors.")]
+	[Desc("This actor can spawn actors.",
+		"Exit.SpawnOffset on a spawner is body-local (X forward, Y right, Z up, like Armament.LocalOffset)",
+		"and turns with the spawner, unlike Production, which uses it as an unrotated world offset.",
+		"Spawners are usually mobile (ships), so a fixed world offset would drift around the hull as it turns.")]
 	public class BaseSpawnerParentInfo : ConditionalTraitInfo
 	{
 		[ActorReference]
@@ -84,6 +87,7 @@ namespace OpenRA.Mods.RA2.Traits
 		protected readonly BaseSpawnerChildEntry[] ChildEntries;
 
 		IFacing facing;
+		BodyOrientation body;
 
 		protected IReloadModifier[] reloadModifiers;
 
@@ -117,6 +121,7 @@ namespace OpenRA.Mods.RA2.Traits
 			base.Created(self);
 
 			facing = self.TraitOrDefault<IFacing>();
+			body = self.TraitOrDefault<BodyOrientation>();
 
 			reloadModifiers = self.TraitsImplementing<IReloadModifier>().ToArray();
 		}
@@ -208,7 +213,7 @@ namespace OpenRA.Mods.RA2.Traits
 				if (self.IsDead)
 					return;
 
-				var spawnOffset = exit == null ? WVec.Zero : exit.Info.SpawnOffset;
+				var spawnOffset = ExitSpawnOffset(self, exit);
 				child.Trait<IPositionable>().SetCenterPosition(child, centerPosition + spawnOffset);
 
 				var location = self.World.Map.CellContaining(centerPosition + spawnOffset);
@@ -220,6 +225,21 @@ namespace OpenRA.Mods.RA2.Traits
 
 				w.Add(child);
 			});
+		}
+
+		/// <summary>
+		/// Exit.SpawnOffset on a spawner is a body-local offset (X forward, Y right, Z up),
+		/// using the same convention as Armament.LocalOffset, so it turns with the parent.
+		/// </summary>
+		WVec ExitSpawnOffset(Actor self, Exit exit)
+		{
+			if (exit == null)
+				return WVec.Zero;
+
+			if (body == null)
+				return exit.Info.SpawnOffset;
+
+			return body.LocalToWorld(exit.Info.SpawnOffset.Rotate(body.QuantizeOrientation(self.Orientation)));
 		}
 
 		void SetSpawnedFacing(Actor spawned, Exit exit)

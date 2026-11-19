@@ -206,7 +206,7 @@
 		Delay: 100
 		StartIfBelow: 100
 		DamageCooldown: 125
-		RequiresCondition: rank-veteran && !rank-elite
+		RequiresCondition: rank-elite
 	InaccuracyMultiplier@ELITE:
 		RequiresCondition: rank-elite
 		Modifier: 50
@@ -563,6 +563,21 @@
 		DamageLevel: 1
 		DamageTypes: RadiationDeath, DefaultDeath
 
+^InfantryDeathSounds:
+	DeathSounds@normal:
+		DeathTypes: ExplosionDeath, BulletDeath
+	DeathSounds@burned:
+		DeathTypes: FlameDeath
+	DeathSounds@zapped:
+		Voice: Zapped
+		DeathTypes: ElectroDeath
+	DeathSounds@radiation:
+		Voice: Melted
+		DeathTypes: RadiationDeath
+	DeathSounds@psycrush:
+		Voice: PsyCrush
+		DeathTypes: PsychicDeath
+
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -570,7 +585,9 @@
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
 	Inherits@6: ^DamagedByRadiation
+	Inherits@deathsounds: ^InfantryDeathSounds
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@7: ^AffectedByTerrorDrone
 	Health:
 	OwnerLostAction:
 		Action: Kill
@@ -628,17 +645,6 @@
 	Guard:
 		Voice: Attack
 	Guardable:
-	DeathSounds@normal:
-		DeathTypes: ExplosionDeath, BulletDeath
-	DeathSounds@burned:
-		Voice: Burned
-		DeathTypes: FlameDeath
-	DeathSounds@zapped:
-		Voice: Zapped
-		DeathTypes: ElectroDeath
-	DeathSounds@radiation:
-		Voice: Melted
-		DeathTypes: RadiationDeath
 	MustBeDestroyed:
 	Cloneable:
 		Types: infantry
@@ -655,6 +661,7 @@
 		Categories: Infantry
 
 ^Parachutable:
+	Inherits: ^ParachutableAffectedByTerrorDrone
 	WithSpriteBody@Parachute:
 		Name: parachute
 		Sequence: paradrop
@@ -688,6 +695,7 @@
 		Condition: parachute
 
 ^ParachutableVehicle:
+	Inherits: ^ParachutableAffectedByTerrorDrone
 	Parachutable:
 		FallRate: 26
 		KilledOnImpassableTerrain: true
@@ -802,11 +810,11 @@
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
-	DeathSounds@burned:
-		Voice: Die
 	DeathSounds@zapped:
 		Voice: Die
 	DeathSounds@radiation:
+		Voice: Die
+	DeathSounds@psycrush:
 		Voice: Die
 	-TakeCover:
 	WithDeathAnimation@effect:
@@ -829,8 +837,11 @@
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
+	Inherits@7: ^AffectedByTerrorDrone
 	Inherits@6: ^ParachutableVehicle
 	Inherits@handicaps: ^PlayerHandicaps
+	Infectable:
+		KillInfectorCondition: invulnerability
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
@@ -1067,9 +1078,12 @@
 	GrantConditionOnDamageState@DAMAGED:
 		Condition: damaged
 		ValidDamageStates: Light, Medium, Heavy, Critical
-	Repairable:
+	# Repairable needs the ship at the yard's centre, a cell corner for a 4x4 building, which a ship
+	# can never reach. RepairableNear measures range to the yard's hit shape instead (OpenRA/ra2#715).
+	RepairableNear:
 		Voice: Move
 		RepairActors: gayard, nayard
+		CloseEnough: 1c512
 	HiddenUnderFog:
 	ActorLostNotification:
 	ProximityCaptor:
@@ -1178,7 +1192,7 @@
 	Tooltip:
 		Name: meta-streetlight-name
 	Armor:
-		Type: steel
+		Type: Steel
 	Health:
 		HP: 50
 	MapEditorData:
@@ -1233,3 +1247,32 @@
 	MapEditorData:
 		Categories: System
 	Interactable:
+
+^AffectedByTerrorDrone:
+	Targetable@Parasiteable:
+		TargetTypes: DroneParasiteable
+		RequiresCondition: !infected
+	Targetable@byTerrorDrone:
+		TargetTypes: ValidForTerrorDrone
+	Targetable@InfectedByTerrorDrone:
+		TargetTypes: TerrorDroned
+		RequiresCondition: infected
+	Infectable:
+		RemoveInfectorDamageTypes: DropTerrorDrone
+		KillInfectorDamageTypes: KillTerrorDrone
+		BeingInfectedCondition: being-infected
+		InfectedCondition: infected
+	SpeedMultiplier@Infected:
+		Modifier: 0
+		RequiresCondition: being-infected
+
+^ParachutableAffectedByTerrorDrone:
+	Targetable@Parasiteable:
+		TargetTypes: DroneParasiteable
+		RequiresCondition: !parachute && !infected
+	Targetable@byTerrorDrone:
+		TargetTypes: ValidForTerrorDrone
+		RequiresCondition: !parachute
+	Targetable@InfectedByTerrorDrone:
+		TargetTypes: TerrorDroned
+		RequiresCondition: !parachute && infected

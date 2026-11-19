@@ -46,7 +46,7 @@ caairp:
 	Tooltip:
 		Name: actor-caairp.name
 	Armor:
-		Type: concrete
+		Type: Concrete
 	Health:
 		HP: 800
 	Building:
@@ -160,7 +160,7 @@ caoutp:
 		HP: 2000
 	Building:
 		Dimensions: 4,3
-		Footprint: xx== xx== xx==
+		Footprint: xxx= xxx= xxx=
 	Reservable:
 	RallyPoint:
 		Palette: mouse
@@ -170,6 +170,7 @@ caoutp:
 		DisableStop: false
 	RepairsUnits:
 		Interval: 50
+		RepairDamageTypes: KillTerrorDrone
 		FinishRepairingNotification: UnitRepaired
 	WithIdleOverlay@tower:
 		Sequence: idle-tower

@@ -393,6 +393,7 @@ zbomb:
 	idle:
 		Filename: zbomb.shp
 		Facings: 32
+		ZOffset: 8192
 
 largesmoke:
 	idle:
