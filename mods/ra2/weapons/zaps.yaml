@@ -136,10 +136,14 @@ Comet:
 	Range: 10c0
 	Report: vpriatta.wav
 	Projectile: LaserZap
-		Width: 50
+		Width: 96
 		Duration: 15
-		UsePlayerColor: true
+		Color: FFFFFF
 		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 256
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 800
 		Damage: 100
@@ -183,10 +187,14 @@ CometFragment:
 	ReloadDelay: 100
 	Range: 3c0
 	Projectile: LaserZap
-		Width: 25
+		Width: 48
 		Duration: 13
-		UsePlayerColor: true
+		Color: FFFFFF
 		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 128
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 30
