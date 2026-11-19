@@ -13,25 +13,25 @@ Terrain:
 		Type: Clear
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Road:
 		Type: Road
 		AcceptsSmudgeType: SmallScorch, MediumScorch, LargeScorch
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Bridge:
 		Type: Bridge
 		Color: 5A5C5A
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Rail:
 		Type: Rail
 		AcceptsSmudgeType: SmallScorch, MediumScorch, LargeScorch
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Impassable:
 		Type: Impassable
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Water:
 		Type: Water
 		Color: 745537
@@ -40,26 +40,26 @@ Terrain:
 		Type: DirtRoad
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Rough:
 		Type: Rough
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Cliff:
 		Type: Cliff
 		Color: 745537
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Ore:
 		Type: Ore
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 948060
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 	TerrainType@Gems:
 		Type: Gems
 		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
 		Color: 8470FF
-		TargetTypes: Ground
+		TargetTypes: Ground, DetonateAttack
 
 Templates:
 	Template@0:
