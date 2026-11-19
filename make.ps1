@@ -114,6 +114,37 @@ function Test-Command
 	InvokeCommand "$utilityPath $modID-content --check-yaml"
 }
 
+function UnitTest-Command
+{
+	$rid = if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "win-arm64" } else { "win-x64" }
+	dotnet test OpenRA.Mods.RA2.Test -c Debug --nologo -p:TargetPlatform=$rid
+	if ($lastexitcode -ne 0)
+	{
+		exit 1
+	}
+
+	if (Test-Path "tools")
+	{
+		if (-not (Get-Command python -ErrorAction SilentlyContinue))
+		{
+			Write-Host "The python unit tests require python on PATH." -ForegroundColor Red
+			exit 1
+		}
+
+		python -m pytest tools -q
+		if ($lastexitcode -ne 0)
+		{
+			exit 1
+		}
+	}
+	else
+	{
+		Write-Host "No tools directory, skipping python tests." -ForegroundColor Cyan
+	}
+
+	exit 0
+}
+
 function Check-Command
 {
 	If (!(Test-Path "*.sln"))
@@ -275,6 +306,7 @@ if ($args.Length -eq 0)
 	Write-Host "  clean           Removes all built and copied files."
 	Write-Host "                  from the mods and the engine directories."
 	Write-Host "  test            Tests the mod's MiniYAML for errors."
+	Write-Host "  unit-test       Runs the C# and python unit tests."
 	Write-Host "  check           Checks .cs files for StyleCop violations."
 	Write-Host "  check-scripts   Checks .lua files for syntax errors."
 	Write-Host ""
@@ -402,6 +434,7 @@ switch ($execute)
 	"version" { Version-Command }
 	"clean" { Clean-Command }
 	"test" { Test-Command }
+	"unit-test" { UnitTest-Command }
 	"check" { Check-Command }
 	"check-scripts" { Check-Scripts-Command }
 	Default { Write-Host ("Invalid command '{0}'" -f $command) }

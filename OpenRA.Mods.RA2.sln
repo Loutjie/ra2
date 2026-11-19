@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRA.Mods.Cnc", "engine\O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRA.Game", "engine\OpenRA.Game\OpenRA.Game.csproj", "{780F7FD2-B383-4305-B9E6-25F2D384E601}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenRA.Mods.RA2.Test", "OpenRA.Mods.RA2.Test\OpenRA.Mods.RA2.Test.csproj", "{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,12 @@ Global
 		{780F7FD2-B383-4305-B9E6-25F2D384E601}.Release|Any CPU.Build.0 = Release|Any CPU
 		{780F7FD2-B383-4305-B9E6-25F2D384E601}.Release-x86|Any CPU.ActiveCfg = Release-x86|Any CPU
 		{780F7FD2-B383-4305-B9E6-25F2D384E601}.Release-x86|Any CPU.Build.0 = Release-x86|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Release-x86|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3A1C52-5D0E-4F6B-9A41-2E8C6D1F0B37}.Release-x86|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -364,6 +364,12 @@ dragon:
 		Filename: dragon.shp
 		Facings: 32
 
+v3trail:
+	idle:
+		Filename: v3trail.shp
+		Length: *
+		ZOffset: 8192
+
 smokey2:
 	idle:
 		Filename: smokey2.shp

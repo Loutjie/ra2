@@ -21,12 +21,15 @@
 # to check your mod yaml for errors, run:
 #   make [TREAT_WARNINGS_AS_ERRORS=false] test
 #
+# to run the C# and python unit tests, run:
+#   make unit-test
+#
 # the following are internal sdk helpers that are not intended to be run directly:
 #   make check-variables
 #   make check-sdk-scripts
 #   make check-packaging-scripts
 
-.PHONY: check-sdk-scripts check-packaging-scripts check-variables engine all clean version check-scripts check test
+.PHONY: check-sdk-scripts check-packaging-scripts check-variables engine all clean version check-scripts check test unit-test
 .DEFAULT_GOAL := all
 
 PYTHON = $(shell command -v python3 2> /dev/null)
@@ -181,3 +184,11 @@ test: all
 	@./utility.sh --check-yaml
 	@echo "Testing $(MOD_ID)-content mod MiniYAML..."
 	@Mod=$(MOD_ID)-content ./utility.sh --check-yaml
+
+unit-test: engine
+	@$(DOTNET) test OpenRA.Mods.RA2.Test -c Debug --nologo -p:TargetPlatform=$(TARGETPLATFORM)
+	@if [ -d tools ]; then \
+		$(PYTHON) -m pytest tools -q; \
+	else \
+		echo "No tools directory, skipping python tests."; \
+	fi
