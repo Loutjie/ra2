@@ -1197,6 +1197,9 @@ Actors:
 	SovietRampFoot: waypoint
 		Location: 135,3
 		Owner: Neutral
+	AlliedNorthRampFoot: waypoint
+		Location: 63,-2
+		Owner: Neutral
 	StripCenter: waypoint
 		Location: 114,0
 		Owner: Neutral

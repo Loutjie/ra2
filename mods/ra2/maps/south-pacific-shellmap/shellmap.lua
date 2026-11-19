@@ -260,8 +260,12 @@ RaidSovietBase = function()
 	Trigger.AfterDelay(DateTime.Seconds(10), function() Raid(Allies, AlliedRaid, SovietRampFoot.Location, SovietConyard) end)
 end
 
+-- Soviet raids alternate between the Allied base's two ramps, so both pairs of Prism Towers get used.
+SovietRaidCount = 0
 RaidAlliedBase = function()
-	Trigger.AfterDelay(DateTime.Seconds(18), function() Raid(Soviets, SovietRaid, AlliedRampFoot.Location, AlliedConyard) end)
+	SovietRaidCount = SovietRaidCount + 1
+	local foot = SovietRaidCount % 2 == 0 and AlliedNorthRampFoot or AlliedRampFoot
+	Trigger.AfterDelay(DateTime.Seconds(18), function() Raid(Soviets, SovietRaid, foot.Location, AlliedConyard) end)
 end
 
 -- Alternates a superweapon strike with a Chronosphere jump or Iron Curtain, one per pass over the strip.
@@ -278,15 +282,22 @@ CameraRoute = { }
 CameraLeg = 1
 CameraHold = 0
 
+-- The camera moves at ground level zero; a stop taken from an actor would include its terrain height,
+-- which shifts the view on screen and made the camera jump at every stop.
+AtGroundZero = function(actor)
+	local p = actor.CenterPosition
+	return WPos.New(p.X, p.Y, 0)
+end
+
 BuildCameraRoute = function()
 	CameraRoute = {
-		{ position = AlliedConyard.CenterPosition, hold = DateTime.Seconds(10) },
-		{ position = StripCenter.CenterPosition, hold = DateTime.Seconds(12), event = true },
-		{ position = SeaBattle.CenterPosition, hold = 0, arrive = RaidSovietBase },
-		{ position = SovietConyard.CenterPosition, hold = DateTime.Seconds(10) },
-		{ position = StripCenter.CenterPosition, hold = DateTime.Seconds(14), event = true, arrive = RaidAlliedBase },
+		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(10) },
+		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(12), event = true },
+		{ position = AtGroundZero(SeaBattle), hold = 0, arrive = RaidSovietBase },
+		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(10) },
+		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true, arrive = RaidAlliedBase },
 	}
-	CameraAt = AlliedConyard.CenterPosition
+	CameraAt = CameraRoute[1].position
 end
 
 MoveCamera = function()
