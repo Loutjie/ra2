@@ -237,7 +237,7 @@ fv:
 	Turreted:
 		TurnSpeed: 20
 	Cargo:
-		Types: Infantry
+		Types: Infantry, Garrisoner
 		MaxWeight: 1
 		UnloadVoice: Move
 		LoadingCondition: notmobile
