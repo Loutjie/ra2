@@ -1563,6 +1563,7 @@ lobby-bits:
 		admin-anonymous: 118, 0, 16, 16
 		player-registered: 102, 16, 16, 16
 		player-anonymous: 118, 16, 16, 16
+		bot: 0, 32, 16, 16
 
 strategic:
 	Image: strategic.png
@@ -1602,6 +1603,7 @@ flags:
 		iraq: 45, 42, 45, 21
 		russia: 45, 63, 45, 21
 		Random: 45, 84, 45, 21
+		random: 45, 84, 45, 21
 		random-allies: 0, 105, 45, 21
 		random-soviets: 45, 105, 45, 21
 		spectator: 45, 84, 45, 21
