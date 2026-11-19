@@ -110,9 +110,13 @@ PrismShot:
 	Range: 8c0
 	Report: bpriat1a.wav
 	Projectile: LaserZap
-		Width: 70
-		UsePlayerColor: true
+		Width: 128
+		Color: FFFFFF
 		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 320
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 120
@@ -134,10 +138,14 @@ PrismSupport:
 	ReloadDelay: 50
 	Range: 8c0
 	Projectile: LaserZap
-		Width: 40
+		Width: 64
 		Duration: 13
-		UsePlayerColor: true
+		Color: FFFFFF
 		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 192
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamZOffset: 2046
 
 Comet:
 	ValidTargets: Ground, Water
