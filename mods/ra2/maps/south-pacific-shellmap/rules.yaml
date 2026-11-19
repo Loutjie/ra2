@@ -99,3 +99,7 @@ nayard:
 ^LowBridge:
 	DamageMultiplier@UNKILLABLE:
 		Modifier: 0
+
+^LowBridgeRamp:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
