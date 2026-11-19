@@ -91,7 +91,7 @@ HoverMissile:
 	Burst: 2
 	Range: 6c0
 	Report: vifvatta.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Projectile: Missile
 		Speed: 213
 		Arm: 2
@@ -132,13 +132,25 @@ HoverMissileE:
 	Inherits: HoverMissile
 	Burst: 4
 	Report: vifvatta.wav
-	ValidTargets: Ground, Air
+	ValidTargets: Ground
 	Warhead@1Dam: SpreadDamage
 		Damage: 80
 	Warhead@2Eff: CreateEffect
 		Explosions: medium_grey_explosion
 		ImpactSounds: gexp15a.wav
 		ValidTargets: Ground, Air
+
+# RA2 [FV] AirRangeBonus=4: the IFV reaches 4 cells further against aircraft. Separate weapons, so each target
+# type uses one armament and a volley only ever goes at the one target the IFV is attacking.
+HoverMissileAir:
+	Inherits: HoverMissile
+	Range: 10c0
+	ValidTargets: Air
+
+HoverMissileEAir:
+	Inherits: HoverMissileE
+	Range: 10c0
+	ValidTargets: Air
 
 SubTorpedo:
 	ReloadDelay: 75
