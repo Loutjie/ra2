@@ -300,6 +300,27 @@ BuildCameraRoute = function()
 	CameraAt = CameraRoute[1].position
 end
 
+-- Half the visible world at the widest zoom (DefaultScale 0.7) in a 1710x1073 window. A tile is 60x30 pixels
+-- for 1448 world units, so a pixel is 1448/60 world units across and 1448/30 down.
+CameraHalfWidth = 29500
+CameraHalfHeight = 37000
+
+-- Keeps the view's centre far enough inside the map that the screen never shows past the map's edge.
+ClampToMap = function(position)
+	local tl = Map.TopLeft
+	local br = Map.BottomRight
+	local function clamp(value, low, high)
+		if low > high then
+			return math.floor((low + high) / 2)
+		end
+
+		return math.max(low, math.min(high, value))
+	end
+
+	return WPos.New(clamp(position.X, tl.X + CameraHalfWidth, br.X - CameraHalfWidth),
+		clamp(position.Y, tl.Y + CameraHalfHeight, br.Y - CameraHalfHeight), 0)
+end
+
 MoveCamera = function()
 	if CameraHold > 0 then
 		CameraHold = CameraHold - 1
@@ -339,7 +360,7 @@ MoveCamera = function()
 		CameraAt = WPos.New(math.floor(CameraAt.X + dx * step / distance), math.floor(CameraAt.Y + dy * step / distance), 0)
 	end
 
-	Camera.Position = CameraAt
+	Camera.Position = ClampToMap(CameraAt)
 end
 
 WorldLoaded = function()
