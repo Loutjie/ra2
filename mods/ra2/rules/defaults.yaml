@@ -563,6 +563,21 @@
 		DamageLevel: 1
 		DamageTypes: RadiationDeath, DefaultDeath
 
+^InfantryDeathSounds:
+	DeathSounds@normal:
+		DeathTypes: ExplosionDeath, BulletDeath
+	DeathSounds@burned:
+		DeathTypes: FlameDeath
+	DeathSounds@zapped:
+		Voice: Zapped
+		DeathTypes: ElectroDeath
+	DeathSounds@radiation:
+		Voice: Melted
+		DeathTypes: RadiationDeath
+	DeathSounds@psycrush:
+		Voice: PsyCrush
+		DeathTypes: PsychicDeath
+
 ^Infantry:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -570,6 +585,7 @@
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
 	Inherits@6: ^DamagedByRadiation
+	Inherits@deathsounds: ^InfantryDeathSounds
 	Inherits@handicaps: ^PlayerHandicaps
 	Health:
 	OwnerLostAction:
@@ -628,17 +644,6 @@
 	Guard:
 		Voice: Attack
 	Guardable:
-	DeathSounds@normal:
-		DeathTypes: ExplosionDeath, BulletDeath
-	DeathSounds@burned:
-		Voice: Burned
-		DeathTypes: FlameDeath
-	DeathSounds@zapped:
-		Voice: Zapped
-		DeathTypes: ElectroDeath
-	DeathSounds@radiation:
-		Voice: Melted
-		DeathTypes: RadiationDeath
 	MustBeDestroyed:
 	Cloneable:
 		Types: infantry
@@ -802,11 +807,11 @@
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
-	DeathSounds@burned:
-		Voice: Die
 	DeathSounds@zapped:
 		Voice: Die
 	DeathSounds@radiation:
+		Voice: Die
+	DeathSounds@psycrush:
 		Voice: Die
 	-TakeCover:
 	WithDeathAnimation@effect:
