@@ -1835,8 +1835,12 @@ scrollitem-hover:
 scrollitem-pressed:
 	Inherits: button
 
+# Bright, so the selected entry stands out: map tiles show little of this behind their preview.
 scrollitem-highlighted:
-	Inherits: button-pressed
+	Inherits: newsbutton-highlighted
+
+scrollitem-highlighted-hover:
+	Inherits: newsbutton-highlighted
 
 scrollitem-nohover:
 
