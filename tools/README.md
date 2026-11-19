@@ -24,3 +24,8 @@ Run the tests from the repo root with `python3 -m pytest tools -q` (or
 The `ra2ini` fixture parses the original `rules.ini` from `~/Projects/ra2-reference/ini/`,
 or from the folder named by `$RA2INI`, and skips the test when it is absent.
 Game data is never committed to this repository; test fixtures are inline and fictional.
+
+## Exact balance
+
+`exact` generates the Exact balance mode from the original `rules.ini`; see
+[`exact/README.md`](exact/README.md).

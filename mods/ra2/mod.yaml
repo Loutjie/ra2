@@ -82,6 +82,10 @@ Rules:
 	ra2|rules/trees.yaml
 	ra2|rules/civilian-naval.yaml
 	ra2|rules/garrison.yaml
+	ra2|rules/exact/actors.yaml
+	ra2|rules/exact/globals.yaml
+	ra2|rules/exact/reimagined.yaml
+	ra2|rules/exact/ai.yaml
 
 Sequences:
 	ra2|sequences/aircraft.yaml
@@ -178,6 +182,7 @@ Weapons:
 	ra2|weapons/misc.yaml
 	ra2|weapons/missiles.yaml
 	ra2|weapons/zaps.yaml
+	ra2|weapons/exact/weapons.yaml
 
 Voices:
 	ra2|audio/voices.yaml
