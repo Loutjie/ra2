@@ -205,6 +205,7 @@ orca:
 	HitShape:
 	Rearmable:
 		RearmActors: gaairc, amradr
+	PadBound:
 	WithAmmoPipsDecoration:
 		Position: BottomLeft
 		RequiresSelection: true

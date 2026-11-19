@@ -67,7 +67,7 @@ Player:
 		MinLowPowerProductionSpeed: 50
 		MaxLowPowerProductionSpeed: 80
 		LowPowerPenaltyModifier: 100
-	BalanceProductionQueue@Aircraft:
+	PadLimitedProductionQueue@Aircraft:
 		Type: Aircraft
 		DisplayOrder: 4
 		LowPowerModifier: 300
