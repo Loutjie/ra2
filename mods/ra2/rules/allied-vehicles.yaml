@@ -234,9 +234,11 @@ fv:
 		Type: Light
 	RevealsShroud:
 		Range: 8c0
-	# Play-tested: 20 took too long to swing round to incoming missiles.
 	Turreted:
-		TurnSpeed: 40
+		# RA2 [FV] ROT=5, as the body.
+		TurnSpeed: 20
+		# Stay aimed at the last target, so the IFV is ready for the next missile volley from the same direction.
+		RealignDelay: -1
 	Cargo:
 		Types: Infantry
 		MaxWeight: 1
