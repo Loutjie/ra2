@@ -1,0 +1,24 @@
+^BaseWorld:
+	TerrainLighting:
+		RedTint: 1.12
+		GreenTint: 1.12
+		Intensity: 0.75
+		HeightStep: 0.025
+
+Player:
+	-ConquestVictoryConditions:
+
+World:
+	-CrateSpawner:
+	-AutoSave:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	-StartGameNotification:
+	MusicPlaylist:
+		StartingMusic: grinder
+		DisableWorldSounds: true
+	LuaScript:
+		Scripts: shellmap.lua
+
+^Palettes:
+	-MenuPostProcessEffect:
