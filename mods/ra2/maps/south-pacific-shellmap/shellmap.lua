@@ -298,6 +298,9 @@ BuildCameraRoute = function()
 		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true, arrive = RaidAlliedBase },
 	}
 	CameraAt = CameraRoute[1].position
+
+	-- Place the view before the first frame; waiting for the first Tick made it jump on load.
+	Camera.Position = ClampToMap(CameraAt)
 end
 
 -- Half the visible world at the widest zoom in a 1710x1073 window, with about 25% to spare: 0.7 alone still
