@@ -183,6 +183,7 @@ e1:
 		DefaultAttackSequence: shoot
 		RequiresCondition: undeployed
 	GrantConditionOnDeploy:
+		SmartDeploy: true
 		DeployedCondition: deployed
 		UndeployedCondition: undeployed
 		CanDeployOnRamps: True
