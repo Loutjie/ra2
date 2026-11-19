@@ -509,6 +509,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-building-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Building
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeBuilding
 							Children:
 								Image@ICON:
@@ -526,6 +529,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-support-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Support
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeDefense
 							Children:
 								Image@ICON:
@@ -543,6 +549,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-infantry-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Infantry
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeInfantry
 							Children:
 								Image@ICON:
@@ -560,6 +569,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-vehicle-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Vehicle
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeVehicle
 							Children:
 								Image@ICON:
@@ -577,6 +589,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-aircraft-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Aircraft
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeAircraft
 							Children:
 								Image@ICON:
@@ -594,6 +609,9 @@ Container@PLAYER_WIDGETS:
 							TooltipText: button-production-types-naval-tooltip
 							TooltipContainer: TOOLTIP_CONTAINER
 							ProductionGroup: Ship
+							ReadyGlowColors:
+								soviets: FFF028
+								allies: BBEEFEB4
 							Key: ProductionTypeNaval
 							Children:
 								Image@ICON:
