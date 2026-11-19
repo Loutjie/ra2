@@ -35,9 +35,9 @@
 		ShowShadow: false
 		RequiresCondition: flying
 	# The exhaust plume RA2 uses for its rockets. It spawns only while the missile moves.
-	LeavesTrails:
+	# Not LeavesTrails: its puffs would be hidden by buildings the missile flies over.
+	LeavesMissilePlume:
 		Image: v3trail
-		Type: CenterPosition
 		MovingInterval: 1
 	# Shot down: effects only, so the target takes no damage.
 	FireWarheadsOnDeath:
@@ -66,6 +66,9 @@ dmisl:
 	# The Dreadnought's scale, so the flying missile matches the one WithLauncherMissile draws on its deck.
 	RenderVoxels:
 		Scale: 11.7
+	# Its puffs right next to its own Dreadnought need the same extra depth as the missile.
+	LeavesMissilePlume:
+		DepthOffset: 1c512
 	MissileActor:
 		# Not hidden by its own Dreadnought when the ship faces the camera, or by buildings it flies over (play-test 2026-11-18).
 		FlyingDepthOffset: 1c512
