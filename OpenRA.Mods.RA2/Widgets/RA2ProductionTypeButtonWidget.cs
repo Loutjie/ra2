@@ -99,8 +99,12 @@ namespace OpenRA.Mods.RA2.Widgets
 			}
 
 			var size = source.Bounds.Size;
-			var sheet = new Sheet(SheetType.BGRA, size);
-			Array.Copy(pixels, sheet.GetData(), pixels.Length);
+			// Textures must have power-of-two sides, so the tab sits in the corner of a larger sheet.
+			var sheet = new Sheet(SheetType.BGRA, size.NextPowerOf2());
+			var data = sheet.GetData();
+			for (var y = 0; y < size.Height; y++)
+				Array.Copy(pixels, y * size.Width * 4, data, y * sheet.Size.Width * 4, size.Width * 4);
+
 			sheet.CommitBufferedData();
 
 			var scale = source.Size.X / source.Bounds.Width;
