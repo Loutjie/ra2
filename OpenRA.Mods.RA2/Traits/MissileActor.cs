@@ -10,8 +10,11 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Linq;
 using OpenRA.GameRules;
+using OpenRA.Graphics;
 using OpenRA.Mods.Common;
+using OpenRA.Primitives;
 using OpenRA.Traits;
 
 namespace OpenRA.Mods.RA2.Traits
@@ -56,8 +59,19 @@ namespace OpenRA.Mods.RA2.Traits
 		[Desc("Cruise profile: dive once the target is this far below the horizon.")]
 		public readonly WAngle DiveAngle = new(128);
 
+		[Desc("The tilt turns the missile around a point this far behind its centre (its tail), which stays in the launcher.",
+			"0 tilts it around its centre.")]
+		public readonly WDist TiltPivot = WDist.Zero;
+
 		[Desc("Detonate after this many ticks even if the target was not reached.")]
 		public readonly int MaxTicks = 1500;
+
+		[Desc("Added to the draw order once the missile lifts off its launcher, so it is not drawn behind nearby buildings.")]
+		public readonly int FlyingZOffset = 8192;
+
+		[GrantedConditionReference]
+		[Desc("Condition granted once the missile has left the launcher (after the pause and tilt).")]
+		public readonly string FlyingCondition = null;
 
 		public MissileFlightParameters FlightParameters => new()
 		{
@@ -73,6 +87,7 @@ namespace OpenRA.Mods.RA2.Traits
 			Profile = Profile,
 			DiveAngle = DiveAngle,
 			MaxTicks = MaxTicks,
+			TiltPivot = TiltPivot,
 		};
 
 		public override object Create(ActorInitializer init) { return new MissileActor(init, this); }
@@ -83,12 +98,18 @@ namespace OpenRA.Mods.RA2.Traits
 		WAngle IFacingInfo.GetInitialFacing() { return WAngle.Zero; }
 	}
 
-	public class MissileActor : IOccupySpace, IFacing, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld
+	public class MissileActor : IOccupySpace, IFacing, ITick, ISync, INotifyAddedToWorld, INotifyRemovedFromWorld, IRenderModifier
 	{
 		readonly MissileActorInfo info;
 		ProjectileArgs launchArgs;
 		MissileFlight flight;
 		WPos target;
+		int flyingToken = Actor.InvalidConditionToken;
+		Actor launcher;
+		IFacing launcherFacing;
+		WAngle launchFacing;
+		WVec launcherOffset;
+		WAngle launchYaw;
 
 		[VerifySync]
 		public WPos CenterPosition { get; private set; }
@@ -110,7 +131,15 @@ namespace OpenRA.Mods.RA2.Traits
 		{
 			launchArgs = args;
 			target = args.GuidedTarget.IsValidFor(args.SourceActor) ? args.GuidedTarget.CenterPosition : args.PassiveTarget;
-			Facing = (target - CenterPosition).Yaw;
+
+			launcher = args.SourceActor;
+			launcherFacing = launcher.TraitOrDefault<IFacing>();
+			launchFacing = launcherFacing?.Facing ?? WAngle.Zero;
+			launcherOffset = CenterPosition - launcher.CenterPosition;
+
+			// Lift in line with the launcher, like the missile drawn in its slot; the flight turns to the target.
+			launchYaw = launcherFacing?.Facing ?? (target - CenterPosition).Yaw;
+			Facing = launchYaw;
 			flight = new MissileFlight(info.FlightParameters, CenterPosition, Facing);
 		}
 
@@ -119,12 +148,21 @@ namespace OpenRA.Mods.RA2.Traits
 			if (flight == null || self.IsDead || self.WillDispose)
 				return;
 
+			if (launcher is { IsInWorld: true, IsDead: false })
+			{
+				var turned = (launcherFacing?.Facing ?? WAngle.Zero) - launchFacing;
+				flight.FollowLauncher(launcher.CenterPosition + launcherOffset.Rotate(WRot.FromYaw(turned)), launchYaw + turned);
+			}
+
 			var map = self.World.Map;
 			var ground = new WDist(CenterPosition.Z - map.DistanceAboveTerrain(CenterPosition).Length);
 			var arrived = flight.Tick(target, ground);
 
 			SetCenterPosition(self, flight.Position);
 			Facing = flight.Yaw;
+
+			if (flight.Phase == MissileFlightPhase.Fly && flyingToken == Actor.InvalidConditionToken && !string.IsNullOrEmpty(info.FlyingCondition))
+				flyingToken = self.GrantCondition(info.FlyingCondition);
 
 			if (arrived)
 				Detonate(self);
@@ -152,6 +190,13 @@ namespace OpenRA.Mods.RA2.Traits
 			TopLeft = self.World.Map.CellContaining(pos);
 			self.World.UpdateMaps(self, this);
 		}
+
+		IEnumerable<IRenderable> IRenderModifier.ModifyRender(Actor self, WorldRenderer wr, IEnumerable<IRenderable> r)
+		{
+			return Phase != MissileFlightPhase.Pause ? r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset)) : r;
+		}
+
+		IEnumerable<Rectangle> IRenderModifier.ModifyScreenBounds(Actor self, WorldRenderer wr, IEnumerable<Rectangle> bounds) { return bounds; }
 
 		public (CPos Cell, SubCell SubCell)[] OccupiedCells() { return []; }
 

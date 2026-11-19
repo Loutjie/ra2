@@ -13,8 +13,10 @@
 		Type: Rocket
 	# 'Missile' lets bots ignore missiles when picking squad targets (IgnoredEnemyTargetTypes)
 	# while AA AutoTarget (ValidTargets: Air) still engages them.
+	# Only while flying: a missile still on its launcher cannot be shot off it.
 	Targetable:
 		TargetTypes: Air, Missile
+		RequiresCondition: flying
 	HitShape:
 	BodyOrientation:
 		QuantizedFacings: 0
@@ -27,6 +29,11 @@
 		LightAmbientColor: -0.5,-0.5,-0.5
 		LightDiffuseColor: 1.4,1.4,1.4
 	WithVoxelBody:
+	# The exhaust plume RA2 uses for its rockets. It spawns only while the missile moves.
+	LeavesTrails:
+		Image: v3trail
+		Type: CenterPosition
+		MovingInterval: 1
 	# Shot down: effects only, so the target takes no damage.
 	FireWarheadsOnDeath:
 		Weapon: UnitExplode
@@ -35,6 +42,7 @@
 v3rocket:
 	Inherits: ^SpikeMissile
 	MissileActor:
+		FlyingCondition: flying
 		PauseTicks: 0
 		TiltTicks: 60
 		PitchInitial: 54
@@ -48,16 +56,24 @@ v3rocket:
 
 dmisl:
 	Inherits: ^SpikeMissile
+	# The Dreadnought's scale, so the flying missile matches the one WithLauncherMissile draws on its deck.
+	RenderVoxels:
+		Scale: 11.7
 	MissileActor:
-		PauseTicks: 20
-		TiltTicks: 60
+		FlyingCondition: flying
+		# RA2's 20 and 60 frames at 30 fps. The lift must clear the slot within the reload.
+		PauseTicks: 17
+		TiltTicks: 50
 		PitchInitial: 0
 		PitchFinal: 128
+		# About half the missile's length: it tilts around its tail, which stays in the deck slot.
+		TiltPivot: 600
 		PitchTurnRate: 20
 		YawTurnRate: 24
 		Acceleration: 16
 		MaxSpeed: 250
-		CruiseAltitude: 3072
+		# Above RA2's 768 leptons (3072): world height draws at 58% on screen, and it must clear buildings.
+		CruiseAltitude: 5120
 		Profile: Cruise
 
 v3:

@@ -171,14 +171,18 @@ namespace OpenRA.Mods.RA2.Test
 			var peakZ = 0;
 			var peakX = 0;
 			var pitchRises = 0;
+			var maxPitchStep = 0;
 			while (!flight.Tick(target, WDist.Zero))
 			{
 				if (flight.Phase != MissileFlightPhase.Fly || flight.Speed == 0)
 					continue;
 
 				var signed = flight.Pitch.Angle > 512 ? flight.Pitch.Angle - 1024 : flight.Pitch.Angle;
-				if (signed > lastSigned)
+				if (signed > lastSigned && lastSigned != int.MaxValue)
 					pitchRises++;
+
+				if (lastSigned != int.MaxValue)
+					maxPitchStep = Math.Max(maxPitchStep, Math.Abs(signed - lastSigned));
 
 				lastSigned = signed;
 				if (flight.Position.Z > peakZ)
@@ -192,6 +196,76 @@ namespace OpenRA.Mods.RA2.Test
 			Assert.That(pitchRises, Is.Zero, "nose only ever moves downwards");
 			Assert.That(peakX, Is.InRange(target.X * 35 / 100, target.X * 65 / 100), "peaks near the middle");
 			Assert.That(peakZ, Is.InRange(target.X * 15 / 100, target.X * 30 / 100), "peak height scales with range");
+			Assert.That(maxPitchStep, Is.LessThanOrEqualTo(4 + 2048 / cells / 40), "no sudden nose movement, including just before impact");
+		}
+
+		[Test]
+		public void FollowLauncher_MovesOnlyBeforeIgnition()
+		{
+			var flight = new MissileFlight(Dmisl(), WPos.Zero, WAngle.Zero);
+			var target = new WPos(0, -20480, 0);
+			var moved = new WPos(100, 0, 0);
+			flight.FollowLauncher(moved, WAngle.Zero);
+			Assert.That(flight.Position, Is.EqualTo(moved));
+
+			while (flight.Phase != MissileFlightPhase.Fly)
+				flight.Tick(target, WDist.Zero);
+
+			flight.Tick(target, WDist.Zero);
+			var flying = flight.Position;
+			flight.FollowLauncher(WPos.Zero, new WAngle(256));
+			Assert.That(flight.Position, Is.EqualTo(flying));
+			Assert.That(flight.Yaw, Is.Not.EqualTo(new WAngle(256)));
+		}
+
+		// Play-test 2026-11-18: the Dreadnought missile tilted around its middle, dipping its tail into the deck.
+		// It should tilt around its tail, which stays where it was on the deck.
+		[Test]
+		public void Tilt_PivotsAroundTheTail()
+		{
+			var p = Dmisl();
+			p.TiltPivot = new WDist(600);
+			var yaw = new WAngle(100);
+			var flight = new MissileFlight(p, WPos.Zero, yaw);
+			var target = new WPos(0, -20480, 0);
+
+			WPos Tail() => flight.Position - new WVec(0, -600 * flight.Pitch.Cos() / 1024, 0).Rotate(WRot.FromYaw(flight.Yaw))
+				- new WVec(0, 0, 600 * flight.Pitch.Sin() / 1024);
+
+			var tail = Tail();
+			var rose = false;
+			while (flight.Phase != MissileFlightPhase.Fly)
+			{
+				flight.Tick(target, WDist.Zero);
+				Assert.That((Tail() - tail).Length, Is.LessThanOrEqualTo(2), $"tail moved at pitch {flight.Pitch.Angle}");
+				rose |= flight.Position.Z > 0;
+			}
+
+			Assert.That(rose, Is.True, "the centre rises as the nose lifts");
+		}
+
+		// Play-test 2026-11-18: the Dreadnought missile turned to face its target while still on the deck.
+		// It should lift in line with the ship and turn only once it flies.
+		[Test]
+		public void Lift_KeepsLauncherHeadingThenTurnsGradually()
+		{
+			var p = Dmisl();
+			var shipYaw = WAngle.Zero;
+			var flight = new MissileFlight(p, WPos.Zero, shipYaw);
+
+			// Target off to the side of the ship.
+			var target = new WPos(20480, 0, 0);
+			while (flight.Phase != MissileFlightPhase.Fly)
+			{
+				flight.FollowLauncher(WPos.Zero, shipYaw);
+				flight.Tick(target, WDist.Zero);
+				Assert.That(flight.Yaw, Is.EqualTo(shipYaw), "keeps the ship's heading while lifting");
+			}
+
+			var before = flight.Yaw;
+			flight.Tick(target, WDist.Zero);
+			var turned = Math.Abs((flight.Yaw - before).Angle > 512 ? (flight.Yaw - before).Angle - 1024 : (flight.Yaw - before).Angle);
+			Assert.That(turned, Is.InRange(1, p.YawTurnRate.Angle), "turns towards the target at the yaw turn rate");
 		}
 
 		[Test]
