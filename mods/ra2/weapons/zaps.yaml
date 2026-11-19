@@ -166,11 +166,54 @@ Comet:
 		ValidTargets: Water
 	Warhead@4Smu: LeaveSmudge
 		SmudgeType: SmallCrater, SmallScorch
+	Warhead@5Fragments: FireFragments
+		Weapon: CometFragment
+		Count: 5
 
 SuperComet:
 	Inherits: Comet
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
+	Warhead@5Fragments: FireFragments
+		Weapon: SuperCometFragment
+
+CometFragment:
+	ValidTargets: Ground, Water
+	InvalidTargets: Structure, Wall
+	ReloadDelay: 100
+	Range: 3c0
+	Projectile: LaserZap
+		Width: 25
+		Duration: 13
+		UsePlayerColor: true
+		ZOffset: 2047
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 30
+		ValidTargets: Ground, Water
+		InvalidTargets: Structure, Wall
+		Versus:
+			None: 100
+			Flak: 100
+			Plate: 100
+			Light: 75
+			Medium: 50
+			Heavy: 50
+			Wood: 200
+			Steel: 200
+			Concrete: 200
+			Drone: 200
+			Rocket: 100
+		DamageTypes: Prone50Percent, TriggerProne, ElectroDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: small_clsn
+		ValidTargets: Ground, Air
+
+SuperCometFragment:
+	Inherits: CometFragment
+	Range: 5c0
+	Warhead@1Dam: SpreadDamage
+		Damage: 50
 
 RadBeamWeapon:
 	ValidTargets: Ground
