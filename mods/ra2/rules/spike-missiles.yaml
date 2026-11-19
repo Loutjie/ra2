@@ -28,7 +28,12 @@
 		LightPitch: 150
 		LightAmbientColor: -0.5,-0.5,-0.5
 		LightDiffuseColor: 1.4,1.4,1.4
+	# No shadow in flight: the depth offset that keeps flying missiles in front of buildings would misplace it.
 	WithVoxelBody:
+		RequiresCondition: !flying
+	WithVoxelBody@FLYING:
+		ShowShadow: false
+		RequiresCondition: flying
 	# The exhaust plume RA2 uses for its rockets. It spawns only while the missile moves.
 	LeavesTrails:
 		Image: v3trail
@@ -42,6 +47,8 @@
 v3rocket:
 	Inherits: ^SpikeMissile
 	MissileActor:
+		# Not hidden by buildings it flies over.
+		DepthFromAltitude: true
 		FlyingCondition: flying
 		PauseTicks: 0
 		TiltTicks: 60
@@ -60,8 +67,9 @@ dmisl:
 	RenderVoxels:
 		Scale: 11.7
 	MissileActor:
-		# Not hidden by its own Dreadnought when the ship faces the camera (play-test 2026-11-18).
+		# Not hidden by its own Dreadnought when the ship faces the camera, or by buildings it flies over (play-test 2026-11-18).
 		FlyingDepthOffset: 1c512
+		DepthFromAltitude: true
 		FlyingCondition: flying
 		# RA2's 20 and 60 frames at 30 fps. The lift must clear the slot within the reload.
 		PauseTicks: 17
