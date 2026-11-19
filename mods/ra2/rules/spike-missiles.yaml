@@ -60,6 +60,8 @@ dmisl:
 	RenderVoxels:
 		Scale: 11.7
 	MissileActor:
+		# Not hidden by its own Dreadnought when the ship faces the camera (play-test 2026-11-18).
+		FlyingDepthOffset: 1c512
 		FlyingCondition: flying
 		# RA2's 20 and 60 frames at 30 fps. The lift must clear the slot within the reload.
 		PauseTicks: 17
