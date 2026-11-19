@@ -103,3 +103,10 @@ nayard:
 ^LowBridgeRamp:
 	DamageMultiplier@UNKILLABLE:
 		Modifier: 0
+
+# Wrecks fade out within about 30 seconds, so they never pile up.
+^Husk:
+	ChangesHealth@FADE:
+		PercentageStep: -4
+		Delay: 25
+		StartIfBelow: 101
