@@ -1178,7 +1178,7 @@
 	Tooltip:
 		Name: meta-streetlight-name
 	Armor:
-		Type: steel
+		Type: Steel
 	Health:
 		HP: 50
 	MapEditorData:

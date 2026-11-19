@@ -52,11 +52,12 @@ def versus_keys():
     return keys
 
 
-@pytest.mark.xfail(strict=True, reason="fixed in fix/armour-type-case")
 def test_armor_types_match_versus_keys():
     keys = versus_keys()
     assert keys, "no Versus keys found; scanner or paths are wrong"
-    bad = sorted(t for t in armor_types() if t[2] not in keys)
+    types = armor_types()
+    assert types, "no armor types found; scanner or paths are wrong"
+    bad = sorted(t for t in types if t[2] not in keys)
     assert not bad, (
         f"{len(bad)} armor types without an exact-case Versus key: {bad}"
     )
