@@ -1073,15 +1073,19 @@ Actors:
 	AlliedConyard: gacnst
 		Location: 77,15
 		Owner: Allies
+		Health: 40
 	AlliedFactory: gaweap
 		Location: 82,13
 		Owner: Allies
+		Health: 40
 	AlliedBarracks: gapile
 		Location: 82,10
 		Owner: Allies
+		Health: 40
 	AlliedAirfield: gaairc
 		Location: 72,14
 		Owner: Allies
+		Health: 40
 	WeatherDevice: gaweat
 		Location: 74,20
 		Owner: Allies
@@ -1094,6 +1098,7 @@ Actors:
 	AlliedPower1: gapowr
 		Location: 71,21
 		Owner: Allies
+		Health: 40
 	AlliedPower2: gapowr
 		Location: 77,11
 		Owner: Allies
@@ -1112,12 +1117,15 @@ Actors:
 	SovietConyard: nacnst
 		Location: 154,-4
 		Owner: Soviets
+		Health: 40
 	SovietFactory: naweap
 		Location: 146,-2
 		Owner: Soviets
+		Health: 40
 	SovietBarracks: nahand
 		Location: 147,-8
 		Owner: Soviets
+		Health: 40
 	NukeSilo: namisl
 		Location: 159,-1
 		Owner: Soviets
@@ -1127,12 +1135,14 @@ Actors:
 	SovietPower0: napowr
 		Location: 163,-5
 		Owner: Soviets
+		Health: 40
 	SovietPower1: napowr
 		Location: 155,4
 		Owner: Soviets
 	SovietPower2: napowr
 		Location: 151,-12
 		Owner: Soviets
+		Health: 40
 	SovietTesla0: tesla
 		Location: 147,2
 		Owner: Soviets
@@ -1148,6 +1158,7 @@ Actors:
 	AlliedPower3: gapowr
 		Location: 73,17
 		Owner: Allies
+		Health: 40
 	AlliedPower4: gapowr
 		Location: 79,8
 		Owner: Allies
@@ -1172,6 +1183,7 @@ Actors:
 	SovietReactor: nanrct
 		Location: 155,-14
 		Owner: Soviets
+		Health: 40
 	AlliedPrism3: atesla
 		Location: 73,9
 		Owner: Allies
