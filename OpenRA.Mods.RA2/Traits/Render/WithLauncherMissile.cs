@@ -95,11 +95,15 @@ namespace OpenRA.Mods.RA2.Traits
 		}
 	}
 
-	public class WithLauncherMissile : ConditionalTrait<WithLauncherMissileInfo>, INotifyAttack, ITick
+	public class WithLauncherMissile : ConditionalTrait<WithLauncherMissileInfo>, INotifyAttack, ITick, ILauncherMissileSlot
 	{
 		readonly Armament armament;
 		readonly Barrel barrel;
 		readonly LauncherSlot slot = new();
+
+		// The missile this slot launched, drawn here until it flies.
+		Actor lifting;
+		MissileActor liftingMissile;
 
 		public WithLauncherMissile(Actor self, WithLauncherMissileInfo info)
 			: base(info)
@@ -112,10 +116,27 @@ namespace OpenRA.Mods.RA2.Traits
 			var localPitch = new WRot(WAngle.Zero, info.Pitch, WAngle.Zero);
 
 			rv.Add(new ModelAnimation(rv.Renderer.ModelCache.GetModelSequence(info.Image, info.Sequence),
-				() => armament.MuzzleOffset(self, barrel),
-				() => localPitch.Rotate(body.QuantizeOrientation(self.Orientation)),
-				() => IsTraitDisabled || !slot.IsLoaded,
+				() => Lifting ? liftingMissile.CenterPosition - self.CenterPosition : armament.MuzzleOffset(self, barrel),
+				() => Lifting ? liftingMissile.Orientation : localPitch.Rotate(body.QuantizeOrientation(self.Orientation)),
+				() => IsTraitDisabled || (!slot.IsLoaded && !Lifting),
 				() => 0, info.ShowShadow));
+		}
+
+		bool Lifting => liftingMissile != null && liftingMissile.IsDrawnByLauncher && lifting.IsInWorld && !lifting.IsDead;
+
+		bool ILauncherMissileSlot.TryTake(Actor launcher, MissileActor missile)
+		{
+			if (IsTraitDisabled || Lifting)
+				return false;
+
+			// The missile spawns at the muzzle of the barrel that fired it.
+			var muzzle = launcher.CenterPosition + armament.MuzzleOffset(launcher, barrel);
+			if ((missile.CenterPosition - muzzle).LengthSquared > 16 * 16)
+				return false;
+
+			lifting = missile.Self;
+			liftingMissile = missile;
+			return true;
 		}
 
 		void INotifyAttack.PreparingAttack(Actor self, in Target target, Armament a, Barrel b) { }
@@ -128,6 +149,9 @@ namespace OpenRA.Mods.RA2.Traits
 
 		void ITick.Tick(Actor self)
 		{
+			if (liftingMissile != null && !Lifting)
+				(lifting, liftingMissile) = (null, null);
+
 			slot.Tick(armament.IsReloading, armament.Burst, armament.Weapon.Burst);
 		}
 	}
