@@ -136,9 +136,9 @@ Sounds:
 		RadarUp: uradaron
 		RadarDown: uradarof
 		CashTickUp: ucredup
-			VolumeModifier: 0.6
+			VolumeModifier: 0.35
 		CashTickDown: ucreddn
-			VolumeModifier: 0.6
+			VolumeModifier: 0.35
 		LevelUp: gupgrad1
 		DisablePower: gpowof
 		EnablePower: gpowon
