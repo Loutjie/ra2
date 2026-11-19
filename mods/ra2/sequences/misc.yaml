@@ -404,6 +404,8 @@ smallsmoke:
 	idle:
 		Filename: sgrysmk1.shp
 		Length: *
+		# Depth offset like the explosions: drawn in front of the building or unit it sits on.
+		Offset: 0, 0, 60
 
 nukesmoke:
 	idle:
@@ -415,16 +417,22 @@ largefire:
 	idle:
 		Filename: fire01.shp
 		Length: *
+		# Depth offset like the explosions: drawn in front of the building or unit it sits on.
+		Offset: 0, 0, 60
 
 mediumfire:
 	idle:
 		Filename: fire02.shp
 		Length: *
+		# Depth offset like the explosions: drawn in front of the building or unit it sits on.
+		Offset: 0, 0, 60
 
 smallfire:
 	idle:
 		Filename: fire03.shp
 		Length: *
+		# Depth offset like the explosions: drawn in front of the building or unit it sits on.
+		Offset: 0, 0, 60
 
 moveflsh:
 	idle:

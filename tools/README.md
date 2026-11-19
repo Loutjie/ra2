@@ -29,3 +29,14 @@ Game data is never committed to this repository; test fixtures are inline and fi
 
 `exact` generates the Exact balance mode from the original `rules.ini`; see
 [`exact/README.md`](exact/README.md).
+
+## Damage fires
+
+`damagefires` generates `mods/ra2/rules/damage-fires.yaml`: the fires RA2 lights on a
+building below half health, at its `art.ini` `DamageFireOffsetN` points. Re-run it after
+adding a building that has fire points in the original art:
+
+```sh
+cd tools
+python3 -m damagefires.generate
+```

@@ -32,3 +32,16 @@ def test_vehicles_ships_and_aircraft_smoke_but_infantry_does_not():
     for template in ("^Vehicle", "^Ship", "^NeutralAircraft"):
         assert "^DamageSmoke" in DEFAULTS[template].values(), template
     assert "^DamageSmoke" not in DEFAULTS["^Infantry"].values()
+
+
+def test_fire_and_smoke_sprites_draw_in_front_of_buildings():
+    """Building sprites carry a depth map, so an effect at the building's position sorts behind its front
+    and only shows on flat buildings. Like the explosions, the sprites need their own depth offset."""
+    misc = parse_miniyaml((MOD / "sequences" / "misc.yaml").read_text(encoding="utf-8-sig"))
+    for image in ("largefire", "mediumfire", "smallfire", "smallsmoke"):
+        assert misc[image]["idle"]["Offset"].replace(" ", "") == "0,0,60", image
+
+
+def test_damage_smoke_rises_from_above_the_hull():
+    # At the centre the smoke spawns inside the voxel and the model hides it.
+    assert DEFAULTS["^DamageSmoke"]["LeavesTrails@DAMAGESMOKE"]["Offsets"] == "0,0,512"
