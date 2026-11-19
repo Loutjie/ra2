@@ -1145,6 +1145,15 @@ Actors:
 	SovietYard: nayard
 		Location: 158,16
 		Owner: Soviets
+	AlliedPower3: gapowr
+		Location: 73,17
+		Owner: Allies
+	AlliedPower4: gapowr
+		Location: 79,8
+		Owner: Allies
+	SovietReactor: nanrct
+		Location: 155,-14
+		Owner: Soviets
 	AlliedPrism3: atesla
 		Location: 73,9
 		Owner: Allies

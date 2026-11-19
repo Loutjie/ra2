@@ -88,6 +88,10 @@ tesla:
 	DamageMultiplier@UNKILLABLE:
 		Modifier: 0
 
+nanrct:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
 nayard:
 	DamageMultiplier@UNKILLABLE:
 		Modifier: 0
