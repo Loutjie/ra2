@@ -32,6 +32,11 @@ namespace OpenRA.Mods.RA2.Projectiles
 			"so the depth buffer never lets the glow cover it.")]
 		public readonly WDist CoreDepthOffset = new(32);
 
+		[Desc("How far both beams are moved towards the camera, without moving them on screen,",
+			"so terrain in front (a hill the target stands on) does not hide the end of the beam.",
+			"RA2 drew beams over everything.")]
+		public readonly WDist DepthOffset = WDist.Zero;
+
 		IProjectile IProjectileInfo.Create(ProjectileArgs args)
 		{
 			var c = UsePlayerColor ? args.SourceActor.OwnerColor() : Color;
@@ -49,6 +54,7 @@ namespace OpenRA.Mods.RA2.Projectiles
 		readonly Color secondaryColor;
 		readonly bool hasLaunchEffect;
 		readonly WVec coreDepthOffset;
+		readonly WVec beamDepthOffset;
 		int ticks;
 		int interval;
 		bool showHitAnim;
@@ -69,7 +75,8 @@ namespace OpenRA.Mods.RA2.Projectiles
 
 			// Screen y follows world Y - Z and depth follows world Y, so moving +Y and +Z together
 			// brings the core nearer the camera without moving it on screen.
-			coreDepthOffset = new WVec(0, info.CoreDepthOffset.Length, info.CoreDepthOffset.Length);
+			beamDepthOffset = new WVec(0, info.DepthOffset.Length, info.DepthOffset.Length);
+			coreDepthOffset = beamDepthOffset + new WVec(0, info.CoreDepthOffset.Length, info.CoreDepthOffset.Length);
 			target = args.PassiveTarget;
 			source = args.Source;
 
@@ -136,7 +143,7 @@ namespace OpenRA.Mods.RA2.Projectiles
 				if (info.SecondaryBeam)
 				{
 					var src = Color.FromArgb((info.Duration - ticks) * secondaryColor.A / info.Duration, secondaryColor);
-					yield return new BeamRenderable(source, info.SecondaryBeamZOffset, target - source,
+					yield return new BeamRenderable(source + beamDepthOffset, info.SecondaryBeamZOffset, target - source,
 						info.SecondaryBeamShape, info.SecondaryBeamWidth, src);
 				}
 

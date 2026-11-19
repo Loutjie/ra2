@@ -118,6 +118,7 @@ PrismShot:
 		SecondaryBeamWidth: 232
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
@@ -148,6 +149,7 @@ PrismSupport:
 		SecondaryBeamWidth: 120
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
 		SecondaryBeamZOffset: 2046
 
 Comet:
