@@ -111,11 +111,11 @@ PrismShot:
 	Range: 8c0
 	Report: bpriat1a.wav
 	Projectile: LaserZap
-		Width: 128
+		Width: 160
 		Color: FFFFFF
 		ZOffset: 2047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 320
+		SecondaryBeamWidth: 224
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
@@ -139,12 +139,12 @@ PrismSupport:
 	ReloadDelay: 50
 	Range: 8c0
 	Projectile: LaserZap
-		Width: 64
+		Width: 80
 		Duration: 13
 		Color: FFFFFF
 		ZOffset: 2047
 		SecondaryBeam: true
-		SecondaryBeamWidth: 192
+		SecondaryBeamWidth: 112
 		SecondaryBeamUsePlayerColor: true
 		SecondaryBeamZOffset: 2046
 
