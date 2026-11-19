@@ -316,8 +316,10 @@ Raid = function(player, types, foot, base)
 	end)
 end
 
+-- Raids start when the camera reaches the base: the ramp foot is a few cells from the defences, so the fight
+-- begins while the camera holds there. Starting earlier let raids finish before the camera arrived.
 RaidSovietBase = function()
-	Trigger.AfterDelay(DateTime.Seconds(10), function() Raid(Allies, AlliedRaid, SovietRampFoot.Location, SovietConyard) end)
+	Raid(Allies, AlliedRaid, SovietRampFoot.Location, SovietConyard)
 end
 
 -- Soviet raids alternate between the Allied base's two ramps, so both pairs of Prism Towers get used.
@@ -325,7 +327,7 @@ SovietRaidCount = 0
 RaidAlliedBase = function()
 	SovietRaidCount = SovietRaidCount + 1
 	local foot = SovietRaidCount % 2 == 0 and AlliedNorthRampFoot or AlliedRampFoot
-	Trigger.AfterDelay(DateTime.Seconds(18), function() Raid(Soviets, SovietRaid, foot.Location, AlliedConyard) end)
+	Raid(Soviets, SovietRaid, foot.Location, AlliedConyard)
 end
 
 -- Alternates a superweapon strike with a Chronosphere jump or Iron Curtain, one per pass over the strip.
@@ -351,11 +353,11 @@ end
 
 BuildCameraRoute = function()
 	CameraRoute = {
-		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(10) },
+		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(15), arrive = RaidAlliedBase },
 		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(12), event = true },
-		{ position = AtGroundZero(SeaBattle), hold = 0, arrive = RaidSovietBase },
-		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(10) },
-		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true, arrive = RaidAlliedBase },
+		{ position = AtGroundZero(SeaBattle), hold = 0 },
+		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(15), arrive = RaidSovietBase },
+		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true },
 	}
 	CameraAt = CameraRoute[1].position
 
