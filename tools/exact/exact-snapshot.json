@@ -1257,7 +1257,7 @@
 			},
 			"AttackTesla": {
 				"ChargeAudio": "bpripow.wav",
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || prism-supporting",
 				"ReloadDelay": "28",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
@@ -1357,6 +1357,12 @@
 			},
 			"Power": {
 				"Amount": "-75"
+			},
+			"PrismTower": {
+				"PauseOnCondition": "lowpower",
+				"RequiresCondition": "!build-incomplete",
+				"SupportWeapon": "PrismSupport",
+				"SupportingCondition": "prism-supporting"
 			},
 			"ProvidesPrerequisite@BASE": {
 				"Prerequisite": "atesla"
@@ -1609,6 +1615,7 @@
 				"LightDiffuseColor": "1.4,1.4,1.4",
 				"LightPitch": "150",
 				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
 				"Scale": "11.7"
 			},
 			"RevealsShroud": {
@@ -25087,11 +25094,17 @@
 		},
 		"Comet.exact": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -25131,6 +25144,11 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "CometFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"DemoTruckTargeting.exact": {
@@ -26810,10 +26828,16 @@
 		"PrismShot.exact": {
 			"Burst": "1",
 			"Projectile": {
-				"UsePlayerColor": "true",
-				"Width": "70",
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "232",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "192",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "8c0",
 			"ReloadDelay": "28",
@@ -27214,11 +27238,17 @@
 		},
 		"SuperComet.exact": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -27258,6 +27288,11 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "SuperCometFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"SuperMindControl.exact": {

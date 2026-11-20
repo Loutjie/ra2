@@ -1241,7 +1241,7 @@
 			},
 			"AttackTesla": {
 				"ChargeAudio": "bpripow.wav",
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || prism-supporting",
 				"ReloadDelay": "60",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
@@ -1342,6 +1342,12 @@
 			},
 			"Power": {
 				"Amount": "-75"
+			},
+			"PrismTower": {
+				"PauseOnCondition": "lowpower",
+				"RequiresCondition": "!build-incomplete",
+				"SupportWeapon": "PrismSupport",
+				"SupportingCondition": "prism-supporting"
 			},
 			"ProximityCaptor": {
 				"Types": "Building"
@@ -1585,6 +1591,7 @@
 				"LightDiffuseColor": "1.4,1.4,1.4",
 				"LightPitch": "150",
 				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
 				"Scale": "11.7"
 			},
 			"RevealsShroud": {
@@ -25742,7 +25749,6 @@
 				"ProductionPaletteWidget": "PRODUCTION_PALETTE"
 			},
 			"RadarPings": {},
-			"ReopenSoundAfterSleep": {},
 			"ReplaceOnPrerequisiteAtLoad": {},
 			"ResourceClaimLayer": {},
 			"ResourceGrowth@gems": {
@@ -33659,11 +33665,17 @@
 		},
 		"Comet": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -33703,6 +33715,56 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "CometFragment",
+				"_value": "FireFragments"
+			}
+		},
+		"CometFragment": {
+			"InvalidTargets": "Structure, Wall",
+			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"Duration": "20",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "140",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "112",
+				"ZOffset": "2047",
+				"_value": "GlowLaserZap"
+			},
+			"Range": "3c0",
+			"ReloadDelay": "100",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "30",
+				"DamageTypes": "Prone50Percent, TriggerProne, ElectroDeath",
+				"InvalidTargets": "Structure, Wall",
+				"Spread": "42",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "200",
+					"Drone": "200",
+					"Flak": "100",
+					"Heavy": "50",
+					"Light": "75",
+					"Medium": "50",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "200",
+					"Wood": "200"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_clsn",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"DemoTruckTargeting": {
@@ -35505,10 +35567,16 @@
 		},
 		"PrismShot": {
 			"Projectile": {
-				"UsePlayerColor": "true",
-				"Width": "70",
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "232",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "192",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "8c0",
 			"ReloadDelay": "1",
@@ -35898,11 +35966,17 @@
 		},
 		"SuperComet": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -35942,6 +36016,56 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "SuperCometFragment",
+				"_value": "FireFragments"
+			}
+		},
+		"SuperCometFragment": {
+			"InvalidTargets": "Structure, Wall",
+			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"Duration": "20",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "140",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "112",
+				"ZOffset": "2047",
+				"_value": "GlowLaserZap"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "100",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "50",
+				"DamageTypes": "Prone50Percent, TriggerProne, ElectroDeath",
+				"InvalidTargets": "Structure, Wall",
+				"Spread": "42",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "200",
+					"Drone": "200",
+					"Flak": "100",
+					"Heavy": "50",
+					"Light": "75",
+					"Medium": "50",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "200",
+					"Wood": "200"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_clsn",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"SuperMindControl": {
