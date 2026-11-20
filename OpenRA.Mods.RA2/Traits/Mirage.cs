@@ -20,7 +20,8 @@ namespace OpenRA.Mods.RA2.Traits
 	public class MirageTargetInfo : TraitInfo<MirageTarget> { }
 	public class MirageTarget { }
 
-	[Desc("Overrides the default Tooltip to aid in deceiving enemy players.")]
+	[Desc("Overrides the default Tooltip to aid in deceiving enemy players.",
+		"Enemies with a DisguiseDetector in range see the actor's own tooltip and owner instead.")]
 	sealed class MirageTooltipInfo : TooltipInfo, Requires<MirageInfo>
 	{
 		public override object Create(ActorInitializer init) { return new MirageTooltip(init.Self, this); }
@@ -30,21 +31,25 @@ namespace OpenRA.Mods.RA2.Traits
 	{
 		readonly Actor self;
 		readonly Mirage mirage;
+		readonly TooltipInfo revealedInfo;
 
 		public MirageTooltip(Actor self, MirageTooltipInfo info)
 			: base(info)
 		{
 			this.self = self;
 			mirage = self.Trait<Mirage>();
+			revealedInfo = self.Info.TraitInfos<TooltipInfo>().FirstOrDefault(t => t is not MirageTooltipInfo);
 		}
 
-		public ITooltipInfo TooltipInfo => Info;
+		bool Revealed => mirage.IsMirage && DisguiseDetection.IsRevealed(self);
+
+		public ITooltipInfo TooltipInfo => revealedInfo != null && Revealed ? revealedInfo : Info;
 
 		public Player Owner
 		{
 			get
 			{
-				if (!mirage.IsMirage || self.Owner.IsAlliedWith(self.World.RenderPlayer))
+				if (!mirage.IsMirage || self.Owner.IsAlliedWith(self.World.RenderPlayer) || Revealed)
 					return self.Owner;
 
 				return self.World.Players.First(p => p.InternalName == mirage.Info.EffectiveOwner);

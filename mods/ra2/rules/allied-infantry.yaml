@@ -287,7 +287,7 @@ spy:
 		Payload: 250
 		PlayerExperience: 25
 		Voice: Move
-	DisguiseTooltip:
+	DetectableDisguiseTooltip:
 		Name: actor-spy.disguisetooltip-name
 		GenericName: actor-spy.disguisetooltip-generic-name
 	Selectable:
@@ -305,7 +305,7 @@ spy:
 		Types: SpyInfiltrate
 		Notification: BuildingInfiltrated
 	-WithInfantryBody:
-	WithDisguisingInfantryBody:
+	WithDetectableDisguisingInfantryBody:
 		IdleSequences: idle1,idle2
 		StandSequences: stand
 	WithDecoration@disguise:
