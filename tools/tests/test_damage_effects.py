@@ -57,3 +57,38 @@ def test_damaged_vehicles_spark_when_hit():
     assert sparks["Palette"] == "effect"
     misc = parse_miniyaml((MOD / "sequences" / "misc.yaml").read_text(encoding="utf-8-sig"))
     assert "piffpiff" in misc["explosion"]
+
+
+def _all_rules():
+    actors = {}
+    for path in sorted((MOD / "rules").rglob("*.yaml")):
+        for name, traits in parse_miniyaml(path.read_text(encoding="utf-8-sig")).items():
+            if isinstance(traits, dict):
+                actors.setdefault(name, {}).update(traits)
+    return actors
+
+
+def _inherits(actors, name, template, seen=()):
+    for key, value in actors.get(name, {}).items():
+        if key.split("@")[0] == "Inherits" and isinstance(value, str) and value not in seen:
+            if value == template or _inherits(actors, value, template, seen + (value,)):
+                return True
+    return False
+
+
+def test_hidden_units_do_not_give_themselves_away_with_smoke():
+    """Smoke and sparks are world effects that ignore cloaks and disguises: a submerged sub or a Mirage
+    tank posing as a tree must not smoke or spark."""
+    actors = _all_rules()
+    checked = 0
+    for name, traits in actors.items():
+        if name.startswith("^") or not _inherits(actors, name, "^DamageSmoke"):
+            continue
+        hidden = [t.get("CloakedCondition") for k, t in traits.items() if k.split("@")[0] == "Cloak" and isinstance(t, dict)]
+        hidden += [t.get("MirageCondition") for k, t in traits.items() if k.split("@")[0] == "Mirage" and isinstance(t, dict)]
+        for condition in filter(None, hidden):
+            checked += 1
+            for trait in ("FloatingSpriteEmitter@DAMAGESMOKE", "WithDamageOverlay@SPARKS"):
+                requires = traits.get(trait, {}).get("RequiresCondition", "")
+                assert f"!{condition}" in requires.replace(" ", ""), (name, trait)
+    assert checked >= 2  # sub (underwater) and mgtk (tree)

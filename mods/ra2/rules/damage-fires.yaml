@@ -1293,6 +1293,12 @@ capars12:
 		Sequence: idle
 		Palette: effect
 		Offset: -1496,459,0
+	WithIdleOverlay@DAMAGEFIRE1:
+		RequiresCondition: heavy-damage
+		Image: mediumfire
+		Sequence: idle
+		Palette: effect
+		Offset: -1207,-1038,0
 
 capars13:
 	GrantConditionOnDamageState@HEAVYDAMAGE:
