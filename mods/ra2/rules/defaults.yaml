@@ -388,8 +388,11 @@
 		Position: Center
 		Palette: mouse
 	CaptureManager:
-	FootprintPlaceBuildingPreview:
+	ActorPreviewPlaceBuildingPreview:
 		Palette: effect75alpha
+		PreviewAlpha: 0.5
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
 
 ^BaseBuilding:
 	Inherits: ^Building
@@ -514,8 +517,11 @@
 		Footprint: x
 		BuildSounds: uplace.wav
 		TerrainTypes: Clear, Rough, Road, DirtRoad
-	FootprintPlaceBuildingPreview:
+	ActorPreviewPlaceBuildingPreview:
 		Palette: effect75alpha
+		PreviewAlpha: 0.5
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
 	BlocksProjectiles:
 	LineBuild:
 		Range: 8
