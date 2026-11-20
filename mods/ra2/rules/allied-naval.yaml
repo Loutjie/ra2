@@ -155,8 +155,12 @@ aegis:
 	RevealsShroud:
 		Range: 8c0
 	# RA2 DistributedFire=yes: each missile goes at the next enemy aircraft in range.
-	DistributedArmament:
+	DistributedArmament@primary:
 		Weapon: Medusa
+		RequiresCondition: !rank-elite
+	DistributedArmament@elite:
+		Weapon: MedusaE
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 512

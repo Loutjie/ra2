@@ -85,6 +85,21 @@ Medusa:
 		Spread: 60
 		Damage: 100
 
+# RA2 ElitePrimary of the Aegis: same damage, Range=14, ROF=5, Burst=2, Speed=150.
+# Medusa fires 3 missiles per 126 ticks (13 apart, then 100). RA2 fires MedusaE six times as
+# often as Medusa (2 per 5 frames against 1 per 15), so MedusaE fires its pair 5 ticks apart
+# (the burst gap Exact mode assumes) every 14 ticks.
+MedusaE:
+	Inherits: Medusa
+	Range: 14c0
+	Burst: 2
+	BurstDelays: 5
+	ReloadDelay: 9
+	Projectile: Missile
+		# RA2 Speed=150 leptons per frame.
+		Speed: 720
+		RangeLimit: 17c409
+
 HoverMissile:
 	Inherits: ^Missile
 	ReloadDelay: 50
