@@ -38,6 +38,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -274,6 +275,7 @@
 				"Prerequisites": "~gaweap, gadept, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -581,6 +583,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -877,6 +882,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1195,6 +1201,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -1606,6 +1615,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1885,6 +1895,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ccomand"
@@ -2212,6 +2223,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "civan"
@@ -2499,7 +2511,13 @@
 			"AppearsOnRadar": {},
 			"Armament@Temporal": {
 				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "!rank-elite",
 				"Weapon": "NeutronRifle.exact"
+			},
+			"Armament@TemporalElite": {
+				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "NeutronRifleE.exact"
 			},
 			"Armor": {
 				"Type": "None"
@@ -2527,6 +2545,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"ExplodeInstead": "false",
@@ -2827,6 +2846,7 @@
 				"Prerequisites": "~gaweap, refinery, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoResourceDelivery": {
 				"Image": "cmin",
 				"WarpInSequence": "warpout",
@@ -3108,6 +3128,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "deso"
@@ -3484,6 +3505,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -3971,6 +3993,7 @@
 				"Prerequisites": "~barracks, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "dog"
@@ -4218,6 +4241,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4461,6 +4485,7 @@
 				"Prerequisites": "~naweap, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4736,6 +4761,7 @@
 				"Prerequisites": "naradr, ~vehicles.libya, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -5085,6 +5111,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e1"
@@ -5501,6 +5528,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e2"
@@ -5841,6 +5869,7 @@
 			"Captures": {
 				"CaptureTypes": "building, husk"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "engineer"
@@ -6191,6 +6220,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "flakt"
@@ -6662,6 +6692,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -6994,6 +7025,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7244,6 +7278,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7473,6 +7510,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ChronoshiftPower@chronoshift": {
 				"ChargeInterval": "5250",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
@@ -7669,6 +7709,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -7860,6 +7903,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CreatesShroud": {
 				"Range": "10c0",
@@ -8031,6 +8077,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8204,6 +8253,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -8444,6 +8496,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8613,6 +8668,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8790,6 +8848,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -8994,6 +9055,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9176,6 +9240,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9435,6 +9502,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9682,6 +9752,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9879,6 +9952,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -10185,6 +10261,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10405,6 +10484,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -10752,6 +10832,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11091,6 +11172,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11419,6 +11501,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11675,6 +11758,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ivan"
@@ -12024,6 +12108,9 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"Cloneable": {
 				"Types": "infantry"
 			},
@@ -12297,6 +12384,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -12584,6 +12672,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -12926,6 +13015,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13226,6 +13316,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ClonesProducedUnits": {
 				"CloneableTypes": "infantry",
 				"ProductionType": "Cloning"
@@ -13460,6 +13553,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -13673,6 +13769,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -13883,6 +13982,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14069,6 +14171,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14327,6 +14432,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14537,6 +14645,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14717,6 +14828,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14928,6 +15042,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15113,6 +15230,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15294,6 +15414,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15473,6 +15596,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15660,6 +15786,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -15875,6 +16004,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16061,6 +16193,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16316,6 +16451,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -16561,6 +16699,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -17072,6 +17213,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ptroop"
@@ -17388,6 +17530,7 @@
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -17929,6 +18072,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "shk"
@@ -18266,6 +18410,7 @@
 				"Prerequisites": "~naweap, repairpad, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -18596,6 +18741,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "snipe"
@@ -18897,6 +19043,7 @@
 				"Prerequisites": "gatech, ~gapile, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "spy"
@@ -19423,6 +19570,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -19778,6 +19926,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20067,6 +20216,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "tany"
@@ -20384,6 +20534,7 @@
 				"Prerequisites": "naradr, ~infantry.cuba, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "terror"
@@ -20724,6 +20875,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -20933,6 +21087,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21255,6 +21410,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21575,6 +21731,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21863,6 +22020,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuri"
@@ -22231,6 +22389,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuripr"
@@ -23704,19 +23863,13 @@
 				"_value": "RadBeam"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
-			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "350",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "12",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -25414,19 +25567,36 @@
 				"_value": "RadBeam"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "10",
+				"_value": "ChronoErase"
 			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "250",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Stars": {
+				"Explosions": "chronosk",
+				"ValidTargets": "Ground, Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"NeutronRifleE.exact": {
+			"Projectile": {
+				"Amplitude": "476",
+				"Color": "80C8FF",
+				"WaveLength": "384",
+				"ZOffset": "2047",
+				"_value": "RadBeam"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "20",
+			"ValidTargets": "Ground",
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "19",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",

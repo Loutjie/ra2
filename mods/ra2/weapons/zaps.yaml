@@ -224,30 +224,36 @@ RadEruptionWeapon:
 
 NeutronRifle:
 	ValidTargets: Ground
-	ReloadDelay: 120
+	# Refires often so the beam looks continuous and the hold (Hold 25) breaks soon after it stops.
+	ReloadDelay: 20
 	Range: 5c0
-	Report: ichratta.wav
 	Projectile: RadBeam
 		Amplitude: 476
 		WaveLength: 384
 		Color: 80C8FF
 		ZOffset: 2047
-	Warhead@Damage: SpreadDamage
-		Spread: 64
-		Damage: 8
-	Warhead@Disable: GrantExternalCondition
-		Range: 64
-		Duration: 250
-		Condition: chronodisable, notmobile
+	# RA2 ChronoBeam (Temporal=yes): holds and erases the target instead of damaging it.
+	# Warp per tick = RA2 Damage per frame (8) x 1.2 frames per tick.
+	Warhead@Erase: ChronoErase
+		Warp: 10
+		Hold: 25
+		LinkSound: ichratta.wav
 	Warhead@Stars: CreateEffect
 		Explosions: chronosk
 		ValidTargets: Ground, Water
 
+NeutronRifleE:
+	Inherits: NeutronRifle
+	# RA2 NeutronRifleE: Damage 16.
+	Warhead@Erase: ChronoErase
+		Warp: 19
+
 CRNeutronRifle:
 	Inherits: NeutronRifle
 	Range: 6c0
-	Warhead@Disable: GrantExternalCondition
-		Duration: 350
+	# RA2 CRNeutronRifle: Damage 10.
+	Warhead@Erase: ChronoErase
+		Warp: 12
 
 LightningStorm:
 	ReloadDelay: 0

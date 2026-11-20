@@ -287,6 +287,8 @@ cleg.exact:
 	-MapEditorData:
 	Armament@Temporal:
 		Weapon: NeutronRifle.exact
+	Armament@TemporalElite:
+		Weapon: NeutronRifleE.exact
 	Armor:
 		Type: None
 	Buildable:

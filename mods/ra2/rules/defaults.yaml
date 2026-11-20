@@ -252,6 +252,8 @@
 		Condition: invulnerability
 
 ^ChronoDisable:
+	# RA2 Temporal: Chrono Legionnaire beams freeze and then erase the actor.
+	ChronoErasable:
 	TimedConditionBar@ChronoDisable:
 		Condition: chronodisable
 		Color: FFFFFF
@@ -360,6 +362,9 @@
 	FireWarheadsOnDeath:
 		Type: Footprint
 		Weapon: BuildingExplode
+	# RA2 Temporal: Chrono Legionnaires erase buildings too.
+	ChronoErasable:
+		Condition:
 	RepairableBuilding:
 		RepairingNotification: Repairing
 	InstantlyRepairable:

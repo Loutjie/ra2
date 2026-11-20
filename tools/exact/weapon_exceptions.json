@@ -14,11 +14,6 @@
 			"reason": "no damage warhead in the mod weapon"
 		},
 		{
-			"twin": "CRNeutronRifle.exact",
-			"reason": "chrono-erasure (see EXCEPTIONS.md)",
-			"exception": "chrono-erasure"
-		},
-		{
 			"twin": "Comet.exact",
 			"reason": "prism-tank-beam (see EXCEPTIONS.md)",
 			"exception": "prism-tank-beam"
@@ -61,11 +56,6 @@
 			"twin": "IvanBomberE.exact",
 			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
 			"exception": "crazy-ivan-bomb"
-		},
-		{
-			"twin": "NeutronRifle.exact",
-			"reason": "chrono-erasure (see EXCEPTIONS.md)",
-			"exception": "chrono-erasure"
 		},
 		{
 			"twin": "SonicZap.exact",
@@ -148,9 +138,6 @@
 		},
 		{
 			"weapon": "MindControlE"
-		},
-		{
-			"weapon": "NeutronRifleE"
 		},
 		{
 			"weapon": "PrismSupport"

@@ -129,6 +129,24 @@ def _fill_from(pairs: Mapping[str, str]):
     return rule
 
 
+def chrono_erasure(exc: ConversionException, gen: Generated) -> list[str]:
+    """RA2's temporal weapons: range from RA2, and the erase rate (ChronoErase Warp, warp
+    points per tick) from RA2's Damage, which a temporal beam applies per frame."""
+    lines = []
+    ticks_per_1000_frames = conversions.frames_to_ticks(1000)
+    for name in ("NeutronRifle", "NeutronRifleE", "CRNeutronRifle"):
+        t, w = gen.weapon(name), load_weapon(gen.rules, name)
+        if t is None or w is None or t.reason == NOT_FIRED:
+            continue
+        warp = round(w.damage * 1000 / ticks_per_1000_frames)
+        t.values = {"Range": conversions.cells_to_wdist(w.range),
+            "Warhead@Erase": {"_value": "ChronoErase", "Warp": warp}}
+        t.reason, t.exception = None, exc.id
+        t.comments.append(f"Exception {exc.id}: RA2 range; erase rate from Damage per frame")
+        lines.append(f"{t.twin}: Range from RA2 {w.id}; Warp {warp} per tick (Damage={w.damage} per frame)")
+    return lines
+
+
 def mind_control(exc: ConversionException, gen: Generated) -> list[str]:
     """Timing and range from RA2; the damage stays 0 (RA2's Damage= on a mind control
     warhead takes control of the target and does not damage it)."""
@@ -268,10 +286,11 @@ EXCEPTIONS: list[ConversionException] = [
         "damage (Spread 800). Writing RA2's CellSpread would remove it. The twins stay stubs.",
         rule=_stub("Comet", "SuperComet")),
     ConversionException("chrono-erasure",
-        "NeutronRifle.exact, CRNeutronRifle.exact",
-        "RA2's Chrono Legionnaire erases its target over time; the mod uses a separate erase "
-        "mechanic. The twins stay stubs.",
-        rule=_stub("NeutronRifle", "CRNeutronRifle")),
+        "NeutronRifle.exact, NeutronRifleE.exact, CRNeutronRifle.exact",
+        "RA2's temporal beam (Temporal=yes) erases its target at Damage warp points per frame "
+        "against Strength x 10; its Damage is not damage, and the beam holds until it stops, so ROF "
+        "does not set the pace. The twins take RA2's range and the ChronoErase Warp converted to ticks.",
+        rule=chrono_erasure),
     ConversionException("weapon-structure-stubs",
         "Twin weapons kept as Inherits stubs by exact.weapons",
         "No RA2 section of that name, a section no twinned RA2 actor fires, or a mod weapon "

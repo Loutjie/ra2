@@ -92,12 +92,13 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 ## chrono-erasure
 
-- Field: NeutronRifle.exact, CRNeutronRifle.exact
-- Applied by: rule `stub`
-- Reason: RA2's Chrono Legionnaire erases its target over time; the mod uses a separate erase mechanic. The twins stay stubs.
+- Field: NeutronRifle.exact, NeutronRifleE.exact, CRNeutronRifle.exact
+- Applied by: rule `chrono_erasure`
+- Reason: RA2's temporal beam (Temporal=yes) erases its target at Damage warp points per frame against Strength x 10; its Damage is not damage, and the beam holds until it stops, so ROF does not set the pace. The twins take RA2's range and the ChronoErase Warp converted to ticks.
 - Affected:
-  - NeutronRifle.exact: Inherits stub
-  - CRNeutronRifle.exact: Inherits stub
+  - NeutronRifle.exact: Range from RA2 NeutronRifle; Warp 10 per tick (Damage=8 per frame)
+  - NeutronRifleE.exact: Range from RA2 NeutronRifleE; Warp 19 per tick (Damage=16 per frame)
+  - CRNeutronRifle.exact: Range from RA2 CRNeutronRifle; Warp 12 per tick (Damage=10 per frame)
 
 ## weapon-structure-stubs
 
@@ -137,7 +138,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - MaverickE
   - MedusaE
   - MindControlE
-  - NeutronRifleE
   - PrismSupport
   - PsiWave
   - RadEruptionWeapon
