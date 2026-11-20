@@ -525,6 +525,8 @@ mgtk:
 	RenderVoxels:
 	WithVoxelBody:
 		RequiresCondition: !tree
+	WithMirageRevealedVoxelBody:
+		RequiresCondition: tree
 	Voiced:
 		VoiceSet: AlliedVehicleVoice
 	ProducibleWithLevel:

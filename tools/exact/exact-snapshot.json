@@ -12852,6 +12852,9 @@
 				"Offset": "0,0,960",
 				"UsePlayerColor": "true"
 			},
+			"WithMirageRevealedVoxelBody": {
+				"RequiresCondition": "tree"
+			},
 			"WithMirageSpriteBody": {
 				"RequiresCondition": "tree"
 			},
@@ -15302,6 +15305,10 @@
 			"Demolishable": {},
 			"DetectCloaked": {
 				"Range": "6c0"
+			},
+			"DisguiseDetector": {
+				"Range": "15c0",
+				"RequiresCondition": "!build-incomplete && !lowpower"
 			},
 			"ExternalCondition@INVULNERABILITY": {
 				"Condition": "invulnerability"
@@ -18952,12 +18959,12 @@
 				"PlayerExperience": "25",
 				"Voice": "Move"
 			},
-			"Disguise": {
-				"DisguisedCondition": "disguise"
-			},
-			"DisguiseTooltip": {
+			"DetectableDisguiseTooltip": {
 				"GenericName": "actor-spy.disguisetooltip-generic-name",
 				"Name": "actor-spy.disguisetooltip-name"
+			},
+			"Disguise": {
+				"DisguisedCondition": "disguise"
 			},
 			"DrawLineToTarget": {},
 			"EdibleByLeap": {},
@@ -19170,7 +19177,7 @@
 				"RequiresCondition": "disguise",
 				"Sequence": "pip-disguise"
 			},
-			"WithDisguisingInfantryBody": {
+			"WithDetectableDisguisingInfantryBody": {
 				"IdleSequences": "idle1,idle2",
 				"StandSequences": "stand"
 			},
