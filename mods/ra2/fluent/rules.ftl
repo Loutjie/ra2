@@ -501,6 +501,13 @@ actor-camsc09-name = Hut
 actor-camsc10-name = McBurger Kong
 actor-cabunk01-name = Concrete Bunker
 actor-cabunk02-name = Concrete Bunker
+actor-city01-name = Connelly Court Apts.
+actor-city02-name = Lightner's Luxury Suites
+actor-city03-name = Office Building
+actor-city04-name = Westwood Stock Exchange
+actor-city06-name = YEO-CA Cola Corp.
+actor-mayan-name = Mayan Pyramid
+actor-napsya-name = Psychic Amplifier
 
 ## civilian-vehicles.yaml
 actor-bus-name = School Bus

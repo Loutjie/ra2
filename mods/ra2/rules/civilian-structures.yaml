@@ -4004,3 +4004,142 @@ cabunk02.rubble:
 		Footprint: == ==
 	RenderSprites:
 		Image: cabunk02
+
+city01:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^3x3Shape
+	Tooltip:
+		Name: actor-city01-name
+	Armor:
+		Type: Wood
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+	IsometricSelectable:
+		Height: 75
+	RenderSprites:
+		PlayerPalette:
+		Palette: terrain
+	MapEditorData:
+		RequireTilesets: URBAN
+
+city02:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x3Shape
+	Tooltip:
+		Name: actor-city02-name
+	Armor:
+		Type: Steel
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 4,3
+		Footprint: xxxx xxxx xxxx
+	IsometricSelectable:
+		Height: 75
+	RenderSprites:
+		PlayerPalette:
+		Palette: terrain
+	MapEditorData:
+		RequireTilesets: URBAN
+
+city03:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^3x3Shape
+	Tooltip:
+		Name: actor-city03-name
+	Armor:
+		Type: Steel
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 3,3
+		Footprint: xxx xxx xxx
+	IsometricSelectable:
+		Height: 75
+	RenderSprites:
+		PlayerPalette:
+		Palette: terrain
+	MapEditorData:
+		RequireTilesets: URBAN
+
+city04:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: actor-city04-name
+	Armor:
+		Type: Steel
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+	IsometricSelectable:
+		Height: 75
+	RenderSprites:
+		PlayerPalette:
+		Palette: terrain
+	MapEditorData:
+		RequireTilesets: URBAN
+
+city06:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: actor-city06-name
+	Armor:
+		Type: Steel
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+	IsometricSelectable:
+		Height: 75
+	MapEditorData:
+		RequireTilesets: URBAN
+
+mayan:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^3x2Shape
+	Tooltip:
+		Name: actor-mayan-name
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 2000
+	Building:
+		Dimensions: 3,2
+		Footprint: xxx xxx
+	IsometricSelectable:
+		Height: 135
+	RenderSprites:
+		Image: camex01
+	SpawnActorOnDeath:
+		Actor: camex01.rubble
+	MapEditorData:
+		ExcludeTilesets: SNOW
+
+napsya:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^4x4Shape
+	Tooltip:
+		Name: actor-napsya-name
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	Health:
+		HP: 1000
+	Building:
+		Dimensions: 4,4
+		Footprint: xxxx xxxx xxxx xxxx
+	IsometricSelectable:
+		Height: 150
+	WithIdleOverlay@active:
+		Sequence: idle-active
