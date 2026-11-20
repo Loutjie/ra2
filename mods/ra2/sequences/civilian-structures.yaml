@@ -1766,3 +1766,69 @@ city05:
 		Offset: 0, -60, 60
 	idle:
 		ShadowStart: 2
+
+city01:
+	Defaults:
+		Filename: city01.shp
+		Offset: 0, -45, 45
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+city02:
+	Defaults:
+		Filename: city02.shp
+		Offset: -15, -52, 52
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+city03:
+	Defaults:
+		Filename: city03.shp
+		Offset: 0, -45, 45
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+city04:
+	Defaults:
+		Filename: city04.shp
+		Offset: 0, -60, 60
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+city06:
+	Defaults:
+		Filename: city06.shp
+		Offset: 0, -60, 60
+	idle:
+		ShadowStart: 2
+	damaged-idle:
+		Start: 1
+		ShadowStart: 3
+
+napsya:
+	Inherits: ^CivStructureNoRubble
+	Defaults:
+		TilesetFilenames:
+			TEMPERATE: ntpsya.shp
+			SNOW: napsya.shp
+			URBAN: nupsya.shp
+		Offset: 0, -60, 60
+	idle-active:
+		TilesetFilenames:
+			TEMPERATE: ntpsya_a.shp
+			SNOW: napsya_a.shp
+			URBAN: nupsya_a.shp
+		Length: 14
+		ShadowStart: 28
