@@ -42,6 +42,7 @@ engineer:
 	CaptureManager:
 
 dog:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Buildable:
 		Queue: Infantry
@@ -122,6 +123,7 @@ dog:
 		StandSequences: stand
 
 e1:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^Infantry
 	Inherits@2: ^Parachutable
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -227,6 +229,7 @@ e1:
 		RequiresCondition: !editorhack
 
 snipe:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
@@ -637,6 +640,7 @@ jumpjet.husk:
 	WithShadow:
 
 cleg:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@MC: ^MindControllable
 	Selectable:

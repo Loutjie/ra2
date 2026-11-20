@@ -233,6 +233,7 @@ terror:
 		Sequence: stand
 
 deso:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable

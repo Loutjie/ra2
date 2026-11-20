@@ -122,6 +122,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -194,6 +195,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -372,6 +377,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -459,6 +465,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -648,6 +658,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -748,6 +759,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -958,6 +973,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -1045,6 +1061,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -1227,6 +1247,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -1278,6 +1299,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1669,6 +1694,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -1742,6 +1768,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -2596,6 +2626,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -2679,6 +2710,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -2856,6 +2891,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -2926,6 +2962,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -3164,6 +3204,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -3251,6 +3292,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -3510,6 +3555,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -3583,6 +3629,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -3985,6 +4035,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -4043,6 +4094,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -4222,6 +4277,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -4291,6 +4347,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -4478,6 +4538,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -4552,6 +4613,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -4767,6 +4832,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
 			},
@@ -4854,6 +4920,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -5141,6 +5211,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -5239,6 +5310,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -6658,6 +6733,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -6745,6 +6821,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -6956,6 +7036,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7041,6 +7122,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7179,6 +7264,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7255,6 +7341,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7415,6 +7505,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7472,6 +7563,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7579,6 +7674,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7651,6 +7747,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7767,6 +7867,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7823,6 +7924,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7924,6 +8029,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7983,6 +8089,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8112,6 +8222,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8192,6 +8303,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8321,6 +8436,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8369,6 +8485,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8485,6 +8605,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8547,6 +8668,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8671,6 +8796,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8736,6 +8862,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8849,6 +8979,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8912,6 +9043,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9023,6 +9158,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9080,6 +9216,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9286,6 +9426,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9363,6 +9504,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9505,6 +9650,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9562,6 +9708,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9770,6 +9920,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9835,6 +9986,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10330,6 +10485,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -10389,6 +10545,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10595,6 +10755,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -10681,6 +10842,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -10929,6 +11094,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -11016,6 +11182,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -11265,6 +11435,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -11353,6 +11524,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -11580,6 +11755,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -11652,6 +11828,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -12438,6 +12618,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -12510,6 +12691,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -12732,6 +12917,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -12833,6 +13019,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -13072,6 +13262,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -13159,6 +13350,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -13374,6 +13569,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -13439,6 +13635,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -13547,6 +13747,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -13612,6 +13813,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -13749,6 +13954,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -13821,6 +14027,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -13949,6 +14159,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14007,6 +14218,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14177,6 +14392,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14261,6 +14477,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14392,6 +14612,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14449,6 +14670,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14568,6 +14793,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14623,6 +14849,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14744,6 +14974,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14834,6 +15065,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14944,6 +15179,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15006,6 +15242,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15118,6 +15358,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15180,6 +15421,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15291,6 +15536,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15348,6 +15594,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15462,6 +15712,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15525,6 +15776,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15650,6 +15905,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15715,6 +15971,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15839,6 +16099,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15898,6 +16159,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16016,6 +16281,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16073,6 +16339,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16274,6 +16544,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16355,6 +16626,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16573,6 +16848,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16638,6 +16914,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -17340,6 +17620,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -17412,6 +17693,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -18214,6 +18499,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -18301,6 +18587,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -18553,6 +18843,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Infantry"
 			},
@@ -18636,6 +18927,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -19119,6 +19414,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "naval",
 				"Speed": "120",
@@ -19165,6 +19461,10 @@
 			"Targetable": {
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Submergeable"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@underwater": {
 				"RequiresCondition": "underwater",
@@ -19366,6 +19666,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -19453,6 +19754,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -19712,6 +20017,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Naval"
 			},
@@ -19778,6 +20084,10 @@
 			"Targetable": {
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Repair, Submergeable"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -20596,6 +20906,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -20647,6 +20958,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -20837,6 +21152,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -20925,6 +21241,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -21156,6 +21476,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -21243,6 +21564,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -21473,6 +21798,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -21554,6 +21880,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -22620,6 +22950,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -22698,6 +23029,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -22794,6 +23129,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -22841,6 +23177,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -22942,6 +23282,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -22983,6 +23324,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -23093,6 +23438,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23152,6 +23498,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -23272,6 +23622,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23321,6 +23672,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -24661,6 +25016,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -24747,6 +25103,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -25160,6 +25520,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -25244,6 +25605,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -25449,6 +25814,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -25533,6 +25899,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -25775,6 +26145,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -25848,6 +26219,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -26027,6 +26402,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26112,6 +26488,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -26305,6 +26685,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26389,6 +26770,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -26572,6 +26957,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -26644,6 +27030,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -26810,6 +27200,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26895,6 +27286,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -27302,6 +27697,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -27386,6 +27782,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -27591,6 +27991,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -27675,6 +28076,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -27868,6 +28273,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -27952,6 +28358,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28145,6 +28555,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28229,6 +28640,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28422,6 +28837,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28507,6 +28923,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28700,6 +29120,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28784,6 +29205,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28977,6 +29402,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29061,6 +29487,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29254,6 +29684,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29339,6 +29770,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29532,6 +29967,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29616,6 +30052,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29809,6 +30249,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29893,6 +30334,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -30076,6 +30521,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -30149,6 +30595,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -30315,6 +30765,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -30400,6 +30851,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -31544,18 +31999,11 @@
 			}
 		},
 		"CRNuke": {
-			"Projectile": {
-				"Blockable": "false",
-				"Speed": "425",
-				"_value": "Bullet"
-			},
 			"Range": "1c849",
 			"ReloadDelay": "50",
-			"Report": "icraatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "200",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "0",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "426",
 				"Versus": {
@@ -31574,7 +32022,6 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "0",
 				"Explosions": "large_tumu",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
@@ -32711,40 +33158,11 @@
 			"Range": "1c849",
 			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"Warhead@0Eff": {
-				"Delay": "2",
-				"ExplosionPalette": "mouse",
-				"Explosions": "bombcurs",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
-			},
-			"Warhead@1Dam": {
-				"Damage": "400",
-				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "100",
-				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
-				"Spread": "213",
-				"Versus": {
-					"Concrete": "20",
-					"Drone": "100",
-					"Flak": "100",
-					"Heavy": "100",
-					"Light": "100",
-					"Medium": "100",
-					"None": "100",
-					"Plate": "100",
-					"Rocket": "100",
-					"Steel": "250",
-					"Wood": "100"
-				},
-				"_value": "SpreadDamage"
-			},
-			"Warhead@2Eff": {
-				"Delay": "100",
-				"Explosions": "ivan_explosion",
-				"ImpactSounds": "gexpcraa.wav",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
+			"ValidTargets": "IvanBomb",
+			"Warhead@bomb": {
+				"Timer": "100",
+				"Weapon": "IvanDeath",
+				"_value": "AttachIvanBomb"
 			}
 		},
 		"IvanBomberE": {
@@ -32756,17 +33174,19 @@
 			"Range": "1c849",
 			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"Warhead@0Eff": {
-				"Delay": "2",
-				"ExplosionPalette": "mouse",
-				"Explosions": "bombcurs",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
-			},
+			"ValidTargets": "IvanBomb",
+			"Warhead@bomb": {
+				"Timer": "100",
+				"Weapon": "IvanDeathE",
+				"_value": "AttachIvanBomb"
+			}
+		},
+		"IvanDeath": {
+			"Range": "1c849",
+			"ReloadDelay": "50",
 			"Warhead@1Dam": {
 				"Damage": "400",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "100",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "213",
 				"Versus": {
@@ -32785,26 +33205,18 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "100",
-				"Explosions": "ivan_explosionE",
+				"Explosions": "ivan_explosion",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
 				"_value": "CreateEffect"
 			}
 		},
-		"IvanDeath": {
-			"Projectile": {
-				"Blockable": "false",
-				"Speed": "425",
-				"_value": "Bullet"
-			},
+		"IvanDeathE": {
 			"Range": "1c849",
 			"ReloadDelay": "50",
-			"Report": "icraatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "400",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "0",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "213",
 				"Versus": {
@@ -32823,8 +33235,7 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "0",
-				"Explosions": "ivan_explosion",
+				"Explosions": "ivan_explosionE",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
 				"_value": "CreateEffect"
