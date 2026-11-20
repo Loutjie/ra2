@@ -86,6 +86,7 @@ Rules:
 	ra2|rules/exact/globals.yaml
 	ra2|rules/exact/reimagined.yaml
 	ra2|rules/exact/ai.yaml
+	ra2|rules/damage-fires.yaml
 	ra2|rules/garrison.yaml
 
 Sequences:

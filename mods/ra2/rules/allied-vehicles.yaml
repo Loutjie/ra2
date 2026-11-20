@@ -465,6 +465,11 @@ mgtk:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
+	# Smoke and sparks are world effects that ignore the tree hiding: they must not give the unit away.
+	FloatingSpriteEmitter@DAMAGESMOKE:
+		RequiresCondition: heavy-damage && !tree
+	WithDamageOverlay@SPARKS:
+		RequiresCondition: !tree
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 70

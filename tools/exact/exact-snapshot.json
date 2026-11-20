@@ -94,6 +94,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -106,6 +121,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -229,6 +248,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -338,6 +365,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -350,6 +392,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -517,6 +563,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -618,6 +672,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -781,6 +839,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-869,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-290,-507,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bottom": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -936,6 +1008,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -948,6 +1035,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1111,6 +1202,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -1216,6 +1315,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -1324,6 +1427,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-772,-24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@normal": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -1418,6 +1528,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1430,6 +1555,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1533,6 +1662,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -1666,6 +1803,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1678,6 +1830,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1805,6 +1961,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -2879,10 +3043,29 @@
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GivesExperience": {},
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -3027,6 +3210,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithHarvestOverlay": {
 				"LocalOffset": "121,0,0",
@@ -3547,6 +3738,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -3559,6 +3765,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -3686,6 +3896,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -4274,6 +4492,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4286,6 +4519,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -4400,6 +4637,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -4520,6 +4765,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4532,6 +4792,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -4677,6 +4941,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -4795,6 +5067,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4810,6 +5097,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"GrantConditionOnDeploy": {
 				"DeployedCondition": "triggered",
@@ -4978,6 +5269,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -6727,6 +7026,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -6739,6 +7053,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -6914,6 +7232,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -7031,6 +7357,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7178,6 +7508,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-869,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-290,-507,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bottom": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -7265,6 +7609,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7428,6 +7776,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "48,-579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1738,1545,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@fans": {
 				"RequiresCondition": "!build-incomplete && !lowpower",
 				"Sequence": "idle-fans"
@@ -7512,6 +7874,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7633,6 +7999,13 @@
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-dome"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2413,-459,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -7693,6 +8066,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -7816,6 +8193,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1062,-1617,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "bib"
@@ -7885,6 +8269,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7994,6 +8382,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-531,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -8052,6 +8447,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8164,6 +8563,34 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-483,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1641,-290,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-1207,145,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE3": {
+				"Image": "largefire",
+				"Offset": "-2558,-579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@glow": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-glow"
@@ -8244,6 +8671,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8378,6 +8809,20 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-434,434,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2655,1014,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@flag": {
 				"RequiresCondition": "!build-incomplete",
@@ -8634,6 +9079,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8750,6 +9199,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1545,-483,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-579,72,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@glow": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-glow"
@@ -8824,6 +9287,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8950,6 +9417,20 @@
 				"RequiresCondition": "invulnerability"
 			},
 			"WithDockedOverlay": {},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1496,-796,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2317,-72,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-bib"
@@ -9015,6 +9496,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -9135,6 +9620,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1786,603,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1207,-627,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@dish": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -9197,6 +9696,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -9312,6 +9815,27 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1303,-627,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "2751,-48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-2413,531,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
@@ -9463,6 +9987,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnProduction@helicopters": {
 				"Actors": "shad, shad.exact",
 				"Condition": "roof-open",
@@ -9619,6 +10147,27 @@
 				"RequiresCondition": "!roof-open && !build-incomplete",
 				"Sequence": "build-top"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "483,-241,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1448,652,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-3379,0,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@air-inside": {
 				"RequiresCondition": "roof-open && !build-incomplete",
 				"Sequence": "build-air-inside"
@@ -9703,6 +10252,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -9842,6 +10395,20 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2413,48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3041,917,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -9988,6 +10555,10 @@
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -10109,6 +10680,27 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1014,-965,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-386,-169,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-1738,772,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@crane": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-crane"
@@ -10206,6 +10798,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -10327,6 +10923,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1351,-24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -10467,6 +11070,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -10479,6 +11097,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -10648,6 +11270,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -10811,6 +11441,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -10823,6 +11468,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -10998,6 +11647,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -11150,6 +11807,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11162,6 +11834,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -11326,6 +12002,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -11475,6 +12159,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11487,6 +12186,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -11609,6 +12312,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -12353,6 +13064,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12365,6 +13091,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -12498,6 +13228,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -12643,6 +13381,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage && !tree",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12655,6 +13408,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -12829,6 +13586,15 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect",
+				"RequiresCondition": "!tree"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -12985,6 +13751,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12997,6 +13778,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -13160,6 +13945,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -13302,6 +14095,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -13420,6 +14217,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1303,555,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -13481,6 +14285,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY": {
 				"Condition": "factundeploy",
 				"Prerequisites": "global-factundeploy"
@@ -13628,6 +14436,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1979,-1569,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@normal": {
 				"RequiresCondition": "!build-incomplete",
@@ -13904,6 +14719,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -14025,6 +14844,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-627,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -14141,6 +14967,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -14284,6 +15114,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "338,-193,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1931,410,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -14348,6 +15192,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -14482,6 +15330,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2848,-48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -14558,6 +15413,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -14671,6 +15530,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-724,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -14950,6 +15816,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15070,6 +15940,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-724,1738,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3427,-1062,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-lights"
@@ -15134,6 +16018,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15254,6 +16142,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1448,-290,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-lights"
@@ -15318,6 +16213,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -15432,6 +16331,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1641,-555,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@spin": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -15494,6 +16400,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -15619,6 +16529,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1496,-386,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@dish": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -15694,6 +16611,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15820,6 +16741,13 @@
 				"RequiresCondition": "invulnerability"
 			},
 			"WithDockedOverlay": {},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1448,724,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-bib"
@@ -15896,6 +16824,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -16018,6 +16950,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-965,24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -16082,6 +17021,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -16197,6 +17140,27 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1786,-652,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1207,579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "627,121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -16343,6 +17307,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnProduction@helicopters": {
 				"Actors": "shad, shad.exact",
 				"Condition": "roof-open",
@@ -16502,6 +17470,20 @@
 			"WithExitOverlay@top-vehicles": {
 				"RequiresCondition": "!roof-open && !build-incomplete",
 				"Sequence": "build-top"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1689,-772,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3572,748,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@air-inside": {
 				"RequiresCondition": "roof-open && !build-incomplete",
@@ -16670,6 +17652,10 @@
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -16791,6 +17777,27 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2172,603,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2027,-893,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "290,-1376,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@crane": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-crane"
@@ -16895,6 +17902,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -16907,6 +17929,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -17010,6 +18036,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -17444,6 +18478,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -17456,6 +18505,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -17590,6 +18643,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -17711,6 +18772,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -17723,6 +18799,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -17834,6 +18914,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -18330,6 +19418,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -18342,6 +19445,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -18509,6 +19616,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -19482,6 +20597,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -19506,6 +20636,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -19669,6 +20803,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -19850,6 +20992,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage && !underwater",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -19862,6 +21019,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -19986,6 +21147,15 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect",
+				"RequiresCondition": "!underwater"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -20748,6 +21918,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"RequiresCondition": "!charged",
@@ -20856,6 +22030,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-676,0,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@powered": {
 				"RequiresCondition": "!lowpower && !build-incomplete",
@@ -20992,6 +22173,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -21004,6 +22200,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -21165,6 +22365,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -21314,6 +22522,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -21326,6 +22549,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -21489,6 +22716,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -21634,6 +22869,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -21646,6 +22896,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -21794,6 +23048,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22646,6 +23908,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -22658,6 +23935,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -22753,6 +24034,14 @@
 			},
 			"Voiced": {
 				"VoiceSet": "KirovVoice"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
