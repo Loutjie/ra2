@@ -249,6 +249,19 @@ CRNeutronRifle:
 	Warhead@Disable: GrantExternalCondition
 		Duration: 350
 
+# Visual only: the clouds gathering over the target during the storm's build-up.
+LightningStormClouds:
+	ReloadDelay: 0
+	Range: 7c0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Eff: CreateEffect
+		Explosions: weathercloud1, weathercloud2, weathercloud3
+		UsePlayerPalette: true
+		ExplosionPalette: player
+		ValidTargets: Ground, Water
+		ImpactActors: false
+
 LightningStorm:
 	ReloadDelay: 0
 	Range: 7c0

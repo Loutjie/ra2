@@ -372,8 +372,9 @@ EXCEPTIONS: list[ConversionException] = [
         "Lightning Storm weapon twin and timing",
         "RA2 has no weapon section for the storm: its damage is [General] LightningDamage with "
         "the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's "
-        "storm weapon. LightningDeferment (delay before the storm starts) and "
-        "LightningSeparation have no field in WeatherControlSupportPower and are not applied. "
+        "storm weapon. LightningDeferment (the build-up before the first strike) is the power's "
+        "BuildUpDelay; LightningSeparation has no field in WeatherControlSupportPower and is not "
+        "applied. "
         "LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of "
         "-5c0..5c0 already spread the clouds over a 10-cell area.",
         listed=_globals("lightning-storm")),

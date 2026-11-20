@@ -32,7 +32,8 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
   Superweapons: ChargeInterval = minutes_to_ticks(RechargeTime) of the RA2 SuperWeapon on the
     mod trait of its Type (SUPERWEAPON_TRAITS); paratroopers drop <ParaDropInf> x
     <ParaDropNum>; Iron Curtain Duration = frames_to_ticks(IronCurtainDuration); Lightning
-    Storm Duration/HitDelay/ScatterDelay from LightningStormDuration/HitDelay/ScatterDelay and
+    Storm BuildUpDelay/Duration/HitDelay/ScatterDelay from LightningDeferment/
+    LightningStormDuration/HitDelay/ScatterDelay and
     its weapon twin from LightningDamage and LightningWarhead (weather_weapon).
   Iron Curtain kills infantry: infantry twins accept the `invulnerability` external condition
     and KillsSelf while they have it.
@@ -306,7 +307,8 @@ def superweapon(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin:
             if duration:
                 fields["Duration"] = conversions.frames_to_ticks(int(duration))
         elif kind == "WeatherControlSupportPower":
-            for field_name, ini_key in (("Duration", "LightningStormDuration"),
+            for field_name, ini_key in (("BuildUpDelay", "LightningDeferment"),
+                    ("Duration", "LightningStormDuration"),
                     ("HitDelay", "LightningHitDelay"), ("ScatterDelay", "LightningScatterDelay")):
                 value = _general(rules, ini_key)
                 if value:

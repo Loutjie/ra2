@@ -9574,6 +9574,8 @@
 				"Cost": "5000"
 			},
 			"WeatherControlSupportPower@LightningStorm": {
+				"BuildUpDelay": "200",
+				"BuildUpWeapon": "LightningStormClouds",
 				"ChargeInterval": "15000",
 				"Cursor": "weatherstorm",
 				"Description": "actor-gaweat.weathercontrolsupportpower-lightningstorm-description",
@@ -24542,6 +24544,7 @@
 			"WarheadDebugOverlay": {},
 			"WeatherPaletteEffect@LIGHTNINGSTORM": {
 				"Color": "08112e50",
+				"FadeOut": "50",
 				"Length": "300",
 				"Type": "LightningStorm"
 			}
