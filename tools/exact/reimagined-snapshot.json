@@ -17759,11 +17759,13 @@
 			"AutoTargetPriority@ATTACKANYTHING": {
 				"InvalidTargets": "NoAutoTarget",
 				"RequiresCondition": "stance-attackanything || assault-move",
+				"ValidRelationships": "Neutral, Enemy",
 				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Structure, Defense"
 			},
 			"AutoTargetPriority@DEFAULT": {
 				"InvalidTargets": "NoAutoTarget, WaterStructure",
 				"RequiresCondition": "!stance-attackanything && !assault-move",
+				"ValidRelationships": "Neutral, Enemy",
 				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Defense"
 			},
 			"BodyOrientation": {
