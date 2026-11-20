@@ -15,7 +15,9 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
     abilities are flags: an elite unit has its VeteranAbilities and its EliteAbilities, and a
     bonus in both lists applies once. RA2 has no accuracy bonus (InaccuracyMultiplier@ELITE
     100). Self-heal (ChangesHealth@ELITE) only with SELF_HEAL: from rank-veteran if it is a
-    veteran ability, else from rank-elite; without it the trait is removed.
+    veteran ability, else from rank-elite; without it the trait is removed. RA2 SelfHealing=yes
+    units heal at every rank through the base actor's own ChangesHealth, so their SELF_HEAL
+    ability needs no trait.
   Sellable RefundPercent = RefundPercent.
   RepairableBuilding RepairPercent, RepairInterval, RepairStep = RepairPercent,
     minutes_to_ticks(RepairRate), RepairStep.
@@ -190,7 +192,7 @@ def veterancy(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin: s
         g.put(twin, SELF_HEAL_TRAIT, {"RequiresCondition": VETERAN if "SELF_HEAL" in veteran else ELITE})
     elif SELF_HEAL_TRAIT in base:
         g.remove(twin, SELF_HEAL_TRAIT)
-    elif "SELF_HEAL" in elite:
+    elif "SELF_HEAL" in elite and not parse_bool(actor.raw.get("SelfHealing")):
         g.note("veterancy", f"{twin}: SELF_HEAL has no {SELF_HEAL_TRAIT} trait to go to")
     unmapped = sorted((veteran | elite) - MAPPED_ABILITIES)
     if unmapped:

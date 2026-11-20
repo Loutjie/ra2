@@ -73,8 +73,6 @@ amradr.exact:
 		Actors: e1.exact
 
 apoc.exact:
-	ChangesHealth@ELITE:
-		RequiresCondition: rank-elite
 	DamageMultiplier@ELITE:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
@@ -379,8 +377,6 @@ cleg.exact:
 		Modifier: 120
 
 deso.exact:
-	ChangesHealth@ELITE:
-		RequiresCondition: rank-elite
 	DamageMultiplier@ELITE:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
@@ -885,8 +881,6 @@ gtgcan.exact:
 		RefundPercent: 50
 
 harv.exact:
-	ChangesHealth@ELITE:
-		RequiresCondition: rank-elite
 	DamageMultiplier@ELITE:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
@@ -1577,7 +1571,6 @@ spy.exact:
 		Modifier: 100
 
 sqd.exact:
-	-ChangesHealth@ELITE:
 	DamageMultiplier@ELITE:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
