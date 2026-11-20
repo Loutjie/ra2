@@ -33,6 +33,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -132,6 +133,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -208,6 +210,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -303,6 +309,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -399,6 +406,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -486,6 +494,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -607,6 +619,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -678,6 +693,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -778,6 +794,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -891,6 +911,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -987,6 +1008,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -1074,6 +1096,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -1212,6 +1238,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -1259,6 +1288,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -1310,6 +1340,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1611,6 +1645,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1706,6 +1741,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -1783,6 +1819,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -1909,6 +1949,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -2235,6 +2276,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -2521,7 +2563,13 @@
 			"AppearsOnRadar": {},
 			"Armament@Temporal": {
 				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "!rank-elite",
 				"Weapon": "NeutronRifle"
+			},
+			"Armament@TemporalElite": {
+				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "NeutronRifleE"
 			},
 			"Armor": {
 				"Type": "None"
@@ -2547,6 +2595,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"ExplodeInstead": "false",
@@ -2665,6 +2714,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -2751,6 +2801,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -2851,6 +2905,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoResourceDelivery": {
 				"WarpInSequence": "warpout",
 				"WarpInSound": "vchrtele.wav",
@@ -2934,6 +2989,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -3004,6 +3060,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -3127,6 +3187,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -3244,6 +3305,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -3334,6 +3396,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -3500,6 +3566,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -3598,6 +3665,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -3675,6 +3743,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -4001,6 +4073,7 @@
 				"Prerequisites": "~barracks",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -4093,6 +4166,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -4154,6 +4228,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -4247,6 +4325,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4338,6 +4417,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -4411,6 +4491,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
@@ -4515,6 +4599,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4611,6 +4696,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -4685,6 +4771,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -4795,6 +4885,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4900,6 +4991,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
 			},
@@ -4987,6 +5079,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -5141,6 +5237,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -5277,6 +5374,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5378,6 +5476,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -5554,6 +5656,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -5898,6 +6001,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -6245,6 +6349,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -6713,6 +6818,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -6815,6 +6921,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -6902,6 +7009,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -7048,6 +7159,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7116,6 +7230,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7201,6 +7316,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7291,6 +7410,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7342,6 +7464,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7418,6 +7541,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7513,6 +7640,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ChronoshiftPower@chronoshift": {
 				"ChargeInterval": "7500",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
@@ -7581,6 +7711,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7638,6 +7769,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -7702,6 +7837,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -7748,6 +7886,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7821,6 +7960,10 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
+			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -7888,6 +8031,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CreatesShroud": {
 				"Range": "10c0",
@@ -7939,6 +8085,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -7995,6 +8142,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8056,6 +8207,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8099,6 +8253,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8158,6 +8313,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8222,6 +8381,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -8290,6 +8452,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8370,6 +8533,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8459,6 +8626,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8502,6 +8672,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8550,6 +8721,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8621,6 +8796,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8669,6 +8847,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8731,6 +8910,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8795,6 +8978,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -8858,6 +9044,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -8923,6 +9110,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -8992,6 +9183,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9039,6 +9233,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9102,6 +9297,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9167,6 +9366,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9216,6 +9418,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9273,6 +9476,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9417,6 +9624,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9485,6 +9695,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9562,6 +9773,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9657,6 +9872,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9707,6 +9925,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -9764,6 +9983,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -9846,6 +10069,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9977,6 +10203,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -10042,6 +10269,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10140,6 +10371,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -10499,6 +10731,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10546,6 +10781,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -10605,6 +10841,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -10704,6 +10944,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -10810,6 +11051,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -10896,6 +11138,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -11048,6 +11294,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11144,6 +11391,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -11231,6 +11479,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -11384,6 +11636,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11480,6 +11733,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -11568,6 +11822,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -11709,6 +11967,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11800,6 +12059,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -11876,6 +12136,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -11984,6 +12248,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -12330,6 +12595,9 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"Cloneable": {
 				"Types": "infantry"
 			},
@@ -12601,6 +12869,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -12696,6 +12965,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -12772,6 +13042,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -12911,6 +13185,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13007,6 +13282,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -13108,6 +13384,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -13254,6 +13534,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13350,6 +13631,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -13437,6 +13719,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -13557,6 +13843,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ClonesProducedUnits": {
 				"CloneableTypes": "infantry",
 				"ProductionType": "Cloning"
@@ -13655,6 +13944,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -13721,6 +14011,10 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
+			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -13784,6 +14078,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -13831,6 +14128,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -13896,6 +14194,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -13990,6 +14292,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14036,6 +14341,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14108,6 +14414,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14192,6 +14502,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14239,6 +14552,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14297,6 +14611,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14370,6 +14688,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14470,6 +14791,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14555,6 +14877,10 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
+			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -14621,6 +14947,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14688,6 +15017,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14745,6 +15075,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14824,6 +15158,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14867,6 +15204,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -14922,6 +15260,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -14996,6 +15338,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15046,6 +15391,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15137,6 +15483,10 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
+			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15200,6 +15550,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15249,6 +15602,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15311,6 +15665,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15378,6 +15736,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15426,6 +15787,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15488,6 +15850,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15552,6 +15918,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15606,6 +15975,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15667,6 +16037,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15732,6 +16106,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15784,6 +16161,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -15847,6 +16225,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -15912,6 +16294,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -15975,6 +16360,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16040,6 +16426,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16120,6 +16510,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16167,6 +16560,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16226,6 +16620,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16298,6 +16696,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16347,6 +16748,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16404,6 +16806,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16544,6 +16950,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -16611,6 +17020,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16692,6 +17102,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -16782,6 +17196,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -16913,6 +17330,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -16978,6 +17396,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -17278,6 +17700,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -17600,6 +18023,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -17695,6 +18119,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -17771,6 +18196,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -18155,6 +18584,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -18496,6 +18926,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -18592,6 +19023,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -18679,6 +19111,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -18818,6 +19254,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -18934,6 +19371,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -19020,6 +19458,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -19123,6 +19565,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -19515,6 +19958,7 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "naval",
 				"Speed": "120",
@@ -19561,6 +20005,10 @@
 			"Targetable": {
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Submergeable"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@underwater": {
 				"RequiresCondition": "underwater",
@@ -19654,6 +20102,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -19762,6 +20211,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -19849,6 +20299,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -20006,6 +20460,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20113,6 +20568,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Naval"
 			},
@@ -20183,6 +20639,10 @@
 			"Targetable": {
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Repair, Submergeable"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -20314,6 +20774,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -20635,6 +21096,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -20978,6 +21440,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -21029,6 +21494,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Building"
 			},
@@ -21080,6 +21546,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -21174,6 +21644,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21270,6 +21741,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -21358,6 +21830,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -21493,6 +21969,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21589,6 +22066,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -21676,6 +22154,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -21810,6 +22292,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21906,6 +22389,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Vehicle"
 			},
@@ -21987,6 +22471,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -22094,6 +22582,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -22459,6 +22948,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true"
 			},
@@ -23026,6 +23516,9 @@
 				"LoseNotification": "TechBuildingLost",
 				"Notification": "TechBuildingCaptured"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -23068,6 +23561,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23147,6 +23641,10 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
+			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -23200,6 +23698,9 @@
 				"LoseNotification": "TechBuildingLost",
 				"Notification": "TechBuildingCaptured"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -23245,6 +23746,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23292,6 +23794,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -23351,6 +23857,9 @@
 				"Amount": "20",
 				"Interval": "100"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -23396,6 +23905,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23437,6 +23947,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -23505,6 +24019,9 @@
 				"LoseNotification": "TechBuildingLost",
 				"Notification": "TechBuildingCaptured"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -23550,6 +24067,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23609,6 +24127,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -23684,6 +24206,9 @@
 				"LoseNotification": "TechBuildingLost",
 				"Notification": "TechBuildingCaptured"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -23732,6 +24257,7 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Tech building"
 			},
@@ -23781,6 +24307,10 @@
 			},
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -25043,6 +25573,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -25139,6 +25670,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -25225,6 +25757,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -25542,6 +26078,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -25638,6 +26175,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -25722,6 +26260,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -25831,6 +26373,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -25927,6 +26470,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26011,6 +26555,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -26160,6 +26708,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -26258,6 +26807,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -26335,6 +26885,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -26431,6 +26985,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -26527,6 +27082,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26612,6 +27168,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -26709,6 +27269,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -26805,6 +27366,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -26889,6 +27451,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -26986,6 +27552,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -27077,6 +27644,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -27153,6 +27721,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -27236,6 +27808,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -27332,6 +27905,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -27417,6 +27991,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -27728,6 +28306,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -27824,6 +28403,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -27908,6 +28488,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28017,6 +28601,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -28113,6 +28698,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28197,6 +28783,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28294,6 +28884,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -28390,6 +28981,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28474,6 +29066,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28571,6 +29167,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -28667,6 +29264,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -28751,6 +29349,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -28848,6 +29450,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -28944,6 +29547,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29029,6 +29633,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29126,6 +29734,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -29222,6 +29831,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29306,6 +29916,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29403,6 +30017,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -29499,6 +30114,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29583,6 +30199,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29680,6 +30300,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -29776,6 +30397,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -29861,6 +30483,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -29958,6 +30584,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -30054,6 +30681,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -30138,6 +30766,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -30235,6 +30867,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -30331,6 +30964,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -30415,6 +31049,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -30512,6 +31150,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -30603,6 +31242,7 @@
 				"InfectedCondition": "squid-grabbed",
 				"KillInfectorCondition": "invulnerability"
 			},
+			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -30680,6 +31320,10 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -30763,6 +31407,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -30859,6 +31504,7 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
+			"IvanBombCarrier": {},
 			"MapEditorData": {
 				"Categories": "Civilian vehicle"
 			},
@@ -30944,6 +31590,10 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
+			},
+			"Targetable@IVANBOMB": {
+				"RequiresCondition": "!ivan-bomb",
+				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -32067,19 +32717,13 @@
 				"_value": "RadBeam"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
-			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "350",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "12",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -32088,18 +32732,11 @@
 			}
 		},
 		"CRNuke": {
-			"Projectile": {
-				"Blockable": "false",
-				"Speed": "425",
-				"_value": "Bullet"
-			},
 			"Range": "1c849",
 			"ReloadDelay": "50",
-			"Report": "icraatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "200",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "0",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "426",
 				"Versus": {
@@ -32118,7 +32755,6 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "0",
 				"Explosions": "large_tumu",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
@@ -32193,11 +32829,17 @@
 		},
 		"Comet": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -32237,6 +32879,56 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "CometFragment",
+				"_value": "FireFragments"
+			}
+		},
+		"CometFragment": {
+			"InvalidTargets": "Structure, Wall",
+			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"Duration": "20",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "140",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "112",
+				"ZOffset": "2047",
+				"_value": "GlowLaserZap"
+			},
+			"Range": "3c0",
+			"ReloadDelay": "100",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "30",
+				"DamageTypes": "Prone50Percent, TriggerProne, ElectroDeath",
+				"InvalidTargets": "Structure, Wall",
+				"Spread": "42",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "200",
+					"Drone": "200",
+					"Flak": "100",
+					"Heavy": "50",
+					"Light": "75",
+					"Medium": "50",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "200",
+					"Wood": "200"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_clsn",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"DemoTruckTargeting": {
@@ -32504,6 +33196,11 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
+			},
+			"Warhead@5Fragments": {
+				"Count": "2",
+				"Weapon": "TeslaFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"FlakGuyAAGun": {
@@ -33255,40 +33952,11 @@
 			"Range": "1c849",
 			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"Warhead@0Eff": {
-				"Delay": "2",
-				"ExplosionPalette": "mouse",
-				"Explosions": "bombcurs",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
-			},
-			"Warhead@1Dam": {
-				"Damage": "400",
-				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "100",
-				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
-				"Spread": "213",
-				"Versus": {
-					"Concrete": "20",
-					"Drone": "100",
-					"Flak": "100",
-					"Heavy": "100",
-					"Light": "100",
-					"Medium": "100",
-					"None": "100",
-					"Plate": "100",
-					"Rocket": "100",
-					"Steel": "250",
-					"Wood": "100"
-				},
-				"_value": "SpreadDamage"
-			},
-			"Warhead@2Eff": {
-				"Delay": "100",
-				"Explosions": "ivan_explosion",
-				"ImpactSounds": "gexpcraa.wav",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
+			"ValidTargets": "IvanBomb",
+			"Warhead@bomb": {
+				"Timer": "100",
+				"Weapon": "IvanDeath",
+				"_value": "AttachIvanBomb"
 			}
 		},
 		"IvanBomberE": {
@@ -33300,17 +33968,19 @@
 			"Range": "1c849",
 			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"Warhead@0Eff": {
-				"Delay": "2",
-				"ExplosionPalette": "mouse",
-				"Explosions": "bombcurs",
-				"ValidTargets": "Ground, Water, Air",
-				"_value": "CreateEffect"
-			},
+			"ValidTargets": "IvanBomb",
+			"Warhead@bomb": {
+				"Timer": "100",
+				"Weapon": "IvanDeathE",
+				"_value": "AttachIvanBomb"
+			}
+		},
+		"IvanDeath": {
+			"Range": "1c849",
+			"ReloadDelay": "50",
 			"Warhead@1Dam": {
 				"Damage": "400",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "100",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "213",
 				"Versus": {
@@ -33329,26 +33999,18 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "100",
-				"Explosions": "ivan_explosionE",
+				"Explosions": "ivan_explosion",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
 				"_value": "CreateEffect"
 			}
 		},
-		"IvanDeath": {
-			"Projectile": {
-				"Blockable": "false",
-				"Speed": "425",
-				"_value": "Bullet"
-			},
+		"IvanDeathE": {
 			"Range": "1c849",
 			"ReloadDelay": "50",
-			"Report": "icraatta.wav",
 			"Warhead@1Dam": {
 				"Damage": "400",
 				"DamageTypes": "PsychicDeath, Prone100Percent",
-				"Delay": "0",
 				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
 				"Spread": "213",
 				"Versus": {
@@ -33367,8 +34029,7 @@
 				"_value": "SpreadDamage"
 			},
 			"Warhead@2Eff": {
-				"Delay": "0",
-				"Explosions": "ivan_explosion",
+				"Explosions": "ivan_explosionE",
 				"ImpactSounds": "gexpcraa.wav",
 				"ValidTargets": "Ground, Water, Air",
 				"_value": "CreateEffect"
@@ -33999,19 +34660,36 @@
 				"_value": "RadBeam"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "10",
+				"_value": "ChronoErase"
 			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "250",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Stars": {
+				"Explosions": "chronosk",
+				"ValidTargets": "Ground, Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"NeutronRifleE": {
+			"Projectile": {
+				"Amplitude": "476",
+				"Color": "80C8FF",
+				"WaveLength": "384",
+				"ZOffset": "2047",
+				"_value": "RadBeam"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "20",
+			"ValidTargets": "Ground",
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "19",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -34499,11 +35177,17 @@
 		},
 		"SuperComet": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -34543,6 +35227,56 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "SuperCometFragment",
+				"_value": "FireFragments"
+			}
+		},
+		"SuperCometFragment": {
+			"InvalidTargets": "Structure, Wall",
+			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"Duration": "20",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "140",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "112",
+				"ZOffset": "2047",
+				"_value": "GlowLaserZap"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "100",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "50",
+				"DamageTypes": "Prone50Percent, TriggerProne, ElectroDeath",
+				"InvalidTargets": "Structure, Wall",
+				"Spread": "42",
+				"ValidTargets": "Ground, Water",
+				"Versus": {
+					"Concrete": "200",
+					"Drone": "200",
+					"Flak": "100",
+					"Heavy": "50",
+					"Light": "75",
+					"Medium": "50",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "200",
+					"Wood": "200"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_clsn",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"SuperMindControl": {
@@ -34631,6 +35365,11 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
+			},
+			"Warhead@5Fragments": {
+				"Count": "2",
+				"Weapon": "TeslaFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"TerrorBomb": {
@@ -34665,6 +35404,42 @@
 			"Warhead@2Eff": {
 				"Explosions": "terrorist_explosion",
 				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			}
+		},
+		"TeslaFragment": {
+			"InvalidTargets": "Structure, Wall",
+			"Projectile": {
+				"Width": "34",
+				"ZOffset": "2047",
+				"_value": "ElectricBolt"
+			},
+			"Range": "3c0",
+			"ReloadDelay": "80",
+			"Report": "btesat1a.wav",
+			"ValidTargets": "Ground, Water",
+			"Warhead@1Dam": {
+				"Damage": "30",
+				"DamageTypes": "ElectroDeath",
+				"Spread": "120",
+				"Versus": {
+					"Concrete": "50",
+					"Drone": "200",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "85",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "50",
+					"Wood": "50"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "tesla_impact",
+				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
 			}
 		},

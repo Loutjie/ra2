@@ -35,6 +35,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -129,6 +130,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -196,6 +202,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -214,6 +224,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -258,6 +276,11 @@
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
 			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
+			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
 				"UsePlayerColor": "true"
@@ -284,6 +307,7 @@
 				"Prerequisites": "~gaweap, gadept, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -602,6 +626,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -899,6 +926,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1228,6 +1256,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -1641,6 +1672,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1731,6 +1763,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -1799,6 +1836,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -1817,6 +1858,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1864,6 +1913,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -1925,6 +1979,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ccomand"
@@ -2252,6 +2307,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "civan"
@@ -2539,7 +2595,13 @@
 			"AppearsOnRadar": {},
 			"Armament@Temporal": {
 				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "!rank-elite",
 				"Weapon": "NeutronRifle.exact"
+			},
+			"Armament@TemporalElite": {
+				"LocalOffset": "320,128,1024",
+				"RequiresCondition": "rank-elite",
+				"Weapon": "NeutronRifleE.exact"
 			},
 			"Armor": {
 				"Type": "None"
@@ -2567,6 +2629,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"ExplodeInstead": "false",
@@ -2878,6 +2941,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoResourceDelivery": {
 				"Image": "cmin",
 				"WarpInSequence": "warpout",
@@ -3163,6 +3227,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "deso"
@@ -3544,6 +3609,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -3637,6 +3703,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -3705,6 +3776,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -3723,6 +3798,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -3770,6 +3853,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -4036,6 +4124,7 @@
 				"Prerequisites": "~barracks, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "dog"
@@ -4288,6 +4377,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4374,6 +4464,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -4438,6 +4533,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4452,6 +4551,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -4489,6 +4596,11 @@
 				"Position": "BottomRight",
 				"RequiresCondition": "rank-veteran && !rank-elite",
 				"Sequence": "veteran"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithLauncherMissile@first": {
 				"Barrel": "0",
@@ -4536,6 +4648,7 @@
 				"Prerequisites": "~naweap, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4816,6 +4929,7 @@
 				"Prerequisites": "naradr, ~vehicles.libya, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -5170,6 +5284,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e1"
@@ -5591,6 +5706,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e2"
@@ -5931,6 +6047,7 @@
 			"Captures": {
 				"CaptureTypes": "building, husk"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "engineer"
@@ -6281,6 +6398,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "flakt"
@@ -6752,6 +6870,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -7095,6 +7214,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7353,6 +7475,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7590,6 +7715,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ChronoshiftPower@chronoshift": {
 				"ChargeInterval": "5250",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
@@ -7794,6 +7922,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -7993,6 +8124,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CreatesShroud": {
 				"Range": "10c0",
@@ -8172,6 +8306,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8353,6 +8490,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -8601,6 +8741,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8778,6 +8921,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8963,6 +9109,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -9175,6 +9324,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9365,6 +9517,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9635,6 +9790,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9890,6 +10048,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10097,6 +10258,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -10411,6 +10575,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10632,6 +10799,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -10984,6 +11152,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11328,6 +11497,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11661,6 +11831,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11747,6 +11918,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -11814,6 +11990,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -11832,6 +12012,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -11875,6 +12063,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -11922,6 +12115,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ivan"
@@ -12271,6 +12465,9 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"Cloneable": {
 				"Types": "infantry"
 			},
@@ -12544,6 +12741,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -12613,6 +12811,10 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
+			"GrantConditionOnTerrain@SquidWater": {
+				"Condition": "afloat",
+				"TerrainTypes": "Water"
+			},
 			"Guard": {
 				"Voice": "Attack"
 			},
@@ -12629,6 +12831,11 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
 			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
@@ -12697,6 +12904,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -12715,6 +12926,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "afloat && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12769,6 +12988,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -12836,6 +13060,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13186,6 +13411,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13497,6 +13723,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"ClonesProducedUnits": {
 				"CloneableTypes": "infantry",
 				"ProductionType": "Cloning"
@@ -13739,6 +13968,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -13960,6 +14192,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14178,6 +14413,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14372,6 +14610,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14638,6 +14879,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14856,6 +15100,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15044,6 +15291,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15263,6 +15513,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15456,6 +15709,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15645,6 +15901,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15840,6 +16099,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16035,6 +16297,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -16258,6 +16523,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16452,6 +16720,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16718,6 +16989,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -16971,6 +17245,9 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -17484,6 +17761,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ptroop"
@@ -17800,6 +18078,7 @@
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -17869,6 +18148,10 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
+			"GrantConditionOnTerrain@SquidWater": {
+				"Condition": "afloat",
+				"TerrainTypes": "Water"
+			},
 			"Guard": {
 				"Voice": "Attack"
 			},
@@ -17885,6 +18168,11 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
 			},
 			"IvanBombCarrier": {},
 			"LeavesTrails": {
@@ -17953,6 +18241,10 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -17971,6 +18263,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "afloat && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -18025,6 +18325,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -18346,6 +18651,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "shk"
@@ -18683,6 +18989,7 @@
 				"Prerequisites": "~naweap, repairpad, ~balance.exact",
 				"Queue": "Vehicle"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -19018,6 +19325,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "snipe"
@@ -19324,6 +19632,7 @@
 				"Prerequisites": "gatech, ~gapile, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "spy"
@@ -19605,11 +19914,23 @@
 			"Armament": {
 				"Weapon": "SquidPunch.exact"
 			},
+			"Armament@GRAB": {
+				"Name": "grab",
+				"Weapon": "SquidGrab.exact"
+			},
 			"Armor": {
 				"Type": "Light"
 			},
-			"AttackFrontal": {
+			"AttackInfect": {
+				"AlwaysSurviveHostDeath": "true",
+				"Armaments": "primary, grab",
+				"CullHealthPercent": "25",
+				"Damage": "15",
+				"DamageInterval": "13",
+				"DamageTypes": "BulletDeath",
 				"FacingTolerance": "0",
+				"InfectArmaments": "grab",
+				"JumpCondition": {},
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -19856,6 +20177,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20216,6 +20538,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20318,6 +20641,11 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -20378,6 +20706,10 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -20397,6 +20729,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!underwater && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"Targetable@UNDERWATER": {
 				"RequiresCondition": "underwater",
@@ -20448,6 +20788,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -20510,6 +20855,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "tany"
@@ -20827,6 +21173,7 @@
 				"Prerequisites": "naradr, ~infantry.cuba, ~balance.exact",
 				"Queue": "Infantry"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "terror"
@@ -21173,6 +21520,9 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
+			"ChronoErasable": {
+				"Condition": {}
+			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -21384,6 +21734,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21711,6 +22062,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -22036,6 +22388,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -22329,6 +22682,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuri"
@@ -22697,6 +23051,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
+			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuripr"
@@ -24170,19 +24525,13 @@
 				"_value": "RadBeam"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
-			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "350",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "12",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -24262,11 +24611,17 @@
 		},
 		"Comet.exact": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -24306,6 +24661,11 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "CometFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"DemoTruckTargeting.exact": {
@@ -24548,6 +24908,11 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
+			},
+			"Warhead@5Fragments": {
+				"Count": "2",
+				"Weapon": "TeslaFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"FlakGuyAAGun.exact": {
@@ -25882,19 +26247,36 @@
 				"_value": "RadBeam"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "120",
-			"Report": "ichratta.wav",
+			"ReloadDelay": "20",
 			"ValidTargets": "Ground",
-			"Warhead@Damage": {
-				"Damage": "8",
-				"Spread": "64",
-				"_value": "SpreadDamage"
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "10",
+				"_value": "ChronoErase"
 			},
-			"Warhead@Disable": {
-				"Condition": "chronodisable, notmobile",
-				"Duration": "250",
-				"Range": "64",
-				"_value": "GrantExternalCondition"
+			"Warhead@Stars": {
+				"Explosions": "chronosk",
+				"ValidTargets": "Ground, Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"NeutronRifleE.exact": {
+			"Projectile": {
+				"Amplitude": "476",
+				"Color": "80C8FF",
+				"WaveLength": "384",
+				"ZOffset": "2047",
+				"_value": "RadBeam"
+			},
+			"Range": "5c0",
+			"ReloadDelay": "20",
+			"ValidTargets": "Ground",
+			"Warhead@Erase": {
+				"Hold": "25",
+				"LinkSound": "ichratta.wav",
+				"Warp": "19",
+				"_value": "ChronoErase"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -26256,8 +26638,16 @@
 				"_value": "CreateEffect"
 			}
 		},
+		"SquidGrab.exact": {
+			"Projectile": "InstantHit",
+			"Range": "1c512",
+			"ReloadDelay": "83",
+			"Report": "vsquat1a.wav",
+			"ValidTargets": "SquidGrabbable"
+		},
 		"SquidPunch.exact": {
 			"Burst": "1",
+			"InvalidTargets": "SquidGrabbable, SquidGrabbed",
 			"Projectile": "InstantHit",
 			"Range": "1c850",
 			"ReloadDelay": "27",
@@ -26391,11 +26781,17 @@
 		},
 		"SuperComet.exact": {
 			"Projectile": {
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
 				"Duration": "15",
-				"UsePlayerColor": "true",
-				"Width": "50",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "196",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "160",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "10c0",
 			"ReloadDelay": "100",
@@ -26435,6 +26831,11 @@
 			"Warhead@4Smu": {
 				"SmudgeType": "SmallCrater, SmallScorch",
 				"_value": "LeaveSmudge"
+			},
+			"Warhead@5Fragments": {
+				"Count": "5",
+				"Weapon": "SuperCometFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"SuperMindControl.exact": {
@@ -26526,6 +26927,11 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
+			},
+			"Warhead@5Fragments": {
+				"Count": "2",
+				"Weapon": "TeslaFragment",
+				"_value": "FireFragments"
 			}
 		},
 		"TerrorBomb.exact": {
