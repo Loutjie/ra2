@@ -15382,6 +15382,10 @@
 			"ProximityCaptor": {
 				"Types": "Building"
 			},
+			"PsychicSensor": {
+				"Range": "15c0",
+				"RequiresCondition": "!build-incomplete && !lowpower"
+			},
 			"QuantizeFacingsFromSequence": {},
 			"RenderDebugState": {},
 			"RenderDetectionCircle": {},
