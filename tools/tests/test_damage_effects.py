@@ -19,13 +19,18 @@ def test_buildings_grant_heavy_damage_only_in_the_generated_fires():
     assert "GrantConditionOnDamageState@HEAVYDAMAGE" not in DEFAULTS["^Building"]
 
 
-def test_damage_smoke_template_trails_smoke_only_when_heavily_damaged():
+def test_damage_smoke_rises_only_when_heavily_damaged():
+    """RA2's SmallGreySSys smoke drifts upward, also while the unit stands still: a static trail
+    sprite stays where it spawned, so the smoke is emitted as rising floating sprites (as in d2k)."""
     _heavy_damage_condition("^DamageSmoke")
-    smoke = DEFAULTS["^DamageSmoke"]["LeavesTrails@DAMAGESMOKE"]
+    assert "LeavesTrails@DAMAGESMOKE" not in DEFAULTS["^DamageSmoke"]
+    smoke = DEFAULTS["^DamageSmoke"]["FloatingSpriteEmitter@DAMAGESMOKE"]
     assert smoke["RequiresCondition"] == "heavy-damage"
     assert smoke["Image"] == "smallsmoke"
-    assert smoke["Type"] == "CenterPosition"
-    assert smoke["TrailWhileStationary"] == "true"
+    assert smoke["Sequences"] == "idle"
+    assert int(smoke["Gravity"]) > 0
+    # Starts above the hull: at the centre the voxel model hides it.
+    assert smoke["Offset"].replace(" ", "") == "0,0,256"
 
 
 def test_vehicles_ships_and_aircraft_smoke_but_infantry_does_not():
@@ -42,6 +47,13 @@ def test_fire_and_smoke_sprites_draw_in_front_of_buildings():
         assert misc[image]["idle"]["Offset"].replace(" ", "") == "0,0,60", image
 
 
-def test_damage_smoke_rises_from_above_the_hull():
-    # At the centre the smoke spawns inside the voxel and the model hides it.
-    assert DEFAULTS["^DamageSmoke"]["LeavesTrails@DAMAGESMOKE"]["Offsets"] == "0,0,512"
+def test_damaged_vehicles_spark_when_hit():
+    """RA2's SparkSys: each hit below the yellow health bar throws sparks (one flash, not a loop)."""
+    sparks = DEFAULTS["^DamageSmoke"]["WithDamageOverlay@SPARKS"]
+    assert sparks["Image"] == "explosion"
+    assert sparks["LoopSequence"] == "piff"
+    assert sparks["LoopCount"] == "1"
+    assert sparks["MinimumDamageState"] == "Heavy"
+    assert sparks["Palette"] == "effect"
+    misc = parse_miniyaml((MOD / "sequences" / "misc.yaml").read_text(encoding="utf-8-sig"))
+    assert "piff" in misc["explosion"]
