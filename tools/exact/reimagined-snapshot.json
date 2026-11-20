@@ -573,6 +573,12 @@
 			"WithVoxelBody": {}
 		},
 		"amradr": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AircraftPads": {
 				"Count": "4"
 			},
@@ -629,9 +635,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -1158,6 +1161,12 @@
 			"WithVoxelTurret": {}
 		},
 		"atesla": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "0,0,2500",
@@ -1215,9 +1224,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -7008,6 +7014,12 @@
 			}
 		},
 		"gaairc": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AircraftPads": {
 				"Count": "4"
 			},
@@ -7064,9 +7076,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -7247,6 +7256,12 @@
 			}
 		},
 		"gacnst": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -7288,9 +7303,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -7469,6 +7481,12 @@
 			}
 		},
 		"gacsph": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -7525,9 +7543,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -7656,6 +7671,12 @@
 			}
 		},
 		"gadept": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -7696,9 +7717,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -7843,6 +7861,12 @@
 			}
 		},
 		"gagap": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -7880,9 +7904,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8003,6 +8024,12 @@
 			}
 		},
 		"gaorep": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -8041,9 +8068,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8167,6 +8191,12 @@
 			}
 		},
 		"gapile": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -8223,9 +8253,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8382,6 +8409,12 @@
 			}
 		},
 		"gapill": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "360,0,160",
@@ -8438,9 +8471,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8557,6 +8587,12 @@
 			}
 		},
 		"gapowr": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -8597,9 +8633,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8731,6 +8764,12 @@
 			}
 		},
 		"garefn": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -8776,9 +8815,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FreeActor": {
 				"Actor": "cmin",
@@ -8925,6 +8961,12 @@
 			}
 		},
 		"gaspysat": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -8962,9 +9004,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -9097,6 +9136,12 @@
 			}
 		},
 		"gatech": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9134,9 +9179,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -9264,6 +9306,12 @@
 			}
 		},
 		"gawall": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -9283,9 +9331,6 @@
 				"Dimensions": "1,1",
 				"Footprint": "x",
 				"TerrainTypes": "Clear, Rough, Road, DirtRoad"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -9341,6 +9386,12 @@
 			}
 		},
 		"gaweap": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9385,9 +9436,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -9577,6 +9625,12 @@
 			}
 		},
 		"gaweat": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -9615,9 +9669,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -9762,6 +9813,12 @@
 			}
 		},
 		"gayard": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -9890,9 +9947,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -10390,6 +10444,12 @@
 			"WithTextControlGroupDecoration": {}
 		},
 		"gtgcan": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "1792,0,1280",
@@ -10449,9 +10509,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -13466,6 +13523,12 @@
 		},
 		"naclon": {
 			"AcceptsDeliveredCash": {},
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -13559,9 +13622,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -13687,6 +13747,12 @@
 			}
 		},
 		"nacnst": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -13728,9 +13794,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -13894,6 +13957,12 @@
 			}
 		},
 		"nadept": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -13934,9 +14003,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14081,6 +14147,12 @@
 			}
 		},
 		"naflak": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "640,0,1536",
@@ -14130,9 +14202,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14268,6 +14337,12 @@
 			}
 		},
 		"nahand": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -14356,9 +14431,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14515,6 +14587,12 @@
 			}
 		},
 		"nairon": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -14553,9 +14631,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14697,6 +14772,12 @@
 			}
 		},
 		"nalasr": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "544,128,480, 544,-128,480",
@@ -14753,9 +14834,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14884,6 +14962,12 @@
 			}
 		},
 		"namisl": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -14922,9 +15006,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15083,6 +15164,12 @@
 			}
 		},
 		"nanrct": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -15124,9 +15211,6 @@
 				"EmptyWeapon": "NukePayload",
 				"Type": "CenterPosition",
 				"Weapon": "NukePayload"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15258,6 +15342,12 @@
 			}
 		},
 		"napowr": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -15298,9 +15388,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15432,6 +15519,12 @@
 			}
 		},
 		"napsis": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -15476,9 +15569,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15609,6 +15699,12 @@
 			}
 		},
 		"naradr": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -15646,9 +15742,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15786,6 +15879,12 @@
 			}
 		},
 		"narefn": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -15831,9 +15930,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FreeActor": {
 				"Actor": "harv",
@@ -15980,6 +16076,12 @@
 			}
 		},
 		"nasam": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "500,200,900, 500,-200,900",
@@ -16028,9 +16130,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -16166,6 +16265,12 @@
 			}
 		},
 		"natech": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16203,9 +16308,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -16329,6 +16431,12 @@
 			}
 		},
 		"nawall": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -16348,9 +16456,6 @@
 				"Dimensions": "1,1",
 				"Footprint": "x",
 				"TerrainTypes": "Clear, Rough, Road, DirtRoad"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -16406,6 +16511,12 @@
 			}
 		},
 		"naweap": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16449,9 +16560,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -16641,6 +16749,12 @@
 			}
 		},
 		"nayard": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -16769,9 +16883,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -20807,6 +20918,12 @@
 			"WithTextControlGroupDecoration": {}
 		},
 		"tesla": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "0,0,3072",
@@ -20874,9 +20991,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -22882,6 +22996,12 @@
 	},
 	"neutral": {
 		"caairp": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -22916,9 +23036,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -23053,6 +23170,12 @@
 			}
 		},
 		"cahosp": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -23090,9 +23213,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -23197,6 +23317,12 @@
 			}
 		},
 		"caoild": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -23235,9 +23361,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "DerrickExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -23342,6 +23465,12 @@
 			}
 		},
 		"caoutp": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "500,0,900",
@@ -23389,9 +23518,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -23528,6 +23654,12 @@
 			"WithVoxelTurret": {}
 		},
 		"cathosp": {
+			"ActorPreviewPlaceBuildingPreview": {
+				"FootprintOverPreview": "None",
+				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
+				"Palette": "effect75alpha",
+				"PreviewAlpha": "0.5"
+			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -23568,9 +23700,6 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
-			},
-			"FootprintPlaceBuildingPreview": {
-				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
