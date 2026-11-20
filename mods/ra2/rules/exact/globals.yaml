@@ -287,8 +287,6 @@ ccomand.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -301,8 +299,6 @@ ccomand.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -319,8 +315,6 @@ civan.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -333,8 +327,6 @@ civan.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -351,8 +343,6 @@ cleg.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -365,8 +355,6 @@ cleg.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -381,8 +369,6 @@ deso.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -395,8 +381,6 @@ deso.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -461,12 +445,6 @@ dlph.exact:
 		Modifier: 120
 	SpeedMultiplier@VETERAN:
 		Modifier: 120
-
-dog.exact:
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 
 dred.exact:
 	ChangesHealth@ELITE:
@@ -560,8 +538,6 @@ e1.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -574,8 +550,6 @@ e1.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -592,8 +566,6 @@ e2.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -606,8 +578,6 @@ e2.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -623,8 +593,6 @@ engineer.exact:
 		Modifier: 100
 	DamageMultiplier@VETERAN:
 		Modifier: 100
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 100
 	FirepowerMultiplier@VETERAN:
@@ -637,8 +605,6 @@ engineer.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 100
 	ReloadDelayMultiplier@VETERAN:
@@ -655,8 +621,6 @@ flakt.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -669,8 +633,6 @@ flakt.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -997,8 +959,6 @@ ivan.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1011,8 +971,6 @@ ivan.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1029,8 +987,6 @@ jumpjet.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1043,8 +999,6 @@ jumpjet.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1359,8 +1313,6 @@ ptroop.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1373,8 +1325,6 @@ ptroop.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1451,8 +1401,6 @@ shk.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1465,8 +1413,6 @@ shk.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1514,8 +1460,6 @@ snipe.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1528,8 +1472,6 @@ snipe.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1545,8 +1487,6 @@ spy.exact:
 		Modifier: 100
 	DamageMultiplier@VETERAN:
 		Modifier: 100
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 100
 	FirepowerMultiplier@VETERAN:
@@ -1559,8 +1499,6 @@ spy.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 100
 	ReloadDelayMultiplier@VETERAN:
@@ -1659,8 +1597,6 @@ tany.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1673,8 +1609,6 @@ tany.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1690,8 +1624,6 @@ terror.exact:
 		Modifier: 100
 	DamageMultiplier@VETERAN:
 		Modifier: 100
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FireWarheadsOnDeath:
 		Weapon: TerrorBomb.exact
 		EmptyWeapon: TerrorBomb.exact
@@ -1707,8 +1639,6 @@ terror.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 100
 	ReloadDelayMultiplier@VETERAN:
@@ -1817,8 +1747,6 @@ yuri.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1831,8 +1759,6 @@ yuri.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:
@@ -1849,8 +1775,6 @@ yuripr.exact:
 		Modifier: 67
 	DamageMultiplier@VETERAN:
 		Modifier: 67
-	ExternalCondition@INVULNERABILITY:
-		Condition: invulnerability
 	FirepowerMultiplier@ELITE:
 		Modifier: 110
 	FirepowerMultiplier@VETERAN:
@@ -1863,8 +1787,6 @@ yuripr.exact:
 			600: rank-elite
 	InaccuracyMultiplier@ELITE:
 		Modifier: 100
-	KillsSelf@IRONCURTAIN:
-		RequiresCondition: invulnerability
 	ReloadDelayMultiplier@ELITE:
 		Modifier: 60
 	ReloadDelayMultiplier@VETERAN:

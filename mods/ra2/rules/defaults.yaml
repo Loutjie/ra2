@@ -589,6 +589,11 @@
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@7: ^AffectedByTerrorDrone
 	Health:
+	# RA2: the Iron Curtain kills infantry; only vehicles, ships and buildings become invulnerable.
+	ExternalCondition@INVULNERABILITY:
+		Condition: invulnerability
+	KillsSelf@IRONCURTAIN:
+		RequiresCondition: invulnerability
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
