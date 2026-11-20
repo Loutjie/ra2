@@ -24653,6 +24653,21 @@
 				"Name": "resource",
 				"ShadowIndex": "1"
 			},
+			"PaletteFromFile@shell": {
+				"AllowModifiers": "false",
+				"Filename": "shell.pal",
+				"Name": "shell"
+			},
+			"PaletteFromFile@shell-buttons": {
+				"AllowModifiers": "false",
+				"Filename": "sdbtnanm.pal",
+				"Name": "sdbtnanm"
+			},
+			"PaletteFromFile@shell2": {
+				"AllowModifiers": "false",
+				"Filename": "shell2.pal",
+				"Name": "shell2"
+			},
 			"PaletteFromFile@snowcity": {
 				"Filename": "citysno.pal",
 				"Name": "city",
