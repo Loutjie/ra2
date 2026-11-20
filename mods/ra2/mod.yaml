@@ -34,8 +34,8 @@ FileSystem: ContentInstallerFileSystem
 		load.mix
 		local.mix
 		neutral.mix
-		sidec01.mix
-		sidec02.mix
+		sidec01.mix: sidec01
+		sidec02.mix: sidec02
 		sno.mix
 		snow.mix
 		tem.mix

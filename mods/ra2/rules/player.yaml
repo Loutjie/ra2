@@ -69,6 +69,7 @@ Player:
 		LowPowerPenaltyModifier: 100
 	PadLimitedProductionQueue@Aircraft:
 		Type: Aircraft
+		Group: Vehicle
 		DisplayOrder: 4
 		LowPowerModifier: 300
 		ReadyAudio: UnitReady
@@ -83,6 +84,7 @@ Player:
 		LowPowerPenaltyModifier: 100
 	BalanceProductionQueue@Ship:
 		Type: Ship
+		Group: Vehicle
 		DisplayOrder: 5
 		LowPowerModifier: 300
 		ReadyAudio: UnitReady

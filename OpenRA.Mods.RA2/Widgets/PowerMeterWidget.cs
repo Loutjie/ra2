@@ -28,6 +28,7 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 		bool bypassAnimation;
 		int warningFlash;
 		int lastTotalPowerDisplay;
+		int[] barFrames = [];
 
 		protected readonly World World;
 		readonly Lazy<TooltipContainerWidget> tooltipContainer;
@@ -52,29 +53,24 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 		[FieldLoader.Require]
 		public readonly int TickWait = 4;
 
-		[Desc("Blank Image for the meter bar")]
+		[Desc("SHP in the faction's sidebar art package with one frame per bar state (RA2's powerp.shp).")]
 		[FieldLoader.Require]
-		public readonly string NoPowerImage = "";
+		public readonly string Image = null;
 
-		[Desc("When you have access power to use")]
-		[FieldLoader.Require]
-		public readonly string AvailablePowerImage = "";
+		[Desc("Frame for a bar above the total power.")]
+		public readonly int NoPowerFrame = 0;
 
-		[Desc("Used power image")]
-		[FieldLoader.Require]
-		public readonly string UsedPowerImage = "";
+		[Desc("Frame for spare power.")]
+		public readonly int AvailablePowerFrame = 1;
 
-		[Desc("Too much poer used meter image")]
-		[FieldLoader.Require]
-		public readonly string OverUsedPowerImage = "";
+		[Desc("Frame for power in use.")]
+		public readonly int UsedPowerFrame = 3;
 
-		[Desc("How many Ticks to wait before animating the bar")]
-		[FieldLoader.Require]
-		public readonly string FlashPowerImage = "";
+		[Desc("Frame for power drained beyond what is provided.")]
+		public readonly int OverUsedPowerFrame = 4;
 
-		[Desc("The collection of images to get the meter images from")]
-		[FieldLoader.Require]
-		public readonly string ImageCollection = "";
+		[Desc("Frame the top bar flashes to when the power level changes or runs low.")]
+		public readonly int FlashPowerFrame = 2;
 
 		[Desc("Tooltip container shown while hovering the meter (power usage/capacity).")]
 		public readonly string TooltipContainer = null;
@@ -130,6 +126,7 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 			if (newBarHeight != barHeight)
 			{
 				barHeight = newBarHeight;
+				Bounds.Height = barHeight;
 
 				// Don't animate the meter after changing sidebars
 				bypassAnimation = true;
@@ -156,29 +153,25 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 			if (Children.Count == numberOfBars)
 				return;
 
-			Children.Clear();
+			RemoveChildren();
+			barFrames = Exts.MakeArray((int)numberOfBars, _ => NoPowerFrame);
 
 			// Create a list of new bars
 			for (var i = 0; i < numberOfBars; i++)
 			{
-				var newPower = new ImageWidget
-				{
-					ImageCollection = ImageCollection,
-					ImageName = NoPowerImage,
+				// The art ignores the mouse, so hover falls through to the meter, which owns the tooltip.
+				var newPower = new RA2ArtWidget(World) { Image = Image };
+				newPower.Initialize([]);
+				var index = i;
+				newPower.GetFrame = () => barFrames[index];
 
-					// Let hover fall through to the meter, which owns the tooltip.
-					IgnoreMouseOver = true
-				};
+				// Bars are children of the meter, so they are placed relative to it, filling upwards from the bottom.
+				newPower.Bounds.Y = barHeight - (i + 1) * meterDistance;
 
-				// AddFactionSuffixLogic could be added here
-				newPower.Bounds.Y = -(i * meterDistance) + barHeight + Bounds.Y;
-				newPower.Bounds.X = Bounds.X;
-
-				// ImageWidget draws at its sprite size regardless of Bounds, but hover needs a real area.
+				// The art draws at its frame size regardless of Bounds, but hover needs a real area.
 				newPower.Bounds.Width = BarWidth;
 				newPower.Bounds.Height = meterDistance;
-				newPower.GetImageName = () => newPower.ImageName;
-				Children.Add(newPower);
+				AddChild(newPower);
 			}
 		}
 
@@ -233,41 +226,38 @@ namespace OpenRA.Mods.RA2.Widgets.Logic
 
 			CheckFlash(powerManager, totalPowerDisplay);
 
-			for (var i = 0; i < Children.Count; i++)
+			for (var i = 0; i < barFrames.Length; i++)
 			{
-				if (Children[i] is not ImageWidget image)
-					continue;
-
 				if (i > totalPowerStep || totalPowerStep == 0)
 				{
-					image.ImageName = NoPowerImage;
+					barFrames[i] = NoPowerFrame;
 					continue;
 				}
 
-				var targetIcon = AvailablePowerImage;
+				var targetFrame = AvailablePowerFrame;
 
 				if (i < powerUsedStep)
-					targetIcon = UsedPowerImage;
+					targetFrame = UsedPowerFrame;
 
 				if (i > powerAvailableStep)
-					targetIcon = OverUsedPowerImage;
+					targetFrame = OverUsedPowerFrame;
 
 				if (i == totalPowerStep && powerManager.PowerState == PowerState.Low)
-					targetIcon = OverUsedPowerImage;
+					targetFrame = OverUsedPowerFrame;
 
 				// Flash the top bar if something is wrong
 				if (i == totalPowerStep)
 				{
 					if (warningFlash % 2 != 0)
-						targetIcon = FlashPowerImage;
+						targetFrame = FlashPowerFrame;
 					if (warningFlash > 0)
 						warningFlash--;
 				}
 
 				// We exit if updating a bar meter. This gives a nice animation effect
-				if (image.ImageName != targetIcon)
+				if (barFrames[i] != targetFrame)
 				{
-					image.ImageName = targetIcon;
+					barFrames[i] = targetFrame;
 					if (!bypassAnimation)
 						return;
 				}
