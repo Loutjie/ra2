@@ -817,6 +817,7 @@ gaweat.exact:
 		Actors: e1.exact, e1.exact, e1.exact, e1.exact, e1.exact
 	WeatherControlSupportPower@LightningStorm:
 		ChargeInterval: 7500
+		BuildUpDelay: 208
 		Duration: 150
 		HitDelay: 8
 		ScatterDelay: 4

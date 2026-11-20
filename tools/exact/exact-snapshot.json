@@ -10022,6 +10022,8 @@
 				"Cost": "5000"
 			},
 			"WeatherControlSupportPower@LightningStorm": {
+				"BuildUpDelay": "208",
+				"BuildUpWeapon": "LightningStormClouds",
 				"ChargeInterval": "7500",
 				"Cursor": "weatherstorm",
 				"Description": "actor-gaweat.weathercontrolsupportpower-lightningstorm-description",

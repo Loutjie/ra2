@@ -175,3 +175,4 @@
 		Type: LightningStorm
 		Color: 08112e50
 		Length: 300
+		FadeOut: 50

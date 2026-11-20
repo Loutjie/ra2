@@ -18,7 +18,7 @@ GENERAL = {
     "AlliedCrew": "TROOP", "SovietCrew": "RED", "Pilot": "TROOP", "CrewEscape": "35%",
     "AllyParaDropInf": "TROOP", "AllyParaDropNum": "3", "SovParaDropInf": "RED", "SovParaDropNum": "2",
     "AmerParaDropInf": "TROOP", "AmerParaDropNum": "4",
-    "LightningStormDuration": "90", "LightningHitDelay": "7", "LightningScatterDelay": "3",
+    "LightningDeferment": "250", "LightningStormDuration": "90", "LightningHitDelay": "7", "LightningScatterDelay": "3",
     "LightningDamage": "77", "LightningWarhead": "ZapWH",
 }
 
@@ -161,7 +161,8 @@ def test_superweapon_charge_converted(tree):
     assert curtain == {"ChargeInterval": str(conversions.minutes_to_ticks(5)),
         "Duration": str(conversions.frames_to_ticks(300))}
     storm = tree["storm.exact"]["WeatherControlSupportPower@LightningStorm"]
-    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)), "Duration": "75", "HitDelay": "6",
+    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)),
+        "BuildUpDelay": str(conversions.frames_to_ticks(250)), "Duration": "75", "HitDelay": "6",
         "ScatterDelay": "3", "Weapon": "LightningStorm.exact"}
     drop = tree["airdrop.exact"]["ParatroopersPower@paratroopers"]
     assert drop == {"ChargeInterval": str(conversions.minutes_to_ticks(3)),

@@ -410,7 +410,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Affected:
   - amradr.exact: ParatroopersPower@paratroopers ChargeInterval 3000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact (RA2 AmericanParaDropSpecial)
   - gacsph.exact: ChronoshiftPower@chronoshift ChargeInterval 5250 (RA2 ChronoSphereSpecial)
-  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 7500, Duration 150, HitDelay 8, ScatterDelay 4, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
+  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 7500, BuildUpDelay 208, Duration 150, HitDelay 8, ScatterDelay 4, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
   - nairon.exact: GrantExternalConditionPower@IRONCURTAIN ChargeInterval 3750, Duration 625 (RA2 IronCurtainSpecial)
   - namisl.exact: NukePower ChargeInterval 7500 (RA2 MultiSpecial)
 
@@ -418,7 +418,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: Lightning Storm weapon twin and timing
 - Applied by: the generator
-- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (delay before the storm starts) and LightningSeparation have no field in WeatherControlSupportPower and are not applied. LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of -5c0..5c0 already spread the clouds over a 10-cell area.
+- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (the build-up before the first strike) is the power's BuildUpDelay; LightningSeparation has no field in WeatherControlSupportPower and is not applied. LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of -5c0..5c0 already spread the clouds over a 10-cell area.
 - Affected:
   - LightningStorm.exact: from [General] LightningDamage, LightningWarhead
 
