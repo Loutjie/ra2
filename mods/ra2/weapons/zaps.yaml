@@ -6,6 +6,10 @@ ElectricBoltE:
 	Range: 5c0
 	ReloadDelay: 40
 	Report: itesat2a.wav, itesat2b.wav
+	# RA2 Electricbounce: the bolt jumps to 2 more enemies nearby.
+	Warhead@5Fragments: FireFragments
+		Weapon: TeslaFragment
+		Count: 2
 
 CRElectricBolt:
 	Inherits: ElectricBolt
@@ -66,6 +70,20 @@ TankBoltE:
 	BurstDelays: 60
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
+	# RA2 Electricbounce: the bolt jumps to 2 more enemies nearby.
+	Warhead@5Fragments: FireFragments
+		Weapon: TeslaFragment
+		Count: 2
+
+TeslaFragment:
+	Inherits: ^TeslaZap
+	ValidTargets: Ground, Water
+	InvalidTargets: Structure, Wall
+	ReloadDelay: 80
+	Range: 3c0
+	Report: btesat1a.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 30
 
 SonicZap:
 	ReloadDelay: 180
