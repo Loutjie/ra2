@@ -48,12 +48,12 @@ def test_fire_and_smoke_sprites_draw_in_front_of_buildings():
 
 
 def test_damaged_vehicles_spark_when_hit():
-    """RA2's SparkSys: each hit below the yellow health bar throws sparks (one flash, not a loop)."""
+    """RA2's SparkSys: each hit below the yellow health bar throws sparks (a double flash, played twice)."""
     sparks = DEFAULTS["^DamageSmoke"]["WithDamageOverlay@SPARKS"]
     assert sparks["Image"] == "explosion"
-    assert sparks["LoopSequence"] == "piff"
-    assert sparks["LoopCount"] == "1"
+    assert sparks["LoopSequence"] == "piffpiff"
+    assert sparks["LoopCount"] == "2"
     assert sparks["MinimumDamageState"] == "Heavy"
     assert sparks["Palette"] == "effect"
     misc = parse_miniyaml((MOD / "sequences" / "misc.yaml").read_text(encoding="utf-8-sig"))
-    assert "piff" in misc["explosion"]
+    assert "piffpiff" in misc["explosion"]

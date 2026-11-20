@@ -247,10 +247,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -560,10 +560,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -1188,10 +1188,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -1640,10 +1640,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -1936,10 +1936,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -3157,10 +3157,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithHarvestOverlay": {
@@ -3831,10 +3831,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -4556,10 +4556,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -4864,10 +4864,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -5197,10 +5197,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -7127,10 +7127,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -11355,10 +11355,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -11729,10 +11729,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -12081,10 +12081,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -12389,10 +12389,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -13285,10 +13285,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -13640,10 +13640,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -13995,10 +13995,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -17906,10 +17906,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -18509,10 +18509,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -18772,10 +18772,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -19464,10 +19464,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -20639,10 +20639,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -20980,10 +20980,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -22172,10 +22172,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -22520,10 +22520,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -22849,10 +22849,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -23814,10 +23814,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -26233,10 +26233,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -26484,10 +26484,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -26789,10 +26789,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -27093,10 +27093,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -27422,10 +27422,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -27726,10 +27726,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -28030,10 +28030,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -28293,10 +28293,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -28590,10 +28590,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -28842,10 +28842,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -29147,10 +29147,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -29451,10 +29451,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -29755,10 +29755,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -30059,10 +30059,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -30364,10 +30364,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -30668,10 +30668,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -30972,10 +30972,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -31277,10 +31277,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -31581,10 +31581,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -31885,10 +31885,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -32149,10 +32149,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
@@ -32446,10 +32446,10 @@
 			},
 			"WithDamageOverlay@SPARKS": {
 				"Image": "explosion",
-				"LoopCount": "1",
-				"LoopSequence": "piff",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
 				"MinimumDamageState": "Heavy",
-				"Offset": "0,0,256",
+				"Offset": "0,0,384",
 				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
