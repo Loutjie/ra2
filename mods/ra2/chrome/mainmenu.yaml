@@ -1,0 +1,318 @@
+# RA2's main menu: the animated shell sidebar on the right, over the shellmap.
+# Widget names match common|chrome/mainmenu.yaml so MainMenuLogic drives it unchanged.
+Container@MAINMENU:
+	Logic: MainMenuLogic
+	Children:
+		LogicKeyListener@GLOBAL_KEYHANDLER:
+			Logic: MusicHotkeyLogic, ScreenshotHotkeyLogic, MuteHotkeyLogic
+				StopMusicKey: StopMusic
+				PauseMusicKey: PauseMusic
+				PrevMusicKey: PrevMusic
+				NextMusicKey: NextMusic
+				TakeScreenshotKey: TakeScreenshot
+				MuteAudioKey: ToggleMute
+		Label@VERSION_LABEL:
+			Logic: VersionLabelLogic
+			X: 10
+			Y: WINDOW_HEIGHT - 30
+			Width: 300
+			Height: 25
+			Font: Regular
+			Shadow: true
+		Container@MENUS:
+			X: WINDOW_WIDTH - WIDTH
+			Width: 168
+			Height: WINDOW_HEIGHT
+			Children:
+				Container@MAIN_MENU:
+					Width: PARENT_WIDTH
+					Height: PARENT_HEIGHT
+					Children:
+						RA2ShellSidebar@SIDEBAR:
+							Width: PARENT_WIDTH
+							Height: PARENT_HEIGHT
+						Label@MAINMENU_LABEL_TITLE:
+							Y: 6
+							Width: PARENT_WIDTH
+							Height: 22
+							Text: label-main-menu-title
+							Align: Center
+							Font: Bold
+							Shadow: true
+						RA2ShellButton@SINGLEPLAYER_BUTTON:
+							X: 12
+							Y: 199 + 0 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 0
+							Text: label-singleplayer-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@MULTIPLAYER_BUTTON:
+							X: 12
+							Y: 199 + 1 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 50
+							Text: label-multiplayer-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@SETTINGS_BUTTON:
+							X: 12
+							Y: 199 + 2 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 100
+							Text: button-settings-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@EXTRAS_BUTTON:
+							X: 12
+							Y: 199 + 3 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 150
+							Text: button-extras-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@CONTENT_BUTTON:
+							X: 12
+							Y: 199 + 4 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 200
+							Text: button-main-menu-content
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@QUIT_BUTTON:
+							X: 12
+							Y: 199 + 5 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 250
+							Text: button-quit
+							Font: Bold
+							Contrast: true
+				Container@SINGLEPLAYER_MENU:
+					Width: PARENT_WIDTH
+					Height: PARENT_HEIGHT
+					Children:
+						RA2ShellSidebar@SIDEBAR:
+							Width: PARENT_WIDTH
+							Height: PARENT_HEIGHT
+						Label@SINGLEPLAYER_MENU_TITLE:
+							Y: 6
+							Width: PARENT_WIDTH
+							Height: 22
+							Text: label-singleplayer-title
+							Align: Center
+							Font: Bold
+							Shadow: true
+						RA2ShellButton@SKIRMISH_BUTTON:
+							X: 12
+							Y: 199 + 0 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 0
+							Text: button-singleplayer-menu-skirmish
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@MISSIONS_BUTTON:
+							X: 12
+							Y: 199 + 1 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 50
+							Text: label-missions-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@LOAD_BUTTON:
+							X: 12
+							Y: 199 + 2 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 100
+							Text: button-singleplayer-menu-load
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@BACK_BUTTON:
+							X: 12
+							Y: 199 + 3 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 150
+							Key: escape
+							Text: button-back
+							Font: Bold
+							Contrast: true
+				Container@EXTRAS_MENU:
+					Width: PARENT_WIDTH
+					Height: PARENT_HEIGHT
+					Children:
+						RA2ShellSidebar@SIDEBAR:
+							Width: PARENT_WIDTH
+							Height: PARENT_HEIGHT
+						Label@EXTRAS_MENU_TITLE:
+							Y: 6
+							Width: PARENT_WIDTH
+							Height: 22
+							Text: button-extras-title
+							Align: Center
+							Font: Bold
+							Shadow: true
+						RA2ShellButton@REPLAYS_BUTTON:
+							X: 12
+							Y: 199 + 0 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 0
+							Text: button-extras-menu-replays
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@MUSIC_BUTTON:
+							X: 12
+							Y: 199 + 1 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 50
+							Text: label-music-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@MAP_EDITOR_BUTTON:
+							X: 12
+							Y: 199 + 2 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 100
+							Text: label-map-editor-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@ASSETBROWSER_BUTTON:
+							X: 12
+							Y: 199 + 3 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 150
+							Text: button-extras-menu-assetbrowser
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@CREDITS_BUTTON:
+							X: 12
+							Y: 199 + 4 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 200
+							Text: label-credits-title
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@BACK_BUTTON:
+							X: 12
+							Y: 199 + 5 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 250
+							Key: escape
+							Text: button-back
+							Font: Bold
+							Contrast: true
+				Container@MAP_EDITOR_MENU:
+					Width: PARENT_WIDTH
+					Height: PARENT_HEIGHT
+					Children:
+						RA2ShellSidebar@SIDEBAR:
+							Width: PARENT_WIDTH
+							Height: PARENT_HEIGHT
+						Label@MAP_EDITOR_MENU_TITLE:
+							Y: 6
+							Width: PARENT_WIDTH
+							Height: 22
+							Text: label-map-editor-title
+							Align: Center
+							Font: Bold
+							Shadow: true
+						RA2ShellButton@NEW_MAP_BUTTON:
+							X: 12
+							Y: 199 + 0 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 0
+							Text: button-map-editor-new-map
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@LOAD_MAP_BUTTON:
+							X: 12
+							Y: 199 + 1 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 50
+							Text: button-map-editor-load-map
+							Font: Bold
+							Contrast: true
+						RA2ShellButton@BACK_BUTTON:
+							X: 12
+							Y: 199 + 2 * 42
+							Width: 156
+							Height: 42
+							OpenDelay: 100
+							Key: escape
+							Text: button-back
+							Font: Bold
+							Contrast: true
+		Container@PERFORMANCE_INFO:
+			Logic: PerfDebugLogic
+			Children:
+				Label@PERF_TEXT:
+					X: 30
+					Y: WINDOW_HEIGHT - 70
+					Width: 170
+					Height: 40
+					Contrast: true
+				Background@GRAPH_BG:
+					ClickThrough: true
+					Background: dialog4
+					X: WINDOW_WIDTH - 168 - 240
+					Y: WINDOW_HEIGHT - 240
+					Width: 210
+					Height: 210
+					Children:
+						PerfGraph@GRAPH:
+							X: 5
+							Y: 5
+							Width: 200
+							Height: 200
+		Background@NEWS_BG:
+			X: (WINDOW_WIDTH - 168 - WIDTH) / 2
+			Y: 35
+			Width: 430
+			Height: 55
+			Children:
+				DropDownButton@NEWS_BUTTON:
+					Background: newsbutton
+					X: 15
+					Y: 15
+					Width: 400
+					Height: 25
+					Text: dropdownbutton-news-bg-button
+					Font: Bold
+		Container@UPDATE_NOTICE:
+			X: (WINDOW_WIDTH - 168 - WIDTH) / 2
+			Y: 95
+			Width: 128
+			Children:
+				Label@A:
+					Width: PARENT_WIDTH
+					Height: 25
+					Align: Center
+					Shadow: true
+					Text: label-update-notice-a
+				Label@B:
+					Y: 20
+					Width: PARENT_WIDTH
+					Height: 25
+					Align: Center
+					Shadow: true
+					Text: label-update-notice-b
+		Container@PLAYER_PROFILE_CONTAINER:
+			Logic: LoadLocalPlayerProfileLogic
+			X: 25
+			Y: 25

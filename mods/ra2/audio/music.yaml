@@ -1,3 +1,8 @@
+# RA2's menu theme (theme.ini [INTRO]: Grinder, looping). Hidden so it is not a second playlist entry.
+intro: Grinder
+	Filename: grinder
+	Extension: wav
+	Hidden: true
 grinder: Grinder
 	Extension: wav
 power: Power

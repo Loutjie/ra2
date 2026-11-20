@@ -33,4 +33,4 @@ Rules:
 	World:
 		-StartGameNotification:
 		MusicPlaylist:
-			StartingMusic: grinder
+			BackgroundMusic: intro

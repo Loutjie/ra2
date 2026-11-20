@@ -1,0 +1,22 @@
+# RA2's main menu (shell) art from neutral.mix, drawn by the RA2Shell* widgets in chrome/mainmenu.yaml.
+ra2shell:
+	# Top panel with the warning gauge (frame 0) and without it (frame 1).
+	top:
+		Filename: sdtp.shp
+	# The gauge sliding down into the top panel as the menu opens.
+	top-intro:
+		Filename: sdwrntmp.shp
+		Length: *
+	# Looping gauge needle, drawn over the top panel's gauge window.
+	gauge:
+		Filename: sdwrnanm.shp
+		Length: *
+	# Backing of one button slot.
+	slot:
+		Filename: sdbtnbkgd.shp
+	# 0 cover plate, 1 idle, 2-4 hover glow, 5-10 button sliding out, 11-16 cover plate sliding out.
+	button:
+		Filename: sdbtnanm.shp
+		Length: *
+	bottom:
+		Filename: sdbtm.shp
