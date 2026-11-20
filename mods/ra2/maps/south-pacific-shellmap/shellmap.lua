@@ -307,27 +307,31 @@ end
 AlliedRaid = { "mtnk", "mtnk", "sref", "sref" }
 SovietRaid = { "htnk", "htnk", "apoc", "ttnk" }
 
+-- Raiders enter off screen and drive up to the ramp foot, so they never pop into view in front of the camera.
 -- Raiders that survive the defences join the battle on the strip, so they never park in a base and pile up.
-Raid = function(player, types, foot, base)
-	local raiders = Reinforcements.Reinforce(player, types, { foot }, 10)
+Raid = function(player, types, entry, foot, base)
+	local raiders = Reinforcements.Reinforce(player, types, { entry, foot }, 10)
 	Utils.Do(raiders, function(unit)
 		unit.AttackMove(base.Location)
 		Trigger.OnIdle(unit, function(u) u.AttackMove(RandomStripCell()) end)
 	end)
 end
 
--- Raids start when the camera reaches the base: the ramp foot is a few cells from the defences, so the fight
--- begins while the camera holds there. Starting earlier let raids finish before the camera arrived.
+-- Raids start when the camera reaches the base: they enter just outside the view, 10 to 24 cells from the ramp
+-- foot, so the fight begins while the camera holds there. Starting earlier let raids finish before it arrived.
 RaidSovietBase = function()
-	Raid(Allies, AlliedRaid, SovietRampFoot.Location, SovietConyard)
+	Raid(Allies, AlliedRaid, SovietRaidEntry.Location, SovietRampFoot.Location, SovietConyard)
 end
 
 -- Soviet raids alternate between the Allied base's two ramps, so both pairs of Prism Towers get used.
 SovietRaidCount = 0
 RaidAlliedBase = function()
 	SovietRaidCount = SovietRaidCount + 1
-	local foot = SovietRaidCount % 2 == 0 and AlliedNorthRampFoot or AlliedRampFoot
-	Raid(Soviets, SovietRaid, foot.Location, AlliedConyard)
+	if SovietRaidCount % 2 == 0 then
+		Raid(Soviets, SovietRaid, AlliedNorthRaidEntry.Location, AlliedNorthRampFoot.Location, AlliedConyard)
+	else
+		Raid(Soviets, SovietRaid, AlliedRaidEntry.Location, AlliedRampFoot.Location, AlliedConyard)
+	end
 end
 
 -- Alternates a superweapon strike with a Chronosphere jump or Iron Curtain, one per pass over the strip.
@@ -353,10 +357,10 @@ end
 
 BuildCameraRoute = function()
 	CameraRoute = {
-		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(15), arrive = RaidAlliedBase },
+		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(22), arrive = RaidAlliedBase },
 		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(12), event = true },
 		{ position = AtGroundZero(SeaBattle), hold = 0 },
-		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(15), arrive = RaidSovietBase },
+		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(22), arrive = RaidSovietBase },
 		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true },
 	}
 	CameraAt = CameraRoute[1].position

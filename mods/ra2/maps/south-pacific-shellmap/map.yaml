@@ -111,10 +111,6 @@ Actors:
 		Location: 110,46
 		Owner: Neutral
 		Facing: 896
-	Actor18: caairp
-		Location: 76,15
-		Owner: Neutral
-		Facing: 896
 	Actor19: caairp
 		Location: 133,-28
 		Owner: Neutral
@@ -371,9 +367,6 @@ Actors:
 	Actor100: tree10
 		Location: 68,26
 		Owner: Neutral
-	Actor101: tree10
-		Location: 68,25
-		Owner: Neutral
 	Actor102: tree10
 		Location: 71,25
 		Owner: Neutral
@@ -389,23 +382,14 @@ Actors:
 	Actor106: tree08
 		Location: 93,21
 		Owner: Neutral
-	Actor107: tree04
-		Location: 69,25
-		Owner: Neutral
 	Actor108: tree04
 		Location: 66,25
-		Owner: Neutral
-	Actor109: tree04
-		Location: 66,21
 		Owner: Neutral
 	Actor110: tree04
 		Location: 81,11
 		Owner: Neutral
 	Actor111: tree04
 		Location: 81,10
-		Owner: Neutral
-	Actor112: tree10
-		Location: 83,10
 		Owner: Neutral
 	Actor113: tree10
 		Location: 93,23
@@ -872,9 +856,6 @@ Actors:
 	Actor271: trock01
 		Location: 116,-30
 		Owner: Neutral
-	Actor272: trock03
-		Location: 79,8
-		Owner: Neutral
 	Actor273: srock02
 		Location: 122,-34
 		Owner: Neutral
@@ -1235,6 +1216,15 @@ Actors:
 		Owner: Neutral
 	AlliedNorthRampFoot: waypoint
 		Location: 63,-2
+		Owner: Neutral
+	AlliedRaidEntry: waypoint
+		Location: 106,41
+		Owner: Neutral
+	AlliedNorthRaidEntry: waypoint
+		Location: 51,-14
+		Owner: Neutral
+	SovietRaidEntry: waypoint
+		Location: 111,11
 		Owner: Neutral
 	StripCenter: waypoint
 		Location: 114,0
