@@ -153,7 +153,7 @@ def build(rules: dict, base_actors: dict, weapons: dict[str, str],
         twin_traits[name] = traits
         notes += twin_notes
         stubs.update(t["Weapon"][: -len(actors.SUFFIX)] for k, t in traits.items()
-            if actors.trait_type(k) == "Armament" and "Weapon" in t)
+            if actors.trait_type(k) in actors.ARMAMENT_TRAITS and "Weapon" in t)
 
     # Global rules; the death and Lightning Storm weapons they name get twins too.
     neutral = dict(neutral_actors or {})

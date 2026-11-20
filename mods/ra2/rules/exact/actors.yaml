@@ -9,14 +9,14 @@ aegis.exact:
 	Inherits: aegis
 	-ReplaceOnPrerequisite@BALANCE:
 	-MapEditorData:
-	Armament:
-		Weapon: Medusa.exact
 	Armor:
 		Type: Light
 	Buildable:
 		Prerequisites: radar, ~gayard, ~balance.exact
 		BuildDuration: 630
 		BuildDurationModifier: 100
+	DistributedArmament:
+		Weapon: Medusa.exact
 	Health:
 		HP: 800
 	Mobile:

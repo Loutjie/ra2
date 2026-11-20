@@ -11,7 +11,7 @@ values that RA2's rules.ini defines (exact.model), converted by exact.conversion
     Turreted TurnSpeed), RevealsShroud Range, Power Amount.
     A value is only written to a trait the base actor has; generate.py lists what
     could not be applied.
-  * Armament*: Weapon -> `<weapon>.exact`.
+  * Armament* (and DistributedArmament*): Weapon -> `<weapon>.exact`.
   * Buildings: `ProvidesPrerequisite@BASE: Prerequisite: <id>`, so prerequisites that
     name the base building (e.g. `naweap`) are met by the twin.
   * Actor names in actor lists point at twins where a twin exists. Lists of actors to
@@ -85,6 +85,10 @@ NAME_IMAGE_TRAITS = ("WithDecoration", "ChronoshiftableWithSpriteEffect",
 
 def trait_type(key: str) -> str:
     return key.split("@", 1)[0]
+
+
+# Trait types that fire a Weapon like Armament (the mod's DistributedArmament subclasses it).
+ARMAMENT_TRAITS = ("Armament", "DistributedArmament")
 
 
 def twin_name(actor_id: str) -> str:
@@ -178,7 +182,7 @@ def twin_traits(actor: ExactActor, base: Mapping, *, twins: Collection[str] = ()
         if not isinstance(trait, dict):
             continue
         kind = trait_type(key)
-        if kind == "Armament" and isinstance(trait.get("Weapon"), str):
+        if kind in ARMAMENT_TRAITS and isinstance(trait.get("Weapon"), str):
             weapon = trait["Weapon"].strip()
             put(key, "Weapon", (weapons or {}).get(weapon.lower(), weapon) + SUFFIX)
         for fields, beside in ((SPAWN_FIELDS.get(kind, ()), False), (MATCH_FIELDS.get(kind, ()), True)):

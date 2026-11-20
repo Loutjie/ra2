@@ -17,7 +17,7 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 
 from exact import conversions
-from exact.actors import SUFFIX, trait_type
+from exact.actors import ARMAMENT_TRAITS, SUFFIX, trait_type
 from exact.model import load_weapon
 from exact.weapons import ARCING_SPEED, NOT_FIRED, POINT_SPREAD, WeaponTwin, make_twin
 
@@ -72,7 +72,7 @@ def tesla_charge(exc: ConversionException, gen: Generated) -> list[str]:
             continue
         twins = []
         for key, trait in sorted(tree.items()):
-            if trait_type(key) == "Armament" and isinstance(trait, Mapping) and isinstance(trait.get("Weapon"), str):
+            if trait_type(key) in ARMAMENT_TRAITS and isinstance(trait, Mapping) and isinstance(trait.get("Weapon"), str):
                 t = gen.weapon(trait["Weapon"].strip())
                 if t is None or t.values is None:
                     raise ValueError(f"{exc.id}: {base_id} fires {trait['Weapon']}, whose twin is a stub: "

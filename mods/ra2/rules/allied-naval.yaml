@@ -154,7 +154,8 @@ aegis:
 		Speed: 60
 	RevealsShroud:
 		Range: 8c0
-	Armament:
+	# RA2 DistributedFire=yes: each missile goes at the next enemy aircraft in range.
+	DistributedArmament:
 		Weapon: Medusa
 	AttackFrontal:
 		Voice: Attack
