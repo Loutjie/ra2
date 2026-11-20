@@ -554,6 +554,8 @@ jumpjet:
 	Health:
 		HP: 125
 	-TimedConditionBar@ChronoDisable:
+	ChronoErasable:
+		Condition:
 	-ExternalCondition@CHRONODISABLE:
 	-Mobile:
 	-ChronoshiftableWithSpriteEffect:
@@ -683,6 +685,11 @@ cleg:
 	Armament@Temporal:
 		Weapon: NeutronRifle
 		LocalOffset: 320,128,1024
+		RequiresCondition: !rank-elite
+	Armament@TemporalElite:
+		Weapon: NeutronRifleE
+		LocalOffset: 320,128,1024
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
