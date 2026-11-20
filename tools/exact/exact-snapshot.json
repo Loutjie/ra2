@@ -3,9 +3,6 @@
 		"aegis.exact": {
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
-			"Armament": {
-				"Weapon": "Medusa.exact"
-			},
 			"Armor": {
 				"Type": "Light"
 			},
@@ -61,6 +58,9 @@
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
 				"RequiresCondition": "invulnerability"
+			},
+			"DistributedArmament": {
+				"Weapon": "Medusa.exact"
 			},
 			"DrawLineToTarget": {},
 			"ExternalCondition@CHRONODISABLE": {
