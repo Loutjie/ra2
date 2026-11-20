@@ -36,6 +36,32 @@ def test_load_fires_follows_image_and_skips_malformed_offsets():
     assert fires["NAFAKE"] == [(30, -15), (0, 15)]
 
 
+def test_load_fires_reads_keys_case_insensitively_like_ra2():
+    # The original art.ini spells one key "damageFireOffset1" (CAPARS12, the Eiffel Tower).
+    art = {"GAX": {"DamageFireOffset0": "1,2", "damageFireOffset1": "3,4", "DAMAGEFIREOFFSET2": "5,6"}}
+    assert dict(generate.load_fires({"GAX": {}}, art, {"gax"}))["GAX"] == [(1, 2), (3, 4), (5, 6)]
+
+
+def test_load_fires_reads_image_case_insensitively():
+    art = {"GAXART": {"DamageFireOffset0": "1,2"}}
+    assert dict(generate.load_fires({"GAX": {"image": "GAXART"}}, art, {"gax"}))["GAX"] == [(1, 2)]
+
+
+def test_main_never_reads_the_committed_output_as_an_actor_source(tmp_path, monkeypatch):
+    seen = {}
+    def fake_names(rules_dir, exclude=None):
+        seen["exclude"] = exclude
+        return set()
+
+    monkeypatch.setattr(generate, "mod_actor_names", fake_names)
+    rules = tmp_path / "rules.ini"
+    art = tmp_path / "art.ini"
+    rules.write_text("[GAX]\n", encoding="latin-1")
+    art.write_text("[GAX]\n", encoding="latin-1")
+    assert generate.main(["--rules", str(rules), "--art", str(art), "--out", str(tmp_path / "out.yaml")]) == 0
+    assert seen["exclude"] == generate.DEFAULT_OUT
+
+
 def test_load_fires_only_lists_mod_actors_with_fires():
     assert [name for name, _ in generate.load_fires(RULES, ART, ACTORS)] == ["GAFAKE", "NAFAKE"]
 

@@ -54,11 +54,13 @@ def load_fires(rules, art, actors) -> list:
     for name, section in rules.items():
         if name.lower() not in actors:
             continue
-        art_section = art.get(section.get("Image", name), art.get(name, {}))
+        # RA2 reads keys case-insensitively: the original art.ini spells one "damageFireOffset1".
+        keys = {k.lower(): v for k, v in section.items()}
+        art_section = {k.lower(): v for k, v in art.get(keys.get("image", name), art.get(name, {})).items()}
         offsets = []
         i = 0
-        while f"DamageFireOffset{i}" in art_section:
-            parsed = _parse_pixels(art_section[f"DamageFireOffset{i}"])
+        while f"damagefireoffset{i}" in art_section:
+            parsed = _parse_pixels(art_section[f"damagefireoffset{i}"])
             if parsed is not None:
                 offsets.append(parsed)
             i += 1
@@ -111,7 +113,8 @@ def main(argv=None) -> int:
         print("original INI files not found; pass --rules/--art or set $RA2INI", file=sys.stderr)
         return 1
     out = Path(args.out)
-    actors = mod_actor_names(DEFAULT_OUT.parent, exclude=out)
+    # Always skip the committed output, also when writing elsewhere: its actors are not a source.
+    actors = mod_actor_names(DEFAULT_OUT.parent, exclude=DEFAULT_OUT)
     text = render(load_fires(ini.parse_ini(args.rules), ini.parse_ini(args.art), actors))
     out.write_text(text, encoding="utf-8", newline="\n")
     return 0
