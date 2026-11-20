@@ -57,7 +57,12 @@
 				"Modifier": "0",
 				"RequiresCondition": "invulnerability"
 			},
-			"DistributedArmament": {
+			"DistributedArmament@elite": {
+				"RequiresCondition": "rank-elite",
+				"Weapon": "MedusaE"
+			},
+			"DistributedArmament@primary": {
+				"RequiresCondition": "!rank-elite",
 				"Weapon": "Medusa"
 			},
 			"DrawLineToTarget": {},
@@ -33260,6 +33265,65 @@
 			},
 			"Range": "12c0",
 			"ReloadDelay": "100",
+			"Report": "vaegatta.wav, vaegattb.wav",
+			"ValidTargets": "Air",
+			"Warhead@1Dam": {
+				"Damage": "100",
+				"DamageTypes": "BulletDeath",
+				"Spread": "60",
+				"ValidTargets": "Air",
+				"Versus": {
+					"Concrete": "0",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "100",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "0",
+					"Wood": "0"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Explosions": "small_bang",
+				"ImpactSounds": "gexp10a.wav",
+				"ValidTargets": "Ground, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@3EffWater": {
+				"Explosions": "small_watersplash",
+				"ImpactSounds": "gexpwasa.wav",
+				"ValidTargets": "Water",
+				"_value": "CreateEffect"
+			}
+		},
+		"MedusaE": {
+			"Burst": "2",
+			"BurstDelays": "5",
+			"Projectile": {
+				"AllowSnapping": "true",
+				"Blockable": "false",
+				"ContrailLength": "35",
+				"ContrailStartWidth": "24",
+				"CruiseAltitude": "4352",
+				"HorizontalRateOfTurn": "220",
+				"Image": "DRAGON",
+				"LockOnProbability": "85",
+				"MaximumLaunchAngle": "255",
+				"MinimumLaunchAngle": "255",
+				"Palette": "ra",
+				"RangeLimit": "17c409",
+				"Shadow": "true",
+				"Speed": "720",
+				"TerrainHeightAware": "true",
+				"VerticalRateOfTurn": "220",
+				"_value": "Missile"
+			},
+			"Range": "14c0",
+			"ReloadDelay": "9",
 			"Report": "vaegatta.wav, vaegattb.wav",
 			"ValidTargets": "Air",
 			"Warhead@1Dam": {

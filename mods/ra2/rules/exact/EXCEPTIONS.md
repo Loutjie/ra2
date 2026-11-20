@@ -135,7 +135,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - MakeupKit
   - Maverick2E
   - MaverickE
-  - MedusaE
   - MindControlE
   - NeutronRifleE
   - PrismSupport

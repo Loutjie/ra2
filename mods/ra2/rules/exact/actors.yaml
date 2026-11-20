@@ -15,7 +15,9 @@ aegis.exact:
 		Prerequisites: radar, ~gayard, ~balance.exact
 		BuildDuration: 630
 		BuildDurationModifier: 100
-	DistributedArmament:
+	DistributedArmament@elite:
+		Weapon: MedusaE.exact
+	DistributedArmament@primary:
 		Weapon: Medusa.exact
 	Health:
 		HP: 800
