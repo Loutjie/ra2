@@ -1,0 +1,123 @@
+^BaseWorld:
+	TerrainLighting:
+		RedTint: 1.12
+		GreenTint: 1.12
+		Intensity: 0.75
+		HeightStep: 0.025
+
+Player:
+	-ConquestVictoryConditions:
+
+World:
+	-CrateSpawner:
+	-AutoSave:
+	-SpawnStartingUnits:
+	-MapStartingLocations:
+	-StartGameNotification:
+	MusicPlaylist:
+		StartingMusic: grinder
+		DisableWorldSounds: true
+	LuaScript:
+		Scripts: shellmap.lua
+	# The strip is fought over forever: clear craters and scorch marks within a minute so it never fills up.
+	SmudgeDecay:
+		Duration: 1500
+
+^Palettes:
+	-MenuPostProcessEffect:
+
+# Bases can be hit but never fall (as in the stock RA shellmap).
+gacnst:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaweap:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gapile:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaairc:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gaweat:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gacsph:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gapowr:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+atesla:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+gayard:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nacnst:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+naweap:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nahand:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+namisl:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nairon:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+napowr:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+tesla:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nanrct:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+nayard:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+^Wall:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+^LowBridge:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+^LowBridgeRamp:
+	DamageMultiplier@UNKILLABLE:
+		Modifier: 0
+
+# Wrecks fade out within about 30 seconds, so they never pile up.
+^Husk:
+	ChangesHealth@FADE:
+		PercentageStep: -4
+		Delay: 25
+		StartIfBelow: 101
+
+# Sorties leave the map after their run instead of flying back to rearm.
+orca:
+	-Rearmable:
