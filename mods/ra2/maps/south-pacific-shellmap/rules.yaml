@@ -19,6 +19,9 @@ World:
 		DisableWorldSounds: true
 	LuaScript:
 		Scripts: shellmap.lua
+	# The strip is fought over forever: clear craters and scorch marks within a minute so it never fills up.
+	SmudgeDecay:
+		Duration: 1500
 
 ^Palettes:
 	-MenuPostProcessEffect:
