@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenRA.GameRules;
 using OpenRA.Graphics;
+using OpenRA.Mods.Cnc.Graphics;
 using OpenRA.Mods.Common;
 using OpenRA.Primitives;
 using OpenRA.Traits;
@@ -247,13 +248,20 @@ namespace OpenRA.Mods.RA2.Traits
 			if (Phase == MissileFlightPhase.Pause)
 				return r;
 
-			// Moving south and up by the same amount leaves the screen position alone and brings it closer in depth.
 			var depth = info.FlyingDepthOffset.Length;
 			if (info.DepthFromAltitude)
 				depth += self.World.Map.DistanceAboveTerrain(CenterPosition).Length;
 
+			if (depth == 0 || Phase != MissileFlightPhase.Fly)
+				return r.Select(a => a.WithZOffset(a.ZOffset + info.FlyingZOffset));
+
+			// Voxel models are drawn nearer the camera without moving, so their shadow stays where it falls.
+			// Anything else moves south and up by the same amount, which leaves its screen position alone
+			// and brings it closer in depth. Both keep the draw order the old offset gave (2 * depth).
 			var toCamera = new WVec(0, depth, depth);
-			return r.Select(a => (depth != 0 && Phase == MissileFlightPhase.Fly ? a.OffsetBy(toCamera) : a).WithZOffset(a.ZOffset + info.FlyingZOffset));
+			return r.Select(a => a is ModelRenderable model
+				? model.WithDepthOffset(new WDist(depth)).WithZOffset(model.ZOffset + 2 * depth + info.FlyingZOffset)
+				: a.OffsetBy(toCamera).WithZOffset(a.ZOffset + info.FlyingZOffset));
 		}
 
 		IEnumerable<Rectangle> IRenderModifier.ModifyScreenBounds(Actor self, WorldRenderer wr, IEnumerable<Rectangle> bounds) { return bounds; }
