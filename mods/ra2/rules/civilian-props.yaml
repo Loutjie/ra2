@@ -558,3 +558,14 @@ gagate_a:
 		Footprint: xxx
 		TerrainTypes: Clear, Rough, Road, DirtRoad
 	Gate:
+
+camsc12a:
+	Inherits: camsc12
+	Tooltip:
+		Name: actor-camsc12a-name
+	Health:
+		HP: 100
+	Armor:
+		Type: Wood
+	RenderSprites:
+		Image: camsc12

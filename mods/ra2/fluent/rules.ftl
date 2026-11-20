@@ -413,6 +413,7 @@ actor-hdstn01-name = AlringtonStones
 actor-spkr01-name = Drive-In Speaker
 actor-cakrmw-name = Kremlin Walls
 actor-gagate-a-name = Guard Border Crossing
+actor-camsc12a-name = Practice Target
 
 ## civilian-structures.yaml
 actor-cafncb-name = Black Fence
