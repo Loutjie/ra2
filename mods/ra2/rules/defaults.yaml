@@ -580,11 +580,11 @@
 	# RA2's SparkSys: each hit below the yellow health bar throws sparks off the hull.
 	WithDamageOverlay@SPARKS:
 		Image: explosion
-		LoopSequence: piff
-		LoopCount: 1
+		LoopSequence: piffpiff
+		LoopCount: 2
 		MinimumDamageState: Heavy
 		Palette: effect
-		Offset: 0,0,256
+		Offset: 0,0,384
 
 ^DamagedByRadiation:
 	DamagedByTintedCells:
