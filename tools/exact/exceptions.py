@@ -289,12 +289,15 @@ EXCEPTIONS: list[ConversionException] = [
         "The twin stays a stub.",
         rule=_stub("DroneJump")),
     ConversionException("giant-squid",
-        "SquidPunch.exact; RA2 SquidGrab",
+        "SquidGrab.exact",
         "RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches "
-        "(SquidPunch). The mod's squid only punches: SquidPunch.exact takes RA2's SquidPunch "
-        "values, and SquidGrab has no mod counterpart.",
-        listed=lambda facts: ["SquidPunch.exact <- RA2 SquidPunch"]
-            if "SquidPunch.exact" in facts.get("generated_weapons", ()) else []),
+        "everything else (SquidPunch). The mod models the grab with the Terror Drone's "
+        "infection: SquidGrab is only the latch, without damage, and the squid's AttackInfect "
+        "deals RA2's 15 damage per grapple loop (15 frames; ROF 99 is ignored by RA2) and culls "
+        "a ship in the red. SquidGrab.exact stays a stub; SquidPunch.exact takes RA2's SquidPunch "
+        "values. RA2's elite SquidGrabE (40 damage) is not modelled: the elite squid gets the "
+        "mod's firepower bonus instead.",
+        rule=_stub("SquidGrab")),
     ConversionException("crazy-ivan-bomb",
         "IvanBomber.exact, IvanBomberE.exact",
         "RA2's Crazy Ivan plants a bomb (IvanBomb) whose explosion is set in [CombatDamage] "

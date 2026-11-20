@@ -66,6 +66,11 @@
 			"reason": "rules.ini section not fired by the twinned RA2 actor"
 		},
 		{
+			"twin": "SquidGrab.exact",
+			"reason": "giant-squid (see EXCEPTIONS.md)",
+			"exception": "giant-squid"
+		},
+		{
 			"twin": "SuperComet.exact",
 			"reason": "prism-tank-beam (see EXCEPTIONS.md)",
 			"exception": "prism-tank-beam"
@@ -153,9 +158,6 @@
 		},
 		{
 			"weapon": "SonicZapE"
-		},
-		{
-			"weapon": "SquidGrab"
 		},
 		{
 			"weapon": "SquidGrabE"

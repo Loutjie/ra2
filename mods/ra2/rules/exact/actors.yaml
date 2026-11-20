@@ -2257,6 +2257,8 @@ sqd.exact:
 	-ReplaceOnPrerequisite@BALANCE:
 	Armament:
 		Weapon: SquidPunch.exact
+	Armament@GRAB:
+		Weapon: SquidGrab.exact
 	Armor:
 		Type: Light
 	Buildable:
