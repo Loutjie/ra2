@@ -1125,6 +1125,11 @@ atesla:
 		Voice: Attack
 		ReloadDelay: 60
 		ChargeAudio: bpripow.wav
+		PauseOnCondition: lowpower || prism-supporting
+		RequiresCondition: !build-incomplete
+	PrismTower:
+		SupportWeapon: PrismSupport
+		SupportingCondition: prism-supporting
 		PauseOnCondition: lowpower
 		RequiresCondition: !build-incomplete
 	Power:

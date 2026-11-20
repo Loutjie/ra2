@@ -110,10 +110,16 @@ PrismShot:
 	ReloadDelay: 1
 	Range: 8c0
 	Report: bpriat1a.wav
-	Projectile: LaserZap
-		Width: 70
-		UsePlayerColor: true
+	Projectile: GlowLaserZap
+		Width: 192
+		Color: FFFFFF
 		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 232
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
+		SecondaryBeamZOffset: 2046
 	Warhead@1Dam: SpreadDamage
 		Spread: 42
 		Damage: 120
@@ -130,6 +136,21 @@ PrismShot:
 			Drone: 200
 			Rocket: 100
 		DamageTypes: ElectroDeath
+
+PrismSupport:
+	ReloadDelay: 50
+	Range: 8c0
+	Projectile: GlowLaserZap
+		Width: 96
+		Duration: 13
+		Color: FFFFFF
+		ZOffset: 2047
+		SecondaryBeam: true
+		SecondaryBeamWidth: 120
+		SecondaryBeamUsePlayerColor: true
+		SecondaryBeamAlpha: 144
+		DepthOffset: 1c512
+		SecondaryBeamZOffset: 2046
 
 Comet:
 	ValidTargets: Ground, Water
