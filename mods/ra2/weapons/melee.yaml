@@ -58,6 +58,14 @@ AlligatorBite:
 		Damage: 30
 		DamageTypes: BulletDeath
 
+SquidGrab:
+	# The latch itself: the Giant Squid's AttackInfect deals the damage while it holds the ship.
+	ReloadDelay: 83
+	Range: 1c512
+	Report: vsquat1a.wav
+	ValidTargets: SquidGrabbable
+	Projectile: InstantHit
+
 BearBite:
 	Inherits: AlligatorBite
 	Report: gbeaatta.wav, gbeaattb.wav
@@ -72,6 +80,8 @@ SquidPunch:
 	Range: 1c856
 	Report: vsquat1a.wav
 	ValidTargets: Water, Underwater
+	# Ships are grabbed (SquidGrab), never punched; RA2 punches only non-ships.
+	InvalidTargets: SquidGrabbable, SquidGrabbed
 	Warhead@1Dam: SpreadDamage
 		Damage: 50
 		ValidTargets: Water, Underwater

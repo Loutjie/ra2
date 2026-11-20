@@ -9,6 +9,8 @@
  */
 #endregion
 
+using System.Collections.Generic;
+using System.Linq;
 using OpenRA.Activities;
 using OpenRA.Mods.Common.Traits;
 using OpenRA.Mods.RA2.Activities;
@@ -40,6 +42,17 @@ namespace OpenRA.Mods.RA2.Traits
 
 		[Desc("Damage types which allows the infector survive when it's host dies.")]
 		public readonly BitSet<DamageType> SurviveHostDamageTypes = default;
+
+		[Desc("The infector always survives its host's death, whatever killed it (RA2's Giant Squid).")]
+		public readonly bool AlwaysSurviveHostDeath = false;
+
+		[Desc("Kill the host outright on an infection damage tick once its health is at or below this percentage",
+			"of its maximum (RA2's Culling warheads, which kill a victim in the red). 0 disables it.")]
+		public readonly int CullHealthPercent = 0;
+
+		[Desc("Armaments (by name) that latch on. A target none of them is valid for is attacked normally",
+			"with the other armaments, if one of those is valid. Empty means every attack latches on.")]
+		public readonly HashSet<string> InfectArmaments = [];
 
 		public override object Create(ActorInitializer init) { return new AttackInfect(init.Self, this); }
 	}
@@ -79,9 +92,45 @@ namespace OpenRA.Mods.RA2.Traits
 				jumpToken = self.RevokeCondition(jumpToken);
 		}
 
+		bool IsInfectArmament(Armament a)
+		{
+			return InfectInfo.InfectArmaments.Count == 0 || InfectInfo.InfectArmaments.Contains(a.Info.Name);
+		}
+
+		bool UsesInfectAttack(Actor self, in Target target)
+		{
+			var restricts = InfectInfo.InfectArmaments.Count > 0;
+			if (!restricts)
+				return true;
+
+			var infectValid = false;
+			var otherValid = false;
+			foreach (var a in Armaments)
+			{
+				if (a.IsTraitDisabled || !a.Weapon.IsValidAgainst(target, self.World, self))
+					continue;
+
+				if (IsInfectArmament(a))
+					infectValid = true;
+				else
+					otherValid = true;
+			}
+
+			return InfectionTransitions.UsesInfectAttack(restricts, infectValid, otherValid);
+		}
+
+		/// <summary>Whether every armament that latches on is reloading.</summary>
+		public bool InfectArmamentsReloading()
+		{
+			return Armaments.Where(IsInfectArmament).All(a => a.IsReloading);
+		}
+
 		public override Activity GetAttackActivity(Actor self, AttackSource source, in Target newTarget, bool allowMove, bool forceAttack, Color? targetLineColor)
 		{
-			return new Infect(self, newTarget, this, targetLineColor);
+			if (UsesInfectAttack(self, newTarget))
+				return new Infect(self, newTarget, this, targetLineColor);
+
+			return base.GetAttackActivity(self, source, newTarget, allowMove, forceAttack, targetLineColor);
 		}
 	}
 }

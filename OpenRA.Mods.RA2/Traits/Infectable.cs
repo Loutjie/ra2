@@ -222,7 +222,9 @@ namespace OpenRA.Mods.RA2.Traits
 			if (Infector == null)
 				return;
 
-			var survives = AttackInfect.InfectInfo.SurviveHostDamageTypes.Overlaps(e.Damage.DamageTypes);
+			var infectInfo = AttackInfect.InfectInfo;
+			var survives = InfectionTransitions.InfectorSurvivesHostDeath(infectInfo.AlwaysSurviveHostDeath,
+				infectInfo.SurviveHostDamageTypes.Overlaps(e.Damage.DamageTypes));
 			RemoveInfector(self, InfectionTransitions.OnHostKilled(true, survives), e, self.CenterPosition);
 		}
 
@@ -267,8 +269,13 @@ namespace OpenRA.Mods.RA2.Traits
 				if (--Ticks < 0)
 				{
 					var info = AttackInfect.InfectInfo;
-					var damage = Util.ApplyPercentageModifiers(info.Damage, FirepowerMultipliers);
-					health.InflictDamage(self, Infector, new Damage(damage, info.DamageTypes), false);
+					if (InfectionTransitions.ShouldCull(health.HP, health.MaxHP, info.CullHealthPercent))
+						self.Kill(Infector, info.DamageTypes);
+					else
+					{
+						var damage = Util.ApplyPercentageModifiers(info.Damage, FirepowerMultipliers);
+						health.InflictDamage(self, Infector, new Damage(damage, info.DamageTypes), false);
+					}
 
 					Ticks = info.DamageInterval;
 				}

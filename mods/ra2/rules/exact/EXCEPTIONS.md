@@ -66,11 +66,11 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 ## giant-squid
 
-- Field: SquidPunch.exact; RA2 SquidGrab
-- Applied by: the generator
-- Reason: RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches (SquidPunch). The mod's squid only punches: SquidPunch.exact takes RA2's SquidPunch values, and SquidGrab has no mod counterpart.
+- Field: SquidGrab.exact
+- Applied by: rule `stub`
+- Reason: RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches everything else (SquidPunch). The mod models the grab with the Terror Drone's infection: SquidGrab is only the latch, without damage, and the squid's AttackInfect deals RA2's 15 damage per grapple loop (15 frames; ROF 99 is ignored by RA2) and culls a ship in the red. SquidGrab.exact stays a stub; SquidPunch.exact takes RA2's SquidPunch values. RA2's elite SquidGrabE (40 damage) is not modelled: the elite squid gets the mod's firepower bonus instead.
 - Affected:
-  - SquidPunch.exact <- RA2 SquidPunch
+  - SquidGrab.exact: Inherits stub
 
 ## crazy-ivan-bomb
 
@@ -143,7 +143,6 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - RadEruptionWeapon
   - Sapper
   - SonicZapE
-  - SquidGrab
   - SquidGrabE
   - SquidPunchE
   - VirtualScanner

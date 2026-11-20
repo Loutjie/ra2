@@ -1054,6 +1054,7 @@
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@SQUID: ^AffectedByGiantSquid
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
@@ -1265,6 +1266,28 @@
 	SpeedMultiplier@Infected:
 		Modifier: 0
 		RequiresCondition: being-infected
+
+^AffectedByGiantSquid:
+	# RA2's SquidGrab (ParasitePlus warhead): the Giant Squid latches onto a ship, holds it in place
+	# (Paralyzes) and hurts it until the ship dies or the squid is removed. Uses the infection
+	# machinery of the Terror Drone; the squid's AttackInfect holds the damage values.
+	Targetable@SquidGrabbable:
+		TargetTypes: SquidGrabbable
+		RequiresCondition: !squid-grabbed
+	Targetable@SquidGrabbed:
+		TargetTypes: SquidGrabbed
+		RequiresCondition: squid-grabbed
+	Infectable:
+		BeingInfectedCondition: being-squid-grabbed
+		InfectedCondition: squid-grabbed
+		KillInfectorCondition: invulnerability
+	SpeedMultiplier@SquidGrabbed:
+		Modifier: 0
+		RequiresCondition: being-squid-grabbed || squid-grabbed
+	WithInfectorOverlay@SquidGrab:
+		Image: sqdg
+		StartSequence: grab
+		Sequence: hold
 
 ^ParachutableAffectedByTerrorDrone:
 	Targetable@Parasiteable:

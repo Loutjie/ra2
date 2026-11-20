@@ -122,6 +122,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -188,6 +193,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -202,6 +211,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -244,6 +261,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -1669,6 +1691,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -1736,6 +1763,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -1750,6 +1781,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1796,6 +1835,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -3510,6 +3554,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -3577,6 +3626,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -3591,6 +3644,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -3637,6 +3698,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -4222,6 +4288,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -4285,6 +4356,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4295,6 +4370,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -4330,6 +4413,11 @@
 				"Position": "BottomRight",
 				"RequiresCondition": "rank-veteran && !rank-elite",
 				"Sequence": "veteran"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithLauncherMissile@first": {
 				"Barrel": "0",
@@ -11580,6 +11668,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -11646,6 +11739,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -11660,6 +11757,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -11702,6 +11807,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -12421,6 +12531,10 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
+			"GrantConditionOnTerrain@SquidWater": {
+				"Condition": "afloat",
+				"TerrainTypes": "Water"
+			},
 			"Guard": {
 				"Voice": "Attack"
 			},
@@ -12437,6 +12551,11 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
 			},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -12504,6 +12623,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -12518,6 +12641,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "afloat && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12571,6 +12702,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -17323,6 +17459,10 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
+			"GrantConditionOnTerrain@SquidWater": {
+				"Condition": "afloat",
+				"TerrainTypes": "Water"
+			},
 			"Guard": {
 				"Voice": "Attack"
 			},
@@ -17339,6 +17479,11 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
+			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
 			},
 			"LeavesTrails": {
 				"Image": "wake",
@@ -17406,6 +17551,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -17420,6 +17569,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "afloat && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -17473,6 +17630,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -19013,11 +19175,23 @@
 			"Armament": {
 				"Weapon": "SquidPunch"
 			},
+			"Armament@GRAB": {
+				"Name": "grab",
+				"Weapon": "SquidGrab"
+			},
 			"Armor": {
 				"Type": "Light"
 			},
-			"AttackFrontal": {
+			"AttackInfect": {
+				"AlwaysSurviveHostDeath": "true",
+				"Armaments": "primary, grab",
+				"CullHealthPercent": "25",
+				"Damage": "15",
+				"DamageInterval": "13",
+				"DamageTypes": "BulletDeath",
 				"FacingTolerance": "0",
+				"InfectArmaments": "grab",
+				"JumpCondition": {},
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -19712,6 +19886,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"MapEditorData": {
 				"Categories": "Naval"
 			},
@@ -19771,6 +19950,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -19786,6 +19969,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!underwater && !squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"Targetable@UNDERWATER": {
 				"RequiresCondition": "underwater",
@@ -19836,6 +20027,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -25775,6 +25971,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -25842,6 +26043,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -25856,6 +26061,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -25899,6 +26112,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -26572,6 +26790,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -26638,6 +26861,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -26652,6 +26879,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -26689,6 +26924,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -30076,6 +30316,11 @@
 				"Modifier": "50",
 				"RequiresCondition": "rank-elite"
 			},
+			"Infectable": {
+				"BeingInfectedCondition": "being-squid-grabbed",
+				"InfectedCondition": "squid-grabbed",
+				"KillInfectorCondition": "invulnerability"
+			},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -30143,6 +30388,10 @@
 				"Modifier": "140",
 				"RequiresCondition": "rank-elite"
 			},
+			"SpeedMultiplier@SquidGrabbed": {
+				"Modifier": "0",
+				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
+			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -30157,6 +30406,14 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
+			},
+			"Targetable@SquidGrabbable": {
+				"RequiresCondition": "!squid-grabbed",
+				"TargetTypes": "SquidGrabbable"
+			},
+			"Targetable@SquidGrabbed": {
+				"RequiresCondition": "squid-grabbed",
+				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -30194,6 +30451,11 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
+			},
+			"WithInfectorOverlay@SquidGrab": {
+				"Image": "sqdg",
+				"Sequence": "hold",
+				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -33770,7 +34032,15 @@
 				"_value": "CreateEffect"
 			}
 		},
+		"SquidGrab": {
+			"Projectile": "InstantHit",
+			"Range": "1c512",
+			"ReloadDelay": "83",
+			"Report": "vsquat1a.wav",
+			"ValidTargets": "SquidGrabbable"
+		},
 		"SquidPunch": {
+			"InvalidTargets": "SquidGrabbable, SquidGrabbed",
 			"Projectile": "InstantHit",
 			"Range": "1c856",
 			"ReloadDelay": "32",
