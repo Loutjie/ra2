@@ -561,17 +561,30 @@
 	GrantConditionOnDamageState@HEAVYDAMAGE:
 		Condition: heavy-damage
 		ValidDamageStates: Heavy, Critical
-	# RA2's SmallGreySSys: damaged vehicles, ships and aircraft keep smoking below the yellow health bar.
-	LeavesTrails@DAMAGESMOKE:
+	# RA2's SmallGreySSys: damaged vehicles, ships and aircraft keep giving off smoke that drifts upward,
+	# also while standing still, below the yellow health bar.
+	FloatingSpriteEmitter@DAMAGESMOKE:
 		RequiresCondition: heavy-damage
 		Image: smallsmoke
+		Sequences: idle
 		Palette: effect
-		Type: CenterPosition
-		TrailWhileStationary: true
-		StationaryInterval: 12
-		MovingInterval: 6
-		Offsets: 0,0,512
-		SpawnAtLastPosition: false
+		Lifetime: 25, 35
+		Speed: 4
+		Gravity: 40
+		SpawnFrequency: 4, 8
+		RandomFacing: true
+		RandomRate: 4
+		TurnRate: 3
+		Offset: 0, 0, 256
+		Duration: -1
+	# RA2's SparkSys: each hit below the yellow health bar throws sparks off the hull.
+	WithDamageOverlay@SPARKS:
+		Image: explosion
+		LoopSequence: piff
+		LoopCount: 1
+		MinimumDamageState: Heavy
+		Palette: effect
+		Offset: 0,0,256
 
 ^DamagedByRadiation:
 	DamagedByTintedCells:

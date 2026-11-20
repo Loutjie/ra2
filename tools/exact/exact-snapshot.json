@@ -94,6 +94,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -134,17 +149,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -243,6 +247,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -353,6 +365,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -393,17 +420,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -546,6 +562,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -984,6 +1008,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1024,17 +1063,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -1173,6 +1201,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -1492,6 +1528,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1530,17 +1581,6 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MustBeDestroyed": {},
 			"OwnerLostAction": {
@@ -1622,6 +1662,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -1755,6 +1803,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1795,17 +1858,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -1909,6 +1961,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -2983,6 +3043,21 @@
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GivesExperience": {},
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
@@ -3018,17 +3093,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"Mobile": {
 				"Locomotor": "tracked",
@@ -3146,6 +3210,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithHarvestOverlay": {
 				"LocalOffset": "121,0,0",
@@ -3666,6 +3738,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -3706,17 +3793,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -3820,6 +3896,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -4408,6 +4492,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4448,17 +4547,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"Mobile": {
 				"Locomotor": "naval",
@@ -4549,6 +4637,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -4669,6 +4765,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4709,17 +4820,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"Mobile": {
 				"Locomotor": "wheeled",
@@ -4841,6 +4941,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -4959,6 +5067,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -5011,17 +5134,6 @@
 			},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -5157,6 +5269,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -6906,6 +7026,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -6946,17 +7081,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -7107,6 +7231,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -10938,6 +11070,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -10985,17 +11132,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"Mobile": {
 				"Locomotor": "tracked",
@@ -11133,6 +11269,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11297,6 +11441,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11337,17 +11496,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -11498,6 +11646,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11651,6 +11807,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11691,17 +11862,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -11841,6 +12001,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11991,6 +12159,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12031,17 +12214,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -12140,6 +12312,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -12884,6 +13064,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12924,17 +13119,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -13044,6 +13228,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -13189,6 +13381,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -13229,17 +13436,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -13389,6 +13585,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -13546,6 +13750,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -13586,17 +13805,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -13735,6 +13943,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -17685,6 +17901,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -17723,17 +17954,6 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MustBeDestroyed": {},
 			"OwnerLostAction": {
@@ -17815,6 +18035,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -18249,6 +18477,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -18289,17 +18532,6 @@
 				"Palette": "effect50alpha",
 				"StationaryInterval": "18",
 				"TerrainTypes": "Water"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -18409,6 +18641,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -18531,6 +18771,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -18570,17 +18825,6 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -18669,6 +18913,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -19165,6 +19417,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -19205,17 +19472,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -19359,6 +19615,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -20332,6 +20596,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -20384,17 +20663,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -20534,6 +20802,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -20715,6 +20991,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -20748,17 +21039,6 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -20866,6 +21146,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -21883,6 +22171,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -21923,17 +22226,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -22070,6 +22362,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22220,6 +22520,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -22260,17 +22575,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MindControllable": {
 				"Condition": "controlled"
@@ -22409,6 +22713,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22555,6 +22867,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -22595,17 +22922,6 @@
 				"KillInfectorCondition": "invulnerability",
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"Mobile": {
 				"Locomotor": "heavytracked",
@@ -22730,6 +23046,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -23582,6 +23906,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -23620,17 +23959,6 @@
 			"InaccuracyMultiplier@ELITE": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
-			},
-			"LeavesTrails@DAMAGESMOKE": {
-				"Image": "smallsmoke",
-				"MovingInterval": "6",
-				"Offsets": "0,0,512",
-				"Palette": "effect",
-				"RequiresCondition": "heavy-damage",
-				"SpawnAtLastPosition": "false",
-				"StationaryInterval": "12",
-				"TrailWhileStationary": "true",
-				"Type": "CenterPosition"
 			},
 			"MustBeDestroyed": {},
 			"OwnerLostAction": {
@@ -23704,6 +24032,14 @@
 			},
 			"Voiced": {
 				"VoiceSet": "KirovVoice"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "1",
+				"LoopSequence": "piff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,256",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
