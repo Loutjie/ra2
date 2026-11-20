@@ -53,16 +53,6 @@
 			"reason": "no rules.ini section of that name"
 		},
 		{
-			"twin": "IvanBomber.exact",
-			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
-			"exception": "crazy-ivan-bomb"
-		},
-		{
-			"twin": "IvanBomberE.exact",
-			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
-			"exception": "crazy-ivan-bomb"
-		},
-		{
 			"twin": "NeutronRifle.exact",
 			"reason": "chrono-erasure (see EXCEPTIONS.md)",
 			"exception": "chrono-erasure"

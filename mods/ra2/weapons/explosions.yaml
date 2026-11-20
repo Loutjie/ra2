@@ -85,16 +85,24 @@ IvanBomber:
 	ReloadDelay: 50
 	Range: 1c849
 	Report: icraatta.wav
+	# RA2 Bombable: only actors with ^IvanBombable, and not while they already carry a bomb.
+	ValidTargets: IvanBomb
 	Projectile: Bullet
 		Speed: 425
 		Blockable: false
-	Warhead@0Eff: CreateEffect
-		Delay: 2
-		Explosions: bombcurs
-		ExplosionPalette: mouse
-		ValidTargets: Ground, Water, Air
+	Warhead@bomb: AttachIvanBomb
+		Weapon: IvanDeath
+		Timer: 100
+
+IvanBomberE:
+	Inherits: IvanBomber
+	Warhead@bomb: AttachIvanBomb
+		Weapon: IvanDeathE
+
+IvanDeath:
+	ReloadDelay: 50
+	Range: 1c849
 	Warhead@1Dam: SpreadDamage
-		Delay: 100
 		Spread: 213
 		Damage: 400
 		Falloff: 1000, 368, 135, 50, 18, 7, 0
@@ -112,23 +120,14 @@ IvanBomber:
 			Rocket: 100
 		DamageTypes: PsychicDeath, Prone100Percent
 	Warhead@2Eff: CreateEffect
-		Delay: 100
 		Explosions: ivan_explosion
 		ImpactSounds: gexpcraa.wav
 		ValidTargets: Ground, Water, Air
 
-IvanBomberE:
-	Inherits: IvanBomber
+IvanDeathE:
+	Inherits: IvanDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: ivan_explosionE
-
-IvanDeath:
-	Inherits: IvanBomber
-	-Warhead@0Eff:
-	Warhead@1Dam: SpreadDamage
-		Delay: 0
-	Warhead@2Eff: CreateEffect
-		Delay: 0
 
 CRNuke:
 	Inherits: IvanDeath

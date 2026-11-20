@@ -251,6 +251,14 @@
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
 
+# RA2 Bombable: a Crazy Ivan can stick a timed bomb on it (vehicles, ships and buildings,
+# and the infantry rules.ini marks Bombable=yes). Ivan's IvanBomber only targets IvanBomb.
+^IvanBombable:
+	Targetable@IVANBOMB:
+		TargetTypes: IvanBomb
+		RequiresCondition: !ivan-bomb
+	IvanBombCarrier:
+
 ^ChronoDisable:
 	TimedConditionBar@ChronoDisable:
 		Condition: chronodisable
@@ -325,6 +333,7 @@
 		Voice: Attack
 
 ^Building:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^IronCurtainable
@@ -837,6 +846,7 @@
 		Categories: Animal
 
 ^Vehicle:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable
@@ -1053,6 +1063,7 @@
 		CanSlide: True
 
 ^Ship:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable

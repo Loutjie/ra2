@@ -166,6 +166,7 @@ hyd:
 	HitShape:
 
 sqd:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^GainsExperience

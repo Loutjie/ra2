@@ -129,6 +129,26 @@ def _fill_from(pairs: Mapping[str, str]):
     return rule
 
 
+def ivan_bomb(exc: ConversionException, gen: Generated) -> list[str]:
+    """RA2 timing and range for the bomb-planting weapons, and the bomb timer from
+    [CombatDamage] IvanTimedDelay. The explosion (IvanDeath, IvanDeathE) keeps the mod's
+    falloff; its 400 damage is RA2's IvanDamage."""
+    timed = gen.rules.get("CombatDamage", {}).get("IvanTimedDelay", "").strip()
+    lines = []
+    for name in ("IvanBomber", "IvanBomberE"):
+        t, w = gen.weapon(name), load_weapon(gen.rules, name)
+        if t is None or w is None or t.reason == NOT_FIRED or not timed:
+            continue
+        delay = conversions.frames_to_ticks(float(timed))
+        t.values = {"ReloadDelay": conversions.frames_to_ticks(w.rof),
+            "Range": conversions.cells_to_wdist(w.range),
+            "Warhead@bomb": {"_value": "AttachIvanBomb", "Timer": delay}}
+        t.reason, t.exception = None, exc.id
+        t.comments.append(f"Exception {exc.id}: RA2 timing and range; bomb timer from IvanTimedDelay")
+        lines.append(f"{t.twin}: ReloadDelay, Range from RA2 {w.id}; bomb Timer {delay} (IvanTimedDelay={timed})")
+    return lines
+
+
 def mind_control(exc: ConversionException, gen: Generated) -> list[str]:
     """Timing and range from RA2; the damage stays 0 (RA2's Damage= on a mind control
     warhead takes control of the target and does not damage it)."""
@@ -259,9 +279,10 @@ EXCEPTIONS: list[ConversionException] = [
             if "SquidPunch.exact" in facts.get("generated_weapons", ()) else []),
     ConversionException("crazy-ivan-bomb",
         "IvanBomber.exact, IvanBomberE.exact",
-        "The mod's Crazy Ivan attaches a delayed charge with its own falloff, a structure RA2's "
-        "IvanBomber numbers do not map onto field by field. The twins stay stubs.",
-        rule=_stub("IvanBomber", "IvanBomberE")),
+        "RA2's Crazy Ivan plants a bomb (IvanBomb) whose explosion is set in [CombatDamage] "
+        "(IvanDamage, IvanTimedDelay), not on IvanBomber. The twins take RA2's ROF and range and "
+        "the bomb timer; the explosion keeps the mod's falloff.",
+        rule=ivan_bomb),
     ConversionException("prism-tank-beam",
         "Comet.exact, SuperComet.exact",
         "RA2's Prism Tank beam splits into secondary beams; the mod models the split as area "

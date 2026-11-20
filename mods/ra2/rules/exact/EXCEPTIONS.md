@@ -75,11 +75,11 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 ## crazy-ivan-bomb
 
 - Field: IvanBomber.exact, IvanBomberE.exact
-- Applied by: rule `stub`
-- Reason: The mod's Crazy Ivan attaches a delayed charge with its own falloff, a structure RA2's IvanBomber numbers do not map onto field by field. The twins stay stubs.
+- Applied by: rule `ivan_bomb`
+- Reason: RA2's Crazy Ivan plants a bomb (IvanBomb) whose explosion is set in [CombatDamage] (IvanDamage, IvanTimedDelay), not on IvanBomber. The twins take RA2's ROF and range and the bomb timer; the explosion keeps the mod's falloff.
 - Affected:
-  - IvanBomber.exact: Inherits stub
-  - IvanBomberE.exact: Inherits stub
+  - IvanBomber.exact: ReloadDelay, Range from RA2 IvanBomber; bomb Timer 375 (IvanTimedDelay=450)
+  - IvanBomberE.exact: ReloadDelay, Range from RA2 IvanBomberE; bomb Timer 375 (IvanTimedDelay=450)
 
 ## prism-tank-beam
 
