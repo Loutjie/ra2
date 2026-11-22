@@ -35,6 +35,8 @@ e2:
 	Armament@GARRISON:
 		Name: garrison
 		Weapon: SovietOccupyW
+		# RA2 OccupyWeapon Anim=UCFLASH: the flash at the building's fire port (art.ini MuzzleFlashN).
+		MuzzleSequence: garrison-muzzle
 	Armament@primary:
 		Weapon: M1Carbine
 		RequiresCondition: !rank-elite

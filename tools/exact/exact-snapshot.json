@@ -5322,6 +5322,7 @@
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
 			"Armament@GARRISON": {
+				"MuzzleSequence": "garrison-muzzle",
 				"Name": "garrison",
 				"Weapon": "AlliedOccupyW.exact"
 			},
@@ -5754,6 +5755,7 @@
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
 			"Armament@GARRISON": {
+				"MuzzleSequence": "garrison-muzzle",
 				"Name": "garrison",
 				"Weapon": "SovietOccupyW.exact"
 			},
