@@ -58,6 +58,11 @@ sub:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
+	# Smoke and sparks are world effects that ignore the underwater hiding: they must not give the unit away.
+	FloatingSpriteEmitter@DAMAGESMOKE:
+		RequiresCondition: heavy-damage && !underwater
+	WithDamageOverlay@SPARKS:
+		RequiresCondition: !underwater
 	Buildable:
 		Queue: Ship
 		BuildPaletteOrder: 20

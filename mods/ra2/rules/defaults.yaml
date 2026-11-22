@@ -577,6 +577,35 @@
 		DamagedSounds: gblacrua.wav, gblacrub.wav
 		DestroyedSounds: gblacrua.wav, gblacrub.wav
 
+^DamageSmoke:
+	GrantConditionOnDamageState@HEAVYDAMAGE:
+		Condition: heavy-damage
+		ValidDamageStates: Heavy, Critical
+	# RA2's SmallGreySSys: damaged vehicles, ships and aircraft keep giving off smoke that drifts upward,
+	# also while standing still, below the yellow health bar.
+	FloatingSpriteEmitter@DAMAGESMOKE:
+		RequiresCondition: heavy-damage
+		Image: smallsmoke
+		Sequences: idle
+		Palette: effect
+		Lifetime: 25, 35
+		Speed: 4
+		Gravity: 40
+		SpawnFrequency: 4, 8
+		RandomFacing: true
+		RandomRate: 4
+		TurnRate: 3
+		Offset: 0, 0, 256
+		Duration: -1
+	# RA2's SparkSys: each hit below the yellow health bar throws sparks off the hull.
+	WithDamageOverlay@SPARKS:
+		Image: explosion
+		LoopSequence: piffpiff
+		LoopCount: 2
+		MinimumDamageState: Heavy
+		Palette: effect
+		Offset: 0,0,384
+
 ^DamagedByRadiation:
 	DamagedByTintedCells:
 		Damage: 200
@@ -866,6 +895,7 @@
 	Inherits@7: ^AffectedByTerrorDrone
 	Inherits@6: ^ParachutableVehicle
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@damagesmoke: ^DamageSmoke
 	Infectable:
 		KillInfectorCondition: invulnerability
 	OwnerLostAction:
@@ -956,6 +986,7 @@
 
 ^NeutralAircraft:
 	Inherits@1: ^ExistsInWorld
+	Inherits@damagesmoke: ^DamageSmoke
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
@@ -1082,6 +1113,7 @@
 	Inherits@5: ^CrateStatModifiers
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@SQUID: ^AffectedByGiantSquid
+	Inherits@damagesmoke: ^DamageSmoke
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath

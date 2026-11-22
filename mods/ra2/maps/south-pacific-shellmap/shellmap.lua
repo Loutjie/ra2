@@ -1,0 +1,461 @@
+--[[
+   Copyright (c) The OpenRA Developers and Contributors
+   This file is part of OpenRA, which is free software. It is made
+   available to you under the terms of the GNU General Public License
+   as published by the Free Software Foundation, either version 3 of
+   the License, or (at your option) any later version. For more
+   information, see COPYING.
+]]
+
+-- An endless Allied-versus-Soviet battle behind the main menu.
+-- See docs/superpowers/specs/2026-11-18-south-pacific-shellmap-design.md.
+
+-- A side skips its next ground wave while it has more ground units than this.
+GroundCap = 30
+
+AlliedGround = { "sref", "mgtk", "mtnk", "fv", "e1" }
+SovietGround = { "htnk", "apoc", "ttnk", "shk", "e2", "v3" }
+
+-- The Allied wave is larger: Soviet armour is tougher, and with equal waves the Allies were outnumbered 2:1.
+AlliedWave = { "mtnk", "mtnk", "mtnk", "sref", "sref", "mgtk", "fv", "fv", "e1", "e1", "e1", "e1" }
+SovietWave = { "htnk", "htnk", "apoc", "ttnk", "shk", "shk", "e2", "e2" }
+
+AlliedFleet = { aegis = 2, dest = 1 }
+SovietFleet = { dred = 2 }
+
+-- Number of the player's units of the given types that are alive.
+CountAlive = function(player, types)
+	return #player.GetActorsByTypes(types)
+end
+
+-- Ground units alive for a side: what the wave cap and the soak test watch.
+AliveUnits = function(player)
+	if player == Allies then
+		return CountAlive(Allies, AlliedGround)
+	end
+
+	return CountAlive(Soviets, SovietGround)
+end
+
+-- A random land cell in the battle zone, so units spread over the strip instead of bunching on one cell.
+RandomStripCell = function()
+	local tl = BattleZoneTopLeft.Location
+	local br = BattleZoneBottomRight.Location
+	for _ = 1, 12 do
+		local cell = CPos.New(Utils.RandomInteger(tl.X, br.X + 1), Utils.RandomInteger(tl.Y, br.Y + 1))
+		local terrain = Map.TerrainType(cell)
+		if terrain == "Clear" or terrain == "Rough" or terrain == "Road" or terrain == "DirtRoad" then
+			return cell
+		end
+	end
+
+	return StripCenter.Location
+end
+
+AttackStrip = function(units)
+	Utils.Do(units, function(unit)
+		if not unit.IsDead then
+			unit.AttackMove(RandomStripCell())
+			Trigger.OnIdle(unit, function(u) u.AttackMove(RandomStripCell()) end)
+		end
+	end)
+end
+
+SendGroundWave = function(player, factory, barracks, wave)
+	if AliveUnits(player) <= GroundCap then
+		local vehicles = { }
+		local infantry = { }
+		Utils.Do(wave, function(type)
+			if type == "e1" or type == "e2" or type == "shk" then
+				infantry[#infantry + 1] = type
+			else
+				vehicles[#vehicles + 1] = type
+			end
+		end)
+
+		AttackStrip(Reinforcements.Reinforce(player, vehicles, { factory }, DateTime.Seconds(1)))
+		AttackStrip(Reinforcements.Reinforce(player, infantry, { barracks }, 10))
+	end
+end
+
+AlliedWaves = function()
+	SendGroundWave(Allies, AlliedFactoryExit, AlliedBarracksExit, AlliedWave)
+	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(30, 46)), AlliedWaves)
+end
+
+SovietWaveCount = 0
+SovietWaves = function()
+	SovietWaveCount = SovietWaveCount + 1
+	local wave = SovietWave
+	if SovietWaveCount % 2 == 0 then
+		wave = Utils.Concat(SovietWave, { "v3" })
+	end
+
+	SendGroundWave(Soviets, SovietFactoryExit, SovietBarracksExit, wave)
+	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(30, 46)), SovietWaves)
+end
+
+-- Flies in from the map edge, attacks one Soviet unit on the strip, then carries on out of the far edge
+-- along the same line, so a fixed-wing jet never has to reverse or loop back.
+-- Entering on a path towards the target spawns it already facing the strip.
+Sortie = function(player, type, edge)
+	local targets = UnitsInBattleZone(function(a) return a.Owner == Soviets end)
+	if #targets == 0 then
+		return
+	end
+
+	local target = Utils.Random(targets)
+	local aim = target.Location
+	local aircraft = Reinforcements.Reinforce(player, { type }, { edge, aim })[1]
+	aircraft.Attack(target)
+
+	-- Out over the Soviet side of the map, roughly straight on from the west edge where it came in.
+	-- (Extending the entry line ran off the map, and an off-map cell's closest edge is the top-left corner.)
+	-- A plane that reaches the edge circles there instead of finishing its move, so the removal queued after
+	-- it never runs: remove it as soon as it is within a few cells of the exit. A run that drags on (out of
+	-- ammunition with no rearming) is sent out after 15 seconds.
+	aircraft.Move(SovietAirEdge)
+	Trigger.AfterDelay(DateTime.Seconds(15), function()
+		if not aircraft.IsDead then
+			aircraft.Stop()
+			aircraft.Move(SovietAirEdge)
+		end
+	end)
+
+	local exit = Map.CenterOfCell(SovietAirEdge)
+	local watch
+	watch = function()
+		if aircraft.IsDead then
+			return
+		end
+
+		local dx = aircraft.CenterPosition.X - exit.X
+		local dy = aircraft.CenterPosition.Y - exit.Y
+		if dx * dx + dy * dy < 3072 * 3072 then
+			aircraft.Stop()
+			aircraft.Destroy()
+		else
+			Trigger.AfterDelay(DateTime.Seconds(1), watch)
+		end
+	end
+
+	watch()
+end
+
+AlliedAir = function()
+	Sortie(Allies, Utils.Random({ "orca", "beag" }), AlliedAirEdge)
+	Trigger.AfterDelay(DateTime.Seconds(Utils.RandomInteger(60, 91)), AlliedAir)
+end
+
+KirovRun = function()
+	if CountAlive(Soviets, { "zep" }) == 0 then
+		local kirov = Reinforcements.Reinforce(Soviets, { "zep" }, { SovietAirEdge, StripCenter.Location })[1]
+		kirov.AttackMove(AlliedFactory.Location)
+		kirov.Move(SovietAirEdge)
+		kirov.Destroy()
+	end
+
+	Trigger.AfterDelay(DateTime.Seconds(90), KirovRun)
+end
+
+-- Keeps each side's fleet at full strength, fighting at SeaBattle.
+TopUpFleets = function()
+	for type, count in pairs(AlliedFleet) do
+		for _ = CountAlive(Allies, { type }) + 1, count do
+			AttackSea(Reinforcements.Reinforce(Allies, { type }, { AlliedYardExit }))
+		end
+	end
+
+	for type, count in pairs(SovietFleet) do
+		for _ = CountAlive(Soviets, { type }) + 1, count do
+			AttackSea(Reinforcements.Reinforce(Soviets, { type }, { SovietYardExit }))
+		end
+	end
+
+	Trigger.AfterDelay(DateTime.Seconds(20), TopUpFleets)
+end
+
+AttackSea = function(ships)
+	Utils.Do(ships, function(ship)
+		ship.AttackMove(SeaBattle.Location)
+		Trigger.OnIdle(ship, function(s) s.AttackMove(SeaBattle.Location) end)
+	end)
+end
+
+-- Each Tesla Trooper keeps zapping its Tesla Coil, which keeps the coil charged.
+-- Each Tesla Coil keeps a Tesla Trooper zapping it; a trooper killed by a raid is replaced where it stood.
+TeslaTroopers = { }
+ChargeTeslaCoils = function()
+	for i = 0, 4 do
+		local slot = TeslaTroopers[i]
+		if slot == nil then
+			local trooper = Map.NamedActor("TeslaTrooper" .. i)
+			slot = { trooper = trooper, cell = trooper.Location, coil = Map.NamedActor("SovietTesla" .. i) }
+			TeslaTroopers[i] = slot
+			trooper.Attack(slot.coil, false, true)
+		elseif slot.trooper.IsDead then
+			slot.trooper = Actor.Create("shk", true, { Owner = Soviets, Location = slot.cell })
+			slot.trooper.Attack(slot.coil, false, true)
+		end
+	end
+
+	Trigger.AfterDelay(DateTime.Seconds(20), ChargeTeslaCoils)
+end
+
+-- Superweapons and the camera --------------------------------------------------------------------
+
+SovietTanks = { "htnk", "apoc", "ttnk" }
+
+-- Mobile units of either side inside the battle zone (the land strip between the islands).
+Aircraft = { zep = true, orca = true, beag = true }
+
+-- Ground and naval units of either side inside the battle zone: the cell rectangle between the two waypoints,
+-- the same rectangle units spread over. On this isometric map that rectangle is a diamond on screen, so the
+-- search box must cover all four corner cells before filtering by cell.
+UnitsInBattleZone = function(filter)
+	local tl = BattleZoneTopLeft.Location
+	local br = BattleZoneBottomRight.Location
+	local corners = {
+		Map.CenterOfCell(tl), Map.CenterOfCell(br),
+		Map.CenterOfCell(CPos.New(tl.X, br.Y)), Map.CenterOfCell(CPos.New(br.X, tl.Y)),
+	}
+	local minX, minY, maxX, maxY = corners[1].X, corners[1].Y, corners[1].X, corners[1].Y
+	for _, c in ipairs(corners) do
+		minX = math.min(minX, c.X)
+		minY = math.min(minY, c.Y)
+		maxX = math.max(maxX, c.X)
+		maxY = math.max(maxY, c.Y)
+	end
+
+	return Map.ActorsInBox(WPos.New(minX, minY, 0), WPos.New(maxX, maxY, 10240), function(a)
+		if a.IsDead or not a.HasProperty("Move") or Aircraft[a.Type] or (a.Owner ~= Allies and a.Owner ~= Soviets) then
+			return false
+		end
+
+		local cell = a.Location
+		local inside = cell.X >= tl.X and cell.X <= br.X and cell.Y >= tl.Y and cell.Y <= br.Y
+		return inside and (filter == nil or filter(a))
+	end)
+end
+
+-- The battle-zone cell with the most units within 3 cells; the strip's centre when the zone is empty.
+-- Only units inside the zone are candidates, so a strike never lands in a base.
+StrikeTarget = function()
+	local best = nil
+	local bestCount = 0
+	Utils.Do(UnitsInBattleZone(), function(unit)
+		local count = #Map.ActorsInCircle(unit.CenterPosition, WDist.FromCells(3), function(a) return a.HasProperty("Move") and not Aircraft[a.Type] end)
+		if count > bestCount then
+			best = unit.Location
+			bestCount = count
+		end
+	end)
+
+	return best or StripCenter.Location
+end
+
+-- Free land cells around a point in the battle zone, for chronoshifted units to land on.
+FreeLandCells = function(centre, wanted)
+	local cells = { }
+	for dx = -3, 3, 2 do
+		for dy = -3, 3, 2 do
+			local cell = centre + CVec.New(dx, dy)
+			local terrain = Map.TerrainType(cell)
+			local land = terrain == "Clear" or terrain == "Rough" or terrain == "Road" or terrain == "DirtRoad"
+			if land and #Map.ActorsInCircle(Map.CenterOfCell(cell), WDist.New(512)) == 0 then
+				cells[#cells + 1] = cell
+				if #cells == wanted then
+					return cells
+				end
+			end
+		end
+	end
+
+	return cells
+end
+
+-- Jumps up to four Allied tanks from home into the battle zone. Skipped when nothing can land.
+Chronoshift = function()
+	local tanks = Utils.Where(Allies.GetActorsByTypes({ "mtnk", "sref", "mgtk" }), function(a) return not a.IsDead end)
+	local cells = FreeLandCells(StrikeTarget(), math.min(4, #tanks))
+	local jumps = { }
+	for i, cell in ipairs(cells) do
+		jumps[tanks[i]] = cell
+	end
+
+	if #cells > 0 then
+		Chronosphere.Chronoshift(jumps)
+	end
+end
+
+IronCurtain = function()
+	local tanks = UnitsInBattleZone(function(a) return a.Owner == Soviets and Utils.Any(SovietTanks, function(t) return t == a.Type end) end)
+	for i = 1, math.min(4, #tanks) do
+		tanks[i].GrantCondition("invulnerability", 500)
+	end
+end
+
+Nuke = function()
+	NukeSilo.ActivateNukePower(StrikeTarget())
+end
+
+WeatherStorm = function()
+	WeatherDevice.ActivateWeatherControl(StrikeTarget())
+end
+
+-- Raids: a small party charges up a base's ramp so its defences fire while the camera is there.
+AlliedRaid = { "mtnk", "mtnk", "sref", "sref" }
+SovietRaid = { "htnk", "htnk", "apoc", "ttnk" }
+
+-- Raiders enter off screen and drive up to the ramp foot, so they never pop into view in front of the camera.
+-- Raiders that survive the defences join the battle on the strip, so they never park in a base and pile up.
+Raid = function(player, types, entry, foot, base)
+	local raiders = Reinforcements.Reinforce(player, types, { entry, foot }, 10)
+	Utils.Do(raiders, function(unit)
+		unit.AttackMove(base.Location)
+		Trigger.OnIdle(unit, function(u) u.AttackMove(RandomStripCell()) end)
+	end)
+end
+
+-- Raids start when the camera reaches the base: they enter just outside the view, 10 to 24 cells from the ramp
+-- foot, so the fight begins while the camera holds there. Starting earlier let raids finish before it arrived.
+RaidSovietBase = function()
+	Raid(Allies, AlliedRaid, SovietRaidEntry.Location, SovietRampFoot.Location, SovietConyard)
+end
+
+-- Soviet raids alternate between the Allied base's two ramps, so both pairs of Prism Towers get used.
+SovietRaidCount = 0
+RaidAlliedBase = function()
+	SovietRaidCount = SovietRaidCount + 1
+	if SovietRaidCount % 2 == 0 then
+		Raid(Soviets, SovietRaid, AlliedNorthRaidEntry.Location, AlliedNorthRampFoot.Location, AlliedConyard)
+	else
+		Raid(Soviets, SovietRaid, AlliedRaidEntry.Location, AlliedRampFoot.Location, AlliedConyard)
+	end
+end
+
+-- Alternates a superweapon strike with a Chronosphere jump or Iron Curtain, one per pass over the strip.
+-- With the camera loop below, a superweapon lands about every two minutes.
+EventCycle = { Chronoshift, Nuke, IronCurtain, WeatherStorm }
+NextEvent = 1
+
+-- The camera loops over these stops; at a stop with an event it pauses while the event plays out.
+CameraSpeed = 72
+-- Speed change per tick: about two seconds from a standstill to full speed, and the same to brake.
+CameraAcceleration = 1.5
+CameraVelocity = 0
+CameraRoute = { }
+CameraLeg = 1
+CameraHold = 0
+
+-- The camera moves at ground level zero; a stop taken from an actor would include its terrain height,
+-- which shifts the view on screen and made the camera jump at every stop.
+AtGroundZero = function(actor)
+	local p = actor.CenterPosition
+	return WPos.New(p.X, p.Y, 0)
+end
+
+BuildCameraRoute = function()
+	CameraRoute = {
+		{ position = AtGroundZero(AlliedConyard), hold = DateTime.Seconds(22), arrive = RaidAlliedBase },
+		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(12), event = true },
+		{ position = AtGroundZero(SeaBattle), hold = 0 },
+		{ position = AtGroundZero(SovietConyard), hold = DateTime.Seconds(22), arrive = RaidSovietBase },
+		{ position = AtGroundZero(StripCenter), hold = DateTime.Seconds(14), event = true },
+	}
+	CameraAt = CameraRoute[1].position
+
+	-- Place the view before the first frame; waiting for the first Tick made it jump on load.
+	Camera.Position = ClampToMap(CameraAt)
+end
+
+-- Half the visible world at the widest zoom in a 1710x1073 window, with about 25% to spare: 0.7 alone still
+-- showed the bottom edge in play-testing. A tile is 60x30 pixels
+-- for 1448 world units, so a pixel is 1448/60 world units across and 1448/30 down.
+CameraHalfWidth = 37000
+CameraHalfHeight = 46000
+
+-- Keeps the view's centre far enough inside the map that the screen never shows past the map's edge.
+ClampToMap = function(position)
+	local tl = Map.TopLeft
+	local br = Map.BottomRight
+	local function clamp(value, low, high)
+		if low > high then
+			return math.floor((low + high) / 2)
+		end
+
+		return math.max(low, math.min(high, value))
+	end
+
+	return WPos.New(clamp(position.X, tl.X + CameraHalfWidth, br.X - CameraHalfWidth),
+		clamp(position.Y, tl.Y + CameraHalfHeight, br.Y - CameraHalfHeight), 0)
+end
+
+MoveCamera = function()
+	if CameraHold > 0 then
+		CameraHold = CameraHold - 1
+		return
+	end
+
+	local stop = CameraRoute[CameraLeg]
+	local dx = stop.position.X - CameraAt.X
+	local dy = stop.position.Y - CameraAt.Y
+	local distance = math.sqrt(dx * dx + dy * dy)
+
+	-- Ease in from a standstill and brake to a standstill: the speed never exceeds what can still stop
+	-- in the remaining distance (v^2 = 2ad).
+	local target = math.min(CameraSpeed, math.sqrt(2 * CameraAcceleration * distance))
+	if CameraVelocity < target then
+		CameraVelocity = math.min(target, CameraVelocity + CameraAcceleration)
+	else
+		CameraVelocity = target
+	end
+
+	local step = math.max(CameraVelocity, 1)
+	if distance <= step then
+		CameraVelocity = 0
+		CameraAt = stop.position
+		CameraHold = stop.hold
+		if stop.arrive then
+			stop.arrive()
+		end
+
+		if stop.event then
+			EventCycle[NextEvent]()
+			NextEvent = NextEvent % #EventCycle + 1
+		end
+
+		CameraLeg = CameraLeg % #CameraRoute + 1
+	else
+		CameraAt = WPos.New(math.floor(CameraAt.X + dx * step / distance), math.floor(CameraAt.Y + dy * step / distance), 0)
+	end
+
+	Camera.Position = ClampToMap(CameraAt)
+end
+
+WorldLoaded = function()
+	Allies = Player.GetPlayer("Allies")
+	Soviets = Player.GetPlayer("Soviets")
+
+	AlliedFactoryExit = AlliedFactory.Location + CVec.New(5, 1)
+	AlliedBarracksExit = AlliedBarracks.Location + CVec.New(1, 2)
+	SovietFactoryExit = SovietFactory.Location + CVec.New(5, 1)
+	SovietBarracksExit = SovietBarracks.Location + CVec.New(1, 2)
+	AlliedYardExit = AlliedYard.Location + CVec.New(2, 5)
+	SovietYardExit = SovietYard.Location + CVec.New(2, 5)
+	AlliedAirEdge = Map.ClosestEdgeCell(AlliedAirfield.Location)
+	SovietAirEdge = Map.ClosestEdgeCell(SovietConyard.Location)
+
+	BuildCameraRoute()
+
+	ChargeTeslaCoils()
+	AlliedWaves()
+	Trigger.AfterDelay(DateTime.Seconds(5), SovietWaves)
+	TopUpFleets()
+	Trigger.AfterDelay(DateTime.Seconds(20), AlliedAir)
+	Trigger.AfterDelay(DateTime.Seconds(40), KirovRun)
+end
+
+Tick = function()
+	MoveCamera()
+end

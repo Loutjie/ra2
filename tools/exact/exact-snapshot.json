@@ -3,6 +3,9 @@
 		"aegis.exact": {
 			"ActorLostNotification": {},
 			"AppearsOnRadar": {},
+			"Armament": {
+				"Weapon": "Medusa.exact"
+			},
 			"Armor": {
 				"Type": "Light"
 			},
@@ -35,7 +38,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -59,14 +61,6 @@
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
 				"RequiresCondition": "invulnerability"
-			},
-			"DistributedArmament@elite": {
-				"RequiresCondition": "rank-elite",
-				"Weapon": "MedusaE.exact"
-			},
-			"DistributedArmament@primary": {
-				"RequiresCondition": "!rank-elite",
-				"Weapon": "Medusa.exact"
 			},
 			"DrawLineToTarget": {},
 			"ExternalCondition@CHRONODISABLE": {
@@ -100,6 +94,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -112,6 +121,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -130,12 +143,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -202,20 +209,12 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -224,14 +223,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -257,6 +248,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -275,11 +274,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -307,7 +301,6 @@
 				"Prerequisites": "~gaweap, gadept, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -372,6 +365,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -384,6 +392,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -409,7 +421,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -498,10 +509,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -556,6 +563,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -590,12 +605,6 @@
 			"WithVoxelBody": {}
 		},
 		"amradr.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AircraftPads": {
 				"Count": "4"
 			},
@@ -626,9 +635,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -658,11 +664,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -700,7 +713,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -806,10 +818,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -830,6 +838,20 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-869,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-290,-507,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@bottom": {
 				"PauseOnCondition": "lowpower",
@@ -920,13 +942,13 @@
 				"Prerequisites": "~naweap, natech, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@SELFHEAL": {
+			"ChangesHealth@ELITE": {
 				"DamageCooldown": "125",
 				"Delay": "100",
+				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -986,6 +1008,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -998,6 +1035,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1023,7 +1064,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -1112,10 +1152,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -1166,6 +1202,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -1203,12 +1247,6 @@
 			"WithVoxelTurret": {}
 		},
 		"atesla.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "0,0,2500",
@@ -1219,7 +1257,7 @@
 			},
 			"AttackTesla": {
 				"ChargeAudio": "bpripow.wav",
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || prism-supporting",
 				"ReloadDelay": "28",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
@@ -1256,9 +1294,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -1272,11 +1307,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -1306,7 +1348,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -1316,6 +1357,12 @@
 			},
 			"Power": {
 				"Amount": "-75"
+			},
+			"PrismTower": {
+				"PauseOnCondition": "lowpower",
+				"RequiresCondition": "!build-incomplete",
+				"SupportWeapon": "PrismSupport",
+				"SupportingCondition": "prism-supporting"
 			},
 			"ProvidesPrerequisite@BASE": {
 				"Prerequisite": "atesla"
@@ -1365,10 +1412,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -1389,6 +1432,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-772,-24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@normal": {
 				"PauseOnCondition": "lowpower",
@@ -1484,6 +1534,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1496,6 +1561,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1546,6 +1615,7 @@
 				"LightDiffuseColor": "1.4,1.4,1.4",
 				"LightPitch": "150",
 				"LightYaw": "800",
+				"NormalsPalette": "ts-normals",
 				"Scale": "11.7"
 			},
 			"RevealsShroud": {
@@ -1599,6 +1669,14 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -1672,7 +1750,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -1733,6 +1810,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -1745,6 +1837,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -1763,12 +1859,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -1836,20 +1926,12 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -1858,14 +1940,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -1895,6 +1969,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -1913,11 +1995,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -1979,7 +2056,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ccomand"
@@ -2307,7 +2383,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "civan"
@@ -2595,13 +2670,7 @@
 			"AppearsOnRadar": {},
 			"Armament@Temporal": {
 				"LocalOffset": "320,128,1024",
-				"RequiresCondition": "!rank-elite",
 				"Weapon": "NeutronRifle.exact"
-			},
-			"Armament@TemporalElite": {
-				"LocalOffset": "320,128,1024",
-				"RequiresCondition": "rank-elite",
-				"Weapon": "NeutronRifleE.exact"
 			},
 			"Armor": {
 				"Type": "None"
@@ -2629,7 +2698,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"ExplodeInstead": "false",
@@ -2748,7 +2816,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -2834,10 +2901,6 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -2935,13 +2998,6 @@
 				"Prerequisites": "~gaweap, refinery, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@SELFHEAL": {
-				"DamageCooldown": "125",
-				"Delay": "100",
-				"StartIfBelow": "100",
-				"Step": "2"
-			},
-			"ChronoErasable": {},
 			"ChronoResourceDelivery": {
 				"Image": "cmin",
 				"WarpInSequence": "warpout",
@@ -2994,10 +3050,29 @@
 				"Modifier": "200",
 				"RequiresCondition": "crate-firepower"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GivesExperience": {},
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -3026,7 +3101,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "chronodisable",
@@ -3098,10 +3172,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -3147,6 +3217,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithHarvestOverlay": {
 				"LocalOffset": "121,0,0",
@@ -3221,13 +3299,13 @@
 				"Prerequisites": "naradr, ~infantry.iraq, ~balance.exact",
 				"Queue": "Infantry"
 			},
-			"ChangesHealth@SELFHEAL": {
+			"ChangesHealth@ELITE": {
 				"DamageCooldown": "125",
 				"Delay": "100",
+				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "deso"
@@ -3346,7 +3424,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -3436,10 +3513,6 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -3609,7 +3682,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -3673,6 +3745,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -3685,6 +3772,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -3703,12 +3794,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -3776,20 +3861,12 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -3798,14 +3875,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -3835,6 +3904,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -3853,11 +3930,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -4124,7 +4196,6 @@
 				"Prerequisites": "~barracks, ~balance.exact",
 				"Queue": "Infantry"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "dog"
@@ -4218,7 +4289,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -4277,10 +4347,6 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -4377,7 +4443,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4434,6 +4499,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4446,6 +4526,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -4464,12 +4548,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -4533,10 +4611,6 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -4544,21 +4618,9 @@
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -4583,6 +4645,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -4596,11 +4666,6 @@
 				"Position": "BottomRight",
 				"RequiresCondition": "rank-veteran && !rank-elite",
 				"Sequence": "veteran"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithLauncherMissile@first": {
 				"Barrel": "0",
@@ -4648,7 +4713,6 @@
 				"Prerequisites": "~naweap, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4708,6 +4772,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -4720,6 +4799,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -4745,7 +4828,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "wheeled",
 				"PauseOnCondition": "chronodisable",
@@ -4820,10 +4902,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -4869,6 +4947,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -4929,7 +5015,6 @@
 				"Prerequisites": "naradr, ~vehicles.libya, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -4989,6 +5074,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -5004,6 +5104,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"GrantConditionOnDeploy": {
 				"DeployedCondition": "triggered",
@@ -5035,7 +5139,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf": {
 				"RequiresCondition": "triggered"
 			},
@@ -5124,10 +5227,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -5177,6 +5276,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -5284,7 +5391,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e1"
@@ -5422,7 +5528,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5523,10 +5628,6 @@
 			"Targetable": {
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
@@ -5706,7 +5807,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "e2"
@@ -6047,7 +6147,6 @@
 			"Captures": {
 				"CaptureTypes": "building, husk"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "engineer"
@@ -6398,7 +6497,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "flakt"
@@ -6870,7 +6968,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -6936,6 +7033,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -6948,6 +7060,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -6973,7 +7089,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -7062,10 +7177,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -7128,6 +7239,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -7178,12 +7297,6 @@
 			}
 		},
 		"gaairc.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AircraftPads": {
 				"Count": "4"
 			},
@@ -7214,9 +7327,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7246,11 +7356,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7285,7 +7402,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -7378,10 +7494,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -7402,6 +7514,20 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-869,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-290,-507,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@bottom": {
 				"PauseOnCondition": "lowpower",
@@ -7438,12 +7564,6 @@
 			}
 		},
 		"gacnst.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -7475,9 +7595,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7491,11 +7608,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7529,7 +7653,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -7613,10 +7736,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -7664,6 +7783,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "48,-579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1738,1545,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@fans": {
 				"RequiresCondition": "!build-incomplete && !lowpower",
 				"Sequence": "idle-fans"
@@ -7681,12 +7814,6 @@
 			}
 		},
 		"gacsph.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -7715,9 +7842,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"ChronoshiftPower@chronoshift": {
 				"ChargeInterval": "5250",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
@@ -7749,11 +7873,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -7786,7 +7917,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -7851,10 +7981,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -7880,6 +8006,13 @@
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-dome"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2413,-459,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -7889,12 +8022,6 @@
 			}
 		},
 		"gadept.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -7922,9 +8049,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -7941,11 +8065,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -7971,7 +8102,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -8049,10 +8179,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -8073,6 +8199,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1062,-1617,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
@@ -8095,12 +8228,6 @@
 			}
 		},
 		"gagap.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -8124,9 +8251,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CreatesShroud": {
 				"Range": "10c0",
@@ -8144,11 +8268,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -8178,7 +8309,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -8238,10 +8368,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -8263,6 +8389,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-531,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -8272,12 +8405,6 @@
 			}
 		},
 		"gaorep.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -8306,9 +8433,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8322,11 +8446,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8352,7 +8483,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -8419,10 +8549,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -8444,6 +8570,34 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1110,-483,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1641,-290,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-1207,145,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE3": {
+				"Image": "largefire",
+				"Offset": "-2558,-579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@glow": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-glow"
@@ -8457,12 +8611,6 @@
 			}
 		},
 		"gapile.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -8490,9 +8638,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -8525,11 +8670,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8561,7 +8713,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -8645,10 +8796,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -8670,6 +8817,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-434,434,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2655,1014,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@flag": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-flag"
@@ -8689,12 +8850,6 @@
 			}
 		},
 		"gapill.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "360,0,160",
@@ -8741,9 +8896,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8756,6 +8908,9 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -8787,7 +8942,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -8843,10 +8997,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -8885,12 +9035,6 @@
 			}
 		},
 		"gapowr.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -8921,9 +9065,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8937,11 +9078,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -8972,7 +9120,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -9038,10 +9185,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -9063,6 +9206,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1545,-483,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-579,72,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@glow": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-glow"
@@ -9076,12 +9233,6 @@
 			}
 		},
 		"garefn.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9109,9 +9260,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -9133,6 +9281,9 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FreeActor": {
 				"Actor": "cmin.exact",
 				"Facing": "640",
@@ -9143,6 +9294,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -9175,7 +9330,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -9248,10 +9402,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -9274,6 +9424,20 @@
 				"RequiresCondition": "invulnerability"
 			},
 			"WithDockedOverlay": {},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1496,-796,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2317,-72,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-bib"
@@ -9291,12 +9455,6 @@
 			}
 		},
 		"gaspysat.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9324,9 +9482,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9340,11 +9495,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -9374,7 +9536,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -9445,10 +9606,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -9470,6 +9627,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1786,603,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1207,-627,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@dish": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -9484,12 +9655,6 @@
 			}
 		},
 		"gatech.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9517,9 +9682,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9533,11 +9695,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -9569,7 +9738,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -9634,10 +9802,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -9659,6 +9823,27 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1303,-627,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "2751,-48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-2413,531,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-lights"
@@ -9672,12 +9857,6 @@
 			}
 		},
 		"gawall.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -9699,6 +9878,9 @@
 				"Dimensions": "1,1",
 				"Footprint": "x",
 				"TerrainTypes": "Clear, Rough, Road, DirtRoad"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -9757,12 +9939,6 @@
 			}
 		},
 		"gaweap.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -9790,9 +9966,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9813,11 +9986,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnProduction@helicopters": {
 				"Actors": "shad, shad.exact",
 				"Condition": "roof-open",
@@ -9861,7 +10041,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -9946,10 +10125,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -9978,6 +10153,27 @@
 			"WithExitOverlay@top-vehicles": {
 				"RequiresCondition": "!roof-open && !build-incomplete",
 				"Sequence": "build-top"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "483,-241,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1448,652,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-3379,0,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@air-inside": {
 				"RequiresCondition": "roof-open && !build-incomplete",
@@ -10014,12 +10210,6 @@
 			}
 		},
 		"gaweat.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -10048,9 +10238,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10064,11 +10251,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -10101,7 +10295,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -10166,10 +10359,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -10183,8 +10372,6 @@
 				"Cost": "5000"
 			},
 			"WeatherControlSupportPower@LightningStorm": {
-				"BuildUpDelay": "208",
-				"BuildUpWeapon": "LightningStormClouds",
 				"ChargeInterval": "7500",
 				"Cursor": "weatherstorm",
 				"Description": "actor-gaweat.weathercontrolsupportpower-lightningstorm-description",
@@ -10216,6 +10403,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2413,48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3041,917,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -10225,12 +10426,6 @@
 			}
 		},
 		"gayard.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -10258,9 +10453,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -10365,8 +10557,15 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -10392,7 +10591,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -10468,10 +10666,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -10492,6 +10686,27 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1014,-965,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-386,-169,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "-1738,772,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@crane": {
 				"RequiresCondition": "!build-incomplete",
@@ -10520,12 +10735,6 @@
 			}
 		},
 		"gtgcan.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "1792,0,1280",
@@ -10575,9 +10784,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10591,11 +10797,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -10625,7 +10838,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -10693,10 +10905,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -10722,6 +10930,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1351,-24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
@@ -10793,13 +11008,13 @@
 				"Prerequisites": "~naweap, refinery, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChangesHealth@SELFHEAL": {
+			"ChangesHealth@ELITE": {
 				"DamageCooldown": "125",
 				"Delay": "100",
+				"RequiresCondition": "rank-elite",
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -10862,6 +11077,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -10874,6 +11104,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -10906,7 +11140,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "tracked",
 				"PauseOnCondition": "chronodisable",
@@ -10994,10 +11227,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -11047,6 +11276,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11152,7 +11389,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11212,6 +11448,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11224,6 +11475,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -11249,7 +11504,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -11338,10 +11592,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -11403,6 +11653,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11497,7 +11755,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11557,6 +11814,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11569,6 +11841,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -11594,7 +11870,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -11684,10 +11959,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -11737,6 +12008,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -11831,7 +12110,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -11888,6 +12166,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -11900,6 +12193,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -11918,12 +12215,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -11990,20 +12281,12 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -12012,14 +12295,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12045,6 +12320,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -12063,11 +12346,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -12115,7 +12393,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ivan"
@@ -12465,9 +12742,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"Cloneable": {
 				"Types": "infantry"
 			},
@@ -12741,7 +13015,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -12798,6 +13071,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -12811,9 +13099,9 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
-			"GrantConditionOnTerrain@SquidWater": {
-				"Condition": "afloat",
-				"TerrainTypes": "Water"
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -12832,12 +13120,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -12904,20 +13186,12 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -12926,14 +13200,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "afloat && !squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -12970,6 +13236,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -12988,11 +13262,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -13060,7 +13329,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13120,6 +13388,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage && !tree",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -13132,6 +13415,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -13157,7 +13444,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -13259,10 +13545,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -13311,6 +13593,15 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect",
+				"RequiresCondition": "!tree"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -13333,9 +13624,6 @@
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
 				"UsePlayerColor": "true"
-			},
-			"WithMirageRevealedVoxelBody": {
-				"RequiresCondition": "tree"
 			},
 			"WithMirageSpriteBody": {
 				"RequiresCondition": "tree"
@@ -13411,7 +13699,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -13471,6 +13758,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -13483,6 +13785,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -13508,7 +13814,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -13597,10 +13902,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -13651,6 +13952,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -13689,12 +13998,6 @@
 		},
 		"naclon.exact": {
 			"AcceptsDeliveredCash": {},
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -13723,9 +14026,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"ClonesProducedUnits": {
 				"CloneableTypes": "infantry",
 				"ProductionType": "Cloning"
@@ -13794,11 +14094,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -13824,7 +14131,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -13897,10 +14203,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -13922,6 +14224,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1303,555,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -13931,12 +14240,6 @@
 			}
 		},
 		"nacnst.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -13968,9 +14271,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -13984,11 +14284,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPrerequisite@GLOBALFACTUNDEPLOY": {
 				"Condition": "factundeploy",
 				"Prerequisites": "global-factundeploy"
@@ -14018,7 +14325,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -14091,10 +14397,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -14142,6 +14444,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1979,-1569,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@normal": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-normal"
@@ -14159,12 +14468,6 @@
 			}
 		},
 		"nadept.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -14192,9 +14495,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14210,6 +14510,9 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -14241,7 +14544,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -14322,10 +14624,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -14368,12 +14666,6 @@
 			}
 		},
 		"naflak.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "640,0,1536",
@@ -14413,9 +14705,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14429,11 +14718,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -14463,7 +14759,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -14530,10 +14825,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -14560,6 +14851,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-627,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -14577,12 +14875,6 @@
 			}
 		},
 		"nahand.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Steel"
@@ -14610,9 +14902,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -14677,11 +14966,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -14713,7 +15009,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -14805,10 +15100,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -14830,6 +15121,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "338,-193,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1931,410,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -14845,12 +15150,6 @@
 			}
 		},
 		"nairon.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -14879,9 +15178,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14895,11 +15191,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -14949,7 +15252,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15014,10 +15316,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15039,6 +15337,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2848,-48,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -15048,12 +15353,6 @@
 			}
 		},
 		"nalasr.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "544,128,480, 544,-128,480",
@@ -15100,9 +15399,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15116,11 +15412,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15146,7 +15449,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15210,10 +15512,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15240,6 +15538,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-724,-121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -15257,12 +15562,6 @@
 			}
 		},
 		"namisl.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -15291,9 +15590,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15306,6 +15602,9 @@
 			"FireWarheadsOnDeath": {
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
@@ -15344,7 +15643,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15442,10 +15740,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15477,12 +15771,6 @@
 			}
 		},
 		"nanrct.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -15513,9 +15801,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15530,11 +15815,18 @@
 				"Type": "CenterPosition",
 				"Weapon": "NukePayload.exact"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15565,7 +15857,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15635,10 +15926,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15660,6 +15947,20 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-724,1738,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3427,-1062,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-lights"
@@ -15673,12 +15974,6 @@
 			}
 		},
 		"napowr.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AffectedByPowerOutage": {
 				"Condition": "power-outage"
 			},
@@ -15709,9 +16004,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15725,11 +16017,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -15760,7 +16059,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15830,10 +16128,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -15855,6 +16149,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1448,-290,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@lights": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-lights"
@@ -15868,12 +16169,6 @@
 			}
 		},
 		"napsis.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -15901,9 +16196,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15913,10 +16205,6 @@
 			"DetectCloaked": {
 				"Range": "6c0"
 			},
-			"DisguiseDetector": {
-				"Range": "15c0",
-				"RequiresCondition": "!build-incomplete && !lowpower"
-			},
 			"ExternalCondition@INVULNERABILITY": {
 				"Condition": "invulnerability"
 			},
@@ -15924,11 +16212,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -15958,7 +16253,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -15974,10 +16268,6 @@
 			},
 			"ProximityCaptor": {
 				"Types": "Building"
-			},
-			"PsychicSensor": {
-				"Range": "15c0",
-				"RequiresCondition": "!build-incomplete && !lowpower"
 			},
 			"QuantizeFacingsFromSequence": {},
 			"RenderDebugState": {},
@@ -16027,10 +16317,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -16052,6 +16338,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1641,-555,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@spin": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -16066,12 +16359,6 @@
 			}
 		},
 		"naradr.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16099,9 +16386,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16115,11 +16399,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -16154,7 +16445,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -16225,10 +16515,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -16250,6 +16536,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1496,-386,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@dish": {
 				"PauseOnCondition": "lowpower",
 				"RequiresCondition": "!build-incomplete",
@@ -16264,12 +16557,6 @@
 			}
 		},
 		"narefn.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16297,9 +16584,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -16321,6 +16605,9 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FreeActor": {
 				"Actor": "harv.exact",
 				"Facing": "640",
@@ -16331,6 +16618,10 @@
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -16363,7 +16654,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -16436,10 +16726,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -16462,6 +16748,13 @@
 				"RequiresCondition": "invulnerability"
 			},
 			"WithDockedOverlay": {},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1448,724,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithIdleOverlay@bib": {
 				"RequiresCondition": "!build-incomplete",
 				"Sequence": "idle-bib"
@@ -16479,12 +16772,6 @@
 			}
 		},
 		"nasam.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "500,200,900, 500,-200,900",
@@ -16523,9 +16810,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16539,11 +16823,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"ValidPowerStates": "Low, Critical"
@@ -16573,7 +16864,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -16641,10 +16931,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -16671,6 +16957,13 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-965,24,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -16687,12 +16980,6 @@
 			}
 		},
 		"natech.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16720,9 +17007,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16736,11 +17020,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -16772,7 +17063,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -16837,10 +17127,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -16862,6 +17148,27 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1786,-652,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-1207,579,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "627,121,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
 			"WithMakeAnimation": {
 				"Condition": "build-incomplete"
 			},
@@ -16871,12 +17178,6 @@
 			}
 		},
 		"nawall.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -16898,6 +17199,9 @@
 				"Dimensions": "1,1",
 				"Footprint": "x",
 				"TerrainTypes": "Clear, Rough, Road, DirtRoad"
+			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
 			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
@@ -16956,12 +17260,6 @@
 			}
 		},
 		"naweap.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Wood"
@@ -16989,9 +17287,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -17011,11 +17306,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnProduction@helicopters": {
 				"Actors": "shad, shad.exact",
 				"Condition": "roof-open",
@@ -17059,7 +17361,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -17148,10 +17449,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -17180,6 +17477,20 @@
 			"WithExitOverlay@top-vehicles": {
 				"RequiresCondition": "!roof-open && !build-incomplete",
 				"Sequence": "build-top"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-1689,-772,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-3572,748,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@air-inside": {
 				"RequiresCondition": "roof-open && !build-incomplete",
@@ -17212,12 +17523,6 @@
 			}
 		},
 		"nayard.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armor": {
 				"Type": "Concrete"
@@ -17245,9 +17550,6 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -17352,8 +17654,15 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guardable": {
 				"Range": "3c0"
 			},
@@ -17379,7 +17688,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -17455,10 +17763,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -17479,6 +17783,27 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-2172,603,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE1": {
+				"Image": "mediumfire",
+				"Offset": "-2027,-893,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
+			},
+			"WithIdleOverlay@DAMAGEFIRE2": {
+				"Image": "smallfire",
+				"Offset": "290,-1376,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@crane": {
 				"RequiresCondition": "!build-incomplete",
@@ -17584,6 +17909,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -17596,6 +17936,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -17700,6 +18044,14 @@
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -17761,7 +18113,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "ptroop"
@@ -18078,7 +18429,6 @@
 				"UnloadTerrainTypes": "Clear, Rough, Rail, Road, DirtRoad, Beach, Ore, Gems",
 				"UnloadVoice": "Move"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -18135,6 +18485,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -18148,9 +18513,9 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
-			"GrantConditionOnTerrain@SquidWater": {
-				"Condition": "afloat",
-				"TerrainTypes": "Water"
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -18169,12 +18534,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"LeavesTrails": {
 				"Image": "wake",
 				"MovingInterval": "6",
@@ -18241,20 +18600,12 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Water"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
@@ -18263,14 +18614,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "afloat && !squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
@@ -18307,6 +18650,14 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -18325,11 +18676,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -18433,6 +18779,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -18445,6 +18806,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -18557,6 +18922,14 @@
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -18625,11 +18998,13 @@
 			"AutoTargetPriority@ATTACKANYTHING": {
 				"InvalidTargets": "NoAutoTarget",
 				"RequiresCondition": "stance-attackanything || assault-move",
+				"ValidRelationships": "Neutral, Enemy",
 				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Structure, Defense"
 			},
 			"AutoTargetPriority@DEFAULT": {
 				"InvalidTargets": "NoAutoTarget, WaterStructure",
 				"RequiresCondition": "!stance-attackanything && !assault-move",
+				"ValidRelationships": "Neutral, Enemy",
 				"ValidTargets": "Infantry, Vehicle, Water, Underwater, Defense"
 			},
 			"BodyOrientation": {
@@ -18651,7 +19026,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "shk"
@@ -18989,7 +19363,6 @@
 				"Prerequisites": "~naweap, repairpad, ~balance.exact",
 				"Queue": "Vehicle"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -19054,6 +19427,21 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -19066,6 +19454,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -19091,7 +19483,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -19180,10 +19571,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -19238,6 +19625,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -19325,7 +19720,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "snipe"
@@ -19443,7 +19837,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"KillsSelf@IRONCURTAIN": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -19529,10 +19922,6 @@
 			},
 			"Targetable": {
 				"TargetTypes": "Ground, Infantry, DetonateAttack, Disguise"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "infected",
@@ -19632,7 +20021,6 @@
 				"Prerequisites": "gatech, ~gapile, ~balance.exact",
 				"Queue": "Infantry"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "spy"
@@ -19684,12 +20072,12 @@
 				"PlayerExperience": "25",
 				"Voice": "Move"
 			},
-			"DetectableDisguiseTooltip": {
-				"GenericName": "actor-spy.disguisetooltip-generic-name",
-				"Name": "actor-spy.disguisetooltip-name"
-			},
 			"Disguise": {
 				"DisguisedCondition": "disguise"
+			},
+			"DisguiseTooltip": {
+				"GenericName": "actor-spy.disguisetooltip-generic-name",
+				"Name": "actor-spy.disguisetooltip-name"
 			},
 			"DrawLineToTarget": {},
 			"EdibleByLeap": {},
@@ -19902,7 +20290,7 @@
 				"RequiresCondition": "disguise",
 				"Sequence": "pip-disguise"
 			},
-			"WithDetectableDisguisingInfantryBody": {
+			"WithDisguisingInfantryBody": {
 				"IdleSequences": "idle1,idle2",
 				"StandSequences": "stand"
 			},
@@ -19914,23 +20302,11 @@
 			"Armament": {
 				"Weapon": "SquidPunch.exact"
 			},
-			"Armament@GRAB": {
-				"Name": "grab",
-				"Weapon": "SquidGrab.exact"
-			},
 			"Armor": {
 				"Type": "Light"
 			},
-			"AttackInfect": {
-				"AlwaysSurviveHostDeath": "true",
-				"Armaments": "primary, grab",
-				"CullHealthPercent": "25",
-				"Damage": "15",
-				"DamageInterval": "13",
-				"DamageTypes": "BulletDeath",
+			"AttackFrontal": {
 				"FacingTolerance": "0",
-				"InfectArmaments": "grab",
-				"JumpCondition": {},
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -19961,10 +20337,9 @@
 				"Prerequisites": "natech, ~nayard, ~balance.exact",
 				"Queue": "Ship"
 			},
-			"ChangesHealth@SELFHEAL": {
+			"ChangesHealth": {
 				"DamageCooldown": "125",
 				"Delay": "100",
-				"StartIfBelow": "100",
 				"Step": "2"
 			},
 			"Chronoshiftable": {
@@ -20028,7 +20403,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "naval",
 				"Speed": "144",
@@ -20077,10 +20451,6 @@
 			"Targetable": {
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Submergeable"
-			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
 			},
 			"Targetable@underwater": {
 				"RequiresCondition": "underwater",
@@ -20177,7 +20547,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20237,6 +20606,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -20262,6 +20646,10 @@
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
 			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"Guard": {
 				"Voice": "Attack"
 			},
@@ -20286,7 +20674,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -20375,10 +20762,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -20429,6 +20812,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -20538,7 +20929,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -20611,6 +21001,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage && !underwater",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -20623,6 +21028,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -20641,12 +21050,6 @@
 				"Modifier": "100",
 				"RequiresCondition": "rank-elite"
 			},
-			"Infectable": {
-				"BeingInfectedCondition": "being-squid-grabbed",
-				"InfectedCondition": "squid-grabbed",
-				"KillInfectorCondition": "invulnerability"
-			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -20706,10 +21109,6 @@
 				"Modifier": "120",
 				"RequiresCondition": "rank-elite"
 			},
-			"SpeedMultiplier@SquidGrabbed": {
-				"Modifier": "0",
-				"RequiresCondition": "being-squid-grabbed || squid-grabbed"
-			},
 			"SpeedMultiplier@VETERAN": {
 				"Modifier": "120",
 				"RequiresCondition": "rank-veteran && !rank-elite"
@@ -20718,10 +21117,6 @@
 				"RequiresCondition": "!underwater",
 				"TargetTypes": "Ground, Water, Repair, Submergeable"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@MC": {
 				"RequiresCondition": "!controlled",
 				"TargetTypes": "MindControl"
@@ -20729,14 +21124,6 @@
 			"Targetable@REPAIR": {
 				"RequiresCondition": "damaged",
 				"TargetTypes": "Repair"
-			},
-			"Targetable@SquidGrabbable": {
-				"RequiresCondition": "!underwater && !squid-grabbed",
-				"TargetTypes": "SquidGrabbable"
-			},
-			"Targetable@SquidGrabbed": {
-				"RequiresCondition": "squid-grabbed",
-				"TargetTypes": "SquidGrabbed"
 			},
 			"Targetable@UNDERWATER": {
 				"RequiresCondition": "underwater",
@@ -20770,6 +21157,15 @@
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect",
+				"RequiresCondition": "!underwater"
+			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
 				"Palette": "pips",
@@ -20788,11 +21184,6 @@
 				"Palette": "effect",
 				"RequiresCondition": "controlled",
 				"Sequence": "mindcontrol"
-			},
-			"WithInfectorOverlay@SquidGrab": {
-				"Image": "sqdg",
-				"Sequence": "hold",
-				"StartSequence": "grab"
 			},
 			"WithMindControlArc": {
 				"Offset": "0,0,960",
@@ -20855,7 +21246,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "tany"
@@ -21173,7 +21563,6 @@
 				"Prerequisites": "naradr, ~infantry.cuba, ~balance.exact",
 				"Queue": "Infantry"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "terror"
@@ -21460,12 +21849,6 @@
 			"WithTextControlGroupDecoration": {}
 		},
 		"tesla.exact": {
-			"ActorPreviewPlaceBuildingPreview": {
-				"FootprintOverPreview": "None",
-				"FootprintUnderPreview": "Valid, LineBuild, Invalid",
-				"Palette": "effect75alpha",
-				"PreviewAlpha": "0.5"
-			},
 			"AppearsOnRadar": {},
 			"Armament": {
 				"LocalOffset": "0,0,3072",
@@ -21520,9 +21903,6 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -21539,11 +21919,18 @@
 				"Type": "Footprint",
 				"Weapon": "BuildingExplode"
 			},
+			"FootprintPlaceBuildingPreview": {
+				"Palette": "effect75alpha"
+			},
 			"FrozenUnderFog": {},
 			"GivesBuildableArea": {
 				"AreaTypes": "building"
 			},
 			"GivesExperience": {},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
+			},
 			"GrantConditionOnPowerState@LOWPOWER": {
 				"Condition": "lowpower",
 				"RequiresCondition": "!charged",
@@ -21574,7 +21961,6 @@
 				"Priority": "3"
 			},
 			"IsometricSelectionDecorations": {},
-			"IvanBombCarrier": {},
 			"MustBeDestroyed": {
 				"RequiredForShortGame": "true"
 			},
@@ -21633,10 +22019,6 @@
 			"Targetable@BaseAttackNotify": {
 				"TargetTypes": "BaseAttackNotify"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"TimedConditionBar": {
 				"Condition": "invulnerability"
 			},
@@ -21657,6 +22039,13 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithIdleOverlay@DAMAGEFIRE0": {
+				"Image": "largefire",
+				"Offset": "-676,0,0",
+				"Palette": "effect",
+				"RequiresCondition": "heavy-damage",
+				"Sequence": "idle"
 			},
 			"WithIdleOverlay@powered": {
 				"RequiresCondition": "!lowpower && !build-incomplete",
@@ -21734,7 +22123,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -21794,6 +22182,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -21806,6 +22209,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -21831,7 +22238,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -21921,10 +22327,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -21971,6 +22373,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22062,7 +22472,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -22122,6 +22531,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -22134,6 +22558,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -22159,7 +22587,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"MindControllable": {
 				"Condition": "controlled"
 			},
@@ -22248,10 +22675,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -22301,6 +22724,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22388,7 +22819,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ChronoshiftSound": "schrmov.wav",
 				"Image": "chrono",
@@ -22448,6 +22878,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -22460,6 +22905,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -22485,7 +22934,6 @@
 				"KillInfectorDamageTypes": "KillTerrorDrone",
 				"RemoveInfectorDamageTypes": "DropTerrorDrone"
 			},
-			"IvanBombCarrier": {},
 			"Mobile": {
 				"Locomotor": "heavytracked",
 				"PauseOnCondition": "chronodisable",
@@ -22568,10 +23016,6 @@
 				"RequiresCondition": "!parachute",
 				"TargetTypes": "Ground, Vehicle, DetonateAttack"
 			},
-			"Targetable@IVANBOMB": {
-				"RequiresCondition": "!ivan-bomb",
-				"TargetTypes": "IvanBomb"
-			},
 			"Targetable@InfectedByTerrorDrone": {
 				"RequiresCondition": "!parachute && infected",
 				"TargetTypes": "TerrorDroned"
@@ -22613,6 +23057,14 @@
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -22682,7 +23134,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuri"
@@ -23051,7 +23502,6 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {},
 			"ChronoshiftableWithSpriteEffect": {
 				"ExplodeInstead": "true",
 				"Image": "yuripr"
@@ -23467,6 +23917,21 @@
 				"Modifier": "110",
 				"RequiresCondition": "rank-veteran && !rank-elite"
 			},
+			"FloatingSpriteEmitter@DAMAGESMOKE": {
+				"Duration": "-1",
+				"Gravity": "40",
+				"Image": "smallsmoke",
+				"Lifetime": "25, 35",
+				"Offset": "0, 0, 256",
+				"Palette": "effect",
+				"RandomFacing": "true",
+				"RandomRate": "4",
+				"RequiresCondition": "heavy-damage",
+				"Sequences": "idle",
+				"SpawnFrequency": "4, 8",
+				"Speed": "4",
+				"TurnRate": "3"
+			},
 			"GainsExperience": {
 				"Conditions": {
 					"300": "rank-veteran",
@@ -23479,6 +23944,10 @@
 			"GrantConditionOnDamageState@DAMAGED": {
 				"Condition": "damaged",
 				"ValidDamageStates": "Light, Medium, Heavy, Critical"
+			},
+			"GrantConditionOnDamageState@HEAVYDAMAGE": {
+				"Condition": "heavy-damage",
+				"ValidDamageStates": "Heavy, Critical"
 			},
 			"Guard": {
 				"Voice": "Attack"
@@ -23574,6 +24043,14 @@
 			},
 			"Voiced": {
 				"VoiceSet": "KirovVoice"
+			},
+			"WithDamageOverlay@SPARKS": {
+				"Image": "explosion",
+				"LoopCount": "2",
+				"LoopSequence": "piffpiff",
+				"MinimumDamageState": "Heavy",
+				"Offset": "0,0,384",
+				"Palette": "effect"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -24525,13 +25002,19 @@
 				"_value": "RadBeam"
 			},
 			"Range": "6c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "120",
+			"Report": "ichratta.wav",
 			"ValidTargets": "Ground",
-			"Warhead@Erase": {
-				"Hold": "25",
-				"LinkSound": "ichratta.wav",
-				"Warp": "12",
-				"_value": "ChronoErase"
+			"Warhead@Damage": {
+				"Damage": "8",
+				"Spread": "64",
+				"_value": "SpreadDamage"
+			},
+			"Warhead@Disable": {
+				"Condition": "chronodisable, notmobile",
+				"Duration": "350",
+				"Range": "64",
+				"_value": "GrantExternalCondition"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -24908,11 +25391,6 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
-			},
-			"Warhead@5Fragments": {
-				"Count": "2",
-				"Weapon": "TeslaFragment",
-				"_value": "FireFragments"
 			}
 		},
 		"FlakGuyAAGun.exact": {
@@ -25551,14 +26029,43 @@
 				"Speed": "425",
 				"_value": "Bullet"
 			},
-			"Range": "1c512",
-			"ReloadDelay": "42",
+			"Range": "1c849",
+			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"ValidTargets": "IvanBomb",
-			"Warhead@bomb": {
-				"Timer": "375",
-				"Weapon": "IvanDeath",
-				"_value": "AttachIvanBomb"
+			"Warhead@0Eff": {
+				"Delay": "2",
+				"ExplosionPalette": "mouse",
+				"Explosions": "bombcurs",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@1Dam": {
+				"Damage": "400",
+				"DamageTypes": "PsychicDeath, Prone100Percent",
+				"Delay": "100",
+				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
+				"Spread": "213",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "100",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "250",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Delay": "100",
+				"Explosions": "ivan_explosion",
+				"ImpactSounds": "gexpcraa.wav",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"IvanBomberE.exact": {
@@ -25567,14 +26074,43 @@
 				"Speed": "425",
 				"_value": "Bullet"
 			},
-			"Range": "1c512",
-			"ReloadDelay": "42",
+			"Range": "1c849",
+			"ReloadDelay": "50",
 			"Report": "icraatta.wav",
-			"ValidTargets": "IvanBomb",
-			"Warhead@bomb": {
-				"Timer": "375",
-				"Weapon": "IvanDeathE",
-				"_value": "AttachIvanBomb"
+			"Warhead@0Eff": {
+				"Delay": "2",
+				"ExplosionPalette": "mouse",
+				"Explosions": "bombcurs",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
+			},
+			"Warhead@1Dam": {
+				"Damage": "400",
+				"DamageTypes": "PsychicDeath, Prone100Percent",
+				"Delay": "100",
+				"Falloff": "1000, 368, 135, 50, 18, 7, 0",
+				"Spread": "213",
+				"Versus": {
+					"Concrete": "20",
+					"Drone": "100",
+					"Flak": "100",
+					"Heavy": "100",
+					"Light": "100",
+					"Medium": "100",
+					"None": "100",
+					"Plate": "100",
+					"Rocket": "100",
+					"Steel": "250",
+					"Wood": "100"
+				},
+				"_value": "SpreadDamage"
+			},
+			"Warhead@2Eff": {
+				"Delay": "100",
+				"Explosions": "ivan_explosionE",
+				"ImpactSounds": "gexpcraa.wav",
+				"ValidTargets": "Ground, Water, Air",
+				"_value": "CreateEffect"
 			}
 		},
 		"LightningStorm.exact": {
@@ -26081,66 +26617,6 @@
 				"_value": "CreateEffect"
 			}
 		},
-		"MedusaE.exact": {
-			"Burst": "2",
-			"BurstDelays": "5",
-			"Projectile": {
-				"AllowSnapping": "true",
-				"Blockable": "false",
-				"ContrailLength": "35",
-				"ContrailStartWidth": "24",
-				"CruiseAltitude": "4352",
-				"HorizontalRateOfTurn": "220",
-				"Image": "DRAGON",
-				"LockOnProbability": "85",
-				"MaximumLaunchAngle": "255",
-				"MinimumLaunchAngle": "255",
-				"Palette": "ra",
-				"RangeLimit": "17c409",
-				"Shadow": "true",
-				"Speed": "720",
-				"TerrainHeightAware": "true",
-				"VerticalRateOfTurn": "220",
-				"_value": "Missile"
-			},
-			"Range": "14c0",
-			"ReloadDelay": "4",
-			"Report": "vaegatta.wav, vaegattb.wav",
-			"ValidTargets": "Air",
-			"Warhead@1Dam": {
-				"Damage": "100",
-				"DamageTypes": "BulletDeath",
-				"Falloff": "100, 100",
-				"Spread": "0c307",
-				"ValidTargets": "Air",
-				"Versus": {
-					"Concrete": "0",
-					"Drone": "100",
-					"Flak": "100",
-					"Heavy": "100",
-					"Light": "100",
-					"Medium": "100",
-					"None": "100",
-					"Plate": "100",
-					"Rocket": "100",
-					"Steel": "0",
-					"Wood": "0"
-				},
-				"_value": "SpreadDamage"
-			},
-			"Warhead@2Eff": {
-				"Explosions": "small_bang",
-				"ImpactSounds": "gexp10a.wav",
-				"ValidTargets": "Ground, Air",
-				"_value": "CreateEffect"
-			},
-			"Warhead@3EffWater": {
-				"Explosions": "small_watersplash",
-				"ImpactSounds": "gexpwasa.wav",
-				"ValidTargets": "Water",
-				"_value": "CreateEffect"
-			}
-		},
 		"MindControl.exact": {
 			"Burst": "1",
 			"Projectile": {
@@ -26247,36 +26723,19 @@
 				"_value": "RadBeam"
 			},
 			"Range": "5c0",
-			"ReloadDelay": "20",
+			"ReloadDelay": "120",
+			"Report": "ichratta.wav",
 			"ValidTargets": "Ground",
-			"Warhead@Erase": {
-				"Hold": "25",
-				"LinkSound": "ichratta.wav",
-				"Warp": "10",
-				"_value": "ChronoErase"
+			"Warhead@Damage": {
+				"Damage": "8",
+				"Spread": "64",
+				"_value": "SpreadDamage"
 			},
-			"Warhead@Stars": {
-				"Explosions": "chronosk",
-				"ValidTargets": "Ground, Water",
-				"_value": "CreateEffect"
-			}
-		},
-		"NeutronRifleE.exact": {
-			"Projectile": {
-				"Amplitude": "476",
-				"Color": "80C8FF",
-				"WaveLength": "384",
-				"ZOffset": "2047",
-				"_value": "RadBeam"
-			},
-			"Range": "5c0",
-			"ReloadDelay": "20",
-			"ValidTargets": "Ground",
-			"Warhead@Erase": {
-				"Hold": "25",
-				"LinkSound": "ichratta.wav",
-				"Warp": "19",
-				"_value": "ChronoErase"
+			"Warhead@Disable": {
+				"Condition": "chronodisable, notmobile",
+				"Duration": "250",
+				"Range": "64",
+				"_value": "GrantExternalCondition"
 			},
 			"Warhead@Stars": {
 				"Explosions": "chronosk",
@@ -26369,10 +26828,16 @@
 		"PrismShot.exact": {
 			"Burst": "1",
 			"Projectile": {
-				"UsePlayerColor": "true",
-				"Width": "70",
+				"Color": "FFFFFF",
+				"DepthOffset": "1c512",
+				"SecondaryBeam": "true",
+				"SecondaryBeamAlpha": "144",
+				"SecondaryBeamUsePlayerColor": "true",
+				"SecondaryBeamWidth": "232",
+				"SecondaryBeamZOffset": "2046",
+				"Width": "192",
 				"ZOffset": "2047",
-				"_value": "LaserZap"
+				"_value": "GlowLaserZap"
 			},
 			"Range": "8c0",
 			"ReloadDelay": "28",
@@ -26638,16 +27103,8 @@
 				"_value": "CreateEffect"
 			}
 		},
-		"SquidGrab.exact": {
-			"Projectile": "InstantHit",
-			"Range": "1c512",
-			"ReloadDelay": "83",
-			"Report": "vsquat1a.wav",
-			"ValidTargets": "SquidGrabbable"
-		},
 		"SquidPunch.exact": {
 			"Burst": "1",
-			"InvalidTargets": "SquidGrabbable, SquidGrabbed",
 			"Projectile": "InstantHit",
 			"Range": "1c850",
 			"ReloadDelay": "27",
@@ -26927,11 +27384,6 @@
 				"Explosions": "tesla_impact",
 				"ValidTargets": "Ground, Water",
 				"_value": "CreateEffect"
-			},
-			"Warhead@5Fragments": {
-				"Count": "2",
-				"Weapon": "TeslaFragment",
-				"_value": "FireFragments"
 			}
 		},
 		"TerrorBomb.exact": {

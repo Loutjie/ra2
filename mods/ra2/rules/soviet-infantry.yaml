@@ -116,6 +116,12 @@ shk:
 	Inherits@2: ^Parachutable
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
+	# Auto-targeting accepts allies by default and the charge armament fires at allies, so every
+	# trooper on attack-move stopped to charge the first friendly coil it passed. RA2 charges on order only.
+	AutoTargetPriority@DEFAULT:
+		ValidRelationships: Neutral, Enemy
+	AutoTargetPriority@ATTACKANYTHING:
+		ValidRelationships: Neutral, Enemy
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Infantry
