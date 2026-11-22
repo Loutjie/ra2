@@ -167,6 +167,8 @@ e1:
 	Armament@GARRISON:
 		Name: garrison
 		Weapon: AlliedOccupyW
+		# RA2 OccupyWeapon Anim=UCFLASH: the flash at the building's fire port (art.ini MuzzleFlashN).
+		MuzzleSequence: garrison-muzzle
 	Armament@primary:
 		Weapon: M60
 		RequiresCondition: !deployed && !rank-elite

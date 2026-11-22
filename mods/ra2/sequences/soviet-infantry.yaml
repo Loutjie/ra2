@@ -121,6 +121,10 @@ e2:
 		Start: 292
 	icon:
 		Filename: e2icon.shp
+	garrison-muzzle:
+		Filename: ucflash.shp
+		Length: *
+		ZOffset: 1023
 
 flakt:
 	Inherits: ^ArmedInfantry
