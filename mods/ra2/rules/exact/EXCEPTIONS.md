@@ -66,20 +66,20 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 ## giant-squid
 
-- Field: SquidPunch.exact; RA2 SquidGrab
-- Applied by: the generator
-- Reason: RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches (SquidPunch). The mod's squid only punches: SquidPunch.exact takes RA2's SquidPunch values, and SquidGrab has no mod counterpart.
+- Field: SquidGrab.exact
+- Applied by: rule `stub`
+- Reason: RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches everything else (SquidPunch). The mod models the grab with the Terror Drone's infection: SquidGrab is only the latch, without damage, and the squid's AttackInfect deals RA2's 15 damage per grapple loop (15 frames; ROF 99 is ignored by RA2) and culls a ship in the red. SquidGrab.exact stays a stub; SquidPunch.exact takes RA2's SquidPunch values. RA2's elite SquidGrabE (40 damage) is not modelled: the elite squid gets the mod's firepower bonus instead.
 - Affected:
-  - SquidPunch.exact <- RA2 SquidPunch
+  - SquidGrab.exact: Inherits stub
 
 ## crazy-ivan-bomb
 
 - Field: IvanBomber.exact, IvanBomberE.exact
-- Applied by: rule `stub`
-- Reason: The mod's Crazy Ivan attaches a delayed charge with its own falloff, a structure RA2's IvanBomber numbers do not map onto field by field. The twins stay stubs.
+- Applied by: rule `ivan_bomb`
+- Reason: RA2's Crazy Ivan plants a bomb (IvanBomb) whose explosion is set in [CombatDamage] (IvanDamage, IvanTimedDelay), not on IvanBomber. The twins take RA2's ROF and range and the bomb timer; the explosion keeps the mod's falloff.
 - Affected:
-  - IvanBomber.exact: Inherits stub
-  - IvanBomberE.exact: Inherits stub
+  - IvanBomber.exact: ReloadDelay, Range from RA2 IvanBomber; bomb Timer 375 (IvanTimedDelay=450)
+  - IvanBomberE.exact: ReloadDelay, Range from RA2 IvanBomberE; bomb Timer 375 (IvanTimedDelay=450)
 
 ## prism-tank-beam
 
@@ -92,12 +92,13 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 ## chrono-erasure
 
-- Field: NeutronRifle.exact, CRNeutronRifle.exact
-- Applied by: rule `stub`
-- Reason: RA2's Chrono Legionnaire erases its target over time; the mod uses a separate erase mechanic. The twins stay stubs.
+- Field: NeutronRifle.exact, NeutronRifleE.exact, CRNeutronRifle.exact
+- Applied by: rule `chrono_erasure`
+- Reason: RA2's temporal beam (Temporal=yes) erases its target at Damage warp points per frame against Strength x 10; its Damage is not damage, and the beam holds until it stops, so ROF does not set the pace. The twins take RA2's range and the ChronoErase Warp converted to ticks.
 - Affected:
-  - NeutronRifle.exact: Inherits stub
-  - CRNeutronRifle.exact: Inherits stub
+  - NeutronRifle.exact: Range from RA2 NeutronRifle; Warp 10 per tick (Damage=8 per frame)
+  - NeutronRifleE.exact: Range from RA2 NeutronRifleE; Warp 19 per tick (Damage=16 per frame)
+  - CRNeutronRifle.exact: Range from RA2 CRNeutronRifle; Warp 12 per tick (Damage=10 per frame)
 
 ## weapon-structure-stubs
 
@@ -135,15 +136,12 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
   - MakeupKit
   - Maverick2E
   - MaverickE
-  - MedusaE
   - MindControlE
-  - NeutronRifleE
   - PrismSupport
   - PsiWave
   - RadEruptionWeapon
   - Sapper
   - SonicZapE
-  - SquidGrab
   - SquidGrabE
   - SquidPunchE
   - VirtualScanner
@@ -412,7 +410,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 - Affected:
   - amradr.exact: ParatroopersPower@paratroopers ChargeInterval 3000, DropItems e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact,e1.exact (RA2 AmericanParaDropSpecial)
   - gacsph.exact: ChronoshiftPower@chronoshift ChargeInterval 5250 (RA2 ChronoSphereSpecial)
-  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 7500, Duration 150, HitDelay 8, ScatterDelay 4, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
+  - gaweat.exact: WeatherControlSupportPower@LightningStorm ChargeInterval 7500, BuildUpDelay 208, Duration 150, HitDelay 8, ScatterDelay 4, Weapon LightningStorm.exact (RA2 LightningStormSpecial)
   - nairon.exact: GrantExternalConditionPower@IRONCURTAIN ChargeInterval 3750, Duration 625 (RA2 IronCurtainSpecial)
   - namisl.exact: NukePower ChargeInterval 7500 (RA2 MultiSpecial)
 
@@ -420,7 +418,7 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: Lightning Storm weapon twin and timing
 - Applied by: the generator
-- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (delay before the storm starts) and LightningSeparation have no field in WeatherControlSupportPower and are not applied. LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of -5c0..5c0 already spread the clouds over a 10-cell area.
+- Reason: RA2 has no weapon section for the storm: its damage is [General] LightningDamage with the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's storm weapon. LightningDeferment (the build-up before the first strike) is the power's BuildUpDelay; LightningSeparation has no field in WeatherControlSupportPower and is not applied. LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of -5c0..5c0 already spread the clouds over a 10-cell area.
 - Affected:
   - LightningStorm.exact: from [General] LightningDamage, LightningWarhead
 
@@ -428,27 +426,9 @@ Every place the Exact twins (actors.yaml, reimagined.yaml, weapons/exact/weapons
 
 - Field: ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins
 - Applied by: the generator
-- Reason: The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins accept the invulnerability condition and kill themselves while they have it.
+- Reason: The Iron Curtain kills infantry in RA2. The base mod's ^Infantry already does this, so only infantry twins whose base lacks KillsSelf@IRONCURTAIN get the condition and KillsSelf.
 - Affected:
-  - ccomand.exact
-  - civan.exact
-  - cleg.exact
-  - deso.exact
-  - dog.exact
-  - e1.exact
-  - e2.exact
-  - engineer.exact
-  - flakt.exact
-  - ivan.exact
-  - jumpjet.exact
-  - ptroop.exact
-  - shk.exact
-  - snipe.exact
-  - spy.exact
-  - tany.exact
-  - terror.exact
-  - yuri.exact
-  - yuripr.exact
+  - (nothing in this run)
 
 ## death-weapons
 

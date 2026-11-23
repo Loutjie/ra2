@@ -803,6 +803,14 @@ napsis:
 	RenderDetectionCircle:
 	DetectCloaked:
 		Range: 6c0
+	# RA2: PsychicDetectionRadius=15, shows enemy attack lines; needs power.
+	PsychicSensor:
+		Range: 15c0
+		RequiresCondition: !build-incomplete && !lowpower
+	# RA2: DetectDisguise=yes, DetectDisguiseRange=15; needs power.
+	DisguiseDetector:
+		Range: 15c0
+		RequiresCondition: !build-incomplete && !lowpower
 	WithIdleOverlay@spin:
 		Sequence: idle-spin
 		PauseOnCondition: lowpower

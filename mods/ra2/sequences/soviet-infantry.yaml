@@ -33,6 +33,83 @@ sqd:
 	icon:
 		Filename: sqdicon.shp
 
+# Giant Squid grapple, drawn on the grabbed ship (RA2 SQDG_*: LoopStart 9, LoopEnd 19, Rate 600).
+sqdg:
+	grab:
+		Facings: 8
+		Length: 9
+		Tick: 50
+		Combine:
+			0:
+				Filename: sqdg_n.shp
+				Start: 0
+				Length: 9
+			1:
+				Filename: sqdg_nw.shp
+				Start: 0
+				Length: 9
+			2:
+				Filename: sqdg_w.shp
+				Start: 0
+				Length: 9
+			3:
+				Filename: sqdg_sw.shp
+				Start: 0
+				Length: 9
+			4:
+				Filename: sqdg_s.shp
+				Start: 0
+				Length: 9
+			5:
+				Filename: sqdg_se.shp
+				Start: 0
+				Length: 9
+			6:
+				Filename: sqdg_e.shp
+				Start: 0
+				Length: 9
+			7:
+				Filename: sqdg_ne.shp
+				Start: 0
+				Length: 9
+	hold:
+		Facings: 8
+		Length: 10
+		Tick: 50
+		Combine:
+			0:
+				Filename: sqdg_n.shp
+				Start: 9
+				Length: 10
+			1:
+				Filename: sqdg_nw.shp
+				Start: 9
+				Length: 10
+			2:
+				Filename: sqdg_w.shp
+				Start: 9
+				Length: 10
+			3:
+				Filename: sqdg_sw.shp
+				Start: 9
+				Length: 10
+			4:
+				Filename: sqdg_s.shp
+				Start: 9
+				Length: 10
+			5:
+				Filename: sqdg_se.shp
+				Start: 9
+				Length: 10
+			6:
+				Filename: sqdg_e.shp
+				Start: 9
+				Length: 10
+			7:
+				Filename: sqdg_ne.shp
+				Start: 9
+				Length: 10
+
 e2:
 	Inherits: ^ArmedInfantry
 	Inherits@MC: ^MindControllable
@@ -44,6 +121,10 @@ e2:
 		Start: 292
 	icon:
 		Filename: e2icon.shp
+	garrison-muzzle:
+		Filename: ucflash.shp
+		Length: *
+		ZOffset: 1023
 
 flakt:
 	Inherits: ^ArmedInfantry

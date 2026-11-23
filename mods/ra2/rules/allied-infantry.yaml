@@ -42,6 +42,7 @@ engineer:
 	CaptureManager:
 
 dog:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Buildable:
 		Queue: Infantry
@@ -122,6 +123,7 @@ dog:
 		StandSequences: stand
 
 e1:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^Infantry
 	Inherits@2: ^Parachutable
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -165,6 +167,8 @@ e1:
 	Armament@GARRISON:
 		Name: garrison
 		Weapon: AlliedOccupyW
+		# RA2 OccupyWeapon Anim=UCFLASH: the flash at the building's fire port (art.ini MuzzleFlashN).
+		MuzzleSequence: garrison-muzzle
 	Armament@primary:
 		Weapon: M60
 		RequiresCondition: !deployed && !rank-elite
@@ -227,6 +231,7 @@ e1:
 		RequiresCondition: !editorhack
 
 snipe:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
@@ -287,7 +292,7 @@ spy:
 		Payload: 250
 		PlayerExperience: 25
 		Voice: Move
-	DisguiseTooltip:
+	DetectableDisguiseTooltip:
 		Name: actor-spy.disguisetooltip-name
 		GenericName: actor-spy.disguisetooltip-generic-name
 	Selectable:
@@ -305,7 +310,7 @@ spy:
 		Types: SpyInfiltrate
 		Notification: BuildingInfiltrated
 	-WithInfantryBody:
-	WithDisguisingInfantryBody:
+	WithDetectableDisguisingInfantryBody:
 		IdleSequences: idle1,idle2
 		StandSequences: stand
 	WithDecoration@disguise:
@@ -551,6 +556,8 @@ jumpjet:
 	Health:
 		HP: 125
 	-TimedConditionBar@ChronoDisable:
+	ChronoErasable:
+		Condition:
 	-ExternalCondition@CHRONODISABLE:
 	-Mobile:
 	-ChronoshiftableWithSpriteEffect:
@@ -637,6 +644,7 @@ jumpjet.husk:
 	WithShadow:
 
 cleg:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@MC: ^MindControllable
 	Selectable:
@@ -679,6 +687,11 @@ cleg:
 	Armament@Temporal:
 		Weapon: NeutronRifle
 		LocalOffset: 320,128,1024
+		RequiresCondition: !rank-elite
+	Armament@TemporalElite:
+		Weapon: NeutronRifleE
+		LocalOffset: 320,128,1024
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0

@@ -14,11 +14,6 @@
 			"reason": "no damage warhead in the mod weapon"
 		},
 		{
-			"twin": "CRNeutronRifle.exact",
-			"reason": "chrono-erasure (see EXCEPTIONS.md)",
-			"exception": "chrono-erasure"
-		},
-		{
 			"twin": "Comet.exact",
 			"reason": "prism-tank-beam (see EXCEPTIONS.md)",
 			"exception": "prism-tank-beam"
@@ -53,27 +48,17 @@
 			"reason": "no rules.ini section of that name"
 		},
 		{
-			"twin": "IvanBomber.exact",
-			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
-			"exception": "crazy-ivan-bomb"
-		},
-		{
-			"twin": "IvanBomberE.exact",
-			"reason": "crazy-ivan-bomb (see EXCEPTIONS.md)",
-			"exception": "crazy-ivan-bomb"
-		},
-		{
-			"twin": "NeutronRifle.exact",
-			"reason": "chrono-erasure (see EXCEPTIONS.md)",
-			"exception": "chrono-erasure"
-		},
-		{
 			"twin": "SonicZap.exact",
 			"reason": "2 damage warheads in the mod weapon"
 		},
 		{
 			"twin": "SovietOccupyW.exact",
 			"reason": "rules.ini section not fired by the twinned RA2 actor"
+		},
+		{
+			"twin": "SquidGrab.exact",
+			"reason": "giant-squid (see EXCEPTIONS.md)",
+			"exception": "giant-squid"
 		},
 		{
 			"twin": "SuperComet.exact",
@@ -144,13 +129,7 @@
 			"weapon": "MaverickE"
 		},
 		{
-			"weapon": "MedusaE"
-		},
-		{
 			"weapon": "MindControlE"
-		},
-		{
-			"weapon": "NeutronRifleE"
 		},
 		{
 			"weapon": "PrismSupport"
@@ -166,9 +145,6 @@
 		},
 		{
 			"weapon": "SonicZapE"
-		},
-		{
-			"weapon": "SquidGrab"
 		},
 		{
 			"weapon": "SquidGrabE"

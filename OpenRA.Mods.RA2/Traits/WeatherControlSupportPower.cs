@@ -23,7 +23,18 @@ namespace OpenRA.Mods.RA2.Traits.SupportPowers
 		[Desc("What weapon will attack the target in range?")]
 		public readonly string Weapon = null;
 
-		[Desc("Corresponds to `Type` from `WeatherEffectPaletteEffect` on the world actor.")]
+		[WeaponReference]
+		[Desc("Visual-only weapon fired around the target during the build-up (the gathering clouds).")]
+		public readonly string BuildUpWeapon = null;
+
+		[Desc("Ticks between launch and the first strike (RA2 [General] LightningDeferment).",
+			"The sky darkens and clouds gather over this time.")]
+		public readonly int BuildUpDelay = 0;
+
+		[Desc("Ticks between gathering clouds at the start of the build-up. The interval shrinks to ScatterDelay by its end.")]
+		public readonly int BuildUpCloudInterval = 20;
+
+		[Desc("Corresponds to `Type` from `WeatherPaletteEffect` on the world actor.")]
 		public readonly string PaletteEffectType = null;
 
 		[Desc("Active duration during the time clouds can spawn.")]
@@ -50,6 +61,7 @@ namespace OpenRA.Mods.RA2.Traits.SupportPowers
 		}
 
 		public WeaponInfo WeaponInfo { get; private set; }
+		public WeaponInfo BuildUpWeaponInfo { get; private set; }
 
 		public override void RulesetLoaded(Ruleset rules, ActorInfo ai)
 		{
@@ -58,6 +70,18 @@ namespace OpenRA.Mods.RA2.Traits.SupportPowers
 				throw new YamlException($"Weapons Ruleset does not contain an entry '{weaponToLower}'");
 
 			WeaponInfo = weapon;
+
+			if (BuildUpWeapon != null)
+			{
+				var buildUpToLower = BuildUpWeapon.ToLowerInvariant();
+				if (!rules.Weapons.TryGetValue(buildUpToLower, out var buildUpWeapon))
+					throw new YamlException($"Weapons Ruleset does not contain an entry '{buildUpToLower}'");
+
+				BuildUpWeaponInfo = buildUpWeapon;
+			}
+
+			if (BuildUpDelay < 0)
+				throw new YamlException("WeatherControlSupportPower.BuildUpDelay must not be negative.");
 
 			base.RulesetLoaded(rules, ai);
 		}
@@ -70,6 +94,8 @@ namespace OpenRA.Mods.RA2.Traits.SupportPowers
 		int hitDelay;
 		int scatterDelay;
 		int duration;
+		int buildUpElapsed;
+		int cloudDelay;
 		bool launched;
 		WPos targetPos;
 
@@ -100,20 +126,51 @@ namespace OpenRA.Mods.RA2.Traits.SupportPowers
 
 				launched = true;
 				duration = info.Duration;
+				hitDelay = info.HitDelay;
+				scatterDelay = info.ScatterDelay;
+				buildUpElapsed = 0;
+				cloudDelay = 0;
 
 				if (!string.IsNullOrEmpty(info.PaletteEffectType))
 				{
 					var paletteEffects = w.WorldActor.TraitsImplementing<WeatherPaletteEffect>().Where(p => p.Info.Type == info.PaletteEffectType);
 					foreach (var paletteEffect in paletteEffects)
-						paletteEffect.Enable(-1);
+					{
+						if (info.BuildUpDelay > 0)
+							paletteEffect.BuildUp(info.BuildUpDelay);
+						else
+							paletteEffect.Enable(-1);
+					}
 				}
 			});
+		}
+
+		void TickBuildUp(Actor self)
+		{
+			if (info.BuildUpWeaponInfo != null && --cloudDelay < 0)
+			{
+				cloudDelay = LightningStormBuildUp.CloudInterval(buildUpElapsed, info.BuildUpDelay, info.BuildUpCloudInterval, info.ScatterDelay);
+				var warheadArgs = new WarheadArgs()
+				{
+					SourceActor = self
+				};
+
+				info.BuildUpWeaponInfo.Impact(Target.FromPos(targetPos + RandomOffset(self.World)), warheadArgs);
+			}
+
+			buildUpElapsed++;
 		}
 
 		void ITick.Tick(Actor self)
 		{
 			if (!launched)
 				return;
+
+			if (buildUpElapsed < info.BuildUpDelay)
+			{
+				TickBuildUp(self);
+				return;
+			}
 
 			if (--duration < 0)
 				launched = false;

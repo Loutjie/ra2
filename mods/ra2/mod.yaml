@@ -34,8 +34,8 @@ FileSystem: ContentInstallerFileSystem
 		load.mix
 		local.mix
 		neutral.mix
-		sidec01.mix
-		sidec02.mix
+		sidec01.mix: sidec01
+		sidec02.mix: sidec02
 		sno.mix
 		snow.mix
 		tem.mix
@@ -100,6 +100,7 @@ Sequences:
 	ra2|sequences/civilian-structures.yaml
 	ra2|sequences/defaults.yaml
 	ra2|sequences/misc.yaml
+	ra2|sequences/shell.yaml
 	ra2|sequences/soviet-infantry.yaml
 	ra2|sequences/soviet-structures.yaml
 	ra2|sequences/tech-structures.yaml
@@ -120,7 +121,7 @@ Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.RA2.dll
 ChromeLayout:
 	common|chrome/assetbrowser.yaml
 	ra2|chrome/ingame-player.yaml
-	common|chrome/mainmenu.yaml
+	ra2|chrome/mainmenu.yaml
 	common|chrome/mainmenu-prompts.yaml
 	ra2|chrome/mainmenu-prerelease-notification.yaml
 	common|chrome/ingame-infoobjectives.yaml

@@ -17,7 +17,7 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 
 from exact import conversions
-from exact.actors import SUFFIX, trait_type
+from exact.actors import ARMAMENT_TRAITS, SUFFIX, trait_type
 from exact.model import load_weapon
 from exact.weapons import ARCING_SPEED, NOT_FIRED, POINT_SPREAD, WeaponTwin, make_twin
 
@@ -72,7 +72,7 @@ def tesla_charge(exc: ConversionException, gen: Generated) -> list[str]:
             continue
         twins = []
         for key, trait in sorted(tree.items()):
-            if trait_type(key) == "Armament" and isinstance(trait, Mapping) and isinstance(trait.get("Weapon"), str):
+            if trait_type(key) in ARMAMENT_TRAITS and isinstance(trait, Mapping) and isinstance(trait.get("Weapon"), str):
                 t = gen.weapon(trait["Weapon"].strip())
                 if t is None or t.values is None:
                     raise ValueError(f"{exc.id}: {base_id} fires {trait['Weapon']}, whose twin is a stub: "
@@ -127,6 +127,44 @@ def _fill_from(pairs: Mapping[str, str]):
         return lines
     rule.__name__ = "fill_from"
     return rule
+
+
+def ivan_bomb(exc: ConversionException, gen: Generated) -> list[str]:
+    """RA2 timing and range for the bomb-planting weapons, and the bomb timer from
+    [CombatDamage] IvanTimedDelay. The explosion (IvanDeath, IvanDeathE) keeps the mod's
+    falloff; its 400 damage is RA2's IvanDamage."""
+    timed = gen.rules.get("CombatDamage", {}).get("IvanTimedDelay", "").strip()
+    lines = []
+    for name in ("IvanBomber", "IvanBomberE"):
+        t, w = gen.weapon(name), load_weapon(gen.rules, name)
+        if t is None or w is None or t.reason == NOT_FIRED or not timed:
+            continue
+        delay = conversions.frames_to_ticks(float(timed))
+        t.values = {"ReloadDelay": conversions.frames_to_ticks(w.rof),
+            "Range": conversions.cells_to_wdist(w.range),
+            "Warhead@bomb": {"_value": "AttachIvanBomb", "Timer": delay}}
+        t.reason, t.exception = None, exc.id
+        t.comments.append(f"Exception {exc.id}: RA2 timing and range; bomb timer from IvanTimedDelay")
+        lines.append(f"{t.twin}: ReloadDelay, Range from RA2 {w.id}; bomb Timer {delay} (IvanTimedDelay={timed})")
+    return lines
+
+
+def chrono_erasure(exc: ConversionException, gen: Generated) -> list[str]:
+    """RA2's temporal weapons: range from RA2, and the erase rate (ChronoErase Warp, warp
+    points per tick) from RA2's Damage, which a temporal beam applies per frame."""
+    lines = []
+    ticks_per_1000_frames = conversions.frames_to_ticks(1000)
+    for name in ("NeutronRifle", "NeutronRifleE", "CRNeutronRifle"):
+        t, w = gen.weapon(name), load_weapon(gen.rules, name)
+        if t is None or w is None or t.reason == NOT_FIRED:
+            continue
+        warp = round(w.damage * 1000 / ticks_per_1000_frames)
+        t.values = {"Range": conversions.cells_to_wdist(w.range),
+            "Warhead@Erase": {"_value": "ChronoErase", "Warp": warp}}
+        t.reason, t.exception = None, exc.id
+        t.comments.append(f"Exception {exc.id}: RA2 range; erase rate from Damage per frame")
+        lines.append(f"{t.twin}: Range from RA2 {w.id}; Warp {warp} per tick (Damage={w.damage} per frame)")
+    return lines
 
 
 def mind_control(exc: ConversionException, gen: Generated) -> list[str]:
@@ -251,27 +289,32 @@ EXCEPTIONS: list[ConversionException] = [
         "The twin stays a stub.",
         rule=_stub("DroneJump")),
     ConversionException("giant-squid",
-        "SquidPunch.exact; RA2 SquidGrab",
+        "SquidGrab.exact",
         "RA2's Giant Squid grabs a ship (SquidGrab, ParasitePlus latch) and punches "
-        "(SquidPunch). The mod's squid only punches: SquidPunch.exact takes RA2's SquidPunch "
-        "values, and SquidGrab has no mod counterpart.",
-        listed=lambda facts: ["SquidPunch.exact <- RA2 SquidPunch"]
-            if "SquidPunch.exact" in facts.get("generated_weapons", ()) else []),
+        "everything else (SquidPunch). The mod models the grab with the Terror Drone's "
+        "infection: SquidGrab is only the latch, without damage, and the squid's AttackInfect "
+        "deals RA2's 15 damage per grapple loop (15 frames; ROF 99 is ignored by RA2) and culls "
+        "a ship in the red. SquidGrab.exact stays a stub; SquidPunch.exact takes RA2's SquidPunch "
+        "values. RA2's elite SquidGrabE (40 damage) is not modelled: the elite squid gets the "
+        "mod's firepower bonus instead.",
+        rule=_stub("SquidGrab")),
     ConversionException("crazy-ivan-bomb",
         "IvanBomber.exact, IvanBomberE.exact",
-        "The mod's Crazy Ivan attaches a delayed charge with its own falloff, a structure RA2's "
-        "IvanBomber numbers do not map onto field by field. The twins stay stubs.",
-        rule=_stub("IvanBomber", "IvanBomberE")),
+        "RA2's Crazy Ivan plants a bomb (IvanBomb) whose explosion is set in [CombatDamage] "
+        "(IvanDamage, IvanTimedDelay), not on IvanBomber. The twins take RA2's ROF and range and "
+        "the bomb timer; the explosion keeps the mod's falloff.",
+        rule=ivan_bomb),
     ConversionException("prism-tank-beam",
         "Comet.exact, SuperComet.exact",
         "RA2's Prism Tank beam splits into secondary beams; the mod models the split as area "
         "damage (Spread 800). Writing RA2's CellSpread would remove it. The twins stay stubs.",
         rule=_stub("Comet", "SuperComet")),
     ConversionException("chrono-erasure",
-        "NeutronRifle.exact, CRNeutronRifle.exact",
-        "RA2's Chrono Legionnaire erases its target over time; the mod uses a separate erase "
-        "mechanic. The twins stay stubs.",
-        rule=_stub("NeutronRifle", "CRNeutronRifle")),
+        "NeutronRifle.exact, NeutronRifleE.exact, CRNeutronRifle.exact",
+        "RA2's temporal beam (Temporal=yes) erases its target at Damage warp points per frame "
+        "against Strength x 10; its Damage is not damage, and the beam holds until it stops, so ROF "
+        "does not set the pace. The twins take RA2's range and the ChronoErase Warp converted to ticks.",
+        rule=chrono_erasure),
     ConversionException("weapon-structure-stubs",
         "Twin weapons kept as Inherits stubs by exact.weapons",
         "No RA2 section of that name, a section no twinned RA2 actor fires, or a mod weapon "
@@ -372,15 +415,16 @@ EXCEPTIONS: list[ConversionException] = [
         "Lightning Storm weapon twin and timing",
         "RA2 has no weapon section for the storm: its damage is [General] LightningDamage with "
         "the LightningWarhead's Verses, CellSpread and PercentAtMax, written onto the mod's "
-        "storm weapon. LightningDeferment (delay before the storm starts) and "
-        "LightningSeparation have no field in WeatherControlSupportPower and are not applied. "
+        "storm weapon. LightningDeferment (the build-up before the first strike) is the power's "
+        "BuildUpDelay; LightningSeparation has no field in WeatherControlSupportPower and is not "
+        "applied. "
         "LightningCellSpread=10 is not written: the power's default OffsetsX/OffsetsY of "
         "-5c0..5c0 already spread the clouds over a 10-cell area.",
         listed=_globals("lightning-storm")),
     ConversionException("iron-curtain-kills-infantry",
         "ExternalCondition@INVULNERABILITY and KillsSelf@IRONCURTAIN on infantry twins",
-        "The Iron Curtain kills infantry in RA2; in the mod infantry ignore it. Infantry twins "
-        "accept the invulnerability condition and kill themselves while they have it.",
+        "The Iron Curtain kills infantry in RA2. The base mod's ^Infantry already does this, so "
+        "only infantry twins whose base lacks KillsSelf@IRONCURTAIN get the condition and KillsSelf.",
         listed=_globals("iron-curtain-kills-infantry")),
     ConversionException("death-weapons",
         "FireWarheadsOnDeath of twins whose RA2 actor has Explodes=yes and a DeathWeapon (#514)",

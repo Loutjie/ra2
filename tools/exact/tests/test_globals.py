@@ -18,7 +18,7 @@ GENERAL = {
     "AlliedCrew": "TROOP", "SovietCrew": "RED", "Pilot": "TROOP", "CrewEscape": "35%",
     "AllyParaDropInf": "TROOP", "AllyParaDropNum": "3", "SovParaDropInf": "RED", "SovParaDropNum": "2",
     "AmerParaDropInf": "TROOP", "AmerParaDropNum": "4",
-    "LightningStormDuration": "90", "LightningHitDelay": "7", "LightningScatterDelay": "3",
+    "LightningDeferment": "250", "LightningStormDuration": "90", "LightningHitDelay": "7", "LightningScatterDelay": "3",
     "LightningDamage": "77", "LightningWarhead": "ZapWH",
 }
 
@@ -141,13 +141,28 @@ def test_self_heal_only_with_ability(tree):
     assert "-ChangesHealth@ELITE" in tree["tank.exact"]
 
 
+def test_self_healing_units_need_no_elite_trait():
+    # RA2 SelfHealing=yes heals at every rank (the base actor's ChangesHealth), so SELF_HEAL
+    # without ChangesHealth@ELITE is not reported as unmapped.
+    rules = {**RULES, "VehicleTypes": {**RULES["VehicleTypes"], "4": "MEND"},
+        "MEND": {"TechLevel": "2", "Owner": "Reds", "Cost": "900", "SelfHealing": "yes",
+            "EliteAbilities": "SELF_HEAL"}}
+    ranks = {k: v for k, v in RANKS.items() if k != "ChangesHealth@ELITE"}
+    bases = {**BASES, "mend": {**ranks, "ChangesHealth@SELFHEAL": {"Step": "2"}}}
+    g = exact_globals.build_globals(rules, actors_of(rules, bases), bases, set(bases), NEUTRAL,
+        {"lightningstorm": "LightningStorm", "kaboom": "Kaboom"})
+    assert not any("mend" in line for line in g.notes.get("veterancy", []))
+    assert "ChangesHealth@ELITE" not in g.blocks.get("mend.exact", {})
+
+
 def test_superweapon_charge_converted(tree):
     assert tree["sphere.exact"]["ChronoshiftPower@chronoshift"]["ChargeInterval"] == str(conversions.minutes_to_ticks(7))
     curtain = tree["curtain.exact"]["GrantExternalConditionPower@IRONCURTAIN"]
     assert curtain == {"ChargeInterval": str(conversions.minutes_to_ticks(5)),
         "Duration": str(conversions.frames_to_ticks(300))}
     storm = tree["storm.exact"]["WeatherControlSupportPower@LightningStorm"]
-    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)), "Duration": "75", "HitDelay": "6",
+    assert storm == {"ChargeInterval": str(conversions.minutes_to_ticks(10)),
+        "BuildUpDelay": str(conversions.frames_to_ticks(250)), "Duration": "75", "HitDelay": "6",
         "ScatterDelay": "3", "Weapon": "LightningStorm.exact"}
     drop = tree["airdrop.exact"]["ParatroopersPower@paratroopers"]
     assert drop == {"ChargeInterval": str(conversions.minutes_to_ticks(3)),
@@ -192,6 +207,14 @@ def test_iron_curtain_kills_infantry(tree):
         assert tree[name]["ExternalCondition@INVULNERABILITY"] == {"Condition": "invulnerability"}
         assert tree[name]["KillsSelf@IRONCURTAIN"] == {"RequiresCondition": "invulnerability"}
     assert "KillsSelf@IRONCURTAIN" not in tree["tank.exact"]
+
+
+def test_iron_curtain_skips_infantry_that_already_die():
+    bases = {**BASES, "troop": {**BASES["troop"], "KillsSelf@IRONCURTAIN": {"RequiresCondition": "invulnerability"}}}
+    g = exact_globals.build_globals(RULES, actors_of(RULES, bases), bases, set(bases), NEUTRAL,
+        {"lightningstorm": "LightningStorm", "kaboom": "Kaboom"})
+    assert "KillsSelf@IRONCURTAIN" not in g.blocks.get("troop.exact", {})
+    assert not any("troop" in line for line in g.notes.get("iron-curtain-kills-infantry", []))
 
 
 def test_death_weapon_twin(g, tree):

@@ -35,6 +35,8 @@ e2:
 	Armament@GARRISON:
 		Name: garrison
 		Weapon: SovietOccupyW
+		# RA2 OccupyWeapon Anim=UCFLASH: the flash at the building's fire port (art.ini MuzzleFlashN).
+		MuzzleSequence: garrison-muzzle
 	Armament@primary:
 		Weapon: M1Carbine
 		RequiresCondition: !rank-elite
@@ -239,6 +241,7 @@ terror:
 		Sequence: stand
 
 deso:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits: ^Infantry
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@MC: ^MindControllable
@@ -262,6 +265,13 @@ deso:
 		Bounds: 482, 1448, 0, -530
 	Health:
 		HP: 150
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
+		Step: 2
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	RevealsShroud:
 		Range: 6c0
 	Armor:

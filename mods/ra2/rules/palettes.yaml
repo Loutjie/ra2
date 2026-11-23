@@ -1,4 +1,17 @@
 ^Palettes:
+	# Main menu (shell) art; kept out of world lighting and fades.
+	PaletteFromFile@shell:
+		Name: shell
+		Filename: shell.pal
+		AllowModifiers: false
+	PaletteFromFile@shell2:
+		Name: shell2
+		Filename: shell2.pal
+		AllowModifiers: false
+	PaletteFromFile@shell-buttons:
+		Name: sdbtnanm
+		Filename: sdbtnanm.pal
+		AllowModifiers: false
 	PaletteFromFile@terrain-temperate:
 		Name: terrain
 		Tileset: TEMPERATE
@@ -175,3 +188,4 @@
 		Type: LightningStorm
 		Color: 08112e50
 		Length: 300
+		FadeOut: 50

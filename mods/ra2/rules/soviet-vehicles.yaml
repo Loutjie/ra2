@@ -67,6 +67,13 @@ harv:
 		HarvestVoice: Move
 	Health:
 		HP: 1000
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
+		Step: 2
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	Armor:
 		Type: Medium
 	Targetable@RadiationImmunity:
@@ -317,6 +324,13 @@ apoc:
 		Locomotor: heavytracked
 	Health:
 		HP: 800
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
+		Step: 2
+		Delay: 100
+		StartIfBelow: 100
+		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	Armor:
 		Type: Heavy
 	RevealsShroud:

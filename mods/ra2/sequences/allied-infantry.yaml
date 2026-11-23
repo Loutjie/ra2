@@ -89,6 +89,10 @@ e1:
 		Start: 364
 	icon:
 		Filename: giicon.shp
+	garrison-muzzle:
+		Filename: ucflash.shp
+		Length: *
+		ZOffset: 1023
 
 snipe:
 	Inherits: ^ArmedInfantry

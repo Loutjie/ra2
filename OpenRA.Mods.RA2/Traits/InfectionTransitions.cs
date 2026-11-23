@@ -72,6 +72,32 @@ namespace OpenRA.Mods.RA2.Traits
 			return infected && infectorDead;
 		}
 
+		/// <summary>Whether the infector is put back alive when its host dies.</summary>
+		public static bool InfectorSurvivesHostDeath(bool alwaysSurvives, bool killedBySurviveDamageType)
+		{
+			return alwaysSurvives || killedBySurviveDamageType;
+		}
+
+		/// <summary>
+		/// RA2's Culling: an infection damage tick kills the host outright once its health is at or
+		/// below <paramref name="cullPercent"/> of its maximum. A percentage of 0 disables culling.
+		/// </summary>
+		public static bool ShouldCull(int hp, int maxHp, int cullPercent)
+		{
+			return cullPercent > 0 && hp > 0 && (long)hp * 100 <= (long)maxHp * cullPercent;
+		}
+
+		/// <summary>
+		/// Whether an attack order becomes an infection (latch) or an ordinary attack with the other armaments.
+		/// Without a restricted set of infect armaments every attack is an infection (the Terror Drone).
+		/// Otherwise the infector latches on when an infect armament is valid for the target, and only
+		/// falls back to an ordinary attack when another armament is valid and no infect armament is.
+		/// </summary>
+		public static bool UsesInfectAttack(bool restrictsInfectArmaments, bool infectArmamentValid, bool otherArmamentValid)
+		{
+			return !restrictsInfectArmaments || infectArmamentValid || !otherArmamentValid;
+		}
+
 		/// <summary>
 		/// Teleport activities bump <see cref="Actor.Generation"/>, but so does an owner change.
 		/// The host teleported if the generation advanced by more than the owner changes account for.

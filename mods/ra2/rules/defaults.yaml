@@ -251,7 +251,17 @@
 	ExternalCondition@INVULNERABILITY:
 		Condition: invulnerability
 
+# RA2 Bombable: a Crazy Ivan can stick a timed bomb on it (vehicles, ships and buildings,
+# and the infantry rules.ini marks Bombable=yes). Ivan's IvanBomber only targets IvanBomb.
+^IvanBombable:
+	Targetable@IVANBOMB:
+		TargetTypes: IvanBomb
+		RequiresCondition: !ivan-bomb
+	IvanBombCarrier:
+
 ^ChronoDisable:
+	# RA2 Temporal: Chrono Legionnaire beams freeze and then erase the actor.
+	ChronoErasable:
 	TimedConditionBar@ChronoDisable:
 		Condition: chronodisable
 		Color: FFFFFF
@@ -325,6 +335,7 @@
 		Voice: Attack
 
 ^Building:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^IronCurtainable
@@ -360,6 +371,9 @@
 	FireWarheadsOnDeath:
 		Type: Footprint
 		Weapon: BuildingExplode
+	# RA2 Temporal: Chrono Legionnaires erase buildings too.
+	ChronoErasable:
+		Condition:
 	RepairableBuilding:
 		RepairingNotification: Repairing
 	InstantlyRepairable:
@@ -388,8 +402,11 @@
 		Position: Center
 		Palette: mouse
 	CaptureManager:
-	FootprintPlaceBuildingPreview:
+	ActorPreviewPlaceBuildingPreview:
 		Palette: effect75alpha
+		PreviewAlpha: 0.5
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
 
 ^BaseBuilding:
 	Inherits: ^Building
@@ -514,8 +531,11 @@
 		Footprint: x
 		BuildSounds: uplace.wav
 		TerrainTypes: Clear, Rough, Road, DirtRoad
-	FootprintPlaceBuildingPreview:
+	ActorPreviewPlaceBuildingPreview:
 		Palette: effect75alpha
+		PreviewAlpha: 0.5
+		FootprintUnderPreview: Valid, LineBuild, Invalid
+		FootprintOverPreview: None
 	BlocksProjectiles:
 	LineBuild:
 		Range: 8
@@ -618,6 +638,11 @@
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@7: ^AffectedByTerrorDrone
 	Health:
+	# RA2: the Iron Curtain kills infantry; only vehicles, ships and buildings become invulnerable.
+	ExternalCondition@INVULNERABILITY:
+		Condition: invulnerability
+	KillsSelf@IRONCURTAIN:
+		RequiresCondition: invulnerability
 	OwnerLostAction:
 		Action: Kill
 		DeathTypes: BulletDeath
@@ -861,6 +886,7 @@
 		Categories: Animal
 
 ^Vehicle:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable
@@ -1079,12 +1105,14 @@
 		CanSlide: True
 
 ^Ship:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^GainsExperience
 	Inherits@3: ^IronCurtainable
 	Inherits@4: ^ChronoDisable
 	Inherits@5: ^CrateStatModifiers
 	Inherits@handicaps: ^PlayerHandicaps
+	Inherits@SQUID: ^AffectedByGiantSquid
 	Inherits@damagesmoke: ^DamageSmoke
 	OwnerLostAction:
 		Action: Kill
@@ -1297,6 +1325,28 @@
 	SpeedMultiplier@Infected:
 		Modifier: 0
 		RequiresCondition: being-infected
+
+^AffectedByGiantSquid:
+	# RA2's SquidGrab (ParasitePlus warhead): the Giant Squid latches onto a ship, holds it in place
+	# (Paralyzes) and hurts it until the ship dies or the squid is removed. Uses the infection
+	# machinery of the Terror Drone; the squid's AttackInfect holds the damage values.
+	Targetable@SquidGrabbable:
+		TargetTypes: SquidGrabbable
+		RequiresCondition: !squid-grabbed
+	Targetable@SquidGrabbed:
+		TargetTypes: SquidGrabbed
+		RequiresCondition: squid-grabbed
+	Infectable:
+		BeingInfectedCondition: being-squid-grabbed
+		InfectedCondition: squid-grabbed
+		KillInfectorCondition: invulnerability
+	SpeedMultiplier@SquidGrabbed:
+		Modifier: 0
+		RequiresCondition: being-squid-grabbed || squid-grabbed
+	WithInfectorOverlay@SquidGrab:
+		Image: sqdg
+		StartSequence: grab
+		Sequence: hold
 
 ^ParachutableAffectedByTerrorDrone:
 	Targetable@Parasiteable:

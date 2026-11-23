@@ -1026,6 +1026,9 @@ gaweat:
 		DisplayBeacon: true
 		DisplayRadarPing: true
 		Weapon: LightningStorm
+		# RA2's LightningDeferment: the sky darkens and clouds gather before the first strike.
+		BuildUpDelay: 200
+		BuildUpWeapon: LightningStormClouds
 		PauseOnCondition: lowpower
 		Cursor: weatherstorm
 		PaletteEffectType: LightningStorm

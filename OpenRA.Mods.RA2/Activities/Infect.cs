@@ -135,7 +135,7 @@ namespace OpenRA.Mods.RA2.Activities
 			}
 
 			// Can't leap yet
-			if (attackInfect.Armaments.All(a => a.IsReloading))
+			if (attackInfect.InfectArmamentsReloading())
 				return false;
 
 			return true;

@@ -23,6 +23,12 @@ sapc:
 		Speed: 90
 		Locomotor: lcraft
 		PauseOnCondition: notmobile || chronodisable
+	# The Giant Squid can only reach and grab an amphibious transport on water.
+	GrantConditionOnTerrain@SquidWater:
+		TerrainTypes: Water
+		Condition: afloat
+	Targetable@SquidGrabbable:
+		RequiresCondition: afloat && !squid-grabbed
 	RevealsShroud:
 		Range: 6c0
 	Cargo:
@@ -84,6 +90,8 @@ sub:
 	Targetable@UNDERWATER:
 		TargetTypes: Underwater, Submergeable
 		RequiresCondition: underwater
+	Targetable@SquidGrabbable:
+		RequiresCondition: !underwater && !squid-grabbed
 	Cloak:
 		DetectionTypes: Underwater
 		InitialDelay: 50
@@ -171,6 +179,7 @@ hyd:
 	HitShape:
 
 sqd:
+	Inherits@IVANBOMB: ^IvanBombable
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
 	Inherits@3: ^GainsExperience
@@ -190,10 +199,13 @@ sqd:
 		Type: Light
 	Health:
 		HP: 200
-	ChangesHealth:
+	# RA2: SelfHealing=yes, at every rank (replaces the elite self-heal, which would stack).
+	ChangesHealth@SELFHEAL:
 		Step: 2
 		Delay: 100
+		StartIfBelow: 100
 		DamageCooldown: 125
+	-ChangesHealth@ELITE:
 	Mobile:
 		TurnSpeed: 24
 		Speed: 120
@@ -206,9 +218,22 @@ sqd:
 		VoiceSet: GiantSquidVoice
 	Armament:
 		Weapon: SquidPunch
-	AttackFrontal:
+	# RA2 SquidGrab: latch onto a ship, hold it and hurt it (Damage 15 per grapple loop of 15 RA2
+	# frames, 13 ticks; Culling kills it in the red, at 25%). The squid lets go alive when the ship dies.
+	Armament@GRAB:
+		Name: grab
+		Weapon: SquidGrab
+	AttackInfect:
 		Voice: Attack
 		FacingTolerance: 0
+		Armaments: primary, grab
+		InfectArmaments: grab
+		JumpCondition:
+		Damage: 15
+		DamageInterval: 13
+		DamageTypes: BulletDeath
+		AlwaysSurviveHostDeath: true
+		CullHealthPercent: 25
 	AutoTarget:
 	RevealsShroud:
 		Range: 5c0

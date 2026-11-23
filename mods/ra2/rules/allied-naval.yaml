@@ -23,6 +23,12 @@ lcrf:
 		Speed: 90
 		Locomotor: lcraft
 		PauseOnCondition: notmobile || chronodisable
+	# The Giant Squid can only reach and grab an amphibious transport on water.
+	GrantConditionOnTerrain@SquidWater:
+		TerrainTypes: Water
+		Condition: afloat
+	Targetable@SquidGrabbable:
+		RequiresCondition: afloat && !squid-grabbed
 	RevealsShroud:
 		Range: 6c0
 	Cargo:
@@ -154,8 +160,13 @@ aegis:
 		Speed: 60
 	RevealsShroud:
 		Range: 8c0
-	Armament:
+	# RA2 DistributedFire=yes: each missile goes at the next enemy aircraft in range.
+	DistributedArmament@primary:
 		Weapon: Medusa
+		RequiresCondition: !rank-elite
+	DistributedArmament@elite:
+		Weapon: MedusaE
+		RequiresCondition: rank-elite
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 512

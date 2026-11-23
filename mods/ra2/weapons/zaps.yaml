@@ -6,6 +6,10 @@ ElectricBoltE:
 	Range: 5c0
 	ReloadDelay: 40
 	Report: itesat2a.wav, itesat2b.wav
+	# RA2 Electricbounce: the bolt jumps to 2 more enemies nearby.
+	Warhead@5Fragments: FireFragments
+		Weapon: TeslaFragment
+		Count: 2
 
 CRElectricBolt:
 	Inherits: ElectricBolt
@@ -66,6 +70,20 @@ TankBoltE:
 	BurstDelays: 60
 	Warhead@1Dam: SpreadDamage
 		Damage: 150
+	# RA2 Electricbounce: the bolt jumps to 2 more enemies nearby.
+	Warhead@5Fragments: FireFragments
+		Weapon: TeslaFragment
+		Count: 2
+
+TeslaFragment:
+	Inherits: ^TeslaZap
+	ValidTargets: Ground, Water
+	InvalidTargets: Structure, Wall
+	ReloadDelay: 80
+	Range: 3c0
+	Report: btesat1a.wav
+	Warhead@1Dam: SpreadDamage
+		Damage: 30
 
 SonicZap:
 	ReloadDelay: 180
@@ -300,30 +318,49 @@ RadEruptionWeapon:
 
 NeutronRifle:
 	ValidTargets: Ground
-	ReloadDelay: 120
+	# Refires often so the beam looks continuous and the hold (Hold 25) breaks soon after it stops.
+	ReloadDelay: 20
 	Range: 5c0
-	Report: ichratta.wav
 	Projectile: RadBeam
 		Amplitude: 476
 		WaveLength: 384
 		Color: 80C8FF
 		ZOffset: 2047
-	Warhead@Damage: SpreadDamage
-		Spread: 64
-		Damage: 8
-	Warhead@Disable: GrantExternalCondition
-		Range: 64
-		Duration: 250
-		Condition: chronodisable, notmobile
+	# RA2 ChronoBeam (Temporal=yes): holds and erases the target instead of damaging it.
+	# Warp per tick = RA2 Damage per frame (8) x 1.2 frames per tick.
+	Warhead@Erase: ChronoErase
+		Warp: 10
+		Hold: 25
+		LinkSound: ichratta.wav
 	Warhead@Stars: CreateEffect
 		Explosions: chronosk
 		ValidTargets: Ground, Water
 
+NeutronRifleE:
+	Inherits: NeutronRifle
+	# RA2 NeutronRifleE: Damage 16.
+	Warhead@Erase: ChronoErase
+		Warp: 19
+
 CRNeutronRifle:
 	Inherits: NeutronRifle
 	Range: 6c0
-	Warhead@Disable: GrantExternalCondition
-		Duration: 350
+	# RA2 CRNeutronRifle: Damage 10.
+	Warhead@Erase: ChronoErase
+		Warp: 12
+
+# Visual only: the clouds gathering over the target during the storm's build-up.
+LightningStormClouds:
+	ReloadDelay: 0
+	Range: 7c0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Eff: CreateEffect
+		Explosions: weathercloud1, weathercloud2, weathercloud3
+		UsePlayerPalette: true
+		ExplosionPalette: player
+		ValidTargets: Ground, Water
+		ImpactActors: false
 
 LightningStorm:
 	ReloadDelay: 0

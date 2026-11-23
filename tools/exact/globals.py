@@ -15,7 +15,9 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
     abilities are flags: an elite unit has its VeteranAbilities and its EliteAbilities, and a
     bonus in both lists applies once. RA2 has no accuracy bonus (InaccuracyMultiplier@ELITE
     100). Self-heal (ChangesHealth@ELITE) only with SELF_HEAL: from rank-veteran if it is a
-    veteran ability, else from rank-elite; without it the trait is removed.
+    veteran ability, else from rank-elite; without it the trait is removed. RA2 SelfHealing=yes
+    units heal at every rank through the base actor's own ChangesHealth, so their SELF_HEAL
+    ability needs no trait.
   Sellable RefundPercent = RefundPercent.
   RepairableBuilding RepairPercent, RepairInterval, RepairStep = RepairPercent,
     minutes_to_ticks(RepairRate), RepairStep.
@@ -32,10 +34,11 @@ Per twin (only where the base actor has the trait; otherwise the value is listed
   Superweapons: ChargeInterval = minutes_to_ticks(RechargeTime) of the RA2 SuperWeapon on the
     mod trait of its Type (SUPERWEAPON_TRAITS); paratroopers drop <ParaDropInf> x
     <ParaDropNum>; Iron Curtain Duration = frames_to_ticks(IronCurtainDuration); Lightning
-    Storm Duration/HitDelay/ScatterDelay from LightningStormDuration/HitDelay/ScatterDelay and
+    Storm BuildUpDelay/Duration/HitDelay/ScatterDelay from LightningDeferment/
+    LightningStormDuration/HitDelay/ScatterDelay and
     its weapon twin from LightningDamage and LightningWarhead (weather_weapon).
   Iron Curtain kills infantry: infantry twins accept the `invulnerability` external condition
-    and KillsSelf while they have it.
+    and KillsSelf while they have it, unless the base actor already does (^Infantry).
   #514 death weapons: an RA2 actor with Explodes=yes and a DeathWeapon fires that weapon's
     twin from its FireWarheadsOnDeath (DEATH_WEAPON_TRAIT). Explodes=yes without a
     DeathWeapon (RA2's DefaultDeathWeapon, whose damage "is based on" the unit's strength by
@@ -190,7 +193,7 @@ def veterancy(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin: s
         g.put(twin, SELF_HEAL_TRAIT, {"RequiresCondition": VETERAN if "SELF_HEAL" in veteran else ELITE})
     elif SELF_HEAL_TRAIT in base:
         g.remove(twin, SELF_HEAL_TRAIT)
-    elif "SELF_HEAL" in elite:
+    elif "SELF_HEAL" in elite and not parse_bool(actor.raw.get("SelfHealing")):
         g.note("veterancy", f"{twin}: SELF_HEAL has no {SELF_HEAL_TRAIT} trait to go to")
     unmapped = sorted((veteran | elite) - MAPPED_ABILITIES)
     if unmapped:
@@ -306,7 +309,8 @@ def superweapon(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin:
             if duration:
                 fields["Duration"] = conversions.frames_to_ticks(int(duration))
         elif kind == "WeatherControlSupportPower":
-            for field_name, ini_key in (("Duration", "LightningStormDuration"),
+            for field_name, ini_key in (("BuildUpDelay", "LightningDeferment"),
+                    ("Duration", "LightningStormDuration"),
                     ("HitDelay", "LightningHitDelay"), ("ScatterDelay", "LightningScatterDelay")):
                 value = _general(rules, ini_key)
                 if value:
@@ -322,8 +326,8 @@ def superweapon(g: Globals, rules: dict, actor: ExactActor, base: Mapping, twin:
 
 
 def iron_curtain(g: Globals, actor: ExactActor, base: Mapping, twin: str) -> None:
-    if actor.kind != "infantry":
-        return
+    if actor.kind != "infantry" or "KillsSelf@IRONCURTAIN" in base:
+        return  # the base mod's ^Infantry already dies under the Iron Curtain
     if not any(trait_type(k) == "ExternalCondition" and isinstance(t, Mapping)
             and t.get("Condition") == INVULNERABILITY for k, t in base.items()):
         g.put(twin, "ExternalCondition@INVULNERABILITY", {"Condition": INVULNERABILITY})

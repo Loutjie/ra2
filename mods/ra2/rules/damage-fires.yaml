@@ -2514,6 +2514,17 @@ gtgcan:
 		Palette: effect
 		Offset: -1351,-24,0
 
+mayan:
+	GrantConditionOnDamageState@HEAVYDAMAGE:
+		Condition: heavy-damage
+		ValidDamageStates: Heavy, Critical
+	WithIdleOverlay@DAMAGEFIRE0:
+		RequiresCondition: heavy-damage
+		Image: largefire
+		Sequence: idle
+		Palette: effect
+		Offset: -772,-241,0
+
 naclon:
 	GrantConditionOnDamageState@HEAVYDAMAGE:
 		Condition: heavy-damage
@@ -2624,6 +2635,23 @@ napsis:
 		Sequence: idle
 		Palette: effect
 		Offset: -1641,-555,0
+
+napsya:
+	GrantConditionOnDamageState@HEAVYDAMAGE:
+		Condition: heavy-damage
+		ValidDamageStates: Heavy, Critical
+	WithIdleOverlay@DAMAGEFIRE0:
+		RequiresCondition: heavy-damage
+		Image: largefire
+		Sequence: idle
+		Palette: effect
+		Offset: -2124,-483,0
+	WithIdleOverlay@DAMAGEFIRE1:
+		RequiresCondition: heavy-damage
+		Image: mediumfire
+		Sequence: idle
+		Palette: effect
+		Offset: -3089,-1786,0
 
 naradr:
 	GrantConditionOnDamageState@HEAVYDAMAGE:

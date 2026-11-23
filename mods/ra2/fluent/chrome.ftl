@@ -29,23 +29,6 @@ label-economy-stats-harvesters-header = Harvesters
 
 ## ingame-player.yaml
 
-button-command-bar-force-move =
-    .tooltip = Force Move
-    .tooltipdesc = Selected units will move to the desired location
-     - Default activity for the target is suppressed
-     - Vehicles will attempt to crush enemies at the target location
-    
-    Left-click icon then right-click on target.
-    Hold <(Alt)> to activate temporarily while commanding units.
-
-button-command-bar-force-attack =
-    .tooltip = Force Attack
-    .tooltipdesc = Selected units will attack the targeted unit or location
-    ignoring their default activity for the target.
-    
-    Left-click icon then right-click on target.
-    Hold <(Ctrl)> to activate temporarily while commanding units.
-
 button-command-bar-deploy =
     .tooltip = Deploy
     .tooltipdesc = Selected units will perform their default deploy activity
@@ -58,6 +41,7 @@ button-command-bar-deploy =
     Acts immediately on selected units.
 
 button-top-buttons-debug-tooltip = Debug Menu
+button-top-buttons-diplomacy-tooltip = Diplomacy
 button-top-buttons-repair-tooltip = Repair
 button-top-buttons-beacon-tooltip = Place Beacon
 button-top-buttons-sell-tooltip = Sell
@@ -65,9 +49,7 @@ button-top-buttons-sell-tooltip = Sell
 button-production-types-building-tooltip = Buildings
 button-production-types-support-tooltip = Support
 button-production-types-infantry-tooltip = Infantry
-button-production-types-vehicle-tooltip = Vehicles
-button-production-types-aircraft-tooltip = Aircraft
-button-production-types-naval-tooltip = Naval
+button-production-types-vehicle-tooltip = Vehicles, Aircraft and Naval
 
 ## mainmenu-prerelease-notification.yaml
 label-mainmenu-prerelease-notification-prompt-title = Red Alert 2 developer preview

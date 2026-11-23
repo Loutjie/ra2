@@ -86,5 +86,33 @@ namespace OpenRA.Mods.RA2.Test
 		{
 			return InfectionTransitions.HostTeleported(observed, current, ownerChanges);
 		}
+
+		[TestCase(true, false, ExpectedResult = true, TestName = "An always-surviving infector (Giant Squid) lets go alive whatever killed the host")]
+		[TestCase(false, true, ExpectedResult = true, TestName = "A survive damage type lets the infector live")]
+		[TestCase(false, false, ExpectedResult = false, TestName = "Otherwise the infector dies with its host")]
+		public bool SurvivesHostDeath(bool always, bool surviveType)
+		{
+			return InfectionTransitions.InfectorSurvivesHostDeath(always, surviveType);
+		}
+
+		[TestCase(50, 200, 25, ExpectedResult = true, TestName = "Culling kills a host at exactly 25%")]
+		[TestCase(51, 200, 25, ExpectedResult = false, TestName = "Culling spares a host above 25%")]
+		[TestCase(1, 600, 25, ExpectedResult = true, TestName = "Culling kills a host deep in the red")]
+		[TestCase(1, 600, 0, ExpectedResult = false, TestName = "A percentage of 0 disables culling")]
+		[TestCase(0, 600, 25, ExpectedResult = false, TestName = "A dead host is not culled again")]
+		public bool Culling(int hp, int maxHp, int percent)
+		{
+			return InfectionTransitions.ShouldCull(hp, maxHp, percent);
+		}
+
+		[TestCase(false, false, true, ExpectedResult = true, TestName = "Without infect armaments every attack latches on (Terror Drone)")]
+		[TestCase(true, true, false, ExpectedResult = true, TestName = "A target valid for an infect armament is latched onto (squid vs ship)")]
+		[TestCase(true, true, true, ExpectedResult = true, TestName = "Latching wins when both kinds of armament are valid")]
+		[TestCase(true, false, true, ExpectedResult = false, TestName = "Only other armaments valid: attack normally (squid vs dolphin)")]
+		[TestCase(true, false, false, ExpectedResult = true, TestName = "Nothing valid keeps the infect activity, which cancels itself")]
+		public bool AttackKind(bool restricts, bool infectValid, bool otherValid)
+		{
+			return InfectionTransitions.UsesInfectAttack(restricts, infectValid, otherValid);
+		}
 	}
 }

@@ -15,7 +15,8 @@ World:
 	-MapStartingLocations:
 	-StartGameNotification:
 	MusicPlaylist:
-		StartingMusic: grinder
+		# The menu theme (Grinder) loops while the menu is up, as RA2's [INTRO].
+		BackgroundMusic: intro
 		DisableWorldSounds: true
 	LuaScript:
 		Scripts: shellmap.lua
