@@ -201,6 +201,7 @@ caoutp:
 		InitialFacing: 896
 		Offset: 700,-1000,1500
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice:
 	Armament:
 		Weapon: HoverMissile

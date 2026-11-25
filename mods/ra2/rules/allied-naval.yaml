@@ -107,6 +107,7 @@ dest:
 		PauseOnCondition: chronodisable
 		FacingTolerance: 0
 	AttackFrontal@Spawner:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		Armaments: asw
 		FacingTolerance: 512
@@ -157,6 +158,7 @@ aegis:
 	Armament:
 		Weapon: Medusa
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 512
 	AutoTarget:
@@ -283,6 +285,7 @@ carrier:
 		TurnSpeed: 4
 		Speed: 60
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 512
 	FireWarheadsOnDeath:

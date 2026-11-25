@@ -140,6 +140,7 @@ def render(garrisonables) -> str:
             "\t\tEjectOnDeath: false\n"
             "\tAttackGarrisoned@GARRISON:\n"
             "\t\tArmaments: garrison\n"
+            "\t\tPauseOnCondition: chronodisable\n"
             f"\t\tPortOffsets: {', '.join(f'{x},{y},{z}' for x, y, z in offsets)}\n"
             f"\t\tPortYaws: {', '.join(map(str, yaws))}\n"
             f"\t\tPortCones: {', '.join([str(PORT_CONE)] * len(offsets))}\n"

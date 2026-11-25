@@ -153,6 +153,7 @@ mtnk:
 		MuzzleSequence: muzzle-2
 		RequiresCondition: rank-elite
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 	WithMuzzleOverlay:
 	AutoTarget:
@@ -205,6 +206,7 @@ tnkd:
 		MuzzleSequence: muzzle-2
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	WithMuzzleOverlay:
@@ -324,6 +326,7 @@ fv:
 		Weapon: CRNeutronRifle
 		RequiresCondition: ifv-chrono
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 	AutoTargetPriority@DEFAULT:
 		RequiresCondition: !stance-attackanything && !assault-move && !ifv-mg && !ifv-repair && !ifv-sniper && !ifv-flak && !ifv-tesla && !ifv-deso && !ifv-hero && !ifv-demo && !ifv-chrono
@@ -427,6 +430,7 @@ sref:
 		LocalOffset: 240,0,1280
 		RequiresCondition: rank-elite
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 	AutoTarget:
 	FireWarheadsOnDeath:
@@ -510,6 +514,7 @@ mgtk:
 		MuzzleSequence: muzzle
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	WithMuzzleOverlay:

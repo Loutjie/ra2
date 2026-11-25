@@ -86,7 +86,7 @@ dog:
 		ReloadingCondition: attack-cooldown
 	AttackLeap:
 		Voice: Attack
-		PauseOnCondition: attacking || attack-cooldown
+		PauseOnCondition: attacking || attack-cooldown || chronodisable
 	AutoTarget:
 		InitialStance: AttackAnything
 	AutoTargetPriority@DEFAULT:
@@ -155,10 +155,12 @@ e1:
 	RevealsShroud:
 		Range: 5c0
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		RequiresCondition: undeployed
 		FacingTolerance: 0
 	AttackTurreted@deployed:
+		PauseOnCondition: chronodisable
 		Armaments: deployed, deployed-elite
 		Voice: Attack
 		RequiresCondition: deployed
@@ -262,6 +264,7 @@ snipe:
 		Weapon: awpe
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Voiced:
@@ -366,6 +369,7 @@ ghost:
 		Weapon: MP5E
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	RenderSprites:
@@ -515,6 +519,7 @@ tany:
 		Weapon: DoublePistolsE
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	VoiceAnnouncement:
@@ -551,8 +556,6 @@ jumpjet:
 	Health:
 		HP: 125
 	-TimedConditionBar@ChronoDisable:
-	ChronoErasable:
-		Condition:
 	-ExternalCondition@CHRONODISABLE:
 	-Mobile:
 	-ChronoshiftableWithSpriteEffect:
@@ -568,6 +571,7 @@ jumpjet:
 		Weapon: 20mmE
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Aircraft:
@@ -687,6 +691,7 @@ cleg:
 		LocalOffset: 320,128,1024
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	WithInfantryBody:
