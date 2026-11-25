@@ -30,6 +30,7 @@ e2:
 	RevealsShroud:
 		Range: 5c0
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Armament@GARRISON:
@@ -81,6 +82,7 @@ flakt:
 	RevealsShroud:
 		Range: 5c0
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Armament@primary:
@@ -152,6 +154,7 @@ shk:
 	Passenger:
 		CustomPipType: red
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Armament@primary:
@@ -219,6 +222,7 @@ terror:
 		Weapon: TerrorBomb
 		EmptyWeapon: TerrorBomb
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 512
 	Armament@PRIMARY:
@@ -291,6 +295,7 @@ deso:
 		RequiresCondition: rank-elite
 		LocalOffset: 320,128,1024
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	WithInfantryBody:
@@ -362,6 +367,7 @@ ivan:
 		Weapon: IvanBomberE
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		Cursor: bomb
 		OutsideRangeCursor: bomb
@@ -458,6 +464,7 @@ yuri:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Armament:

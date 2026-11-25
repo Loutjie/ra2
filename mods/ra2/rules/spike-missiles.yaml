@@ -116,6 +116,7 @@ v3:
 		Weapon: V3Launcher
 		LocalOffset: -677,0,658
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	# RA2 [V3] GuardRange=9 (the weapon reaches 18, so the default scan radius would be the weapon range).
@@ -158,6 +159,7 @@ dred:
 		Weapon: DredLauncher
 		LocalOffset: 49,172,728, 49,-181,728
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 128
 	# RA2 [DRED] GuardRange=10.

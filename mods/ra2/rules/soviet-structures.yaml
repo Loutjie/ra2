@@ -989,7 +989,7 @@ naflak:
 		Offset: 450,0,0
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: lowpower
+		PauseOnCondition: lowpower || chronodisable
 		RequiresCondition: !build-incomplete
 	Armament:
 		Weapon: FlakWeapon
@@ -1050,7 +1050,7 @@ tesla:
 		MaxCharges: 3
 		ReloadDelay: 120
 		ChargeAudio: btespow.wav
-		PauseOnCondition: lowpower
+		PauseOnCondition: lowpower || chronodisable
 		RequiresCondition: !build-incomplete
 	AutoTarget:
 	GrantConditionOnPowerState@LOWPOWER:
@@ -1094,6 +1094,7 @@ nalasr:
 		InitialFacing: 896
 		Offset: 320,0,0
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		RequiresCondition: !build-incomplete
 	Armament:

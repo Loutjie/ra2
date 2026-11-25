@@ -8,6 +8,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "512",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {},
@@ -272,6 +273,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "AlliedNavalVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -599,6 +604,10 @@
 			"Voiced": {
 				"VoiceSet": "AlliedConstructionVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -680,9 +689,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -886,6 +893,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -964,6 +975,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -1254,6 +1266,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -1318,7 +1334,7 @@
 			},
 			"AttackTesla": {
 				"ChargeAudio": "bpripow.wav",
-				"PauseOnCondition": "lowpower || prism-supporting",
+				"PauseOnCondition": "lowpower || prism-supporting || chronodisable",
 				"ReloadDelay": "28",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
@@ -1355,9 +1371,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -1421,7 +1435,7 @@
 				"Amount": "-75"
 			},
 			"PrismTower": {
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"SupportWeapon": "PrismSupport",
 				"SupportingCondition": "prism-supporting"
@@ -1495,6 +1509,10 @@
 				"Palette": "mouse",
 				"Position": "Center",
 				"Sequence": "repair"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -1772,6 +1790,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "512",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -2055,6 +2074,10 @@
 				"Palette": "pips",
 				"Position": "BottomLeft"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -2112,6 +2135,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -2394,6 +2418,10 @@
 			"Voiced": {
 				"VoiceSet": "SealVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -2457,6 +2485,7 @@
 				"Cursor": "bomb",
 				"FacingTolerance": "0",
 				"OutsideRangeCursor": "bomb",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"BodyOrientation": {
@@ -2716,6 +2745,10 @@
 			"Voiced": {
 				"VoiceSet": "CrazyIvanVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -2779,6 +2812,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"BodyOrientation": {
@@ -3041,6 +3075,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "ChronoLegionnaireVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
@@ -3335,6 +3373,10 @@
 			"Voiced": {
 				"VoiceSet": "ChronoMinerVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -3388,6 +3430,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -3674,6 +3717,10 @@
 			"Voiced": {
 				"VoiceSet": "DesolatorVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -3762,6 +3809,7 @@
 			"AttackFrontal@Spawner": {
 				"Armaments": "asw",
 				"FacingTolerance": "512",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -4049,6 +4097,10 @@
 				"Palette": "pips",
 				"Position": "BottomLeft"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -4329,7 +4381,7 @@
 				"Type": "None"
 			},
 			"AttackLeap": {
-				"PauseOnCondition": "attacking || attack-cooldown",
+				"PauseOnCondition": "attacking || attack-cooldown || chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -4535,6 +4587,10 @@
 			"Voiced": {
 				"VoiceSet": "DogVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@normal": {
 				"DeathTypes": {
 					"BulletDeath": "2",
@@ -4562,6 +4618,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "128",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -4824,6 +4881,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietNavalVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -4878,6 +4939,7 @@
 				"DamageInterval": "20",
 				"DamageTypes": "DefaultDeath, BulletDeath, DroneSurvive",
 				"JumpRange": "1c768",
+				"PauseOnCondition": "chronodisable",
 				"SurviveHostDamageTypes": "DroneSurvive",
 				"Voice": "Attack"
 			},
@@ -5138,6 +5200,10 @@
 			"Voiced": {
 				"VoiceSet": "TerrorDroneVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5192,6 +5258,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "512",
+				"PauseOnCondition": "chronodisable",
 				"RequiresCondition": "!chronodisable",
 				"Voice": "Attack"
 			},
@@ -5473,6 +5540,10 @@
 			"Voiced": {
 				"VoiceSet": "DemolitionTruckVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -5548,6 +5619,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"RequiresCondition": "undeployed",
 				"Voice": "Attack"
 			},
@@ -5557,6 +5629,7 @@
 			},
 			"AttackTurreted@deployed": {
 				"Armaments": "deployed, deployed-elite",
+				"PauseOnCondition": "chronodisable",
 				"RequiresCondition": "deployed",
 				"Voice": "Attack"
 			},
@@ -5877,6 +5950,10 @@
 			"Voiced": {
 				"VoiceSet": "GIVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -5977,6 +6054,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -6270,6 +6348,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "ConscriptVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
@@ -6592,6 +6674,10 @@
 			"Voiced": {
 				"VoiceSet": "EngineerVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -6669,6 +6755,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -6960,6 +7047,10 @@
 			"Voiced": {
 				"VoiceSet": "FlakTrooperVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -7092,6 +7183,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -7452,6 +7544,10 @@
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -7549,9 +7645,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -7739,6 +7833,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -7828,9 +7926,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8018,6 +8114,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -8086,9 +8186,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"ChronoshiftPower@chronoshift": {
 				"ChargeInterval": "5250",
 				"Description": "actor-gacsph.chronoshiftpower-chronoshift-description",
@@ -8248,6 +8346,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -8304,9 +8406,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -8457,6 +8557,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -8517,9 +8621,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CreatesShroud": {
 				"Range": "10c0",
@@ -8657,6 +8759,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -8710,9 +8816,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -8849,6 +8953,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -8926,9 +9034,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -9107,6 +9213,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -9159,6 +9269,7 @@
 				"Type": "Steel"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -9195,9 +9306,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9322,6 +9431,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -9375,9 +9488,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9518,6 +9629,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -9581,9 +9696,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -9746,6 +9859,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -9814,9 +9931,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -9961,6 +10076,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -10025,9 +10144,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10167,6 +10284,10 @@
 				"Palette": "mouse",
 				"Position": "Center",
 				"Sequence": "repair"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -10323,9 +10444,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -10505,6 +10624,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -10606,9 +10729,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -10775,6 +10896,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -10834,9 +10959,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -11070,6 +11193,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -11139,7 +11266,7 @@
 				"Type": "Steel"
 			},
 			"AttackTurreted": {
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -11176,9 +11303,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -11325,6 +11450,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -11377,6 +11506,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -11676,6 +11806,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -11748,6 +11882,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -12059,6 +12194,10 @@
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -12128,6 +12267,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -12420,6 +12560,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -12485,6 +12629,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -12754,6 +12899,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietNavalVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -12814,6 +12963,7 @@
 				"Cursor": "bomb",
 				"FacingTolerance": "0",
 				"OutsideRangeCursor": "bomb",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"BodyOrientation": {
@@ -13072,6 +13222,10 @@
 			"Voiced": {
 				"VoiceSet": "CrazyIvanVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -13147,6 +13301,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -13185,9 +13340,7 @@
 				"StartIfBelow": "100",
 				"Step": "2"
 			},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"Cloneable": {
 				"Types": "infantry"
 			},
@@ -13392,6 +13545,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "RocketeerVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDecoration@ELITE": {
 				"Image": "rank",
@@ -13706,6 +13863,10 @@
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -13767,6 +13928,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -14074,6 +14236,10 @@
 			"Voiced": {
 				"VoiceSet": "AlliedVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -14151,6 +14317,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -14442,6 +14609,10 @@
 			"Voiced": {
 				"VoiceSet": "AlliedVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -14525,9 +14696,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"ClonesProducedUnits": {
 				"CloneableTypes": "infantry",
 				"ProductionType": "Cloning"
@@ -14725,6 +14894,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -14781,9 +14954,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -14956,6 +15127,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -15016,9 +15191,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -15168,6 +15341,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -15208,7 +15385,7 @@
 				"Type": "Steel"
 			},
 			"AttackTurreted": {
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -15237,9 +15414,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15385,6 +15560,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -15445,9 +15624,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -15666,6 +15843,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -15732,9 +15913,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -15893,6 +16072,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -15928,6 +16111,7 @@
 				"Type": "Steel"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -15964,9 +16148,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16105,6 +16287,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -16166,9 +16352,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16339,6 +16523,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -16388,9 +16576,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16536,6 +16722,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -16602,9 +16792,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16749,6 +16937,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -16805,9 +16997,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -16957,6 +17147,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -17014,9 +17208,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -17166,6 +17358,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -17223,9 +17419,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CustomSellValue": {
 				"Value": "300"
@@ -17388,6 +17582,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -17431,7 +17629,7 @@
 				"Type": "Steel"
 			},
 			"AttackTurreted": {
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || chronodisable",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
 			},
@@ -17460,9 +17658,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -17609,6 +17805,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -17668,9 +17868,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -17810,6 +18008,10 @@
 				"Palette": "mouse",
 				"Position": "Center",
 				"Sequence": "repair"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -17962,9 +18164,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -18147,6 +18347,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -18236,9 +18440,7 @@
 			},
 			"CaptureManager": {},
 			"CaptureNotification": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"CommandBarBlacklist": {
 				"DisableStop": "false"
@@ -18471,6 +18673,10 @@
 				"Palette": "mouse",
 				"Position": "Center",
 				"Sequence": "repair"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -18774,6 +18980,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -19043,6 +19250,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "YuriVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
@@ -19365,6 +19576,10 @@
 				"Palette": "pips",
 				"Position": "BottomLeft",
 				"RequiresSelection": "true"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
@@ -19710,6 +19925,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -20007,6 +20223,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "TeslaTrooperVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
@@ -20354,6 +20574,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -20414,6 +20638,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -20691,6 +20916,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "SniperVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
@@ -20992,6 +21221,10 @@
 			"Voiced": {
 				"VoiceSet": "SpyVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -21268,6 +21501,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -21572,6 +21806,10 @@
 			"Voiced": {
 				"VoiceSet": "AlliedVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -21651,6 +21889,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -21939,6 +22178,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietNavalVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -21997,6 +22240,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -22271,6 +22515,10 @@
 			"Voiced": {
 				"VoiceSet": "TanyaVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@Water": {
 				"DeathSequence": "swim-die",
 				"DeathTypes": {
@@ -22340,6 +22588,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "512",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"BodyOrientation": {
@@ -22595,6 +22844,10 @@
 			"Voiced": {
 				"VoiceSet": "TerroristVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -22664,7 +22917,7 @@
 			"AttackTesla": {
 				"ChargeAudio": "btespow.wav",
 				"MaxCharges": "1",
-				"PauseOnCondition": "lowpower",
+				"PauseOnCondition": "lowpower || chronodisable",
 				"ReloadDelay": "61",
 				"RequiresCondition": "!build-incomplete",
 				"Voice": "Attack"
@@ -22701,9 +22954,7 @@
 				"UndeploySounds": "uselbuil.wav"
 			},
 			"CaptureManager": {},
-			"ChronoErasable": {
-				"Condition": {}
-			},
+			"ChronoErasable": {},
 			"CombatDebugOverlay": {},
 			"DamageMultiplier@ironcurtain": {
 				"Modifier": "0",
@@ -22840,6 +23091,10 @@
 				"Position": "Center",
 				"Sequence": "repair"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -22887,6 +23142,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -23180,6 +23436,10 @@
 			"Voiced": {
 				"VoiceSet": "AlliedVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -23246,6 +23506,7 @@
 				"Voice": "Attack"
 			},
 			"AttackTurreted": {
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {
@@ -23537,6 +23798,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -23594,6 +23859,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AttackMove": {
@@ -23876,6 +24142,10 @@
 			"Voiced": {
 				"VoiceSet": "SovietVehicleVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithColoredOverlay@ironcurtain": {
 				"RequiresCondition": "invulnerability"
 			},
@@ -23929,6 +24199,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {},
@@ -24219,6 +24490,10 @@
 			"Voiced": {
 				"VoiceSet": "YuriVoice"
 			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
+			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",
 				"DeathSequencePalette": "effect",
@@ -24297,6 +24572,7 @@
 			},
 			"AttackFrontal": {
 				"FacingTolerance": "0",
+				"PauseOnCondition": "chronodisable",
 				"Voice": "Attack"
 			},
 			"AutoTarget": {},
@@ -24584,6 +24860,10 @@
 			},
 			"Voiced": {
 				"VoiceSet": "YuriVoice"
+			},
+			"WithColoredOverlay@CHRONO": {
+				"Color": "80C8FF80",
+				"RequiresCondition": "chronodisable"
 			},
 			"WithDeathAnimation@effect": {
 				"DeathPaletteIsPlayerPalette": "False",

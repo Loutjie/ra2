@@ -114,6 +114,7 @@ sub:
 		FireDelay: 2
 		RequiresCondition: rank-elite
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	AutoTarget:
@@ -160,6 +161,7 @@ hyd:
 	RevealsShroud:
 		Range: 8c0
 	AttackFrontal:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		FacingTolerance: 0
 	Armament@primary:

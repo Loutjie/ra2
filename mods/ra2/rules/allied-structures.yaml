@@ -745,6 +745,7 @@ gapill:
 		LocalOffset: 360,0,160
 		MuzzleSequence: muzzle
 	AttackTurreted:
+		PauseOnCondition: chronodisable
 		Voice: Attack
 		RequiresCondition: !build-incomplete
 	WithMuzzleOverlay:
@@ -788,7 +789,7 @@ nasam:
 		Offset: 550,0,0
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: lowpower
+		PauseOnCondition: lowpower || chronodisable
 		RequiresCondition: !build-incomplete
 	Armament:
 		Weapon: RedEye2
@@ -841,7 +842,7 @@ gtgcan:
 		Offset: 400,0,0
 	AttackTurreted:
 		Voice: Attack
-		PauseOnCondition: lowpower
+		PauseOnCondition: lowpower || chronodisable
 		RequiresCondition: !build-incomplete
 	Armament:
 		Weapon: GrandCannonWeapon
@@ -1128,12 +1129,12 @@ atesla:
 		Voice: Attack
 		ReloadDelay: 60
 		ChargeAudio: bpripow.wav
-		PauseOnCondition: lowpower || prism-supporting
+		PauseOnCondition: lowpower || prism-supporting || chronodisable
 		RequiresCondition: !build-incomplete
 	PrismTower:
 		SupportWeapon: PrismSupport
 		SupportingCondition: prism-supporting
-		PauseOnCondition: lowpower
+		PauseOnCondition: lowpower || chronodisable
 		RequiresCondition: !build-incomplete
 	Power:
 		Amount: -75
